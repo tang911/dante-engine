@@ -31,9 +31,33 @@
 
 <h1 align="center"> 如果您觉得有帮助，请点右上角 "Star" 支持一下，谢谢！</h1>
 
+---
+
+## 企业级技术中台微服务架构与服务能力开发和管理平台
+
+**Dante Cloud** 是国内首个支持阻塞式和响应式融合的微服务。以「**高质量代码、低安全漏洞**」为核心，**采用领域驱动模型(DDD)设计思想，完全基于 Spring 生态全域开源技术和 OAuth2.1 协议，支持智能电视、IoT等物联网设备认证**，满足**国家三级等保要求**、支持接口**国密数字信封加解密**、防刷、高防XSS和SQL注入等一系列安全体系的**多租户微服务解决方案**。
+
 ## 重要说明
 
 新增文档站点 https://www.herodotus.vip 。 该站点目前包含矫正和重新梳理后的系统部署相关内容，后续计划根据系统涉及的详细知识点和模块，在该站点陆续补充对应设计实现和认知理解相关文章（主要面向 Dante Cloud 3.3.X (Reactive 版) 即将发布）。原有站点如无特殊原因，仍旧会保留。欢迎喜欢 Dante Cloud 的朋友持续关注！
+
+## 开源协议
+
+> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante Engine 自 3.3.0.0 版本开始，开源协议修改为 AGPL 3.0。
+
+![开源协议](./readme/images/agplv3-155x51.png)
+
+### 授权声明
+
+本项目基于 GNU LESSER GENERAL PUBLIC LICENSE Version 3 (AGPL V3) 开源协议，必须遵守以下补充条款。
+
+- 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
+- 对未经过授权或不遵循 AGPL 协议二次开源或者商业化我们将追究到底。
+- 任何基于本软件而产生的一切法律纠纷和责任，均与作者无关。
+
+### 使用说明
+
+任何`自用`（仅在内部使用不涉及商业化）修改 Dante Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
 
 ## 项目特点
 
@@ -135,35 +159,6 @@ dante-engine
 ## 安全测试
 
 Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.cn/guide/get-start/project-introduction.html#%E4%BA%94-%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95)
-
-## 开源协议
-
-> 说明：为保护作者权益，Dante Engine 自 3.2.0.0 版本开始，开源协议修改为 LGPL。Dante Engine 3.1.X 以及之前版本仍旧遵循 Apache 2.0 开源协议。
-
-![开源协议](./readme/images/lgplv3-147x51.png)
-
-### 协议解释
-
-LGPL [(GNU Lesser General Public License)](http://www.gnu.org/licenses/lgpl.html)
-
-LGPL 是 GPL 的一个为主要为类库使用设计的开源协议。和 GPL 要求任何使用/修改/衍生之 GPL 类库的的软件必须采用 GPL 协议不同。LGPL 允许商业软件通过类库引用(link)方式使用 LGPL 类库而不需要开源商业软件的代码。这使得采用 LGPL 协议的开源代码可以被商业软件作为类库引用并发布和销售。
-
-但是如果修改 LGPL 协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用 LGPL 协议。因此 LGPL 协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以 LGPL 协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。
-
-### 授权声明
-
-本项目基于 GNU LESSER GENERAL PUBLIC LICENSE Version 3 (LGPL V3) 开源协议，可用于商业项目，但必须遵守以下补充条款。
-
-- 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
-- 允许以引入、不改源码的形式免费用于学习、毕设、公司项目、私活等。 特殊情况修改代码，但仍然想闭源需经过作者同意。
-- 对未经过授权和不遵循 LGPL 协议二次开源或者商业化我们将追究到底。
-- 任何基于本软件而产生的一切法律纠纷和责任，均与作者无关。
-- 如果你对本软件有改进，希望可以贡献给我们，双向奔赴互相成就才是王道。
-- 参考请注明：参考自 Dante Cloud：https://gitee.com/dromara/dante-cloud 或 Dante Engine：https://gitee.com/herodotus/dante-engine ，另请遵循 LGPL V3 协议。
-
-### 使用说明
-
-任何自用（仅在内部使用不涉及商业化）修改 Dante Engine 3.2.X 源码使用公司，可以不受必须以第三方库形式使用 Dante Engine 各模块的限制，但必须登记申请否则视为非法使用，留言登记默认合规。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
 
 ## 阅读顺序
 
