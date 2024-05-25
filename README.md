@@ -13,7 +13,7 @@
     <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-2.3.2-brightgreen.svg?logo=alibabadotcom" alt="Nacos 2.3.2"></a>
 </p>
 <p align="center">
-    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.3.0.0-red.svg?logo=spring" alt="Version 3.3.0.0"></a>
+    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.3.0.1-red.svg?logo=spring" alt="Version 3.3.0.1"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-17%2B-green.svg?logo=openjdk" alt="Java 17"></a>
     <a href="./LICENSE"><img src="https://shields.io/badge/License-LGPL--3.0-blue.svg" alt="License LGPL-3.0"></a>
     <a href="https://www.herodotus.cn"><img src="https://visitor-badge.laobi.icu/badge?page_id=dante-cloud&title=Total%20Visits" alt="Total Visits"></a>
@@ -43,7 +43,7 @@
 
 ## 开源协议
 
-> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante Engine 自 3.3.0.0 版本开始，开源协议修改为 AGPL 3.0。
+> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante Engine 自 3.3.0.1 版本开始，开源协议修改为 AGPL 3.0。
 
 ![开源协议](./readme/images/agplv3-155x51.png)
 
@@ -57,7 +57,7 @@
 
 ### 使用说明
 
-任何`自用`（仅在内部使用不涉及商业化）修改 Dante Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
+**任何`自用`（仅在内部使用不涉及商业化）修改 Dante Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规**。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
 
 ## 项目特点
 
