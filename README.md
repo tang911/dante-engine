@@ -49,7 +49,7 @@
 
 ### 授权声明
 
-本项目基于 GNU LESSER GENERAL PUBLIC LICENSE Version 3 (AGPL V3) 开源协议，必须遵守以下补充条款。
+本项目基于 GNU AFFERO GENERAL PUBLIC LICENSE Version 3 (AGPL V3) 开源协议，必须遵守以下补充条款。
 
 - 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
 - 对未经过授权或不遵循 AGPL 协议二次开源或者商业化我们将追究到底。
