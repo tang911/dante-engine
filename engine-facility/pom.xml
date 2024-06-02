@@ -26,7 +26,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>dante-engine</artifactId>
+        <artifactId>herodotus-engine</artifactId>
         <groupId>cn.herodotus.engine</groupId>
         <version>3.3.0.3</version>
     </parent>

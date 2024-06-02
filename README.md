@@ -76,7 +76,7 @@
 ## 工程结构
 
 ```
-dante-engine
+herodotus-engine
 ├── dependencies -- 工程Maven顶级依赖，统一控制版本和依赖
 ├── engine-access -- 外部登录接入模块
 ├    ├── access-core -- 外部登录通用代码
