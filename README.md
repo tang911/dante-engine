@@ -1,6 +1,6 @@
 <p align="center"><img src="./readme/images/new-logo.png" height="300" width="400" alt="logo"/></p>
 <h2 align="center">简洁优雅 · 稳定高效 | 宁静致远 · 精益求精 </h2>
-<p align="center">Dante Engine 基于 Spring Boot 3.X， 是 Dante Cloud 微服务架构内核核心组件库，可用于任何 Spring Boot 工程</p>
+<p align="center">Herodotus Engine 基于 Spring Boot 3.X， 是 Dante Cloud 微服务架构内核核心组件库，可用于任何 Spring Boot 工程</p>
 
 ---
 
@@ -24,7 +24,7 @@
     <a href="https://gitee.com/dromara/dante-cloud"><img src="https://gitee.com/dromara/dante-cloud/badge/fork.svg?theme=dark" alt="Gitee fork"></a>
 </p>
 <p align="center">
-    <a href="https://github.com/herodotus-cloud/dante-cloud">Github 仓库</a> &nbsp; | &nbsp;
+    <a href="https://github.com/dromara/dante-cloud">Github 仓库</a> &nbsp; | &nbsp;
     <a href="https://gitee.com/dromara/dante-cloud">Gitee 仓库</a> &nbsp; | &nbsp;
     <a href="https://www.herodotus.cn">文档</a>
 </p>
@@ -39,7 +39,7 @@
 
 ## 开源协议
 
-> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante Engine 自 3.3.X 版本开始，开源协议修改为 AGPL 3.0。点击[【了解详情】](https://www.herodotus.cn/support/authorization.html)
+> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Herodotus Engine 自 3.3.X 版本开始，开源协议修改为 AGPL 3.0。点击[【了解详情】](https://www.herodotus.cn/support/authorization.html)
 
 ![开源协议](./readme/images/agplv3-155x51.png)
 
@@ -53,7 +53,7 @@
 
 ### 使用说明
 
-**任何`自用`（仅在内部使用不涉及商业化）修改 Dante Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规**。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
+**任何`自用`（仅在内部使用不涉及商业化）修改 Herodotus Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规**。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
 
 ## 项目特点
 
