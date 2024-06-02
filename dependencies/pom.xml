@@ -4,14 +4,14 @@
   ~
   ~ Copyright (c) 2020-2030 郑庚伟 ZHENGGENGWEI (码匠君), <herodotus@aliyun.com> Licensed under the AGPL License
   ~
-  ~ This file is part of Dante Engine.
+  ~ This file is part of Herodotus Engine.
   ~
-  ~ Dante Engine is free software: you can redistribute it and/or modify
+  ~ Herodotus Engine is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU Affero General Public License as published
   ~ by the Free Software Foundation, either version 3 of the License, or
   ~ (at your option) any later version.
   ~
-  ~ Dante Engine is distributed in the hope that it will be useful,
+  ~ Herodotus Engine is distributed in the hope that it will be useful,
   ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~ GNU Affero General Public License for more details.
@@ -93,7 +93,7 @@
         <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-io.version>2.16.1</commons-io.version>
         <commons-text.version>1.12.0</commons-text.version>
-        <guava.version>33.2.0-jre</guava.version>
+        <guava.version>33.2.1-jre</guava.version>
         <zxing.version>3.5.3</zxing.version>
         <!-- 应用开发辅助工具组件 -->
         <redisson.version>3.31.0</redisson.version>
@@ -106,13 +106,13 @@
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <influxdb-client.version>7.1.0</influxdb-client.version>
         <!-- 阿里巴巴开源工具依赖 -->
-        <fastjson2.version>2.0.50</fastjson2.version>
-        <jetcache.version>2.7.5</jetcache.version>
+        <fastjson2.version>2.0.51</fastjson2.version>
+        <jetcache.version>2.7.6</jetcache.version>
         <nacos.version>2.3.2</nacos.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <!-- 国内开源通用组件 -->
         <hutool.version>6.0.0-M13</hutool.version>
-        <hutool-5.X.version>5.8.28</hutool-5.X.version>
+        <hutool5.version>5.8.28</hutool5.version>
         <okhttps.version>4.0.2</okhttps.version>
         <weixin-java-sdk.version>4.6.0</weixin-java-sdk.version>
         <just-auth.verison>1.16.6</just-auth.verison>
@@ -207,7 +207,14 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
-                <version>${hutool-5.X.version}</version>
+                <version>${hutool5.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-bom</artifactId>
+                <version>${jetcache.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -216,7 +223,7 @@
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${spring-boot-admin.version}</version>
             </dependency>
-            <!--Dante Engine-->
+            <!--Herodotus Engine-->
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
                 <artifactId>access-core</artifactId>
@@ -576,26 +583,6 @@
                 <groupId>com.alibaba.nacos</groupId>
                 <artifactId>nacos-client</artifactId>
                 <version>${nacos.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-starter-redis-lettuce</artifactId>
-                <version>${jetcache.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-autoconfigure</artifactId>
-                <version>${jetcache.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-anno</artifactId>
-                <version>${jetcache.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-redis-lettuce</artifactId>
-                <version>${jetcache.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dromara.hutool</groupId>
