@@ -23,7 +23,7 @@ package cn.herodotus.engine.oauth2.data.jpa.definition.domain;
 
 import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
 import cn.herodotus.engine.assistant.core.json.jackson2.deserializer.CommaDelimitedStringToSetSerializer;
-import cn.herodotus.engine.assistant.core.json.jackson2.deserializer.SetToCommaDelimitedStringDeserializer;
+import cn.herodotus.engine.assistant.core.json.jackson2.deserializer.ArrayToCommaDelimitedStringDeserializer;
 import cn.herodotus.engine.data.core.entity.BaseSysEntity;
 import cn.herodotus.engine.oauth2.core.definition.domain.RegisteredClientDetails;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -58,13 +58,13 @@ public abstract class AbstractRegisteredClient extends BaseSysEntity implements 
 
     @Schema(name = "客户端认证模式", title = "支持多个值，以逗号分隔", requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "client_authentication_methods", nullable = false, length = 1000)
-    @JsonDeserialize(using = SetToCommaDelimitedStringDeserializer.class)
+    @JsonDeserialize(using = ArrayToCommaDelimitedStringDeserializer.class)
     @JsonSerialize(using = CommaDelimitedStringToSetSerializer.class)
     private String clientAuthenticationMethods;
 
     @Schema(name = "认证模式", title = "支持多个值，以逗号分隔", requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "authorization_grant_types", nullable = false, length = 1000)
-    @JsonDeserialize(using = SetToCommaDelimitedStringDeserializer.class)
+    @JsonDeserialize(using = ArrayToCommaDelimitedStringDeserializer.class)
     @JsonSerialize(using = CommaDelimitedStringToSetSerializer.class)
     private String authorizationGrantTypes;
 
