@@ -24,6 +24,7 @@ package cn.herodotus.engine.oauth2.authentication.properties;
 import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
 import cn.herodotus.engine.oauth2.core.constants.OAuth2Constants;
 import com.google.common.base.MoreObjects;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
@@ -244,42 +245,51 @@ public class OAuth2AuthenticationProperties {
         /**
          * 登录失败重定向地址
          */
-        private String failureForwardUrl = loginPageUrl + SymbolConstants.QUESTION + DefaultLoginPageGeneratingFilter.ERROR_PARAMETER_NAME;
+        private String failureUrl = loginPageUrl + SymbolConstants.QUESTION + DefaultLoginPageGeneratingFilter.ERROR_PARAMETER_NAME;
         /**
-         * 登录成功重定向地址
+         * 表单登录认证地址
          */
-        private String successForwardUrl;
+        private String authenticationUrl;
         /**
-         * 关闭验证码显示，默认 false，显示
+         * 注销成功地址
          */
-        private Boolean closeCaptcha = false;
+        private String logoutSuccessUrl = DefaultLoginPageGeneratingFilter.DEFAULT_LOGIN_PAGE_URL + "?logout";
+        /**
+         * 自定义用户注册页面地址
+         */
+        private String registrationUrl;
+        /**
+         * 自定义忘记密码页面地址
+         */
+        private String forgotPasswordUrl;
+
+        /**
+         * Cookie 有效期，默认：30天
+         */
+        private Duration cookieMaxAge = Duration.ofDays(30);
+        /**
+         * 验证码是否开启，默认 true，显示
+         */
+        private Boolean captchaEnabled = true;
         /**
          * 验证码类别，默认为 Hutool Gif 类型
          */
         private String category = "HUTOOL_GIF";
 
-        public String getUsernameParameter() {
-            return usernameParameter;
+        public String getAuthenticationUrl() {
+            return authenticationUrl;
         }
 
-        public void setUsernameParameter(String usernameParameter) {
-            this.usernameParameter = usernameParameter;
+        public void setAuthenticationUrl(String authenticationUrl) {
+            this.authenticationUrl = authenticationUrl;
         }
 
-        public String getPasswordParameter() {
-            return passwordParameter;
+        public Boolean getCaptchaEnabled() {
+            return captchaEnabled;
         }
 
-        public void setPasswordParameter(String passwordParameter) {
-            this.passwordParameter = passwordParameter;
-        }
-
-        public String getRememberMeParameter() {
-            return rememberMeParameter;
-        }
-
-        public void setRememberMeParameter(String rememberMeParameter) {
-            this.rememberMeParameter = rememberMeParameter;
+        public void setCaptchaEnabled(Boolean captchaEnabled) {
+            this.captchaEnabled = captchaEnabled;
         }
 
         public String getCaptchaParameter() {
@@ -290,38 +300,6 @@ public class OAuth2AuthenticationProperties {
             this.captchaParameter = captchaParameter;
         }
 
-        public String getLoginPageUrl() {
-            return loginPageUrl;
-        }
-
-        public void setLoginPageUrl(String loginPageUrl) {
-            this.loginPageUrl = loginPageUrl;
-        }
-
-        public String getFailureForwardUrl() {
-            return failureForwardUrl;
-        }
-
-        public void setFailureForwardUrl(String failureForwardUrl) {
-            this.failureForwardUrl = failureForwardUrl;
-        }
-
-        public String getSuccessForwardUrl() {
-            return successForwardUrl;
-        }
-
-        public void setSuccessForwardUrl(String successForwardUrl) {
-            this.successForwardUrl = successForwardUrl;
-        }
-
-        public Boolean getCloseCaptcha() {
-            return closeCaptcha;
-        }
-
-        public void setCloseCaptcha(Boolean closeCaptcha) {
-            this.closeCaptcha = closeCaptcha;
-        }
-
         public String getCategory() {
             return category;
         }
@@ -330,17 +308,101 @@ public class OAuth2AuthenticationProperties {
             this.category = category;
         }
 
+        public Duration getCookieMaxAge() {
+            return cookieMaxAge;
+        }
+
+        public void setCookieMaxAge(Duration cookieMaxAge) {
+            this.cookieMaxAge = cookieMaxAge;
+        }
+
+        public String getFailureUrl() {
+            return failureUrl;
+        }
+
+        public void setFailureUrl(String failureUrl) {
+            this.failureUrl = failureUrl;
+        }
+
+        public String getForgotPasswordUrl() {
+            return forgotPasswordUrl;
+        }
+
+        public void setForgotPasswordUrl(String forgotPasswordUrl) {
+            this.forgotPasswordUrl = forgotPasswordUrl;
+        }
+
+        public String getLoginPageUrl() {
+            return loginPageUrl;
+        }
+
+        public void setLoginPageUrl(String loginPageUrl) {
+            this.loginPageUrl = loginPageUrl;
+        }
+
+        public String getLogoutSuccessUrl() {
+            return logoutSuccessUrl;
+        }
+
+        public void setLogoutSuccessUrl(String logoutSuccessUrl) {
+            this.logoutSuccessUrl = logoutSuccessUrl;
+        }
+
+        public String getPasswordParameter() {
+            return passwordParameter;
+        }
+
+        public void setPasswordParameter(String passwordParameter) {
+            this.passwordParameter = passwordParameter;
+        }
+
+        public String getRegistrationUrl() {
+            return registrationUrl;
+        }
+
+        public void setRegistrationUrl(String registrationUrl) {
+            this.registrationUrl = registrationUrl;
+        }
+
+        public String getRememberMeParameter() {
+            return rememberMeParameter;
+        }
+
+        public void setRememberMeParameter(String rememberMeParameter) {
+            this.rememberMeParameter = rememberMeParameter;
+        }
+
+        public String getUsernameParameter() {
+            return usernameParameter;
+        }
+
+        public void setUsernameParameter(String usernameParameter) {
+            this.usernameParameter = usernameParameter;
+        }
+
+        public Boolean isRegistrationEnabled() {
+            return StringUtils.isNotBlank(registrationUrl);
+        }
+
+        public Boolean isForgotPasswordEnabled() {
+            return StringUtils.isNotBlank(forgotPasswordUrl);
+        }
+
         @Override
         public String toString() {
             return MoreObjects.toStringHelper(this)
+                    .add("authenticationUrl", authenticationUrl)
                     .add("usernameParameter", usernameParameter)
                     .add("passwordParameter", passwordParameter)
                     .add("rememberMeParameter", rememberMeParameter)
                     .add("captchaParameter", captchaParameter)
                     .add("loginPageUrl", loginPageUrl)
-                    .add("failureForwardUrl", failureForwardUrl)
-                    .add("successForwardUrl", successForwardUrl)
-                    .add("closeCaptcha", closeCaptcha)
+                    .add("failureUrl", failureUrl)
+                    .add("logoutSuccessUrl", logoutSuccessUrl)
+                    .add("registrationUrl", registrationUrl)
+                    .add("forgotPasswordUrl", forgotPasswordUrl)
+                    .add("cookieMaxAge", cookieMaxAge)
+                    .add("captchaEnabled", captchaEnabled)
                     .add("category", category)
                     .toString();
         }

@@ -98,6 +98,12 @@ public class HttpCryptoProcessor extends AbstractStampManager<String, SecretKey>
         // 前端如果设置sessionId，则由后端生成
         if (StringUtils.isBlank(identity)) {
             identity = IdUtil.fastUUID();
+        } else {
+            try {
+                return getSecretKey(identity);
+            } catch (StampHasExpiredException e) {
+                log.debug("[Herodotus] |- SecretKey has expired, recreate it");
+            }
         }
 
         // 根据Token的有效时间设置

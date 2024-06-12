@@ -38,7 +38,7 @@ public class FormLoginWebAuthenticationDetails extends WebAuthenticationDetails 
     /**
      * 验证码是否关闭
      */
-    private final Boolean closed;
+    private final Boolean enabled;
     /**
      * 请求中，验证码对应的表单参数名。对应UI Properties 里面的 captcha parameter
      */
@@ -47,44 +47,26 @@ public class FormLoginWebAuthenticationDetails extends WebAuthenticationDetails 
      * 验证码分类
      */
     private final String category;
-    private String code = null;
-    private String identity = null;
+    private final String code;
 
-    public FormLoginWebAuthenticationDetails(String remoteAddress, String sessionId, Boolean closed, String parameterName, String category, String code, String identity) {
+    public FormLoginWebAuthenticationDetails(String remoteAddress, String sessionId, Boolean enabled, String parameterName, String category, String code) {
         super(remoteAddress, sessionId);
-        this.closed = closed;
+        this.enabled = enabled;
         this.parameterName = parameterName;
         this.category = category;
         this.code = code;
-        this.identity = identity;
     }
 
-    public FormLoginWebAuthenticationDetails(HttpServletRequest request, boolean closed, String parameterName, String category) {
+    public FormLoginWebAuthenticationDetails(HttpServletRequest request, Boolean enabled, String parameterName, String category, String code) {
         super(request);
-        this.closed = closed;
+        this.enabled = enabled;
         this.parameterName = parameterName;
         this.category = category;
-        this.init(request);
+        this.code = code;
     }
 
-    private void init(HttpServletRequest request) {
-        String encryptedCode = request.getParameter(parameterName);
-        String key = request.getParameter("symmetric");
-
-        this.identity = SessionUtils.analyseSessionId(request);
-
-        if (StringUtils.isNotBlank(key) && StringUtils.isNotBlank(encryptedCode)) {
-            byte[] byteKey = SymmetricUtils.getDecryptedSymmetricKey(key);
-            this.code = SymmetricUtils.decrypt(encryptedCode, byteKey);
-        }
-    }
-
-    public Boolean getClosed() {
-        return closed;
-    }
-
-    public String getParameterName() {
-        return parameterName;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
     public String getCategory() {
@@ -95,7 +77,7 @@ public class FormLoginWebAuthenticationDetails extends WebAuthenticationDetails 
         return code;
     }
 
-    public String getIdentity() {
-        return identity;
+    public String getParameterName() {
+        return parameterName;
     }
 }

@@ -48,11 +48,11 @@ public class OAuth2FormLoginConfigurerCustomizer implements Customizer<FormLogin
                 .usernameParameter(getFormLogin().getUsernameParameter())
                 .passwordParameter(getFormLogin().getPasswordParameter());
 
-        if (StringUtils.isNotBlank(getFormLogin().getFailureForwardUrl())) {
-            configurer.failureForwardUrl(getFormLogin().getFailureForwardUrl());
+        if (StringUtils.isNotBlank(getFormLogin().getFailureUrl())) {
+            configurer.failureForwardUrl(getFormLogin().getFailureUrl());
         }
-        if (StringUtils.isNotBlank(getFormLogin().getSuccessForwardUrl())) {
-            configurer.successForwardUrl(getFormLogin().getSuccessForwardUrl());
+        if (StringUtils.isNotBlank(getFormLogin().getAuthenticationUrl())) {
+            configurer.successForwardUrl(getFormLogin().getAuthenticationUrl());
         }
     }
 
