@@ -47,7 +47,7 @@ public class FormLoginWebAuthenticationDetails extends WebAuthenticationDetails 
      * 验证码分类
      */
     private final String category;
-    private String code = null;
+    private final String code;
     private String identity = null;
 
     public FormLoginWebAuthenticationDetails(String remoteAddress, String sessionId, Boolean closed, String parameterName, String category, String code, String identity) {
@@ -59,24 +59,12 @@ public class FormLoginWebAuthenticationDetails extends WebAuthenticationDetails 
         this.identity = identity;
     }
 
-    public FormLoginWebAuthenticationDetails(HttpServletRequest request, boolean closed, String parameterName, String category) {
+    public FormLoginWebAuthenticationDetails(HttpServletRequest request, boolean closed, String parameterName, String category, String code) {
         super(request);
         this.closed = closed;
         this.parameterName = parameterName;
         this.category = category;
-        this.init(request);
-    }
-
-    private void init(HttpServletRequest request) {
-        String encryptedCode = request.getParameter(parameterName);
-        String key = request.getParameter("symmetric");
-
-        this.identity = SessionUtils.analyseSessionId(request);
-
-        if (StringUtils.isNotBlank(key) && StringUtils.isNotBlank(encryptedCode)) {
-            byte[] byteKey = SymmetricUtils.getDecryptedSymmetricKey(key);
-            this.code = SymmetricUtils.decrypt(encryptedCode, byteKey);
-        }
+        this.code = code;
     }
 
     public Boolean getClosed() {

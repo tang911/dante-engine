@@ -21,9 +21,9 @@
 
 package cn.herodotus.engine.oauth2.management.converter;
 
+import cn.herodotus.engine.oauth2.core.enums.AllJwsAlgorithm;
 import cn.herodotus.engine.oauth2.core.enums.SignatureJwsAlgorithm;
 import cn.herodotus.engine.oauth2.core.enums.TokenFormat;
-import cn.herodotus.engine.oauth2.core.enums.AllJwsAlgorithm;
 import cn.herodotus.engine.oauth2.management.entity.OAuth2Device;
 import cn.herodotus.engine.oauth2.management.entity.OAuth2Scope;
 import cn.herodotus.engine.oauth2.management.service.OAuth2ScopeService;

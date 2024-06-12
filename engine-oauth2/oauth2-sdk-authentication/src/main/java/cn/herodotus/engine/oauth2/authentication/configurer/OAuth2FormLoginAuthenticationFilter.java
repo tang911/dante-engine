@@ -21,8 +21,9 @@
 
 package cn.herodotus.engine.oauth2.authentication.configurer;
 
+import cn.herodotus.engine.assistant.core.utils.http.SessionUtils;
 import cn.herodotus.engine.oauth2.authentication.provider.OAuth2FormLoginAuthenticationToken;
-import cn.herodotus.engine.oauth2.core.utils.SymmetricUtils;
+import cn.herodotus.engine.rest.protect.crypto.processor.HttpCryptoProcessor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -47,14 +48,13 @@ import java.io.IOException;
 public class OAuth2FormLoginAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private static final Logger log = LoggerFactory.getLogger(OAuth2FormLoginAuthenticationFilter.class);
+
+    private final HttpCryptoProcessor httpCryptoProcessor;
     private boolean postOnly = true;
 
-    public OAuth2FormLoginAuthenticationFilter() {
-        super();
-    }
-
-    public OAuth2FormLoginAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public OAuth2FormLoginAuthenticationFilter(AuthenticationManager authenticationManager, HttpCryptoProcessor httpCryptoProcessor) {
         super(authenticationManager);
+        this.httpCryptoProcessor = httpCryptoProcessor;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class OAuth2FormLoginAuthenticationFilter extends UsernamePasswordAuthent
 
         String username = obtainUsername(request);
         String password = obtainPassword(request);
-        String key = request.getParameter("symmetric");
+        String sessionId = SessionUtils.analyseSessionId(request);
 
         if (StringUtils.isBlank(username)) {
             username = "";
@@ -85,10 +85,9 @@ public class OAuth2FormLoginAuthenticationFilter extends UsernamePasswordAuthent
             password = "";
         }
 
-        if (StringUtils.isNotBlank(key) && StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
-            byte[] byteKey = SymmetricUtils.getDecryptedSymmetricKey(key);
-            username = SymmetricUtils.decrypt(username, byteKey);
-            password = SymmetricUtils.decrypt(password, byteKey);
+        if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
+            username = httpCryptoProcessor.decrypt(sessionId, username);
+            password = httpCryptoProcessor.decrypt(sessionId, password);
             log.debug("[Herodotus] |- Decrypt Username is : [{}], Password is : [{}]", username, password);
         }
 
