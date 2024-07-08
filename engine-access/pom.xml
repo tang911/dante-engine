@@ -42,7 +42,6 @@
         <module>access-sdk-wxapp</module>
         <module>access-sdk-wxmpp</module>
         <module>access-sdk-all</module>
-        <module>access-spring-boot-starter</module>
         <module>access-sdk-sms</module>
     </modules>
 

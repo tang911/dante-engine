@@ -45,6 +45,11 @@
             <artifactId>message-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
+            <artifactId>access-sdk-all</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
