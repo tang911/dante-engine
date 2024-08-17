@@ -96,7 +96,7 @@
         <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-io.version>2.16.1</commons-io.version>
         <commons-text.version>1.12.0</commons-text.version>
-        <guava.version>33.2.1-jre</guava.version>
+        <guava.version>33.3.0-jre</guava.version>
         <zxing.version>3.5.3</zxing.version>
         <!-- 应用开发辅助工具组件 -->
         <redisson.version>3.34.1</redisson.version>
