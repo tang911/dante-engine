@@ -23,11 +23,10 @@ package cn.herodotus.engine.assistant.core.json.jackson2.utils;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.Module;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.ObjectUtils;
@@ -57,7 +56,18 @@ public class Jackson2Utils {
     private ObjectMapper objectMapper;
 
     public static ObjectMapper getObjectMapper() {
-        return OBJECT_MAPPER;
+        if (ObjectUtils.isNotEmpty(OBJECT_MAPPER)) {
+            return OBJECT_MAPPER;
+        } else {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.enable( SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+            objectMapper.enable(JsonParser.Feature.ALLOW_SINGLE_QUOTES);
+            objectMapper.enable(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature());
+            objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+            objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            return objectMapper;
+        }
     }
 
     public static ObjectMapper registerModule(Module module) {
@@ -90,7 +100,7 @@ public class Jackson2Utils {
         try {
             return getObjectMapper().convertValue(content, valueType);
         } catch (IllegalArgumentException e) {
-            logger.error("[Herodotus] |- Jackson2 json processing error, when to object with value type! {}", e.getMessage());
+            logger.error("[Herodotus] |- Jackson2 json processing error, when to object with map type! {}", e.getMessage());
             return null;
         }
     }

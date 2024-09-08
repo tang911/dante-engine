@@ -21,7 +21,7 @@
 
 package cn.herodotus.engine.cache.redisson.autoconfigure;
 
-import cn.herodotus.engine.assistant.core.utils.ResourceUtils;
+import cn.herodotus.engine.assistant.core.utils.ResourceResolver;
 import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
 import cn.herodotus.engine.cache.redisson.annotation.ConditionalOnRedissonEnabled;
 import cn.herodotus.engine.cache.redisson.properties.RedissonProperties;
@@ -77,11 +77,7 @@ public class CacheRedissonAutoConfiguration {
     private File readConfigFile() {
         String configFile = redissonProperties.getConfig();
         if (StringUtils.isNotBlank(configFile)) {
-            try {
-                return ResourceUtils.getFile(configFile);
-            } catch (IOException e) {
-                log.error("[Herodotus] |- Can not found the config file [{}], check whether the format is correct.", configFile);
-            }
+            return ResourceResolver.getFile(configFile);
         }
 
         return null;

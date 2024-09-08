@@ -21,7 +21,7 @@
 
 package cn.herodotus.engine.assistant.core.utils.protect;
 
-import cn.herodotus.engine.assistant.core.utils.ResourceUtils;
+import cn.herodotus.engine.assistant.core.utils.ResourceResolver;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.owasp.validator.html.*;
@@ -78,7 +78,7 @@ public class XssUtils {
 
     private Policy createPolicy() {
         try {
-            URL url = ResourceUtils.getURL("classpath:antisamy/antisamy-anythinggoes.xml");
+            URL url = ResourceResolver.getURL("classpath:antisamy/antisamy-anythinggoes.xml");
             return Policy.getInstance(url);
         } catch (IOException | PolicyException e) {
             log.warn("[Herodotus] |- Antisamy create policy error! {}", e.getMessage());
