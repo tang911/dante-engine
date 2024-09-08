@@ -24,6 +24,7 @@ package cn.herodotus.engine.assistant.core.utils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.hutool.core.codec.binary.Base64;
+import org.dromara.hutool.core.io.IoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -31,8 +32,10 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -44,23 +47,23 @@ import java.net.URL;
  * @author : gengwei.zheng
  * @date : 2021/8/29 21:39
  */
-public class ResourceUtils {
+public class ResourceResolver {
 
-    private static final Logger log = LoggerFactory.getLogger(ResourceUtils.class);
+    private static final Logger log = LoggerFactory.getLogger(ResourceResolver.class);
 
-    private static volatile ResourceUtils INSTANCE;
+    private static volatile ResourceResolver INSTANCE;
 
     private final PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver;
 
-    private ResourceUtils() {
+    private ResourceResolver() {
         this.pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
     }
 
-    private static ResourceUtils getInstance() {
+    private static ResourceResolver getInstance() {
         if (ObjectUtils.isEmpty(INSTANCE)) {
-            synchronized (ResourceUtils.class) {
+            synchronized (ResourceResolver.class) {
                 if (ObjectUtils.isEmpty(INSTANCE)) {
-                    INSTANCE = new ResourceUtils();
+                    INSTANCE = new ResourceResolver();
                 }
             }
         }
@@ -77,15 +80,47 @@ public class ResourceUtils {
     }
 
     public static Resource getResource(String location) {
-        return getResolver().getResource(location);
+        Resource resource = getResolver().getResource(location);
+        log.debug("[Herodotus] |- Resource at location [{}] is [{}]!", location, resource.exists());
+        return resource;
     }
 
-    public static File getFile(String location) throws IOException {
-        return getResource(location).getFile();
+    /**
+     * 根据 Ant-Path 模式，读取资源文件。
+     * <p>
+     * {@link PathMatchingResourcePatternResolver} 对 classpath 和 classpath* 处理机制不同。
+     * 在 Spring Boot Jar 环境，{@link PathMatchingResourcePatternResolver#getResource(String)} 无法读取资源文件。
+     * 只能通过 Ant Path 模式，批量读取指定位置下的文件。
+     *
+     * @param locationPattern 位置模式
+     * @return {@link Resource}
+     * @throws IOException 文件读取错误
+     */
+    public static Resource[] getResources(String locationPattern) throws IOException {
+        return getResolver().getResources(locationPattern);
     }
 
-    public static InputStream getInputStream(String location) throws IOException {
-        return getResource(location).getInputStream();
+    public static File getFile(String location) {
+        Resource resource = getResource(location);
+        try {
+            // 在 Spring Boot Jar 环境，resource.getFile() 未必会正确读取到文件资源。
+            if (resource.exists()) {
+                return resource.getFile();
+            } else {
+                return ResourceUtils.getFile(location);
+            }
+        } catch (FileNotFoundException e) {
+            log.warn("[Herodotus] |- File not found in location [{}]", location, e);
+            return new File(location);
+        } catch (IOException e) {
+            log.error("[Herodotus] |- Cannot found resource use location [{}]", location);
+            return new File(location);
+        }
+    }
+
+    public static InputStream getInputStream(String location) {
+        File file = getFile(location);
+        return IoUtil.toStream(file);
     }
 
     public static String getFilename(String location) {
@@ -121,11 +156,7 @@ public class ResourceUtils {
     }
 
     public static boolean isOpen(String location) {
-        return ResourceUtils.getResource(location).isOpen();
-    }
-
-    public static Resource[] getResources(String locationPattern) throws IOException {
-        return getResolver().getResources(locationPattern);
+        return ResourceResolver.getResource(location).isOpen();
     }
 
     public static boolean isUrl(String location) {
@@ -141,11 +172,11 @@ public class ResourceUtils {
     }
 
     public static boolean isJarUrl(URL url) {
-        return org.springframework.util.ResourceUtils.isJarURL(url);
+        return ResourceUtils.isJarURL(url);
     }
 
     public static boolean isFileUrl(URL url) {
-        return org.springframework.util.ResourceUtils.isFileURL(url);
+        return ResourceUtils.isFileURL(url);
     }
 
     /**
