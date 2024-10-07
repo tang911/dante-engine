@@ -116,7 +116,7 @@
         <!-- 国内开源通用组件 -->
         <hutool.version>6.0.0-M16</hutool.version>
         <hutool5.version>5.8.32</hutool5.version>
-        <okhttps.version>4.0.2</okhttps.version>
+        <okhttps.version>4.0.3</okhttps.version>
         <weixin-java-sdk.version>4.6.5.B</weixin-java-sdk.version>
         <just-auth.verison>1.16.6</just-auth.verison>
         <!--第三方starter-->
