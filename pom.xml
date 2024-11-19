@@ -33,7 +33,7 @@
         <relativePath>dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>herodotus-engine</artifactId>
+    <artifactId>dante-engine</artifactId>
     <packaging>pom</packaging>
 
     <description>Herodotus Engine</description>
