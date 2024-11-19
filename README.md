@@ -41,9 +41,9 @@
 
 ### 1. 变更声明
 
-自 v3.3.6.0 版本起，Dante Cloud 以及 Dante OSS 和 Dante Engine 子项目开源协议永久变更为 Apache License Version 2.0，并承诺不再变更协议。可用于个人学习、毕设，允许商业使用，但禁止二次开源。
+自 **v3.3.6.0** 版本起，Dante Cloud 以及 Dante OSS 和 Dante Engine 子项目开源协议**【永久】**变更为 Apache License Version 2.0。可用于个人学习、毕设，允许商业使用，但禁止二次开源。
 
-### 2. 补充协议
+### 2. 补充条款
 
 使用时务必遵守以下补充条款。
 
