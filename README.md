@@ -1,6 +1,6 @@
 <p align="center"><img src="./readme/images/new-logo.png" height="300" width="400" alt="logo"/></p>
 <h2 align="center">简洁优雅 · 稳定高效 | 宁静致远 · 精益求精 </h2>
-<p align="center">Herodotus Engine 基于 Spring Boot 3.X， 是 Dante Cloud 微服务架构内核核心组件库，可用于任何 Spring Boot 工程</p>
+<p align="center">Dante Engine 基于 Spring Boot 3.X， 是 Dante Cloud 微服务架构内核核心组件库，可用于任何 Spring Boot 工程</p>
 
 ---
 
@@ -15,7 +15,7 @@
 <p align="center">
     <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.3.5.1-red.svg?logo=spring" alt="Version 3.3.5.1"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-17%2B-green.svg?logo=openjdk" alt="Java 17"></a>
-    <a href="./LICENSE"><img src="https://shields.io/badge/License-AGPL--3.0-blue.svg" alt="License AGPL-3.0"></a>
+    <a href="./LICENSE"><img src="https://shields.io/badge/License-Apache--2.0-blue.svg?logo=apache" alt="License Apache 2.0"></a>
     <a href="https://www.herodotus.cn"><img src="https://visitor-badge.laobi.icu/badge?page_id=dante-cloud&title=Total%20Visits" alt="Total Visits"></a>
     <a href="https://blog.csdn.net/Pointer_v" target="_blank"><img src="https://shields.io/badge/Author-%E7%A0%81%E5%8C%A0%E5%90%9B-orange" alt="码匠君"></a>
     <a href="https://gitee.com/dromara/dante-cloud"><img src="https://img.shields.io/github/stars/herodotus-cloud/dante-cloud?style=flat&logo=github" alt="Github star"></a>
@@ -39,21 +39,24 @@
 
 ## 开源协议
 
-> 因近期出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Herodotus Engine 自 3.3.X 版本开始，开源协议修改为 AGPL 3.0。点击[【了解详情】](https://www.herodotus.cn/support/authorization.html)
+### 1. 变更声明
 
-![开源协议](./readme/images/agplv3-155x51.png)
+自 v3.3.6.0 版本起，Dante Cloud 以及 Dante OSS 和 Dante Engine 子项目开源协议永久变更为 Apache License Version 2.0，并承诺不再变更协议。可用于个人学习、毕设，允许商业使用，但禁止二次开源。
 
-### 授权声明
+### 2. 补充协议
 
-本项目基于 GNU AFFERO GENERAL PUBLIC LICENSE Version 3 (AGPL V3) 开源协议，必须遵守以下补充条款。
+使用时务必遵守以下补充条款。
 
 - 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
-- 对未经过授权或不遵循 AGPL 协议二次开源或者商业化我们将追究到底。
+- 在延伸的代码中（修改现有源代码衍生的代码中）需要带有原来代码中的协议、版权声明和其他原作者 规定需要包含的说明（请尊重原作者的著作权，不要删除或修改文件中的Copyright和@author信息） 更不要，全局替换源代码中的 Dante OSS、Herodotus 或 码匠君 等字样，否则你将违反本协议条款承担责任。
+- 您若套用本软件的一些代码或功能参考，请保留源文件中的版权和作者，需要在您的软件介绍明显位置 说明出处，举例：本软件基于 Dante Cloud 微服务架构 或 Dante OSS，并附带链接：https://www.herodotus.cn
 - 任何基于本软件而产生的一切法律纠纷和责任，均与作者无关。
+- 如果你对本软件有改进，希望可以贡献给我们，双向奔赴互相成就才是王道。
+- 本项目已申请软件著作权，请尊重开源。
 
-### 使用说明
+### 3. 重要说明
 
-**任何`自用`（仅在内部使用不涉及商业化）修改 Herodotus Engine 源码使用公司，必须登记申请否则视为非法使用，留言登记默认合规**。登记地址：在 https://gitee.com/dromara/dante-cloud/issues/I65F5B
+**因频繁出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante OSS 和 Dante Engine 子项目需登记申请，等审批后开放源码，[【查看详情或登记】](https://gitee.com/dromara/dante-cloud/issues/IB5KL0)
 
 ## 项目特点
 
