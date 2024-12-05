@@ -40,8 +40,8 @@ import static java.lang.annotation.ElementType.METHOD;
  * @author : gengwei.zheng
  * @date : 2022/11/7 17:42
  */
-@IdGeneratorType(SysAttributeUuidGeneratorType.class)
+@IdGeneratorType(SysAttributeIdGeneratorType.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({FIELD, METHOD})
-public @interface SysAttributeUuidGenerator {
+public @interface SysAttributeIdGenerator {
 }

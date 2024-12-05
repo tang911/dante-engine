@@ -23,44 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.supplier.upms.logic.domain.generator;
+package cn.herodotus.engine.oauth2.management.generator;
 
-import cn.herodotus.engine.data.core.identifier.AbstractUuidGenerator;
-import cn.herodotus.engine.supplier.upms.logic.entity.security.SysAttribute;
-import org.apache.commons.lang3.ObjectUtils;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.oauth2.management.entity.OAuth2Permission;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
 import java.lang.reflect.Member;
 
 /**
- * <p>Description: 自定义UUID生成器 </p>
- * <p>
- * 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键
+ * <p>Description: 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键 </p>
  *
  * @author : gengwei.zheng
- * @date : 2021/8/4 3:20
+ * @date : 2022/3/31 21:11
  */
-public class SysAttributeUuidGeneratorType extends AbstractUuidGenerator {
+public class OAuth2PermissionIdGeneratorType extends AbstractIdGeneratorType {
 
-    public SysAttributeUuidGeneratorType(SysAttributeUuidGenerator config, Member idMember, CustomIdGeneratorCreationContext creationContext) {
-        super(idMember);
+    public OAuth2PermissionIdGeneratorType(OAuth2PermissionIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
     }
 
     @Override
-    public Object generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
-        if (ObjectUtils.isEmpty(object)) {
-            throw new HibernateException(new NullPointerException());
-        }
+    public Object generate(SharedSessionContractImplementor session, Object object) {
 
-        SysAttribute sysAttribute = (SysAttribute) object;
+        OAuth2Permission permission = (OAuth2Permission) object;
 
-        if (StringUtils.isEmpty(sysAttribute.getAttributeId())) {
+        if (StringUtils.isEmpty(permission.getPermissionId())) {
             return super.generate(session, object);
         } else {
-            return sysAttribute.getAttributeId();
+            return permission.getPermissionId();
         }
     }
 }
+

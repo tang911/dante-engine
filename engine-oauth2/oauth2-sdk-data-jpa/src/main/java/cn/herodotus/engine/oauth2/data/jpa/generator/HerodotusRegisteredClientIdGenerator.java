@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.supplier.upms.logic.domain.generator;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
 import org.hibernate.annotations.IdGeneratorType;
 
@@ -35,13 +35,13 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 
 /**
- * <p>Description: SysInterfaceUuid </p>
+ * <p>Description: HerodotusRegisteredClientUuid 注解 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/3/7 11:04
+ * @date : 2022/11/7 15:49
  */
-@IdGeneratorType(SysInterfaceUuidGeneratorType.class)
+@IdGeneratorType(HerodotusRegisteredClientIdGeneratorType.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({FIELD, METHOD})
-public @interface SysInterfaceUuidGenerator {
+public @interface HerodotusRegisteredClientIdGenerator {
 }

@@ -23,45 +23,39 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.data.jpa.generator;
+package cn.herodotus.engine.supplier.upms.logic.domain.generator;
 
-import cn.herodotus.engine.data.core.identifier.AbstractUuidGenerator;
-import cn.herodotus.engine.oauth2.data.jpa.entity.HerodotusAuthorization;
-import org.apache.commons.lang3.ObjectUtils;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.supplier.upms.logic.entity.security.SysAttribute;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
 import java.lang.reflect.Member;
 
 /**
- * <p>Description: OAuth2Authorization Id 生成器 </p>
+ * <p>Description: 自定义UUID生成器 </p>
  * <p>
- * 指定ID生成器，解决实体ID无法手动设置问题。
+ * 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键
  *
  * @author : gengwei.zheng
- * @date : 2022/11/7 15:39
+ * @date : 2021/8/4 3:20
  */
-public class HerodotusAuthorizationUuidGeneratorType extends AbstractUuidGenerator {
+public class SysAttributeIdGeneratorType extends AbstractIdGeneratorType {
 
-    public HerodotusAuthorizationUuidGeneratorType(HerodotusAuthorizationUuidGenerator config, Member idMember, CustomIdGeneratorCreationContext creationContext) {
-        super(idMember);
+    public SysAttributeIdGeneratorType(SysAttributeIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
     }
 
     @Override
-    public Object generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
+    public Object generate(SharedSessionContractImplementor session, Object object) {
 
-        if (ObjectUtils.isEmpty(object)) {
-            throw new HibernateException(new NullPointerException());
-        }
+        SysAttribute sysAttribute = (SysAttribute) object;
 
-        HerodotusAuthorization HerodotusAuthorization = (HerodotusAuthorization) object;
-
-        if (StringUtils.isEmpty(HerodotusAuthorization.getId())) {
+        if (StringUtils.isEmpty(sysAttribute.getAttributeId())) {
             return super.generate(session, object);
         } else {
-            return HerodotusAuthorization.getId();
+            return sysAttribute.getAttributeId();
         }
     }
 }

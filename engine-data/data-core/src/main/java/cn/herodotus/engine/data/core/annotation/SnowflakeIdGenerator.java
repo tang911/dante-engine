@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.data.core.annotation;
 
-import cn.herodotus.engine.data.core.identifier.SnowFlakeIDGenerator;
+import cn.herodotus.engine.data.core.identifier.SnowflakeIdGeneratorType;
 import org.hibernate.annotations.IdGeneratorType;
 
 import java.lang.annotation.Retention;
@@ -41,8 +41,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @author lkhsh
  * @date 2023-07-14
  */
-@IdGeneratorType(SnowFlakeIDGenerator.class)
+@IdGeneratorType(SnowflakeIdGeneratorType.class)
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
-public @interface SnowIdGenerator {
+public @interface SnowflakeIdGenerator {
 }

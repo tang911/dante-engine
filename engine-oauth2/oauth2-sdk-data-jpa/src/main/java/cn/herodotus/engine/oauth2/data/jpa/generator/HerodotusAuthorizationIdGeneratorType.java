@@ -23,46 +23,39 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.data.core.identifier;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
-import cn.herodotus.engine.data.core.annotation.SnowIdGenerator;
-import org.dromara.hutool.core.data.id.IdUtil;
-import org.dromara.hutool.core.data.id.Snowflake;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.oauth2.data.jpa.entity.HerodotusAuthorization;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.id.IdentifierGenerator;
 import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
-import org.hibernate.id.factory.spi.StandardGenerator;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Member;
-import java.lang.reflect.Method;
 
 /**
- * 雪花主键生成器，使用 hutool 的雪花主键生成器
+ * <p>Description: OAuth2Authorization Id 生成器 </p>
+ * <p>
+ * 指定ID生成器，解决实体ID无法手动设置问题。
  *
- * @author lkhsh
- * @date 2023-07-14
+ * @author : gengwei.zheng
+ * @date : 2022/11/7 15:39
  */
-public class SnowFlakeIDGenerator implements IdentifierGenerator, StandardGenerator {
-    private final Snowflake snowflake;
-    private final Class<?> propertyType;
+public class HerodotusAuthorizationIdGeneratorType extends AbstractIdGeneratorType {
 
-    public SnowFlakeIDGenerator(SnowIdGenerator config, Member idMember, CustomIdGeneratorCreationContext creationContext) {
-        // 工具获取的主键生成器是个单例，也就是同一个运行实例，理论上 dataCenter 和 workerId 不会重复
-        snowflake = IdUtil.getSnowflake();
-        // 初始化主键的类型
-        if (idMember instanceof Method) {
-            propertyType = ((Method) idMember).getReturnType();
-        } else {
-            propertyType = ((Field) idMember).getType();
-        }
+    public HerodotusAuthorizationIdGeneratorType(HerodotusAuthorizationIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
     }
 
     @Override
     public Object generate(SharedSessionContractImplementor session, Object object) {
-        if (String.class.isAssignableFrom(propertyType)) {
-            return snowflake.nextStr();
+
+        HerodotusAuthorization HerodotusAuthorization = (HerodotusAuthorization) object;
+
+        if (StringUtils.isEmpty(HerodotusAuthorization.getId())) {
+            return super.generate(session, object);
+        } else {
+            return HerodotusAuthorization.getId();
         }
-        return snowflake.next();
     }
 }

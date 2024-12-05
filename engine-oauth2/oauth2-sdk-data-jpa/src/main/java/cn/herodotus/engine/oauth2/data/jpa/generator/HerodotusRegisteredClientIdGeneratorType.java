@@ -23,25 +23,39 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.management.generator;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
-import org.hibernate.annotations.IdGeneratorType;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.oauth2.data.jpa.entity.HerodotusRegisteredClient;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.METHOD;
+import java.lang.reflect.Member;
 
 /**
- * <p>Description: OAuth2AuthorityUuid </p>
+ * <p>Description: OAuth2RegisteredClient Id 生成器 </p>
+ * <p>
+ * 指定ID生成器，解决实体ID无法手动设置问题。
  *
  * @author : gengwei.zheng
- * @date : 2022/11/7 17:11
+ * @date : 2022/1/22 17:50
  */
-@IdGeneratorType(OAuth2PermissionUuidGeneratorType.class)
-@Retention(RetentionPolicy.RUNTIME)
-@Target({FIELD, METHOD})
-public @interface OAuth2PermissionUuidGenerator {
+public class HerodotusRegisteredClientIdGeneratorType extends AbstractIdGeneratorType {
+
+    public HerodotusRegisteredClientIdGeneratorType(HerodotusRegisteredClientIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
+    }
+
+    @Override
+    public Object generate(SharedSessionContractImplementor session, Object object) {
+
+        HerodotusRegisteredClient herodotusRegisteredClient = (HerodotusRegisteredClient) object;
+
+        if (StringUtils.isEmpty(herodotusRegisteredClient.getId())) {
+            return super.generate(session, object);
+        } else {
+            return herodotusRegisteredClient.getId();
+        }
+    }
 }

@@ -26,7 +26,7 @@
 package cn.herodotus.engine.supplier.upms.logic.entity.security;
 
 import cn.herodotus.engine.data.core.entity.BaseSysEntity;
-import cn.herodotus.engine.supplier.upms.logic.domain.generator.SysInterfaceUuidGenerator;
+import cn.herodotus.engine.supplier.upms.logic.domain.generator.SysInterfaceIdGenerator;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -45,7 +45,7 @@ public class SysInterface extends BaseSysEntity {
 
     @Schema(name = "接口ID")
     @Id
-    @SysInterfaceUuidGenerator
+    @SysInterfaceIdGenerator
     @Column(name = "interface_id", length = 64)
     private String interfaceId;
 
