@@ -53,7 +53,6 @@ public abstract class AbstractIdGeneratorType implements IdentifierGenerator {
         generator = StandardRandomStrategy.INSTANCE;
 
         final Class<?> propertyType = ReflectHelper.getPropertyType(member);
-        ;
         this.valueTransformer = determineProperTransformer(propertyType);
     }
 
