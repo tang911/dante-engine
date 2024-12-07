@@ -23,42 +23,39 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.supplier.upms.logic.domain.generator;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
-import cn.herodotus.engine.data.core.identifier.AbstractUuidGenerator;
-import cn.herodotus.engine.supplier.upms.logic.entity.security.SysInterface;
-import org.apache.commons.lang3.ObjectUtils;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.oauth2.data.jpa.entity.HerodotusRegisteredClient;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
 import java.lang.reflect.Member;
 
 /**
- * <p>Description: 自定义UUID生成器，使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键 </p>
+ * <p>Description: OAuth2RegisteredClient Id 生成器 </p>
+ * <p>
+ * 指定ID生成器，解决实体ID无法手动设置问题。
  *
  * @author : gengwei.zheng
- * @date : 2023/3/7 11:03
+ * @date : 2022/1/22 17:50
  */
-public class SysInterfaceUuidGeneratorType extends AbstractUuidGenerator {
+public class HerodotusRegisteredClientIdGeneratorType extends AbstractIdGeneratorType {
 
-    public SysInterfaceUuidGeneratorType(SysInterfaceUuidGenerator config, Member idMember, CustomIdGeneratorCreationContext creationContext) {
-        super(idMember);
+    public HerodotusRegisteredClientIdGeneratorType(HerodotusRegisteredClientIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
     }
 
     @Override
-    public Object generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
-        if (ObjectUtils.isEmpty(object)) {
-            throw new HibernateException(new NullPointerException());
-        }
+    public Object generate(SharedSessionContractImplementor session, Object object) {
 
-        SysInterface sysInterface = (SysInterface) object;
+        HerodotusRegisteredClient herodotusRegisteredClient = (HerodotusRegisteredClient) object;
 
-        if (StringUtils.isEmpty(sysInterface.getInterfaceId())) {
+        if (StringUtils.isEmpty(herodotusRegisteredClient.getId())) {
             return super.generate(session, object);
         } else {
-            return sysInterface.getInterfaceId();
+            return herodotusRegisteredClient.getId();
         }
     }
 }

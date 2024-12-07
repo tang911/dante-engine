@@ -23,22 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.condition.annotation;
+package cn.herodotus.engine.supplier.upms.logic.domain.generator;
 
-import cn.herodotus.engine.rest.condition.definition.UseHttp2ClientAsRestClientCondition;
-import org.springframework.context.annotation.Conditional;
+import org.hibernate.annotations.IdGeneratorType;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 
 /**
- * <p>Description: 使用 Jdk Client 客户端作为 RestTemplate 和 OpenFeign 引擎条件注解 </p>
+ * <p>Description: SysInterfaceUuid </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/6/15 21:29
+ * @date : 2023/3/7 11:04
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
+@IdGeneratorType(SysInterfaceIdGeneratorTypeType.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Conditional(UseHttp2ClientAsRestClientCondition.class)
-public @interface ConditionalOnUseHttp2ClientAsRestClient {
+@Target({FIELD, METHOD})
+public @interface SysInterfaceIdGenerator {
 }

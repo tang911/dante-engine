@@ -25,23 +25,36 @@
 
 package cn.herodotus.engine.oauth2.management.generator;
 
-import org.hibernate.annotations.IdGeneratorType;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.oauth2.management.entity.OAuth2Permission;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.METHOD;
+import java.lang.reflect.Member;
 
 /**
- * <p>Description: OAuth2AuthorityUuid </p>
+ * <p>Description: 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/11/7 17:11
+ * @date : 2022/3/31 21:11
  */
-@IdGeneratorType(OAuth2PermissionUuidGeneratorType.class)
-@Retention(RetentionPolicy.RUNTIME)
-@Target({FIELD, METHOD})
-public @interface OAuth2PermissionUuidGenerator {
+public class OAuth2PermissionIdGeneratorType extends AbstractIdGeneratorType {
+
+    public OAuth2PermissionIdGeneratorType(OAuth2PermissionIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
+    }
+
+    @Override
+    public Object generate(SharedSessionContractImplementor session, Object object) {
+
+        OAuth2Permission permission = (OAuth2Permission) object;
+
+        if (StringUtils.isEmpty(permission.getPermissionId())) {
+            return super.generate(session, object);
+        } else {
+            return permission.getPermissionId();
+        }
+    }
 }
+

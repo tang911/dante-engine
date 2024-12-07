@@ -23,22 +23,39 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.condition.annotation;
+package cn.herodotus.engine.supplier.upms.logic.domain.generator;
 
-import cn.herodotus.engine.rest.condition.definition.UseSimpleClientAsRestClientCondition;
-import org.springframework.context.annotation.Conditional;
+import cn.herodotus.engine.data.core.identifier.AbstractIdGeneratorType;
+import cn.herodotus.engine.supplier.upms.logic.entity.security.SysAttribute;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
 
-import java.lang.annotation.*;
+import java.lang.reflect.Member;
 
 /**
- * <p>Description: 使用 默认 客户端 条件注解 </p>
+ * <p>Description: 自定义UUID生成器 </p>
+ * <p>
+ * 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键
  *
  * @author : gengwei.zheng
- * @date : 2023/6/15 21:29
+ * @date : 2021/8/4 3:20
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Conditional(UseSimpleClientAsRestClientCondition.class)
-public @interface ConditionalOnUseSimpleClientAsRestClient {
+public class SysAttributeIdGeneratorType extends AbstractIdGeneratorType {
+
+    public SysAttributeIdGeneratorType(SysAttributeIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
+    }
+
+    @Override
+    public Object generate(SharedSessionContractImplementor session, Object object) {
+
+        SysAttribute sysAttribute = (SysAttribute) object;
+
+        if (StringUtils.isEmpty(sysAttribute.getAttributeId())) {
+            return super.generate(session, object);
+        } else {
+            return sysAttribute.getAttributeId();
+        }
+    }
 }

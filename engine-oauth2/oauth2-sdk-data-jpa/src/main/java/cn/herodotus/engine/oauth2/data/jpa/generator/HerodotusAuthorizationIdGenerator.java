@@ -23,22 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.condition.annotation;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
-import cn.herodotus.engine.rest.condition.definition.UseHttpClient5AsRestClientCondition;
-import org.springframework.context.annotation.Conditional;
+import org.hibernate.annotations.IdGeneratorType;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 
 /**
- * <p>Description: 使用 HttpComponents 客户端作为 RestTemplate 和 OpenFeign 引擎条件注解 </p>
+ * <p>Description: HerodotusAuthorizationUuid 注解 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/6/15 21:29
+ * @date : 2022/11/7 15:41
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
+@IdGeneratorType(HerodotusAuthorizationIdGeneratorType.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Conditional(UseHttpClient5AsRestClientCondition.class)
-public @interface ConditionalOnUseHttpClient5AsRestClient {
+@Target({FIELD, METHOD})
+public @interface HerodotusAuthorizationIdGenerator {
 }

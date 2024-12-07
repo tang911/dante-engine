@@ -23,26 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.data.core.annotation;
+package cn.herodotus.engine.oauth2.data.jpa.generator;
 
-import cn.herodotus.engine.data.core.identifier.SnowFlakeIDGenerator;
 import org.hibernate.annotations.IdGeneratorType;
 
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 雪花主键ID
+ * <p>Description: HerodotusRegisteredClientUuid 注解 </p>
  *
- * @author lkhsh
- * @date 2023-07-14
+ * @author : gengwei.zheng
+ * @date : 2022/11/7 15:49
  */
-@IdGeneratorType(SnowFlakeIDGenerator.class)
-@Target({METHOD, FIELD})
-@Retention(RUNTIME)
-public @interface SnowIdGenerator {
+@IdGeneratorType(HerodotusRegisteredClientIdGeneratorType.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({FIELD, METHOD})
+public @interface HerodotusRegisteredClientIdGenerator {
 }
