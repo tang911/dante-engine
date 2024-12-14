@@ -25,13 +25,13 @@
 
 package cn.herodotus.engine.oauth2.authorization.auditing;
 
-import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.server.resource.authentication.AbstractOAuth2TokenAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication;
 import org.springframework.security.oauth2.server.resource.introspection.OAuth2IntrospectionAuthenticatedPrincipal;
 
@@ -52,22 +52,21 @@ public class SecurityAuditorAware implements AuditorAware<String> {
 
         SecurityContext context = SecurityContextHolder.getContext();
 
-        if (ObjectUtils.isNotEmpty(context)) {
-            Authentication authentication = context.getAuthentication();
-            if (ObjectUtils.isNotEmpty(authentication)) {
-                if (authentication.isAuthenticated()) {
-                    if (authentication instanceof BearerTokenAuthentication bearerTokenAuthentication) {
-                        Object object = bearerTokenAuthentication.getPrincipal();
-                        if (object instanceof OAuth2IntrospectionAuthenticatedPrincipal principal) {
-                            String username = principal.getName();
-                            log.trace("[Herodotus] |- Current auditor is : [{}]", username);
-                            return Optional.of(username);
-                        }
-                    }
-                }
-            }
-        }
+        return Optional.ofNullable(context)
+                .map(SecurityContext::getAuthentication)
+                .filter(Authentication::isAuthenticated)
+                .filter(authentication -> authentication instanceof BearerTokenAuthentication)
+                .map(BearerTokenAuthentication.class::cast)
+                .map(AbstractOAuth2TokenAuthenticationToken::getPrincipal)
+                .filter(object -> object instanceof OAuth2IntrospectionAuthenticatedPrincipal)
+                .map(OAuth2IntrospectionAuthenticatedPrincipal.class::cast)
+                .map(this::getName)
+                .or(Optional::empty);
+    }
 
-        return Optional.empty();
+    private String getName(OAuth2IntrospectionAuthenticatedPrincipal principal) {
+        String username = principal.getName();
+        log.trace("[Herodotus] |- Current auditor is : [{}]", username);
+        return username;
     }
 }

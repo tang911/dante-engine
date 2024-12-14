@@ -38,6 +38,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * <p>Description: 默认 Jackson Custom 配置 </p>
@@ -49,6 +50,8 @@ public class Jackson2DefaultObjectMapperBuilderCustomizer implements BaseObjectM
 
     @Override
     public void customize(Jackson2ObjectMapperBuilder builder) {
+
+        builder.timeZone(TimeZone.getDefault());
 
         builder.featuresToEnable(
                 SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS,
