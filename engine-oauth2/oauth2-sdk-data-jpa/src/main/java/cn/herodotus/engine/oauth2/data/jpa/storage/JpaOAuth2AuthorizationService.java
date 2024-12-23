@@ -32,6 +32,7 @@ import cn.herodotus.engine.oauth2.data.jpa.jackson2.OAuth2JacksonProcessor;
 import cn.herodotus.engine.oauth2.data.jpa.service.HerodotusAuthorizationService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.converter.Converter;
@@ -118,24 +119,21 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
         Assert.hasText(token, "token cannot be empty");
 
         Optional<HerodotusAuthorization> result;
-        if (tokenType == null) {
+
+        if (ObjectUtils.isEmpty(tokenType)) {
             result = this.herodotusAuthorizationService.findByStateOrAuthorizationCodeValueOrAccessTokenValueOrRefreshTokenValueOrOidcIdTokenValueOrUserCodeValueOrDeviceCodeValue(token);
-        } else if (OAuth2ParameterNames.STATE.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByState(token);
-        } else if (OAuth2ParameterNames.CODE.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByAuthorizationCode(token);
-        } else if (OAuth2ParameterNames.ACCESS_TOKEN.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByAccessToken(token);
-        } else if (OAuth2ParameterNames.REFRESH_TOKEN.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByRefreshToken(token);
-        } else if (OidcParameterNames.ID_TOKEN.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByOidcIdTokenValue(token);
-        } else if (OAuth2ParameterNames.USER_CODE.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByUserCodeValue(token);
-        } else if (OAuth2ParameterNames.DEVICE_CODE.equals(tokenType.getValue())) {
-            result = this.herodotusAuthorizationService.findByDeviceCodeValue(token);
         } else {
-            result = Optional.empty();
+            result = switch (tokenType.getValue()) {
+                case OAuth2ParameterNames.STATE -> this.herodotusAuthorizationService.findByState(token);
+                case OAuth2ParameterNames.CODE -> this.herodotusAuthorizationService.findByAuthorizationCode(token);
+                case OAuth2ParameterNames.ACCESS_TOKEN -> this.herodotusAuthorizationService.findByAccessToken(token);
+                case OAuth2ParameterNames.REFRESH_TOKEN -> this.herodotusAuthorizationService.findByRefreshToken(token);
+                case OidcParameterNames.ID_TOKEN -> this.herodotusAuthorizationService.findByOidcIdTokenValue(token);
+                case OAuth2ParameterNames.USER_CODE -> this.herodotusAuthorizationService.findByUserCodeValue(token);
+                case OAuth2ParameterNames.DEVICE_CODE ->
+                        this.herodotusAuthorizationService.findByDeviceCodeValue(token);
+                default -> Optional.empty();
+            };
         }
 
         return result.map(this::toObject).orElse(null);

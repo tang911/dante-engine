@@ -82,8 +82,14 @@ public class OAuth2ToHerodotusAuthorizationConverter extends AbstractOAuth2Entit
                 entity::setAccessTokenExpiresAt,
                 entity::setAccessTokenMetadata
         );
-        if (accessToken != null && accessToken.getToken().getScopes() != null) {
-            entity.setAccessTokenScopes(StringUtils.collectionToCommaDelimitedString(accessToken.getToken().getScopes()));
+
+        if (accessToken != null) {
+            if (accessToken.getToken().getScopes() != null) {
+                entity.setAccessTokenScopes(StringUtils.collectionToCommaDelimitedString(accessToken.getToken().getScopes()));
+            }
+            if (accessToken.getToken().getTokenType() != null) {
+                entity.setAccessTokenType(accessToken.getToken().getTokenType().getValue());
+            }
         }
 
         OAuth2Authorization.Token<OAuth2RefreshToken> refreshToken =
