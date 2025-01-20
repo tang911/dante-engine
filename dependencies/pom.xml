@@ -37,7 +37,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.4.1.1</version>
+    <version>3.4.1.2</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -113,7 +113,7 @@
         <maven-archetype-plugin.version>3.3.1</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <mdi__font.version>7.4.47</mdi__font.version>
-        <minio.version>8.5.16</minio.version>
+        <minio.version>8.5.17</minio.version>
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
         <mysql.version>9.1.0</mysql.version>
