@@ -102,7 +102,7 @@
         <commons-text.version>1.13.0</commons-text.version>
         <fastjson2.version>2.0.54</fastjson2.version>
         <guava.version>33.4.0-jre</guava.version>
-        <hutool.version>6.0.0-M19</hutool.version>
+        <hutool.version>6.0.0-M20</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.9.1</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.2.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
@@ -145,10 +145,13 @@
         <!--以下为特殊处理, 统一版本处理漏洞等-->
         <checker-qual.version>3.49.0</checker-qual.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
+        <classgraph.version>4.8.179</classgraph.version>
         <dom4j.version>2.1.4</dom4j.version>
+        <error_prone_annotations.version>2.36.0</error_prone_annotations.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <hutool5.version>5.8.35</hutool5.version>
+        <hutool5.version>5.8.36</hutool5.version>
         <httpclient.version>4.5.14</httpclient.version>
+        <javassist.version>3.30.2-GA</javassist.version>
         <okio.version>3.10.2</okio.version>
         <org.json.version>20250107</org.json.version>
         <snappy-java.version>1.1.10.7</snappy-java.version>
@@ -765,6 +768,12 @@
                 <artifactId>json</artifactId>
                 <version>${org.json.version}</version>
             </dependency>
+            <!--统一控制error_prone_annotations版本，去除大量重复版本依赖-->
+            <dependency>
+                <groupId>com.google.errorprone</groupId>
+                <artifactId>error_prone_annotations</artifactId>
+                <version>${error_prone_annotations.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.squareup.okio</groupId>
                 <artifactId>okio</artifactId>
@@ -776,6 +785,19 @@
                 <version>${okio.version}</version>
                 <scope>runtime</scope>
             </dependency>
+            <!--统一控制classgraph版本，去除大量重复版本依赖-->
+            <dependency>
+                <groupId>io.github.classgraph</groupId>
+                <artifactId>classgraph</artifactId>
+                <version>${classgraph.version}</version>
+            </dependency>
+            <!--统一控制javassist版本，去除大量重复版本依赖-->
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
