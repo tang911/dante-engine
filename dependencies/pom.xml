@@ -128,7 +128,7 @@
         <skywalking.version>9.3.0</skywalking.version>
         <sm-crypto.version>0.3.13</sm-crypto.version>
         <sms4j-spring-boot-starter.version>3.3.3</sms4j-spring-boot-starter.version>
-        <springdoc.version>2.8.4</springdoc.version>
+        <springdoc.version>2.8.5</springdoc.version>
         <spring-boot-dependencies.version>3.4.2</spring-boot-dependencies.version>
         <spring-boot-admin-dependencies.version>3.4.2</spring-boot-admin-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2023.0.1.2</spring-cloud-alibaba-dependencies.version>
@@ -152,6 +152,7 @@
         <hutool5.version>5.8.36</hutool5.version>
         <httpclient.version>4.5.14</httpclient.version>
         <javassist.version>3.30.2-GA</javassist.version>
+        <jaxb-impl.version>4.0.5</jaxb-impl.version>
         <okio.version>3.10.2</okio.version>
         <org.json.version>20250107</org.json.version>
         <snappy-java.version>1.1.10.7</snappy-java.version>
@@ -785,6 +786,12 @@
                 <version>${okio.version}</version>
                 <scope>runtime</scope>
             </dependency>
+            <!--Camunda 7.X 新版本缺少该依赖-->
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jaxb-impl.version}</version>
+            </dependency>
             <!--统一控制classgraph版本，去除大量重复版本依赖-->
             <dependency>
                 <groupId>io.github.classgraph</groupId>
@@ -797,7 +804,6 @@
                 <artifactId>javassist</artifactId>
                 <version>${javassist.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
