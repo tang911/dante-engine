@@ -172,6 +172,22 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springdoc import 要配置在 sct 前面。-->
+            <!--否则 sct 中的 <springdoc.version> 会干扰当前配置，从而引入低版本 springdoc，导致系统无法启动-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi</artifactId>
+                <version>${springdoc.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-dependencies.version}</version>
@@ -193,16 +209,16 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-dependencies</artifactId>
-                <version>${spring-boot-admin-dependencies.version}</version>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-bom</artifactId>
+                <version>${jetcache.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi</artifactId>
-                <version>${springdoc.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-bom</artifactId>
+                <version>${mybatis-plus.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -217,20 +233,6 @@
                 <groupId>com.influxdb</groupId>
                 <artifactId>influxdb-client</artifactId>
                 <version>${influxdb-client.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-bom</artifactId>
-                <version>${jetcache.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-bom</artifactId>
-                <version>${mybatis-plus.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -818,18 +820,6 @@
                 <groupId>org.jboss.xnio</groupId>
                 <artifactId>xnio-nio</artifactId>
                 <version>${xnio.version}</version>
-            </dependency>
-            <!--springdoc ui 相关的 jar 会莫名其妙的变成 2.2.0 版本，这会导致系统启动错误-->
-            <!--上面的 springdoc bom 控制其它依赖版本，下面的 springdoc ui 解决版本不同差异-->
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-                <version>${springdoc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-                <version>${springdoc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
