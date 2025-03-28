@@ -83,7 +83,7 @@
 
         <aliyun-java-sdk-core.version>4.7.3</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
-        <alipay-sdk-java.version>4.40.104.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.112.ALL</alipay-sdk-java.version>
         <aliyun-sdk-oss.version>3.18.1</aliyun-sdk-oss.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.7</antisamy.version>
@@ -92,7 +92,7 @@
         <aws-java-sdk-s3.version>1.12.782</aws-java-sdk-s3.version>
         <bcpkix-jdk18on.version>1.80</bcpkix-jdk18on.version>
         <bcprov-jdk18on.version>1.80</bcprov-jdk18on.version>
-        <blaze-persistence.version>1.6.14</blaze-persistence.version>
+        <blaze-persistence.version>1.6.15</blaze-persistence.version>
         <bootstrap.version>5.3.3</bootstrap.version>
         <camunda-bpm-spring-boot-starter-rest.version>7.22.0</camunda-bpm-spring-boot-starter-rest.version>
         <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
@@ -101,7 +101,7 @@
         <commons-io.version>2.18.0</commons-io.version>
         <commons-text.version>1.13.0</commons-text.version>
         <fastjson2.version>2.0.56</fastjson2.version>
-        <guava.version>33.4.5-jre</guava.version>
+        <guava.version>33.4.6-jre</guava.version>
         <hutool.version>6.0.0-M20</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.9.5</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.2.0</influxdb-client.version>
@@ -505,6 +505,11 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${alipay-sdk-java.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.madgag</groupId>

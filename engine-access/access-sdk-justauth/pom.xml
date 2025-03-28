@@ -49,6 +49,11 @@
             <groupId>cn.herodotus.engine</groupId>
             <artifactId>cache-sdk-jetcache</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
