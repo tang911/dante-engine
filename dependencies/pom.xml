@@ -153,6 +153,7 @@
         <httpclient.version>4.5.14</httpclient.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <jaxb-impl.version>4.0.5</jaxb-impl.version>
+        <kryo.version>5.6.2</kryo.version>
         <okio.version>3.10.2</okio.version>
         <org.json.version>20250107</org.json.version>
         <snappy-java.version>1.1.10.7</snappy-java.version>
@@ -773,6 +774,12 @@
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
                 <version>${org.json.version}</version>
+            </dependency>
+            <!--统一控制kryo版本，减少不必要的低版本组件引入-->
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
             </dependency>
             <!--统一控制error_prone_annotations版本，去除大量重复版本依赖-->
             <dependency>
