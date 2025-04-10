@@ -37,7 +37,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.4.4.1</version>
+    <version>3.4.4.2</version>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
@@ -83,7 +83,7 @@
 
         <aliyun-java-sdk-core.version>4.7.3</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
-        <alipay-sdk-java.version>4.40.112.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.133.ALL</alipay-sdk-java.version>
         <aliyun-sdk-oss.version>3.18.1</aliyun-sdk-oss.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.7</antisamy.version>
@@ -94,22 +94,22 @@
         <bcprov-jdk18on.version>1.80</bcprov-jdk18on.version>
         <blaze-persistence.version>1.6.15</blaze-persistence.version>
         <bootstrap.version>5.3.3</bootstrap.version>
-        <camunda-bpm-spring-boot-starter-rest.version>7.22.0</camunda-bpm-spring-boot-starter-rest.version>
+        <camunda-bpm-spring-boot-starter-rest.version>7.23.0</camunda-bpm-spring-boot-starter-rest.version>
         <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
         <com.baidu.aip.version>4.16.19</com.baidu.aip.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-io.version>2.18.0</commons-io.version>
         <commons-text.version>1.13.0</commons-text.version>
         <fastjson2.version>2.0.57</fastjson2.version>
-        <guava.version>33.4.6-jre</guava.version>
-        <hutool.version>6.0.0-M20</hutool.version>
+        <guava.version>33.4.7-jre</guava.version>
+        <hutool.version>6.0.0-M21</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.9.9</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.2.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.7</jetcache.version>
         <jquery.version>3.7.1</jquery.version>
         <justauth.verison>1.16.7</justauth.verison>
-        <logstash-logback-encoder.version>8.0</logstash-logback-encoder.version>
+        <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
         <mapstruct-processor.version>1.6.3</mapstruct-processor.version>
         <maven-archetype-plugin.version>3.3.1</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
@@ -139,20 +139,21 @@
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <velocity.version>2.3</velocity.version>
         <vue.version>3.5.13</vue.version>
-        <weixin-java-sdk.version>4.7.3.B</weixin-java-sdk.version>
+        <weixin-java-sdk.version>4.7.4.B</weixin-java-sdk.version>
         <zxing.version>3.5.3</zxing.version>
 
         <!--以下为特殊处理, 统一版本处理漏洞等-->
-        <checker-qual.version>3.49.1</checker-qual.version>
+        <checker-qual.version>3.49.2</checker-qual.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
         <classgraph.version>4.8.179</classgraph.version>
         <dom4j.version>2.1.4</dom4j.version>
         <error_prone_annotations.version>2.37.0</error_prone_annotations.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <hutool5.version>5.8.36</hutool5.version>
+        <hutool5.version>5.8.37</hutool5.version>
         <httpclient.version>4.5.14</httpclient.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <jaxb-impl.version>4.0.5</jaxb-impl.version>
+        <kryo.version>5.6.2</kryo.version>
         <okio.version>3.10.2</okio.version>
         <org.json.version>20250107</org.json.version>
         <snappy-java.version>1.1.10.7</snappy-java.version>
@@ -773,6 +774,12 @@
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
                 <version>${org.json.version}</version>
+            </dependency>
+            <!--统一控制kryo版本，减少不必要的低版本组件引入-->
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
             </dependency>
             <!--统一控制error_prone_annotations版本，去除大量重复版本依赖-->
             <dependency>
