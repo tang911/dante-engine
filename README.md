@@ -9,14 +9,13 @@
     <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://shields.io/badge/Spring%20Boot-3.4.5-blue.svg?logo=spring" alt="Spring Boot 3.4.5"></a>
     <a href="https://spring.io/projects/spring-cloud" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud-2024.0.1-blue.svg?logo=spring" alt="Spring Cloud 2024.0.1"></a>
     <a href="https://github.com/alibaba/spring-cloud-alibaba" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud%20Alibaba-2023.0.1.2-blue.svg?logo=alibabadotcom" alt="Spring Cloud Alibaba 2023.0.1.2"></a>
-    <a href="https://github.com/Tencent/spring-cloud-tencent" target="_blank"><img src="https://img.shields.io/badge/Spring%20Cloud%20Tencent-1.13.2--2023.0.0-blue.svg?logo=tencentqq" alt="Spring Cloud Tencent 1.13.2-2023.0.0"></a>
+    <a href="https://github.com/Tencent/spring-cloud-tencent" target="_blank"><img src="https://img.shields.io/badge/Spring%20Cloud%20Tencent-1.13.2--2023.0.0-blue.svg?logo=qq" alt="Spring Cloud Tencent 1.13.2-2023.0.0"></a>
     <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-2.5.1-brightgreen.svg?logo=alibabadotcom" alt="Nacos 2.5.1"></a>
 </p>
 <p align="center">
     <a href="#" target="_blank"><img src="https://shields.io/badge/Version-3.4.5.0-red.svg?logo=spring" alt="Version 3.4.5.0"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-17%2B-green.svg?logo=openjdk" alt="Java 17"></a>
     <a href="./LICENSE"><img src="https://shields.io/badge/License-Apache--2.0-blue.svg?logo=apache" alt="License Apache 2.0"></a>
-    <a href="https://www.herodotus.cn"><img src="https://visitor-badge.laobi.icu/badge?page_id=dante-cloud&title=Total%20Visits" alt="Total Visits"></a>
     <a href="https://blog.csdn.net/Pointer_v" target="_blank"><img src="https://shields.io/badge/Author-%E7%A0%81%E5%8C%A0%E5%90%9B-orange" alt="码匠君"></a>
     <a href="https://github.com/dromara/dante-cloud"><img src="https://img.shields.io/github/stars/dromara/dante-cloud?style=flat&logo=github" alt="Github star"></a>
     <a href="https://github.com/dromara/dante-cloud"><img src="https://img.shields.io/github/forks/dromara/dante-cloud?style=flat&logo=github" alt="Github fork"></a>
@@ -29,7 +28,6 @@
     <a href="https://gitee.com/dromara/dante-cloud">Gitee 仓库</a> &nbsp; | &nbsp;
     <a href="https://gitcode.com/dromara/dante-cloud">GitCode 仓库</a> &nbsp; | &nbsp;
     <a href="https://dante-cloud.dromara.org">开源版本文档</a> &nbsp; | &nbsp;
-    <a href="https://www.herodotus.cn">开源备用文档</a> &nbsp; | &nbsp;
     <a href="https://www.herodotus.vip">企业版本文档</a>
     <a href="https://www.herodotus.vip/get-started/preview/online.html">系统演示</a>
 </p>
@@ -54,7 +52,7 @@
 
 - 不得将本软件应用于危害国家安全、荣誉和利益的行为，不能以任何形式用于非法为目的的行为。
 - 在延伸的代码中（修改现有源代码衍生的代码中）需要带有原来代码中的协议、版权声明和其他原作者 规定需要包含的说明（请尊重原作者的著作权，不要删除或修改文件中的Copyright和@author信息） 更不要，全局替换源代码中的 Dante Engine、Herodotus 或 码匠君 等字样，否则你将违反本协议条款承担责任。
-- 您若套用本软件的一些代码或功能参考，请保留源文件中的版权和作者，需要在您的软件介绍明显位置 说明出处，举例：本软件基于 Dante Cloud 微服务架构 或 Dante Engine，并附带链接：https://www.herodotus.cn
+- 您若套用本软件的一些代码或功能参考，请保留源文件中的版权和作者，需要在您的软件介绍明显位置 说明出处，举例：本软件基于 Dante Cloud 微服务架构 或 Dante Engine，并附带链接：https://www.herodotus.vip
 - 任何基于本软件而产生的一切法律纠纷和责任，均与作者无关。
 - 如果你对本软件有改进，希望可以贡献给我们，双向奔赴互相成就才是王道。
 - 本项目已申请软件著作权，请尊重开源。
@@ -150,7 +148,7 @@ dante-engine
 
 ## 安全测试
 
-Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.cn/guide/get-start/project-introduction.html#%E4%BA%94-%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95)
+Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.vip/guide/develop/compliance.html)
 
 ## 阅读顺序
 
