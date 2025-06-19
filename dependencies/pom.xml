@@ -94,9 +94,9 @@
         <bcpkix-jdk18on.version>1.81</bcpkix-jdk18on.version>
         <bcprov-jdk18on.version>1.81</bcprov-jdk18on.version>
         <blaze-persistence.version>1.6.15</blaze-persistence.version>
-        <bootstrap.version>5.3.6</bootstrap.version>
+        <bootstrap.version>5.3.7</bootstrap.version>
         <camunda-bpm-spring-boot-starter-rest.version>7.23.0</camunda-bpm-spring-boot-starter-rest.version>
-        <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
         <com.baidu.aip.version>4.16.21</com.baidu.aip.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-io.version>2.19.0</commons-io.version>
@@ -139,7 +139,7 @@
         <sweetalert2.verison>11.22.0</sweetalert2.verison>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <velocity.version>2.3</velocity.version>
-        <vue.version>3.5.16</vue.version>
+        <vue.version>3.5.17</vue.version>
         <weixin-java-sdk.version>4.7.6-20250609.143003</weixin-java-sdk.version>
         <zxing.version>3.5.3</zxing.version>
 
