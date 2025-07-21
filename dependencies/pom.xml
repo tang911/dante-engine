@@ -124,7 +124,7 @@
         <opengauss-jdbc.version>6.0.0-og</opengauss-jdbc.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <quasar.version>2.18.1</quasar.version>
+        <quasar.version>2.18.2</quasar.version>
         <redisson.version>3.50.0</redisson.version>
         <skywalking.version>9.4.0</skywalking.version>
         <sm-crypto.version>0.3.13</sm-crypto.version>
@@ -134,8 +134,8 @@
         <spring-boot-admin-dependencies.version>3.5.1</spring-boot-admin-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2023.0.3.3</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
-        <spring-cloud-tencent-dependencies.version>2.0.1.0-2023.0.3</spring-cloud-tencent-dependencies.version>
-        <sqlite-jdbc.version>3.50.2.0</sqlite-jdbc.version>
+        <spring-cloud-tencent-dependencies.version>2.0.2.2-2024.0.1</spring-cloud-tencent-dependencies.version>
+        <sqlite-jdbc.version>3.50.3.0</sqlite-jdbc.version>
         <sweetalert2.verison>11.22.2</sweetalert2.verison>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <velocity.version>2.3</velocity.version>
@@ -157,7 +157,7 @@
         <kryo.version>5.6.2</kryo.version>
         <okio.version>3.15.0</okio.version>
         <org.json.version>20250517</org.json.version>
-        <snappy-java.version>1.1.10.7</snappy-java.version>
+        <snappy-java.version>1.1.10.8</snappy-java.version>
         <xnio.version>3.8.16.Final</xnio.version>
     </properties>
 
