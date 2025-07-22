@@ -103,7 +103,7 @@
         <commons-text.version>1.13.1</commons-text.version>
         <fastjson2.version>2.0.57</fastjson2.version>
         <guava.version>33.4.8-jre</guava.version>
-        <hutool.version>6.0.0-M21</hutool.version>
+        <hutool.version>7.0.0-M1</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.10.3</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.3.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
@@ -564,7 +564,7 @@
                 <version>${zxing.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.dromara.hutool</groupId>
+                <groupId>cn.hutool.v7</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
