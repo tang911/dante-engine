@@ -1,7 +1,7 @@
 /*
  * Copyright 2020-2030 码匠君<herodotus@aliyun.com>
  *
- * Dante Cloud licensed under the Apache License, Version 2.0 (the "License");
+ * Dante Engine licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Dante Cloud 采用 APACHE LICENSE 2.0 开源协议，您在使用过程中，需要注意以下几点：
+ * Dante Engine 是 Dante Cloud 系统核心组件库，采用 APACHE LICENSE 2.0 开源协议，您在使用过程中，需要注意以下几点：
  *
  * 1. 请不要删除和修改根目录下的LICENSE文件。
- * 2. 请不要删除和修改 Dante Cloud 源码头部的版权声明。
+ * 2. 请不要删除和修改 Dante Engine 源码头部的版权声明。
  * 3. 请保留源码和相关描述文件的项目出处，作者声明等。
  * 4. 分发源码时候，请注明软件出处 <https://gitee.com/dromara/dante-cloud>
  * 5. 在修改包名，模块名称，项目代码等时，请注明软件出处 <https://gitee.com/dromara/dante-cloud>
@@ -26,8 +26,7 @@
 package cn.herodotus.engine.oauth2.authorization.autoconfigure.customizer;
 
 import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
-import cn.herodotus.engine.oauth2.authentication.consumer.OAuth2AuthorizationCodeAuthenticationProviderConsumer;
-import cn.herodotus.engine.oauth2.authentication.consumer.OAuth2ClientCredentialsAuthenticationProviderConsumer;
+import cn.herodotus.engine.oauth2.authentication.consumer.OAuth2TokenEndpointAuthenticationProviderConsumer;
 import cn.herodotus.engine.oauth2.authentication.oidc.HerodotusOidcUserInfoMapper;
 import cn.herodotus.engine.oauth2.authentication.provider.OAuth2ResourceOwnerPasswordAuthenticationConverter;
 import cn.herodotus.engine.oauth2.authentication.provider.OAuth2SocialCredentialsAuthenticationConverter;
@@ -80,10 +79,7 @@ public class OAuth2AuthorizationServerConfigurerCustomizer implements Customizer
     public void customize(OAuth2AuthorizationServerConfigurer oauth2AuthorizationServerConfigurer) {
 
         oauth2AuthorizationServerConfigurer
-                .clientAuthentication(endpoint -> {
-                    endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler);
-                    endpoint.authenticationProviders(new OAuth2ClientCredentialsAuthenticationProviderConsumer(httpSecurity, clientDetailsService));
-                })
+                .clientAuthentication(endpoint -> endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler))
                 .authorizationEndpoint(endpoint -> {
                     endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler);
                     endpoint.consentPage(DefaultConstants.AUTHORIZATION_CONSENT_URI);
@@ -110,7 +106,7 @@ public class OAuth2AuthorizationServerConfigurerCustomizer implements Customizer
                     endpoint.accessTokenRequestConverter(authenticationConverter);
                     endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler);
                     endpoint.accessTokenResponseHandler(new OAuth2AccessTokenResponseHandler(httpCryptoProcessor));
-                    endpoint.authenticationProviders(new OAuth2AuthorizationCodeAuthenticationProviderConsumer(httpSecurity, sessionRegistry));
+                    endpoint.authenticationProviders(new OAuth2TokenEndpointAuthenticationProviderConsumer(httpSecurity, sessionRegistry, clientDetailsService));
                 })
                 .tokenIntrospectionEndpoint(endpoint -> endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler))
                 .tokenRevocationEndpoint(endpoint -> endpoint.errorResponseHandler(oauth2AuthenticationFailureResponseHandler))
