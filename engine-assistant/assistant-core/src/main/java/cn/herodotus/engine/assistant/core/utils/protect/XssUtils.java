@@ -27,10 +27,11 @@ package cn.herodotus.engine.assistant.core.utils.protect;
 
 import cn.herodotus.engine.assistant.core.utils.ResourceResolver;
 import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
+import cn.hutool.v7.json.JSONUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.apache.commons.text.StringEscapeUtils;
-import cn.hutool.v7.json.JSONUtil;
 import org.owasp.validator.html.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,7 +77,7 @@ public class XssUtils {
         // 对转义的HTML特殊字符（<、>、"等）进行反转义，因为AntiSamy调用scan方法时会将特殊字符转义
         String cleanHtml = StringEscapeUtils.unescapeHtml4(getInstance().cleanHtml(taintedHTML));
 
-        if (StringUtils.startsWith(cleanHtml, SymbolConstants.NEW_LINE)) {
+        if (Strings.CS.startsWith(cleanHtml, SymbolConstants.NEW_LINE)) {
             // StringEscapeUtils.unescapeHtml4 转换某些内容时，会在开头增加 \n。去除之后才好判断，否则下面判断是否是 json 会出错。
             cleanHtml = StringUtils.removeStart(cleanHtml, SymbolConstants.NEW_LINE);
         }

@@ -25,10 +25,10 @@
 
 package cn.herodotus.engine.assistant.core.utils;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import cn.hutool.v7.core.codec.binary.Base64;
 import cn.hutool.v7.core.io.IoUtil;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -168,11 +168,11 @@ public class ResourceResolver {
     }
 
     public static boolean isClasspathUrl(String location) {
-        return StringUtils.startsWith(location, ResourceLoader.CLASSPATH_URL_PREFIX);
+        return Strings.CS.startsWith(location, ResourceLoader.CLASSPATH_URL_PREFIX);
     }
 
     public static boolean isClasspathAllUrl(String location) {
-        return StringUtils.startsWith(location, ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX);
+        return Strings.CS.startsWith(location, ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX);
     }
 
     public static boolean isJarUrl(URL url) {

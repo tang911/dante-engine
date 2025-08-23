@@ -31,6 +31,7 @@ import cn.herodotus.engine.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.websocket.enums.InstanceMode;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Collections;
@@ -83,7 +84,7 @@ public class WebSocketProperties {
     }
 
     private String format(String endpoint) {
-        if (StringUtils.isNotBlank(endpoint) && !StringUtils.startsWith(endpoint, SymbolConstants.FORWARD_SLASH)) {
+        if (StringUtils.isNotBlank(endpoint) && !Strings.CS.startsWith(endpoint, SymbolConstants.FORWARD_SLASH)) {
             return SymbolConstants.FORWARD_SLASH + endpoint;
         } else {
             return endpoint;

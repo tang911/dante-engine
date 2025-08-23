@@ -31,6 +31,7 @@ import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
 import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
 import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,13 +62,13 @@ public class WellFormedUtils {
     public static String robustness(String content, String symbol, boolean isStartsWith, boolean isRetain) {
         if (isStartsWith) {
             if (isRetain) {
-                if (StringUtils.startsWith(content, symbol)) {
+                if (Strings.CS.startsWith(content, symbol)) {
                     return content;
                 } else {
                     return symbol + content;
                 }
             } else {
-                if (StringUtils.startsWith(content, symbol)) {
+                if (Strings.CS.startsWith(content, symbol)) {
                     return StringUtils.removeStart(content, symbol);
                 } else {
                     return content;
@@ -149,7 +150,7 @@ public class WellFormedUtils {
     public static String addressToUri(String address, Protocol protocol, boolean endWithForwardSlash) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        if (!StringUtils.startsWith(address, protocol.getFormat())) {
+        if (!Strings.CS.startsWith(address, protocol.getFormat())) {
             stringBuilder.append(protocol.getFormat());
         }
 
@@ -232,7 +233,7 @@ public class WellFormedUtils {
 
     public static boolean isToken(String token) {
         if (StringUtils.isNotBlank(token)) {
-            return StringUtils.startsWith(token, BaseConstants.BEARER_TOKEN) || StringUtils.startsWith(token, BaseConstants.BASIC_TOKEN);
+            return Strings.CS.startsWith(token, BaseConstants.BEARER_TOKEN) || Strings.CS.startsWith(token, BaseConstants.BASIC_TOKEN);
         } else {
             return true;
         }

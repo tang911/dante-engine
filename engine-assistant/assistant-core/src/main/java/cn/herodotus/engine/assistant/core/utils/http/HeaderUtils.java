@@ -29,6 +29,7 @@ import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.server.ServerHttpRequest;
@@ -265,7 +266,7 @@ public class HeaderUtils {
      */
     public static String getBearerToken(HttpServletRequest request) {
         String header = getAuthorization(request);
-        if (StringUtils.isNotBlank(header) && StringUtils.startsWith(header, BaseConstants.BEARER_TOKEN)) {
+        if (StringUtils.isNotBlank(header) && Strings.CS.startsWith(header, BaseConstants.BEARER_TOKEN)) {
             return StringUtils.remove(header, BaseConstants.BEARER_TOKEN);
         } else {
             return null;

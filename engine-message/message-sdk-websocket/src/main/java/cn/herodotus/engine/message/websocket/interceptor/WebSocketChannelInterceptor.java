@@ -30,6 +30,7 @@ import cn.herodotus.engine.message.websocket.domain.WebSocketPrincipal;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -88,7 +89,7 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
                     String token = null;
                     if (CollectionUtils.isNotEmpty(tokenHeaders)) {
                         String temp = tokenHeaders.get(0);
-                        if (StringUtils.isNotBlank(temp) && StringUtils.startsWith(temp, BaseConstants.BEARER_TOKEN)) {
+                        if (StringUtils.isNotBlank(temp) && Strings.CS.startsWith(temp, BaseConstants.BEARER_TOKEN)) {
                             token = StringUtils.removeStartIgnoreCase(temp, BaseConstants.BEARER_TOKEN);
                         }
                     }
