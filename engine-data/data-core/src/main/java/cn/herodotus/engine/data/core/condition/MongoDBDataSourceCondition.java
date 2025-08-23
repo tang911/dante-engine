@@ -29,6 +29,7 @@ import cn.herodotus.engine.assistant.core.context.PropertyResolver;
 import cn.herodotus.engine.data.core.constants.DataConstants;
 import cn.herodotus.engine.data.core.enums.DataSource;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Condition;
@@ -49,7 +50,7 @@ public class MongoDBDataSourceCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String property = PropertyResolver.getProperty(conditionContext, DataConstants.ITEM_DATA_DATA_SOURCE);
-        boolean result = StringUtils.isNotBlank(property) && StringUtils.equalsIgnoreCase(property, DataSource.MONGODB.name());
+        boolean result = StringUtils.isNotBlank(property) && Strings.CI.equals(property, DataSource.MONGODB.name());
         log.debug("[Herodotus] |- Condition [MongoDB Data Source] value is [{}]", result);
         return result;
     }

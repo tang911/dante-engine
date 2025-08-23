@@ -31,13 +31,13 @@ import cn.herodotus.engine.message.core.logic.domain.RequestMapping;
 import cn.herodotus.engine.message.core.logic.strategy.RequestMappingScanEventManager;
 import cn.herodotus.engine.rest.condition.constants.RestPropertyFinder;
 import cn.herodotus.engine.rest.condition.properties.ScanProperties;
+import cn.hutool.v7.crypto.SecureUtil;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import cn.hutool.v7.crypto.SecureUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -269,6 +269,7 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
 
     /**
      * 从 {@link ApplicationContext} 中读取 Context Path
+     *
      * @param applicationContext 应用上下文 {@link ApplicationContext}
      * @return 如果有 Context Path 就返回实际值，如果没有或者为 '/' 则返回空串。
      */
@@ -283,8 +284,9 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
 
     /**
      * 拼接实际的 URL。
+     *
      * @param contextPath 上下文路径
-     * @param url 实际的 Controller 地址。
+     * @param url         实际的 Controller 地址。
      * @return 实际的 URL。
      */
     private String toInterface(String contextPath, String url) {

@@ -34,9 +34,10 @@ import cn.herodotus.engine.captcha.core.exception.CaptchaHasExpiredException;
 import cn.herodotus.engine.captcha.core.exception.CaptchaIsEmptyException;
 import cn.herodotus.engine.captcha.core.exception.CaptchaMismatchException;
 import cn.herodotus.engine.captcha.core.exception.CaptchaParameterIllegalException;
+import cn.hutool.v7.core.data.id.IdUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import cn.hutool.v7.core.data.id.IdUtil;
+import org.apache.commons.lang3.Strings;
 
 import java.awt.*;
 
@@ -101,7 +102,7 @@ public abstract class AbstractGraphicRenderer extends AbstractRenderer<String, S
 
         String real = verification.getCharacters();
 
-        if (!StringUtils.equalsIgnoreCase(store, real)) {
+        if (!Strings.CI.equals(store, real)) {
             throw new CaptchaMismatchException();
         }
 

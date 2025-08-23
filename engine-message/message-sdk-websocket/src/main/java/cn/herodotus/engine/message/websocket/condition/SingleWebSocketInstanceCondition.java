@@ -28,7 +28,7 @@ package cn.herodotus.engine.message.websocket.condition;
 import cn.herodotus.engine.assistant.core.context.PropertyResolver;
 import cn.herodotus.engine.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.websocket.enums.InstanceMode;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Condition;
@@ -49,7 +49,7 @@ public class SingleWebSocketInstanceCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata) {
         String property = PropertyResolver.getProperty(conditionContext, MessageConstants.ITEM_WEBSOCKET_MULTIPLE_INSTANCE, InstanceMode.SINGLE.name());
-        boolean result = StringUtils.equalsIgnoreCase(property, InstanceMode.SINGLE.name());
+        boolean result = Strings.CI.equals(property, InstanceMode.SINGLE.name());
         log.debug("[Herodotus] |- Condition [Single Web Socket Instance] value is [{}]", result);
         return result;
     }

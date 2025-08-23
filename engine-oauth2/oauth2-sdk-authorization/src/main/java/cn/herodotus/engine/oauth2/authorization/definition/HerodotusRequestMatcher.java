@@ -30,6 +30,7 @@ import com.google.common.base.Objects;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
@@ -170,7 +171,7 @@ public final class HerodotusRequestMatcher implements RequestMatcher, Serializab
     @Override
     public boolean matches(HttpServletRequest request) {
         if (StringUtils.isNotBlank(this.httpMethod) && StringUtils.isNotBlank(request.getMethod())
-                && !StringUtils.equalsIgnoreCase(this.httpMethod, request.getMethod())) {
+                && !Strings.CI.equals(this.httpMethod, request.getMethod())) {
             return false;
         }
         if (this.pattern.equals(MATCH_ALL)) {
@@ -183,7 +184,7 @@ public final class HerodotusRequestMatcher implements RequestMatcher, Serializab
     public boolean matches(HerodotusRequest request) {
 
         if (StringUtils.isNotBlank(this.httpMethod) && StringUtils.isNotBlank(request.getHttpMethod())
-                && !StringUtils.equalsIgnoreCase(this.httpMethod, request.getHttpMethod())) {
+                && !Strings.CI.equals(this.httpMethod, request.getHttpMethod())) {
             return false;
         }
 

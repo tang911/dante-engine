@@ -28,12 +28,13 @@ package cn.herodotus.engine.rest.service.feign;
 import cn.herodotus.engine.assistant.core.context.TenantContextHolder;
 import cn.herodotus.engine.assistant.core.utils.http.HeaderUtils;
 import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
+import cn.hutool.v7.http.server.servlet.ServletUtil;
 import com.google.common.net.HttpHeaders;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
-import cn.hutool.v7.http.server.servlet.ServletUtil;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -66,13 +67,13 @@ public class FeignRequestInterceptor implements RequestInterceptor {
 
                 // 跳过content-length值的复制。因为服务之间调用需要携带一些用户信息之类的 所以实现了Feign的RequestInterceptor拦截器复制请求头，复制的时候是所有头都复制的,可能导致Content-length长度跟body不一致
                 // @see https://blog.csdn.net/qq_39986681/article/details/107138740
-                if (StringUtils.equalsIgnoreCase(key, HttpHeaders.CONTENT_LENGTH)) {
+                if (Strings.CI.equals(key, HttpHeaders.CONTENT_LENGTH)) {
                     continue;
                 }
 
                 // 如果 RequestTemplate 已经包含了 content_type, 那么就不传递 content_type
                 // 以防上游 content_type 与下游不同，传递后产生干扰。
-                if (StringUtils.equalsIgnoreCase(key, HttpHeaders.CONTENT_TYPE)) {
+                if (Strings.CI.equals(key, HttpHeaders.CONTENT_TYPE)) {
                     Map<String, Collection<String>> requestHeaders = requestTemplate.headers();
                     if (requestHeaders.containsKey(HttpHeaders.CONTENT_TYPE)) {
                         continue;
@@ -80,13 +81,13 @@ public class FeignRequestInterceptor implements RequestInterceptor {
                 }
 
                 // 解决 UserAgent 信息被修改后，AppleWebKit/537.36 (KHTML,like Gecko)部分存在非法字符的问题
-                if (StringUtils.equalsIgnoreCase(key, HttpHeaders.USER_AGENT)) {
+                if (Strings.CI.equals(key, HttpHeaders.USER_AGENT)) {
                     value = StringUtils.replace(value, SymbolConstants.NEW_LINE, SymbolConstants.BLANK);
                     entry.setValue(value);
                 }
 
                 // 解决使用edge浏览器并使用feign，报错Unexpected char 0x0a at 25 in sec-ch-ua value: "Microsoft Edge";v="107...
-                if (StringUtils.equalsIgnoreCase(key, HttpHeaders.SEC_CH_UA)) {
+                if (Strings.CI.equals(key, HttpHeaders.SEC_CH_UA)) {
                     value = StringUtils.replace(value, SymbolConstants.NEW_LINE, SymbolConstants.BLANK);
                     entry.setValue(value);
                 }
