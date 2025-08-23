@@ -79,7 +79,7 @@ public class XssUtils {
 
         if (Strings.CS.startsWith(cleanHtml, SymbolConstants.NEW_LINE)) {
             // StringEscapeUtils.unescapeHtml4 转换某些内容时，会在开头增加 \n。去除之后才好判断，否则下面判断是否是 json 会出错。
-            cleanHtml = StringUtils.removeStart(cleanHtml, SymbolConstants.NEW_LINE);
+            cleanHtml = Strings.CS.removeStart(cleanHtml, SymbolConstants.NEW_LINE);
         }
 
         if (JSONUtil.isTypeJSON(cleanHtml) && StringUtils.contains(cleanHtml, SymbolConstants.NEW_LINE)) {

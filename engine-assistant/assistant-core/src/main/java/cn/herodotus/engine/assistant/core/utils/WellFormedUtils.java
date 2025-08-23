@@ -69,7 +69,7 @@ public class WellFormedUtils {
                 }
             } else {
                 if (Strings.CS.startsWith(content, symbol)) {
-                    return StringUtils.removeStart(content, symbol);
+                    return Strings.CS.removeStart(content, symbol);
                 } else {
                     return content;
                 }
@@ -83,7 +83,7 @@ public class WellFormedUtils {
                 }
             } else {
                 if (StringUtils.endsWith(content, symbol)) {
-                    return StringUtils.removeEnd(content, symbol);
+                    return Strings.CS.removeEnd(content, symbol);
                 } else {
                     return content;
                 }

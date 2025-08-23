@@ -90,7 +90,7 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
                     if (CollectionUtils.isNotEmpty(tokenHeaders)) {
                         String temp = tokenHeaders.get(0);
                         if (StringUtils.isNotBlank(temp) && Strings.CS.startsWith(temp, BaseConstants.BEARER_TOKEN)) {
-                            token = StringUtils.removeStartIgnoreCase(temp, BaseConstants.BEARER_TOKEN);
+                            token = Strings.CI.removeStart(temp, BaseConstants.BEARER_TOKEN);
                         }
                     }
 
