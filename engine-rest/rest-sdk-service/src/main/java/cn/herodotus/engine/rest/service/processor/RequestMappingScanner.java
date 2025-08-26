@@ -31,13 +31,14 @@ import cn.herodotus.engine.message.core.logic.domain.RequestMapping;
 import cn.herodotus.engine.message.core.logic.strategy.RequestMappingScanEventManager;
 import cn.herodotus.engine.rest.condition.constants.RestPropertyFinder;
 import cn.herodotus.engine.rest.condition.properties.ScanProperties;
+import cn.hutool.v7.crypto.SecureUtil;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import cn.hutool.v7.crypto.SecureUtil;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -187,7 +188,7 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
     private boolean isLegalGroup(String className) {
         if (StringUtils.isNotEmpty(className)) {
             List<String> groupIds = restProperties.getScanGroupIds();
-            List<String> result = groupIds.stream().filter(groupId -> StringUtils.contains(className, groupId)).collect(Collectors.toList());
+            List<String> result = groupIds.stream().filter(groupId -> Strings.CS.contains(className, groupId)).collect(Collectors.toList());
             return !CollectionUtils.sizeIsEmpty(result);
         } else {
             return false;
@@ -210,7 +211,7 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
         String[] replacement = new String[]{SymbolConstants.BLANK, SymbolConstants.BLANK, SymbolConstants.COLON};
         String code = StringUtils.replaceEach(url, search, replacement);
 
-        String result = StringUtils.isNotBlank(requestMethods) ? StringUtils.lowerCase(requestMethods) + code : StringUtils.removeStart(code, SymbolConstants.COLON);
+        String result = StringUtils.isNotBlank(requestMethods) ? StringUtils.lowerCase(requestMethods) + code : Strings.CS.removeStart(code, SymbolConstants.COLON);
         log.trace("[Herodotus] |- Create code [{}] for Request [{}] : [{}]", result, requestMethods, url);
         return result;
     }
@@ -269,12 +270,13 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
 
     /**
      * 从 {@link ApplicationContext} 中读取 Context Path
+     *
      * @param applicationContext 应用上下文 {@link ApplicationContext}
      * @return 如果有 Context Path 就返回实际值，如果没有或者为 '/' 则返回空串。
      */
     private String getContextPath(ApplicationContext applicationContext) {
         String contextPath = RestPropertyFinder.getContextPath(applicationContext);
-        if (StringUtils.isNotBlank(contextPath) && !StringUtils.equals(contextPath, SymbolConstants.FORWARD_SLASH)) {
+        if (StringUtils.isNotBlank(contextPath) && !Strings.CS.equals(contextPath, SymbolConstants.FORWARD_SLASH)) {
             return WellFormedUtils.robustness(contextPath, SymbolConstants.FORWARD_SLASH, false, false);
         } else {
             return StringUtils.EMPTY;
@@ -283,8 +285,9 @@ public class RequestMappingScanner implements ApplicationListener<ApplicationRea
 
     /**
      * 拼接实际的 URL。
+     *
      * @param contextPath 上下文路径
-     * @param url 实际的 Controller 地址。
+     * @param url         实际的 Controller 地址。
      * @return 实际的 URL。
      */
     private String toInterface(String contextPath, String url) {

@@ -26,10 +26,10 @@
 package cn.herodotus.engine.oauth2.core.utils;
 
 import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import cn.hutool.v7.core.bean.BeanUtil;
 import cn.hutool.v7.core.bean.copier.CopyOptions;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -178,7 +178,7 @@ public class SecurityUtils {
     }
 
     public static String wellFormPrefix(String content, String prefix) {
-        if (StringUtils.startsWith(content, prefix)) {
+        if (Strings.CS.startsWith(content, prefix)) {
             return content;
         } else {
             return prefix + content;

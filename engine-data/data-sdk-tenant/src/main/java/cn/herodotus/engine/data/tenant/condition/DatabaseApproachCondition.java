@@ -29,6 +29,7 @@ import cn.herodotus.engine.assistant.core.context.PropertyResolver;
 import cn.herodotus.engine.data.core.constants.DataConstants;
 import cn.herodotus.engine.data.core.enums.MultiTenantApproach;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Condition;
@@ -49,7 +50,7 @@ public class DatabaseApproachCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String property = PropertyResolver.getProperty(conditionContext, DataConstants.ITEM_MULTI_TENANT_APPROACH);
-        boolean result = StringUtils.isNotBlank(property) && StringUtils.equalsIgnoreCase(property, MultiTenantApproach.DATABASE.name());
+        boolean result = StringUtils.isNotBlank(property) && Strings.CI.equals(property, MultiTenantApproach.DATABASE.name());
         log.debug("[Herodotus] |- Condition [Database Approach] value is [{}]", result);
         return result;
     }

@@ -27,7 +27,7 @@ package cn.herodotus.engine.rest.condition.definition;
 
 import cn.herodotus.engine.assistant.core.enums.Architecture;
 import cn.herodotus.engine.rest.condition.constants.RestPropertyFinder;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Condition;
@@ -48,7 +48,7 @@ public class DistributedArchitectureCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String property = RestPropertyFinder.getArchitecture(conditionContext, Architecture.DISTRIBUTED.name());
-        boolean result = StringUtils.equalsIgnoreCase(property, Architecture.DISTRIBUTED.name());
+        boolean result = Strings.CI.equals(property, Architecture.DISTRIBUTED.name());
         log.debug("[Herodotus] |- Condition [Distributed Architecture] value is [{}]", result);
         return result;
     }

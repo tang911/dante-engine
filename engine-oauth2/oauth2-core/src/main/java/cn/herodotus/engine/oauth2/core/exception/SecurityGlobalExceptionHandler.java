@@ -169,7 +169,7 @@ public class SecurityGlobalExceptionHandler {
         if (ObjectUtils.isNotEmpty(throwable)) {
             // 此处是判断 throwable.getClass() 的父类是不是 PlatformRuntimeException
             // 注意：父类 PlatformRuntimeException.class 放左侧，子类放右侧。
-            if (PlatformRuntimeException.class.isAssignableFrom(throwable.getClass()) ) {
+            if (PlatformRuntimeException.class.isAssignableFrom(throwable.getClass())) {
                 PlatformRuntimeException platformRuntimeException = (PlatformRuntimeException) throwable;
                 Result<String> result = platformRuntimeException.getResult();
                 return result.path(path);

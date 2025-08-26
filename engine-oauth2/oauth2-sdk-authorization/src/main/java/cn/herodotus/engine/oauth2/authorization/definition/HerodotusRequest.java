@@ -48,8 +48,6 @@ public final class HerodotusRequest implements Serializable {
 
     private String httpMethod;
 
-    private boolean hasWildcard;
-
     public HerodotusRequest() {
     }
 
@@ -74,7 +72,6 @@ public final class HerodotusRequest implements Serializable {
     public HerodotusRequest(String pattern, String httpMethod) {
         Assert.hasText(pattern, "Pattern cannot be null or empty");
         this.pattern = pattern;
-        this.hasWildcard = containSpecialCharacters(pattern);
         this.httpMethod = checkHttpMethod(httpMethod);
     }
 
@@ -82,20 +79,8 @@ public final class HerodotusRequest implements Serializable {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
-        this.pattern = pattern;
-    }
-
     public String getHttpMethod() {
         return httpMethod;
-    }
-
-    public void setHttpMethod(String httpMethod) {
-        this.httpMethod = httpMethod;
-    }
-
-    public boolean isHasWildcard() {
-        return hasWildcard;
     }
 
     private String checkHttpMethod(String method) {
@@ -106,13 +91,6 @@ public final class HerodotusRequest implements Serializable {
             }
         }
         return null;
-    }
-
-    private boolean containSpecialCharacters(String source) {
-        if (StringUtils.isNotBlank(source)) {
-            return StringUtils.containsAny(source, new String[]{"*", "?", "{"});
-        }
-        return false;
     }
 
     @Override
