@@ -135,7 +135,7 @@
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
         <bootstrap.version>5.3.8</bootstrap.version>
-        <inter-ui.version>3.19.0</inter-ui.version>
+        <inter-ui.version>4.1.1</inter-ui.version>
         <jquery.version>3.7.1</jquery.version>
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.18.2</quasar.version>
@@ -643,11 +643,6 @@
                 <version>${weixin-java-sdk.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.binarywang</groupId>
-                <artifactId>weixin-java-pay</artifactId>
-                <version>${weixin-java-sdk.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.camunda.bpm.springboot</groupId>
                 <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
                 <version>${camunda-bpm-spring-boot-starter-rest.version}</version>
@@ -701,7 +696,7 @@
             </dependency>
             <dependency>
                 <groupId>org.webjars.npm</groupId>
-                <artifactId>github-com-philipbelesky-inter-ui</artifactId>
+                <artifactId>inter-ui</artifactId>
                 <version>${inter-ui.version}</version>
             </dependency>
             <dependency>

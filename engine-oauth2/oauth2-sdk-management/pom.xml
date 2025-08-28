@@ -59,7 +59,7 @@
         </dependency>
         <dependency>
             <groupId>org.webjars.npm</groupId>
-            <artifactId>github-com-philipbelesky-inter-ui</artifactId>
+            <artifactId>inter-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>org.webjars.npm</groupId>
