@@ -37,7 +37,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.5.5.1</version>
+    <version>3.5.5.2</version>
     <name>Dante Engine Dependencies</name>
     <packaging>pom</packaging>
 
@@ -82,13 +82,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!--Maven Plugins-->
+        <archetype-packaging.verison>3.4.0</archetype-packaging.verison>
+        <mapstruct-processor.version>1.6.3</mapstruct-processor.version>
+        <maven-archetype-plugin.version>3.4.0</maven-archetype-plugin.version>
+        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+        <protobuf-maven-plugin.version>3.8.1</protobuf-maven-plugin.version>
+
         <aliyun-java-sdk-core.version>4.7.6</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
-        <alipay-sdk-java.version>4.40.411.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.427.ALL</alipay-sdk-java.version>
         <aliyun-sdk-oss.version>3.18.3</aliyun-sdk-oss.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.8</antisamy.version>
-        <archetype-packaging.verison>3.4.0</archetype-packaging.verison>
         <aws-java-sdk-s3.version>1.12.788</aws-java-sdk-s3.version>
         <bcpkix-jdk18on.version>1.81</bcpkix-jdk18on.version>
         <bcprov-jdk18on.version>1.81</bcprov-jdk18on.version>
@@ -106,12 +112,9 @@
         <jetcache.version>2.7.8</jetcache.version>
         <justauth.verison>1.16.7</justauth.verison>
         <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
-        <mapstruct-processor.version>1.6.3</mapstruct-processor.version>
-        <maven-archetype-plugin.version>3.4.0</maven-archetype-plugin.version>
-        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <minio.version>8.5.17</minio.version>
         <mybatis.version>3.5.19</mybatis.version>
-        <mybatis-plus.version>3.5.12</mybatis-plus.version>
+        <mybatis-plus.version>3.5.14</mybatis-plus.version>
         <mysql.version>9.4.0</mysql.version>
         <nacos.version>3.0.3</nacos.version>
         <okhttps.version>4.1.0</okhttps.version>
@@ -130,7 +133,7 @@
         <spring-cloud-tencent-dependencies.version>2.0.2.2-2024.0.1</spring-cloud-tencent-dependencies.version>
         <sqlite-jdbc.version>3.50.3.0</sqlite-jdbc.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <weixin-java-sdk.version>4.7.7-20250808.182223</weixin-java-sdk.version>
+        <weixin-java-sdk.version>4.7.7-20250831.214433</weixin-java-sdk.version>
         <zxing.version>3.5.3</zxing.version>
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
@@ -145,7 +148,7 @@
         <vue.version>3.5.20</vue.version>
 
         <!--以下为特殊处理, 统一版本处理漏洞等-->
-        <checker-qual.version>3.49.5</checker-qual.version>
+        <checker-qual.version>3.50.0</checker-qual.version>
         <commons-fileupload.version>1.6.0</commons-fileupload.version>
         <!--fix CVE-2025-48924 -->
         <commons-lang3.version>3.18.0</commons-lang3.version>
@@ -162,7 +165,7 @@
         <org.json.version>20250517</org.json.version>
         <snappy-java.version>1.1.10.8</snappy-java.version>
         <!--fix CVE-2024-51504 -->
-        <zookeeper.verison>3.9.3</zookeeper.verison>
+        <zookeeper.verison>3.9.4</zookeeper.verison>
     </properties>
 
     <dependencyManagement>
