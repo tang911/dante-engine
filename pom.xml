@@ -115,6 +115,8 @@
         <module>engine-facility</module>
         <module>engine-access</module>
         <module>engine-supplier</module>
+        <module>engine-core</module>
+        <module>engine-starter</module>
     </modules>
 
 </project>

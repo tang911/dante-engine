@@ -40,6 +40,12 @@
     <description>基于 Spring Authorization Server 的 Dante Cloud 核心定义模块</description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
+            <artifactId>core-foundation</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>

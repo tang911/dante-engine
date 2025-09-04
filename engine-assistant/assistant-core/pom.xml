@@ -43,6 +43,10 @@
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
+            <artifactId>core-definition</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
             <artifactId>assistant-definition</artifactId>
         </dependency>
         <dependency>
