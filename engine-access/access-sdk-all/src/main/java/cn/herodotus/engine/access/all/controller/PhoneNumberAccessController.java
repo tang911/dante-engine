@@ -28,7 +28,7 @@ package cn.herodotus.engine.access.all.controller;
 import cn.herodotus.engine.access.all.processor.AccessHandlerStrategyFactory;
 import cn.herodotus.engine.access.core.definition.AccessResponse;
 import cn.herodotus.engine.assistant.core.enums.AccountType;
-import cn.herodotus.engine.assistant.definition.domain.Result;
+import cn.herodotus.engine.core.definition.domain.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

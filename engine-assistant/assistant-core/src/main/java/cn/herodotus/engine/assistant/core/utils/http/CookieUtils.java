@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.assistant.core.utils.http;
 
-import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
+import cn.herodotus.engine.core.definition.constant.SymbolConstants;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.assistant.core.exception.properties;
 
-import cn.herodotus.engine.assistant.definition.constants.ErrorCodes;
-import cn.herodotus.engine.assistant.definition.domain.Feedback;
-import cn.herodotus.engine.assistant.definition.exception.PlatformRuntimeException;
+import cn.herodotus.engine.core.definition.constant.ErrorCodes;
+import cn.herodotus.engine.core.definition.domain.Feedback;
+import cn.herodotus.engine.core.definition.exception.PlatformRuntimeException;
 
 /**
  * <p>Description: Property 属性值没有设置错误 </p>

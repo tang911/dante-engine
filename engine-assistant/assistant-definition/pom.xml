@@ -46,26 +46,7 @@
             <artifactId>core-foundation</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents.client5</groupId>
-            <artifactId>httpclient5</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -98,14 +79,8 @@
             <groupId>cn.zhxu</groupId>
             <artifactId>okhttps-gson</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-core-jakarta</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool.v7</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
+
+
         <!--指定 bouncycastle 相关依赖，避免依赖第三方携带 bouncycastle 相关包，产生 hutool 不同版本 crypto 不兼容问题，以及抛出DefaultBufferedBlockCipher问题-->
         <dependency>
             <groupId>org.bouncycastle</groupId>

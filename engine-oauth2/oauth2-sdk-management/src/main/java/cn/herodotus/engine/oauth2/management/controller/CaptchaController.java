@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.management.controller;
 
-import cn.herodotus.engine.assistant.definition.domain.Result;
+import cn.herodotus.engine.core.definition.domain.Result;
 import cn.herodotus.engine.captcha.core.dto.Captcha;
 import cn.herodotus.engine.captcha.core.dto.Verification;
 import cn.herodotus.engine.captcha.core.processor.CaptchaRendererFactory;

@@ -25,6 +25,8 @@
 
 package cn.herodotus.engine.assistant.definition.constants;
 
+import cn.herodotus.engine.core.definition.constant.SymbolConstants;
+
 /**
  * <p>Description: 基础共用常量值常量 </p>
  *

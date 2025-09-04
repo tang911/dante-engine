@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.assistant.core.json.gson;
 
-import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.ObjectUtils;
@@ -48,7 +48,7 @@ public class GsonUtils {
     static {
         GSON_BUILDER.enableComplexMapKeySerialization();
         GSON_BUILDER.serializeNulls();
-        GSON_BUILDER.setDateFormat(DefaultConstants.DATE_TIME_FORMAT);
+        GSON_BUILDER.setDateFormat(SystemConstants.DATE_TIME_FORMAT);
         GSON_BUILDER.disableHtmlEscaping();
     }
 

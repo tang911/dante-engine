@@ -25,10 +25,10 @@
 
 package cn.herodotus.engine.assistant.definition.support;
 
-import cn.herodotus.engine.assistant.definition.constants.ErrorCodes;
-import cn.herodotus.engine.assistant.definition.domain.ErrorCodeMapper;
-import cn.herodotus.engine.assistant.definition.domain.Feedback;
-import cn.herodotus.engine.assistant.definition.feedback.*;
+import cn.herodotus.engine.core.definition.constant.ErrorCodes;
+import cn.herodotus.engine.core.definition.domain.ErrorCodeMapper;
+import cn.herodotus.engine.core.definition.domain.Feedback;
+import cn.herodotus.engine.core.definition.feedback.*;
 import org.apache.commons.collections4.MapUtils;
 
 import java.util.LinkedHashMap;

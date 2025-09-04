@@ -28,8 +28,8 @@ package cn.herodotus.engine.assistant.core.utils;
 import cn.herodotus.engine.assistant.core.enums.Protocol;
 import cn.herodotus.engine.assistant.core.exception.properties.PropertyValueIsNotSetException;
 import cn.herodotus.engine.assistant.definition.constants.BaseConstants;
-import cn.herodotus.engine.assistant.definition.constants.DefaultConstants;
-import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
+import cn.herodotus.engine.core.definition.constant.SymbolConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
@@ -133,7 +133,7 @@ public class WellFormedUtils {
      */
     public static String parentId(String parentId) {
         if (StringUtils.isBlank(parentId)) {
-            return DefaultConstants.TREE_ROOT_ID;
+            return SystemConstants.TREE_ROOT_ID;
         } else {
             return parentId;
         }

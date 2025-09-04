@@ -41,7 +41,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.herodotus.stirrup</groupId>
+            <groupId>cn.herodotus.engine</groupId>
             <artifactId>core-foundation</artifactId>
         </dependency>
     </dependencies>

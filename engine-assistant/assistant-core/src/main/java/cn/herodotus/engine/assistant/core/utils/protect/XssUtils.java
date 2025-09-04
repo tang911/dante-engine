@@ -26,7 +26,7 @@
 package cn.herodotus.engine.assistant.core.utils.protect;
 
 import cn.herodotus.engine.assistant.core.utils.ResourceResolver;
-import cn.herodotus.engine.assistant.definition.constants.SymbolConstants;
+import cn.herodotus.engine.core.definition.constant.SymbolConstants;
 import cn.hutool.v7.json.JSONUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Strings;
