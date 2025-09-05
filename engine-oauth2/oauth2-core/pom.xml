@@ -49,6 +49,11 @@
 
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
+            <artifactId>web-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
             <artifactId>rest-core</artifactId>
         </dependency>
 
