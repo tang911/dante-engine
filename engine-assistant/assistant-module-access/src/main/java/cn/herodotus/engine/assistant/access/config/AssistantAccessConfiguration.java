@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.stirrup.assistant.access.config;
+package cn.herodotus.engine.assistant.access.config;
 
 /**
  * <p>Description: TODO </p>

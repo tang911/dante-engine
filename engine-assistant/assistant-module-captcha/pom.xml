@@ -46,7 +46,7 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.herodotus.stirrup</groupId>
+            <groupId>cn.herodotus.engine</groupId>
             <artifactId>cache-module-jetcache</artifactId>
         </dependency>
     </dependencies>
