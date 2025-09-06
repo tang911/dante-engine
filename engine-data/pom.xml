@@ -45,5 +45,9 @@
         <module>data-sdk-mybatis-plus</module>
         <module>data-sdk-tenant</module>
         <module>data-spring-boot-starter</module>
+        <module>data-core-jpa</module>
+        <module>data-core-mongodb</module>
+        <module>data-module-tenant</module>
+        <module>data-module-hibernate</module>
     </modules>
 </project>

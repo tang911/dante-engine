@@ -45,6 +45,9 @@
         <module>rest-sdk-service</module>
         <module>rest-spring-boot-starter</module>
         <module>rest-sdk-condition</module>
+        <module>rest-module-servlet-message</module>
+        <module>rest-module-servlet-identity</module>
+        <module>rest-module-servlet-upms</module>
     </modules>
 
 </project>

@@ -117,6 +117,8 @@
         <module>engine-supplier</module>
         <module>engine-starter</module>
         <module>engine-web</module>
+        <module>engine-assistant</module>
+        <module>engine-logic</module>
     </modules>
 
 </project>

@@ -140,13 +140,9 @@ Dante Cloud 所使用的核心组件如下：
 ```
 dante-engine
 ├── dependencies -- 工程Maven顶级依赖，统一控制版本和依赖
-├── engine-access -- 外部登录接入模块
-├    ├── access-core -- 外部登录通用代码
-├    ├── access-sdk-all -- 外部登录集成
-├    ├── access-sdk-justauth -- JustAuth登录
-├    ├── access-sdk-wxapp -- 微信小程序登录
-├    ├── access-sdk-wxmpp -- 微信公众号登录
-├    └── access-spring-boot-starter -- 外部登录  模块统一 Starter
+├── engine-assistant -- 辅助功能模块
+├    ├── assistant-access -- 第三方登录接入辅助功能模块
+├    └── assistant-captcha -- 验证码辅助功能模块
 ├── engine-cache -- 缓存模块
 ├    ├── cache-core -- 缓存通用代码
 ├    ├── cache-sdk-caffeine -- Caffeine 缓存配置相关代码模块

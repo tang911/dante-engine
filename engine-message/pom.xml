@@ -45,6 +45,9 @@
         <module>message-spring-boot-starter</module>
         <module>message-kafka-spring-boot-starter</module>
         <module>message-sdk-mqtt</module>
+        <module>message-module-emqx</module>
+        <module>message-module-websocket-servlet</module>
+        <module>message-autoconfigure</module>
     </modules>
 
 </project>

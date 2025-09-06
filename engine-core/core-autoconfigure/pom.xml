@@ -37,7 +37,7 @@
     <artifactId>core-autoconfigure</artifactId>
     <name>core-autoconfigure</name>
 
-    <description>Dante Cloud 微服务组件库核心自动配置模块</description>
+    <description>Dante Cloud 微服务基座组件库核心自动配置模块</description>
 
     <dependencies>
         <dependency>

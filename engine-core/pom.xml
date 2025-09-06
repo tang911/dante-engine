@@ -36,6 +36,7 @@
 
     <artifactId>engine-core</artifactId>
     <name>engine-core</name>
+
     <packaging>pom</packaging>
 
     <modules>
