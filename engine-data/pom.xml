@@ -37,7 +37,10 @@
 
     <artifactId>engine-data</artifactId>
     <name>engine-data</name>
+
     <packaging>pom</packaging>
+
+    <description>Dante Cloud 微服务基座组件库数据访问通用代码模块分组</description>
 
     <modules>
         <module>data-core</module>

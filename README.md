@@ -154,18 +154,12 @@ dante-engine
 ├    ├── core-definition -- 核心定义模块
 ├    ├── core-foundation -- 基础通用模块
 ├    └── core-identity -- 身份认证通用模块
-├── engine-captcha -- 验证码模块
-├    ├── captcha-core -- 验证码共性通用代码
-├    ├── captcha-sdk-behavior -- 行为验证码（包括拼图滑块、文字点选）
-├    ├── captcha-sdk-graphic -- 传统图形验证码（包括算数类型、中文类型、字母类型、GIF类型）
-├    ├── captcha-sdk-hutool -- Hutool验证码（包括圆圈干扰、扭曲干扰、线段干扰）
-├    └── captcha-spring-boot-starter -- Captcha  模块统一 Starter
 ├── engine-data -- 数据访问模块
-├    ├── data-core -- 数据访问共性通用代码
-├    ├── data-sdk-jpa -- JPA 及Hibernate 配置代码模块
-├    ├── data-sdk-mybatis-plus -- MybatisPlus 相关代码模块
-├    ├── data-sdk-tenant -- 基于JPA的多租户核心代码模块
-├    └── data-spring-boot-starter -- Data 模块统一 Starter
+├    ├── data-core -- 数据访问通用代码模块
+├    ├── data-core-jpa -- 以 JPA 作为数据访问层的通用代码模块
+├    ├── data-core-mongodb -- 以 MongoDB 作为数据访问层的通用代码模块
+├    ├── data-module-hibernate -- Hibernate 扩展模块
+├    └── data-module-tenant -- 基于 JPA 的多租户扩展配置模块
 ├── engine-facility -- 微服务基础设施模块
 ├    ├── facility-alibaba-spring-boot-starter -- 面向 Spring Cloud Alibaba 的微服务基础设施适配模块
 ├    ├── facility-core -- 基础设施共性通用代码
