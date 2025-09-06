@@ -37,7 +37,10 @@
 
     <artifactId>engine-data</artifactId>
     <name>engine-data</name>
+
     <packaging>pom</packaging>
+
+    <description>Dante Cloud 微服务基座组件库数据访问通用代码模块分组</description>
 
     <modules>
         <module>data-core</module>
@@ -45,5 +48,9 @@
         <module>data-sdk-mybatis-plus</module>
         <module>data-sdk-tenant</module>
         <module>data-spring-boot-starter</module>
+        <module>data-core-jpa</module>
+        <module>data-core-mongodb</module>
+        <module>data-module-tenant</module>
+        <module>data-module-hibernate</module>
     </modules>
 </project>

@@ -140,48 +140,35 @@ Dante Cloud 所使用的核心组件如下：
 ```
 dante-engine
 ├── dependencies -- 工程Maven顶级依赖，统一控制版本和依赖
-├── engine-access -- 外部登录接入模块
-├    ├── access-core -- 外部登录通用代码
-├    ├── access-sdk-all -- 外部登录集成
-├    ├── access-sdk-justauth -- JustAuth登录
-├    ├── access-sdk-wxapp -- 微信小程序登录
-├    ├── access-sdk-wxmpp -- 微信公众号登录
-├    └── access-spring-boot-starter -- 外部登录  模块统一 Starter
-├── engine-cache -- 缓存模块
-├    ├── cache-core -- 缓存通用代码
-├    ├── cache-sdk-caffeine -- Caffeine 缓存配置相关代码模块
-├    ├── cache-sdk-jetcache -- JetCache 相关代码模块
-├    ├── cache-sdk-redis -- Redis 缓存配置相关代码模块
-├    ├── cache-sdk-redisson -- Redisson 相关代码模块
-├    └── cache-spring-boot-starter -- Cache  模块统一 Starter
+├── engine-assistant -- 辅助功能模块
+├    ├── assistant-access -- 第三方登录接入辅助功能模块
+├    └── assistant-captcha -- 验证码辅助功能模块
+├── engine-cache -- 缓存功能模块
+├    ├── cache-core -- 缓存通用代码模块
+├    ├── cache-module-caffeine -- Caffeine 缓存功能封装模块
+├    ├── cache-module-jetcache -- JetCache 缓存功能封装模块
+├    ├── cache-module-redis -- Redis 缓存功能封装模块
+├    └── cache-module-redisson -- Redisson 缓存功能封装模块
 ├── engine-core -- 基础核心模块
 ├    ├── core-autoconfigure -- 核心自动配置模块
 ├    ├── core-definition -- 核心定义模块
 ├    ├── core-foundation -- 基础通用模块
 ├    └── core-identity -- 身份认证通用模块
-├── engine-captcha -- 验证码模块
-├    ├── captcha-core -- 验证码共性通用代码
-├    ├── captcha-sdk-behavior -- 行为验证码（包括拼图滑块、文字点选）
-├    ├── captcha-sdk-graphic -- 传统图形验证码（包括算数类型、中文类型、字母类型、GIF类型）
-├    ├── captcha-sdk-hutool -- Hutool验证码（包括圆圈干扰、扭曲干扰、线段干扰）
-├    └── captcha-spring-boot-starter -- Captcha  模块统一 Starter
 ├── engine-data -- 数据访问模块
-├    ├── data-core -- 数据访问共性通用代码
-├    ├── data-sdk-jpa -- JPA 及Hibernate 配置代码模块
-├    ├── data-sdk-mybatis-plus -- MybatisPlus 相关代码模块
-├    ├── data-sdk-tenant -- 基于JPA的多租户核心代码模块
-├    └── data-spring-boot-starter -- Data 模块统一 Starter
-├── engine-facility -- 微服务基础设施模块
-├    ├── facility-alibaba-spring-boot-starter -- 面向 Spring Cloud Alibaba 的微服务基础设施适配模块
-├    ├── facility-core -- 基础设施共性通用代码
-├    ├── facility-gateway-spring-boot-starter -- Alibaba Sentinel 在 Gateway 环境下基础设施适配模块
-├    └── facility-tencent-spring-boot-starter -- 面向 Spring Cloud Tencent 的微服务基础设施适配模块
+├    ├── data-core -- 数据访问通用代码模块
+├    ├── data-core-jpa -- 以 JPA 作为数据访问层的通用代码模块
+├    ├── data-core-mongodb -- 以 MongoDB 作为数据访问层的通用代码模块
+├    ├── data-module-hibernate -- Hibernate 扩展模块
+├    └── data-module-tenant -- 基于 JPA 的多租户扩展配置模块
+├── engine-logic -- 系统内置功能业务逻辑模块
+├    ├── logic-module-identity -- 身份认证功能业务逻辑模块
+├    ├── logic-module-message -- 系统消息业务逻辑模块
+├    └── logic-module-upms -- UPMS 业务逻辑模块
 ├── engine-message -- 消息模块
-├    ├── message-core -- 消息共性通用代码
-├    ├── message-kafka-spring-boot-starter -- 基础 Kafka 配置 Starter
-├    ├── message-rabbitmaq-spring-boot-starter -- 基础 RabbitMQ 配置 Starter
-├    ├── message-sdk-websocket -- 基于 WebSocket 的消息代码模块
-├    └── message-spring-boot-starter -- Message  模块统一 Starter
+├    ├── message-autoconfigure -- 消息自动配置模块
+├    ├── message-core -- 消息通用代码模块
+├    ├── message-module-emqx -- emqx 功能封装模块
+├    └── message-module-websocket-servlet -- 基于 Servlet 环境下的 Websocket 功能封装模块
 ├── engine-oauth2 -- OAuth2 认证模块
 ├    ├── oauth2-authorization-server-autoconfigure -- OAuth2 授权服务器基础内容自动配置模块
 ├    ├── oauth2-core -- OAuth2 共性通用代码模块
@@ -190,22 +177,32 @@ dante-engine
 ├    ├── oauth2-sdk-authorization -- Spring Authorization Server 授权逻辑处理模块
 ├    ├── oauth2-sdk-data-jpa -- 基于 Spring Data JPA 封装的 Spring Authorization Server 数据访问代码模块
 ├    └── oauth2-sdk-management -- Spring Authorization Server 应用管理模块
-├── engine-rest -- 服务Rest接口模块
-├    ├── rest-core -- 服务 Rest 接口共性通用代码
-├    ├── rest-sdk-condition -- 服务级 REST 相关自定义条件注解模块
-├    ├── rest-sdk-protect -- 前后端数据加密、接口幂等、防刷、Xss 和 SQL 注入 Rest API 防护模块
-├    ├── rest-sdk-service -- 基于 REST 的服务基础内容配置代码模块
-├    └── rest-spring-boot-starter -- Rest 模块统一 Starter(包括通用CRUD代码)
-├── engine-supplier -- 应用支持模块
-├    ├── supplier-sdk-message -- 消息功能支持模块
-├    ├── supplier-sdk-upms-logic -- UPMS 基础服务支持模块
-├    └── supplier-sdk-upms-rest -- UPMS 基础服务 REST 模块
+├── engine-rest -- 系统内置功能 REST 接口模块
+├    ├── rest-module-servlet-identity -- 身份认证功能 Servlet 环境 REST 接口模块
+├    ├── rest-module-servlet-message -- 消息功能 Servlet 环境 REST 接口模块
+├    └── rest-module-servlet-upms -- UPMS 功能 Servlet 环境 REST 接口模块
+├── engine-starter -- Starters
+├    ├── cache-spring-boot-starter -- 缓存自动配置 Starter
+├    ├── captcha-spring-boot-starter -- 验证码自动配置 Starter
+├    ├── data-mongodb-spring-boot-starter -- MongoDB 数据访问层自动配置 Starter
+├    ├── data-rdbms-spring-boot-starter -- 关系型数据库数据访问层自动配置 Starter
+├    ├── facility-alibaba-spring-boot-starter -- 面向 Spring Cloud Alibaba 的微服务基础设施适配 Starter
+├    ├── facility-gateway-spring-boot-starter -- Alibaba Sentinel 在 Gateway 环境下基础设施适配 Starter
+├    ├── facility-kafka-spring-boot-starter -- 基于 Kafka 的消息事件自动配置 Starter
+├    ├── facility-original-spring-boot-starter -- 面向 Spring Cloud 原生全家桶的微服务基础设施适配 Starter
+├    ├── facility-tencent-spring-boot-starter -- 面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter
+├    ├── logging-spring-boot-starter -- 日志收集和聚合自动配置 Starter
+├    ├── message-mqtt-spring-boot-starter -- 基于 Mqtt 消息自动配置 Starter
+├    ├── micrometer-spring-boot-starter -- 链路追踪及度量配置自动配置 Starter
+├    ├── reactive-container-spring-boot-starter -- Reactive 容器基础配置自动配置 Starter
+├    ├── servlet-container-spring-boot-starter -- Servlet 容器基础配置自动配置 Starter
+├    ├── servlet-message-spring-boot-starter -- Servlet 环境消息模块自动配置 Starter
+├    └── webmvc-spring-boot-starter -- WebMvc 类型应用自动配置 Starter
 ├── engine-web -- Web 模块
 ├    ├── web-core -- Web 通用代码模块
-├    ├── rest-sdk-condition -- 服务级 REST 相关自定义条件注解模块
-├    ├── rest-sdk-protect -- 前后端数据加密、接口幂等、防刷、Xss 和 SQL 注入 Rest API 防护模块
-├    ├── rest-sdk-service -- 基于 REST 的服务基础内容配置代码模块
-├    └── rest-spring-boot-starter -- Rest 模块统一 Starter(包括通用CRUD代码)
+├    ├── web-module-api -- Rest 接口通用代码模块
+├    ├── web-module-service -- 微服务通用代码模块
+├    └── web-module-servlet -- Servlet 环境 Web 服务专有基础代码模块
 └──  readme -- README 相关素材放置目录
 ```
 

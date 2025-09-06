@@ -71,7 +71,7 @@ public class XssUtils {
         return INSTANCE;
     }
 
-    public static String cleaning(String taintedHTML) {
+    public static String process(String taintedHTML) {
         // 对转义的HTML特殊字符（<、>、"等）进行反转义，因为AntiSamy调用scan方法时会将特殊字符转义
         String cleanHtml = StringEscapeUtils.unescapeHtml4(getInstance().cleanHtml(taintedHTML));
 
