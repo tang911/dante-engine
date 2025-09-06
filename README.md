@@ -181,10 +181,23 @@ dante-engine
 ├    ├── rest-module-servlet-identity -- 身份认证功能 Servlet 环境 REST 接口模块
 ├    ├── rest-module-servlet-message -- 消息功能 Servlet 环境 REST 接口模块
 ├    └── rest-module-servlet-upms -- UPMS 功能 Servlet 环境 REST 接口模块
-├── engine-supplier -- 应用支持模块
-├    ├── supplier-sdk-message -- 消息功能支持模块
-├    ├── supplier-sdk-upms-logic -- UPMS 基础服务支持模块
-├    └── supplier-sdk-upms-rest -- UPMS 基础服务 REST 模块
+├── engine-starter -- Starters
+├    ├── cache-spring-boot-starter -- 缓存自动配置 Starter
+├    ├── captcha-spring-boot-starter -- 验证码自动配置 Starter
+├    ├── data-mongodb-spring-boot-starter -- MongoDB 数据访问层自动配置 Starter
+├    ├── data-rdbms-spring-boot-starter -- 关系型数据库数据访问层自动配置 Starter
+├    ├── facility-alibaba-spring-boot-starter -- 面向 Spring Cloud Alibaba 的微服务基础设施适配 Starter
+├    ├── facility-gateway-spring-boot-starter -- Alibaba Sentinel 在 Gateway 环境下基础设施适配 Starter
+├    ├── facility-kafka-spring-boot-starter -- 基于 Kafka 的消息事件自动配置 Starter
+├    ├── facility-original-spring-boot-starter -- 面向 Spring Cloud 原生全家桶的微服务基础设施适配 Starter
+├    ├── facility-tencent-spring-boot-starter -- 面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter
+├    ├── logging-spring-boot-starter -- 日志收集和聚合自动配置 Starter
+├    ├── message-mqtt-spring-boot-starter -- 基于 Mqtt 消息自动配置 Starter
+├    ├── micrometer-spring-boot-starter -- 链路追踪及度量配置自动配置 Starter
+├    ├── reactive-container-spring-boot-starter -- Reactive 容器基础配置自动配置 Starter
+├    ├── servlet-container-spring-boot-starter -- Servlet 容器基础配置自动配置 Starter
+├    ├── servlet-message-spring-boot-starter -- Servlet 环境消息模块自动配置 Starter
+├    └── webmvc-spring-boot-starter -- WebMvc 类型应用自动配置 Starter
 ├── engine-web -- Web 模块
 ├    ├── web-core -- Web 通用代码模块
 ├    ├── web-module-api -- Rest 接口通用代码模块

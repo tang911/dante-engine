@@ -36,7 +36,10 @@
 
     <artifactId>engine-starter</artifactId>
     <name>engine-starter</name>
+
     <packaging>pom</packaging>
+
+    <description>Dante Cloud 微服务基座组件库自动配置 Starters 分组</description>
 
     <modules>
         <module>data-mongodb-spring-boot-starter</module>

@@ -36,7 +36,8 @@
 
     <artifactId>logging-spring-boot-starter</artifactId>
     <name>logging-spring-boot-starter</name>
-    <description>Dante Cloud 微服务基座组件库日志聚合统一配置 Starter</description>
+
+    <description>Dante Cloud 微服务基座组件库日志收集和聚合自动配置 Starter</description>
 
     <dependencies>
         <dependency>
