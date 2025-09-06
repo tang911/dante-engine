@@ -35,6 +35,9 @@
     </parent>
 
     <artifactId>web-module-api</artifactId>
+    <name>web-module-api</name>
+
+    <description>Dante Cloud 微服务基座组件库消息功能微服务通用代码模块</description>
 
     <dependencies>
         <dependency>

@@ -177,7 +177,7 @@ dante-engine
 ├    ├── oauth2-sdk-authorization -- Spring Authorization Server 授权逻辑处理模块
 ├    ├── oauth2-sdk-data-jpa -- 基于 Spring Data JPA 封装的 Spring Authorization Server 数据访问代码模块
 ├    └── oauth2-sdk-management -- Spring Authorization Server 应用管理模块
-├── stirrup-rest -- 系统内置功能 REST 接口模块
+├── engine-rest -- 系统内置功能 REST 接口模块
 ├    ├── rest-module-servlet-identity -- 身份认证功能 Servlet 环境 REST 接口模块
 ├    ├── rest-module-servlet-message -- 消息功能 Servlet 环境 REST 接口模块
 ├    └── rest-module-servlet-upms -- UPMS 功能 Servlet 环境 REST 接口模块
@@ -187,10 +187,9 @@ dante-engine
 ├    └── supplier-sdk-upms-rest -- UPMS 基础服务 REST 模块
 ├── engine-web -- Web 模块
 ├    ├── web-core -- Web 通用代码模块
-├    ├── rest-sdk-condition -- 服务级 REST 相关自定义条件注解模块
-├    ├── rest-sdk-protect -- 前后端数据加密、接口幂等、防刷、Xss 和 SQL 注入 Rest API 防护模块
-├    ├── rest-sdk-service -- 基于 REST 的服务基础内容配置代码模块
-├    └── rest-spring-boot-starter -- Rest 模块统一 Starter(包括通用CRUD代码)
+├    ├── web-module-api -- Rest 接口通用代码模块
+├    ├── web-module-service -- 微服务通用代码模块
+├    └── web-module-servlet -- Servlet 环境 Web 服务专有基础代码模块
 └──  readme -- README 相关素材放置目录
 ```
 
