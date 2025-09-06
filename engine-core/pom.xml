@@ -39,6 +39,8 @@
 
     <packaging>pom</packaging>
 
+    <description>Dante Cloud 微服务基座组件库核心模块分组</description>
+
     <modules>
         <module>core-definition</module>
         <module>core-autoconfigure</module>
