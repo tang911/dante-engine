@@ -37,7 +37,10 @@
 
     <artifactId>engine-rest</artifactId>
     <name>engine-rest</name>
+
     <packaging>pom</packaging>
+
+    <description>Dante Cloud 微服务基座组件库系统内置功能 REST 接口模块分组</description>
 
     <modules>
         <module>rest-core</module>

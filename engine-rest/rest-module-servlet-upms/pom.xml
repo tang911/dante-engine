@@ -35,11 +35,9 @@
     </parent>
 
     <artifactId>rest-module-servlet-upms</artifactId>
+    <name>rest-module-servlet-upms</name>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <description>Dante Cloud 微服务基座组件库 UPMS 功能 Servlet 环境 REST 接口模块</description>
+
 
 </project>
