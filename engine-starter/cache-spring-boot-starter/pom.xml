@@ -34,7 +34,7 @@
         <version>3.5.5.2</version>
     </parent>
 
-    <artifactId>cachee-spring-boot-starter</artifactId>
+    <artifactId>cache-spring-boot-starter</artifactId>
     <name>cachee-spring-boot-starter</name>
 
     <description>Dante Cloud 微服务基座组件库缓存自动配置 Starter</description>
