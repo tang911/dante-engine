@@ -261,7 +261,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
-                <artifactId>cache-sdk-jetcache</artifactId>
+                <artifactId>cache-module-jetcache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -276,7 +276,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
-                <artifactId>cache-sdk-redisson</artifactId>
+                <artifactId>cache-module-redisson</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
