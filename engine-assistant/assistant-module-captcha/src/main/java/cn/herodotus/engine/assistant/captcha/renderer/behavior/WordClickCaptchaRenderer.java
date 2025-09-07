@@ -26,20 +26,20 @@
 package cn.herodotus.engine.assistant.captcha.renderer.behavior;
 
 import cn.herodotus.engine.assistant.captcha.constant.CaptchaConstants;
+import cn.herodotus.engine.assistant.captcha.enums.FontStyle;
+import cn.herodotus.engine.assistant.captcha.provider.RandomProvider;
+import cn.herodotus.engine.core.definition.domain.captcha.Captcha;
 import cn.herodotus.engine.core.definition.domain.captcha.Coordinate;
 import cn.herodotus.engine.core.definition.domain.captcha.Metadata;
-import cn.herodotus.engine.core.foundation.enums.CaptchaCategory;
-import cn.herodotus.engine.assistant.captcha.enums.FontStyle;
-import cn.herodotus.engine.core.definition.domain.captcha.Captcha;
 import cn.herodotus.engine.core.definition.domain.captcha.Verification;
+import cn.herodotus.engine.core.foundation.enums.CaptchaCategory;
 import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaHasExpiredException;
 import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaMismatchException;
 import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaParameterIllegalException;
-import cn.herodotus.engine.assistant.captcha.provider.RandomProvider;
+import cn.hutool.v7.core.data.id.IdUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import cn.hutool.v7.core.data.id.IdUtil;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
