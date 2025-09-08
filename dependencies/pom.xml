@@ -499,7 +499,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.engine</groupId>
-                <artifactId>oauth2-sdk-authentication</artifactId>
+                <artifactId>oauth2-module-authentication</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
