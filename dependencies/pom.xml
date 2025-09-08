@@ -517,31 +517,6 @@
                 <artifactId>oauth2-authorization-server-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>rest-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>rest-sdk-condition</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>rest-sdk-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>rest-sdk-protect</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.engine</groupId>
-                <artifactId>rest-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
 
             <!--第三方依赖组件-->
             <dependency>

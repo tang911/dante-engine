@@ -27,7 +27,7 @@ package cn.herodotus.engine.oauth2.management.service;
 
 import cn.herodotus.engine.core.definition.domain.SecretKey;
 import cn.herodotus.engine.oauth2.core.utils.SecurityUtils;
-import cn.herodotus.engine.rest.protect.crypto.processor.HttpCryptoProcessor;
+import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2ErrorCodes;

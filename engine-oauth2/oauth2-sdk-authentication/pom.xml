@@ -51,8 +51,14 @@
 
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
-            <artifactId>rest-sdk-protect</artifactId>
+            <artifactId>core-autoconfigure</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
+            <artifactId>web-module-servlet</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

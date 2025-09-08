@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authentication.dto;
 
-import cn.herodotus.engine.rest.core.definition.dto.BaseDto;
+import cn.herodotus.engine.core.definition.domain.BaseDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 
@@ -36,7 +36,7 @@ import jakarta.validation.constraints.NotBlank;
  * @date : 2022/7/8 20:52
  */
 @Schema(name = "登录错误提示信息")
-public class SignInErrorPrompt extends BaseDto {
+public class SignInErrorPrompt implements BaseDto {
 
     @NotBlank(message = "登录用户名不能为空")
     @Schema(name = "登录用户名", title = "必须是有效的用户名")

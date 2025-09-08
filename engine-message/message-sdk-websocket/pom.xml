@@ -41,7 +41,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
-            <artifactId>rest-core</artifactId>
+            <artifactId>web-core</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.herodotus.engine</groupId>
@@ -61,6 +61,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.herodotus.engine</groupId>
+            <artifactId>message-core</artifactId>
         </dependency>
     </dependencies>
 

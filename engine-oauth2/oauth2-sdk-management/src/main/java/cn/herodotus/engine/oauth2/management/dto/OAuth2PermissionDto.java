@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.management.dto;
 
-import cn.herodotus.engine.rest.core.definition.dto.BaseDto;
+import cn.herodotus.engine.core.definition.domain.AbstractDto;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
@@ -37,7 +37,7 @@ import jakarta.validation.constraints.NotNull;
  * @date : 2022/4/1 13:55
  */
 @Schema(name = "OAuth2 权限请求 Dto")
-public class OAuth2PermissionDto extends BaseDto {
+public class OAuth2PermissionDto extends AbstractDto {
 
     @Schema(name = "权限ID")
     @NotNull(message = "权限ID不能为空")

@@ -29,7 +29,7 @@ import cn.herodotus.engine.core.definition.enums.Protocol;
 import cn.herodotus.engine.web.core.utils.SessionUtils;
 import cn.herodotus.engine.core.definition.domain.SecretKey;
 import cn.herodotus.engine.oauth2.authentication.properties.OAuth2AuthenticationProperties;
-import cn.herodotus.engine.rest.protect.crypto.processor.HttpCryptoProcessor;
+import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import cn.hutool.v7.core.codec.binary.Base64;
 import com.google.common.net.HttpHeaders;
 import jakarta.servlet.http.HttpServletRequest;

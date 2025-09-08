@@ -26,6 +26,7 @@
 package cn.herodotus.engine.web.core.utils;
 
 import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.HerodotusHeaders;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -43,11 +44,6 @@ import java.util.List;
  * @date : 2023/9/2 16:39
  */
 public class HeaderUtils {
-
-    public static final String X_HERODOTUS_SESSION_ID = "X-Herodotus-Session-id";
-    public static final String X_HERODOTUS_FROM_IN = "X-Herodotus-From-In";
-    public static final String X_HERODOTUS_TENANT_ID = "X-Herodotus-Tenant-Id";
-    public static final String X_HERODOTUS_OPEN_ID = "X-Herodotus-Open-Id";
 
     /**
      * 获取头信息
@@ -145,7 +141,7 @@ public class HeaderUtils {
      * @return X_HERODOTUS_SESSION_ID 头信息
      */
     public static String getHerodotusSessionId(HttpServletRequest httpServletRequest) {
-        return getHeader(httpServletRequest, X_HERODOTUS_SESSION_ID);
+        return getHeader(httpServletRequest, HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**
@@ -155,7 +151,7 @@ public class HeaderUtils {
      * @return X_HERODOTUS_SESSION_ID 请求头内容
      */
     public static String getHerodotusSessionId(ServerHttpRequest serverHttpRequest) {
-        return getHeader(serverHttpRequest, X_HERODOTUS_SESSION_ID);
+        return getHeader(serverHttpRequest, HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**
@@ -165,7 +161,7 @@ public class HeaderUtils {
      * @return X_HERODOTUS_SESSION_ID 请求头内容
      */
     public static String getHerodotusSessionId(HttpInputMessage httpInputMessage) {
-        return getHeader(httpInputMessage.getHeaders(), X_HERODOTUS_SESSION_ID);
+        return getHeader(httpInputMessage.getHeaders(), HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**
@@ -175,7 +171,7 @@ public class HeaderUtils {
      * @return X_HERODOTUS_TENANT_ID 请求头内容
      */
     public static String getHerodotusTenantId(HttpServletRequest httpServletRequest) {
-        return getHeader(httpServletRequest, X_HERODOTUS_TENANT_ID);
+        return getHeader(httpServletRequest, HerodotusHeaders.X_HERODOTUS_TENANT_ID);
     }
 
     /**
@@ -185,7 +181,7 @@ public class HeaderUtils {
      * @return X_HERODOTUS_FROM_IN 请求头内容
      */
     public static String getHerodotusFromIn(HttpServletRequest httpServletRequest) {
-        return getHeader(httpServletRequest, X_HERODOTUS_FROM_IN);
+        return getHeader(httpServletRequest, HerodotusHeaders.X_HERODOTUS_FROM_IN);
     }
 
     /**
@@ -195,7 +191,7 @@ public class HeaderUtils {
      * @return 是否包含 X_HERODOTUS_SESSION_ID 请求头
      */
     public static boolean hasHerodotusSessionIdHeader(HttpServletRequest httpServletRequest) {
-        return hasHeader(httpServletRequest, X_HERODOTUS_SESSION_ID);
+        return hasHeader(httpServletRequest, HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**
@@ -205,7 +201,7 @@ public class HeaderUtils {
      * @return 是否包含 X_HERODOTUS_SESSION_ID 请求头
      */
     public static boolean hasHerodotusSessionIdHeader(ServerHttpRequest serverHttpRequest) {
-        return hasHeader(serverHttpRequest, X_HERODOTUS_SESSION_ID);
+        return hasHeader(serverHttpRequest, HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**
@@ -215,7 +211,7 @@ public class HeaderUtils {
      * @return 是否包含 X_HERODOTUS_SESSION_ID 请求头
      */
     public static boolean hasHerodotusSessionIdHeader(HttpInputMessage httpInputMessage) {
-        return hasHeader(httpInputMessage.getHeaders(), X_HERODOTUS_SESSION_ID);
+        return hasHeader(httpInputMessage.getHeaders(), HerodotusHeaders.X_HERODOTUS_SESSION_ID);
     }
 
     /**

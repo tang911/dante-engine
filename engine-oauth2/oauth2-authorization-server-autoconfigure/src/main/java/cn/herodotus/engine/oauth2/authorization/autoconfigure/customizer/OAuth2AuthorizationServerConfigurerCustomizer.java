@@ -35,7 +35,7 @@ import cn.herodotus.engine.oauth2.core.definition.service.ClientDetailsService;
 import cn.herodotus.engine.oauth2.management.response.OAuth2AccessTokenResponseHandler;
 import cn.herodotus.engine.oauth2.management.response.OAuth2DeviceVerificationResponseHandler;
 import cn.herodotus.engine.oauth2.management.response.OidcClientRegistrationResponseHandler;
-import cn.herodotus.engine.rest.protect.crypto.processor.HttpCryptoProcessor;
+import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.session.SessionRegistry;

@@ -25,12 +25,12 @@
 
 package cn.herodotus.engine.oauth2.resource.autoconfigure;
 
-import cn.herodotus.engine.message.core.logic.strategy.RequestMappingScanEventManager;
+import cn.herodotus.engine.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.engine.oauth2.authorization.configuration.OAuth2AuthorizationConfiguration;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityMetadataSourceAnalyzer;
 import cn.herodotus.engine.oauth2.core.exception.SecurityGlobalExceptionHandler;
 import cn.herodotus.engine.oauth2.resource.autoconfigure.metadata.RemoteSecurityMetadataSyncListener;
-import cn.herodotus.engine.oauth2.resource.autoconfigure.scan.DefaultRequestMappingScanEventManager;
+import cn.herodotus.engine.oauth2.resource.autoconfigure.scan.DefaultRestMappingScanEventManager;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,8 +81,8 @@ public class OAuth2ResourceServerAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RequestMappingScanEventManager requestMappingScanEventManager(SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer) {
-        DefaultRequestMappingScanEventManager manager = new DefaultRequestMappingScanEventManager(securityMetadataSourceAnalyzer);
+    public RestMappingScanEventManager requestMappingScanEventManager(SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer) {
+        DefaultRestMappingScanEventManager manager = new DefaultRestMappingScanEventManager(securityMetadataSourceAnalyzer);
         log.trace("[Herodotus] |- Bean [Request Mapping Scan Manager] Auto Configure.");
         return manager;
     }

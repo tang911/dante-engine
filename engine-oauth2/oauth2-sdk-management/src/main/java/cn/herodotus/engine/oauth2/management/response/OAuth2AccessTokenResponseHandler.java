@@ -29,7 +29,7 @@ import cn.herodotus.engine.core.definition.utils.Jackson2Utils;
 import cn.herodotus.engine.web.core.utils.SessionUtils;
 import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
-import cn.herodotus.engine.rest.protect.crypto.processor.HttpCryptoProcessor;
+import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

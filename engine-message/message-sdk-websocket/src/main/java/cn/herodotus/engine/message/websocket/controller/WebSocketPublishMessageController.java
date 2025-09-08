@@ -31,7 +31,7 @@ import cn.herodotus.engine.message.core.domain.DialogueMessage;
 import cn.herodotus.engine.message.core.logic.event.SendDialogueMessageEvent;
 import cn.herodotus.engine.message.websocket.definition.WebSocketMessageSender;
 import cn.herodotus.engine.message.websocket.domain.WebSocketPrincipal;
-import cn.herodotus.engine.rest.core.definition.context.AbstractApplicationContextAware;
+import cn.herodotus.engine.core.foundation.context.AbstractApplicationContextAware;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

@@ -49,6 +49,11 @@ public interface SystemConstants {
     String DATE_TIME_FORMAT = DateFormatPool.NORM_DATETIME_PATTERN;
 
     /* ---------- 系统信息 ---------- */
+    String DN_OU = "Herodotus Cloud";
+    String WEBSITE = "https://www.herodotus.vip";
+    String COPYRIGHT_DETAILS = "AGPL-3.0 Licensed | Copyright © 2020-2030 码 匠 君";
+    String SYSTEM_NAME = DN_OU;
+    String PACKAGE_NAME = "cn.herodotus";
     String OPEN_API_SECURITY_SCHEME_BEARER_NAME = "HERODOTUS_AUTH";
 
 

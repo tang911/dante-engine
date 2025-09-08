@@ -42,6 +42,7 @@ public interface BaseConstants {
     String PROPERTY_PREFIX_SERVER = "server";
     String PROPERTY_PREFIX_SPRING = "spring";
     String PROPERTY_PREFIX_HERODOTUS = "herodotus";
+    String PROPERTY_PREFIX_REACTIVE = PROPERTY_PREFIX_HERODOTUS + ".reactive";
 
     String PROPERTY_SERVER_SERVLET = PROPERTY_PREFIX_SERVER + ".servlet";
     String PROPERTY_SPRING_DATA = PROPERTY_PREFIX_SPRING + ".data";
@@ -69,6 +70,7 @@ public interface BaseConstants {
     String PROPERTY_LOG_LOGSTASH = PROPERTY_PREFIX_LOG + ".logstash";
     String PROPERTY_OAUTH2_AUTHENTICATION = PROPERTY_PREFIX_OAUTH2 + ".authentication";
     String PROPERTY_OAUTH2_AUTHORIZATION = PROPERTY_PREFIX_OAUTH2 + ".authorization";
+    String PROPERTY_REACTIVE_WEBCLIENT = PROPERTY_PREFIX_REACTIVE + ".web-client";
 
     /* ---------- Spring 家族配置属性 ---------- */
 
