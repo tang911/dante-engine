@@ -46,7 +46,6 @@ public class UserPrincipalConverter {
         userPrincipal.setName(herodotusUser.getUsername());
         userPrincipal.setRoles(herodotusUser.getRoles());
         userPrincipal.setAvatar(herodotusUser.getAvatar());
-        userPrincipal.setEmail(herodotusUser.getEmail());
         userPrincipal.setEmployeeId(herodotusUser.getEmployeeId());
         return userPrincipal;
     }
