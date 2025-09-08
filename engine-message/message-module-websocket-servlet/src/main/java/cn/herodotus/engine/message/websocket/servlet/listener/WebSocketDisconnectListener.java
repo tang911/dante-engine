@@ -23,20 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.websocket.servlet.listener;
 
-import cn.herodotus.engine.message.core.domain.Message;
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import cn.herodotus.engine.message.websocket.servlet.definition.AbstractWebSocketStatusListener;
+import cn.herodotus.engine.message.websocket.servlet.definition.WebSocketMessageSender;
+import cn.herodotus.engine.message.websocket.servlet.domain.WebSocketPrincipal;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 /**
- * <p>Description: 消息发送适配器 </p>
- * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * <p>Description: WebSocketUserDisconnectListener </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2022/12/29 22:30
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
+@Component
+public class WebSocketDisconnectListener extends AbstractWebSocketStatusListener<SessionDisconnectEvent> {
 
+    public WebSocketDisconnectListener(WebSocketMessageSender webSocketMessageSender) {
+        super(webSocketMessageSender);
+    }
+
+    @Override
+    public void onApplicationEvent(SessionDisconnectEvent event) {
+        WebSocketPrincipal principal = (WebSocketPrincipal) event.getUser();
+
+        disconnected(principal);
+    }
 }

@@ -23,20 +23,43 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.core.domain;
 
-import cn.herodotus.engine.message.core.domain.Message;
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import com.google.common.base.MoreObjects;
 
 /**
- * <p>Description: 消息发送适配器 </p>
- * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * <p>Description: Spring Messaging Template 类型消息参数实体 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2023/10/26 14:55
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
+public class TemplateMessage implements Message {
 
+    private String destination;
+
+    private Object payload;
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public Object getPayload() {
+        return payload;
+    }
+
+    public void setPayload(Object payload) {
+        this.payload = payload;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("destination", destination)
+                .add("payload", payload)
+                .toString();
+    }
 }

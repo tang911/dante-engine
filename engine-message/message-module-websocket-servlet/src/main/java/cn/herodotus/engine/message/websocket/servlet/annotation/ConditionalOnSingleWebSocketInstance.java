@@ -23,20 +23,22 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.websocket.servlet.annotation;
 
-import cn.herodotus.engine.message.core.domain.Message;
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import cn.herodotus.engine.message.websocket.servlet.condition.SingleWebSocketInstanceCondition;
+import org.springframework.context.annotation.Conditional;
+
+import java.lang.annotation.*;
 
 /**
- * <p>Description: 消息发送适配器 </p>
- * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * <p>Description: WebSocket 单实例环境条件注解 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2023/9/14 13:51
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
-
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Conditional(SingleWebSocketInstanceCondition.class)
+public @interface ConditionalOnSingleWebSocketInstance {
 }

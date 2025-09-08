@@ -23,20 +23,26 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.core.event;
 
-import cn.herodotus.engine.message.core.domain.Message;
 import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import cn.herodotus.engine.message.core.domain.MqttMessage;
+
+import java.time.Clock;
 
 /**
- * <p>Description: 消息发送适配器 </p>
- * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * <p>Description: Mqtt 类型消息 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2023/11/2 16:05
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
+public class MqttMessageSendingEvent extends AbstractApplicationEvent<MqttMessage> {
 
+    public MqttMessageSendingEvent(MqttMessage data) {
+        super(data);
+    }
+
+    public MqttMessageSendingEvent(MqttMessage data, Clock clock) {
+        super(data, clock);
+    }
 }

@@ -23,40 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.servlet.message.autoconfigure;
+package cn.herodotus.engine.message.autoconfigure.stream;
 
-import cn.herodotus.engine.core.definition.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.engine.message.websocket.servlet.annotation.EnableHerodotusServletWebSocket;
-import cn.herodotus.engine.rest.servlet.message.annotation.EnableHerodotusRestServletMessage;
-import cn.herodotus.engine.servlet.message.autoconfigure.customizer.MessageErrorCodeMapperBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.cloud.stream.function.FunctionConfiguration;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 
 /**
- * <p>Description: Servlet Message 自动配置 </p>
+ * <p>Description: Stream 消息发送适配器配置 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/4/10 0:31
+ * @date : 2024/6/18 11:43
  */
-@AutoConfiguration
-@EnableHerodotusServletWebSocket
-@EnableHerodotusRestServletMessage
-public class ServletMessageAutoConfiguration {
+@AutoConfiguration(after = FunctionConfiguration.class)
+@ConditionalOnBean(StreamBridge.class)
+public class StreamAutoConfiguration {
 
-    private static final Logger log = LoggerFactory.getLogger(ServletMessageAutoConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(StreamAutoConfiguration.class);
 
     @PostConstruct
     public void postConstruct() {
-        log.info("[Herodotus] |- Starter [Servlet Message] Configure.");
+        log.info("[Herodotus] |- Auto [Stream] Configure.");
     }
 
     @Bean
-    public ErrorCodeMapperBuilderCustomizer messageErrorCodeMapperBuilderCustomizer() {
-        MessageErrorCodeMapperBuilderCustomizer customizer = new MessageErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Message ErrorCodeMapper Builder Customizer] Auto Configure.");
-        return customizer;
+    public StreamMessageSendingAdapter streamMessageSendingAdapter(StreamBridge streamBridge) {
+        StreamMessageSendingAdapter adapter = new StreamMessageSendingAdapter(streamBridge);
+        log.trace("[Herodotus] |- Bean [Stream Message Sending Adapter] Configure.");
+        return adapter;
     }
 }

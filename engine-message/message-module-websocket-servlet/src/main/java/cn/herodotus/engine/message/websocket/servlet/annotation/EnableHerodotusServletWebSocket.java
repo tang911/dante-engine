@@ -23,20 +23,24 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.websocket.servlet.annotation;
 
-import cn.herodotus.engine.message.core.domain.Message;
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import cn.herodotus.engine.message.websocket.servlet.config.MessageWebSocketConfiguration;
+import org.springframework.context.annotation.Import;
+
+import java.lang.annotation.*;
 
 /**
- * <p>Description: 消息发送适配器 </p>
+ * <p>Description: 手动开启 WebSocket 配置 </p>
  * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * 模块中的内容相对独立，而且仅有一个 Configuration，同时无需考虑注入顺序的模块，则使用 @Enable 风格配置
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2023/10/28 11:11
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
-
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Documented
+@Import(MessageWebSocketConfiguration.class)
+public @interface EnableHerodotusServletWebSocket {
 }

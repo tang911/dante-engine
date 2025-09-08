@@ -23,20 +23,34 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.core.definition;
+package cn.herodotus.engine.message.websocket.servlet.messaging;
 
-import cn.herodotus.engine.message.core.domain.Message;
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import cn.herodotus.engine.message.core.constants.MessageConstants;
+import cn.herodotus.engine.message.core.domain.WebSocketMessage;
+import org.apache.commons.lang3.Strings;
+
+import java.util.function.Consumer;
 
 /**
- * <p>Description: 消息发送适配器 </p>
- * <p>
- * 各种类型消息发送组件，基于该接口实现各自的消息发送。
+ * <p>Description: WebSocket 点对点消息跨实例处理 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/10/26 16:46
+ * @date : 2023/9/14 17:06
  */
-public interface MessageSendingAdapter<D extends Message, E extends AbstractApplicationEvent<D>> extends ApplicationListener<E> {
+public class MultipleInstanceMessageSyncConsumer implements Consumer<WebSocketMessage> {
 
+    private final WebSocketMessagingTemplate webSocketMessagingTemplate;
+
+    public MultipleInstanceMessageSyncConsumer(WebSocketMessagingTemplate webSocketMessagingTemplate) {
+        this.webSocketMessagingTemplate = webSocketMessagingTemplate;
+    }
+
+    @Override
+    public void accept(WebSocketMessage webSocketMessage) {
+        if (Strings.CS.equals(webSocketMessage.getUser(), MessageConstants.MESSAGE_TO_ALL)) {
+            webSocketMessagingTemplate.broadcast(webSocketMessage.getDestination(), webSocketMessage.getPayload());
+        } else {
+            webSocketMessagingTemplate.pointToPoint(webSocketMessage.getUser(), webSocketMessage.getDestination(), webSocketMessage.getPayload());
+        }
+    }
 }

@@ -23,40 +23,32 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.servlet.message.autoconfigure;
+package cn.herodotus.engine.message.autoconfigure.message;
 
+
+import cn.herodotus.engine.core.definition.builder.ErrorCodeMapperBuilder;
+import cn.herodotus.engine.core.definition.constant.ErrorCodeMapperBuilderOrdered;
 import cn.herodotus.engine.core.definition.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.engine.message.websocket.servlet.annotation.EnableHerodotusServletWebSocket;
-import cn.herodotus.engine.rest.servlet.message.annotation.EnableHerodotusRestServletMessage;
-import cn.herodotus.engine.servlet.message.autoconfigure.customizer.MessageErrorCodeMapperBuilderCustomizer;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.context.annotation.Bean;
+import cn.herodotus.engine.message.core.constants.MessageErrorCodes;
+import org.springframework.core.Ordered;
 
 /**
- * <p>Description: Servlet Message 自动配置 </p>
+ * <p>Description: Message 错误代码映射定义 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/4/10 0:31
+ * @date : 2023/9/26 23:27
  */
-@AutoConfiguration
-@EnableHerodotusServletWebSocket
-@EnableHerodotusRestServletMessage
-public class ServletMessageAutoConfiguration {
+public class MessageErrorCodeMapperBuilderCustomizer implements ErrorCodeMapperBuilderCustomizer, Ordered {
 
-    private static final Logger log = LoggerFactory.getLogger(ServletMessageAutoConfiguration.class);
-
-    @PostConstruct
-    public void postConstruct() {
-        log.info("[Herodotus] |- Starter [Servlet Message] Configure.");
+    @Override
+    public void customize(ErrorCodeMapperBuilder builder) {
+        builder
+                .notAcceptable(MessageErrorCodes.ILLEGAL_CHANNEL, MessageErrorCodes.PRINCIPAL_NOT_FOUND)
+                .internalServerError(MessageErrorCodes.INTEGRATION_MESSAGE_EXCEPTION);
     }
 
-    @Bean
-    public ErrorCodeMapperBuilderCustomizer messageErrorCodeMapperBuilderCustomizer() {
-        MessageErrorCodeMapperBuilderCustomizer customizer = new MessageErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Message ErrorCodeMapper Builder Customizer] Auto Configure.");
-        return customizer;
+    @Override
+    public int getOrder() {
+        return ErrorCodeMapperBuilderOrdered.MESSAGE;
     }
 }
