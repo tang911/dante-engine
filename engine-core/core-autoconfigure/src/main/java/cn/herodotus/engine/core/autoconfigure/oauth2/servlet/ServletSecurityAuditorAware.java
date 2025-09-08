@@ -23,10 +23,9 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.auditing;
+package cn.herodotus.engine.core.autoconfigure.oauth2.servlet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import cn.herodotus.engine.core.autoconfigure.oauth2.definition.AbstractAuditorAware;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -43,9 +42,7 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2023/4/7 15:56
  */
-public class SecurityAuditorAware implements AuditorAware<String> {
-
-    private static final Logger log = LoggerFactory.getLogger(SecurityAuditorAware.class);
+public class ServletSecurityAuditorAware extends AbstractAuditorAware implements AuditorAware<String> {
 
     @Override
     public Optional<String> getCurrentAuditor() {
@@ -62,11 +59,5 @@ public class SecurityAuditorAware implements AuditorAware<String> {
                 .map(OAuth2IntrospectionAuthenticatedPrincipal.class::cast)
                 .map(this::getName)
                 .or(Optional::empty);
-    }
-
-    private String getName(OAuth2IntrospectionAuthenticatedPrincipal principal) {
-        String username = principal.getName();
-        log.trace("[Herodotus] |- Current auditor is : [{}]", username);
-        return username;
     }
 }

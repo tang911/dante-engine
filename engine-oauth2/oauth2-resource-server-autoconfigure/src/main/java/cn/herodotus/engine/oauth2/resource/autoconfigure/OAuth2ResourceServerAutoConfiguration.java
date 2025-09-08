@@ -28,7 +28,7 @@ package cn.herodotus.engine.oauth2.resource.autoconfigure;
 import cn.herodotus.engine.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.engine.oauth2.authorization.configuration.OAuth2AuthorizationConfiguration;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityMetadataSourceAnalyzer;
-import cn.herodotus.engine.oauth2.core.exception.SecurityGlobalExceptionHandler;
+import cn.herodotus.engine.core.autoconfigure.oauth2.definition.SecurityGlobalExceptionHandler;
 import cn.herodotus.engine.oauth2.resource.autoconfigure.metadata.RemoteSecurityMetadataSyncListener;
 import cn.herodotus.engine.oauth2.resource.autoconfigure.scan.DefaultRestMappingScanEventManager;
 import jakarta.annotation.PostConstruct;

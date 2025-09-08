@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.converter;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 
 /**
@@ -38,7 +38,7 @@ public class HerodotusJwtAuthenticationConverter extends JwtAuthenticationConver
 
     public HerodotusJwtAuthenticationConverter() {
         HerodotusJwtGrantedAuthoritiesConverter grantedAuthoritiesConverter = new HerodotusJwtGrantedAuthoritiesConverter();
-        grantedAuthoritiesConverter.setAuthoritiesClaimName(BaseConstants.AUTHORITIES);
+        grantedAuthoritiesConverter.setAuthoritiesClaimName(SystemConstants.AUTHORITIES);
 
         this.setJwtGrantedAuthoritiesConverter(grantedAuthoritiesConverter);
     }

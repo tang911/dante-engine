@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.definition;
+package cn.herodotus.engine.core.identity.domain;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -42,32 +42,32 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2021/9/11 15:57
  */
-public class HerodotusConfigAttribute implements Serializable {
+public class HerodotusSecurityAttribute implements Serializable {
 
     private String attribute;
 
-    public HerodotusConfigAttribute() {
+    public HerodotusSecurityAttribute() {
     }
 
-    public HerodotusConfigAttribute(String config) {
+    public HerodotusSecurityAttribute(String config) {
         Assert.hasText(config, "You must provide a configuration attribute");
         this.attribute = config;
     }
 
-    public static HerodotusConfigAttribute create(String attribute) {
+    public static HerodotusSecurityAttribute create(String attribute) {
         Assert.notNull(attribute, "You must supply an array of attribute names");
-        return new HerodotusConfigAttribute(attribute.trim());
+        return new HerodotusSecurityAttribute(attribute.trim());
     }
 
-    public static List<HerodotusConfigAttribute> createListFromCommaDelimitedString(String access) {
+    public static List<HerodotusSecurityAttribute> createListFromCommaDelimitedString(String access) {
         return createList(StringUtils.commaDelimitedListToStringArray(access));
     }
 
-    public static List<HerodotusConfigAttribute> createList(String... attributeNames) {
+    public static List<HerodotusSecurityAttribute> createList(String... attributeNames) {
         Assert.notNull(attributeNames, "You must supply an array of attribute names");
-        List<HerodotusConfigAttribute> attributes = new ArrayList<>(attributeNames.length);
+        List<HerodotusSecurityAttribute> attributes = new ArrayList<>(attributeNames.length);
         for (String attribute : attributeNames) {
-            attributes.add(new HerodotusConfigAttribute(attribute.trim()));
+            attributes.add(new HerodotusSecurityAttribute(attribute.trim()));
         }
         return attributes;
     }
@@ -84,7 +84,7 @@ public class HerodotusConfigAttribute implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        HerodotusConfigAttribute that = (HerodotusConfigAttribute) o;
+        HerodotusSecurityAttribute that = (HerodotusSecurityAttribute) o;
         return Objects.equal(attribute, that.attribute);
     }
 

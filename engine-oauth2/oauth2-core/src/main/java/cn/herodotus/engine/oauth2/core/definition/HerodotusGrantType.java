@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.core.definition;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 
 /**
@@ -36,7 +36,7 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
  */
 public interface HerodotusGrantType {
 
-    AuthorizationGrantType SOCIAL = new AuthorizationGrantType(BaseConstants.SOCIAL_CREDENTIALS);
+    AuthorizationGrantType SOCIAL = new AuthorizationGrantType(SystemConstants.SOCIAL_CREDENTIALS);
 
-    AuthorizationGrantType PASSWORD = new AuthorizationGrantType(BaseConstants.PASSWORD);
+    AuthorizationGrantType PASSWORD = new AuthorizationGrantType(SystemConstants.PASSWORD);
 }

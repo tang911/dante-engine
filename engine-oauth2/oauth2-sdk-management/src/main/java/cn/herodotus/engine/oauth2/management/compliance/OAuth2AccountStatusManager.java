@@ -29,7 +29,7 @@ import cn.herodotus.engine.data.core.enums.DataItemStatus;
 import cn.herodotus.engine.message.core.domain.UserStatus;
 import cn.herodotus.engine.message.core.logic.strategy.AccountStatusEventManager;
 import cn.herodotus.engine.oauth2.authentication.stamp.LockedUserDetailsStampManager;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import cn.herodotus.engine.oauth2.core.definition.service.EnhanceUserDetailsService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;

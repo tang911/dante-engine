@@ -26,7 +26,7 @@
 package cn.herodotus.engine.oauth2.core.definition.service;
 
 import cn.herodotus.engine.core.identity.domain.AccessPrincipal;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

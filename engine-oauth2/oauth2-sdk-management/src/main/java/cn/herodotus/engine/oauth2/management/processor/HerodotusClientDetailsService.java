@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.management.processor;
 
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
 import cn.herodotus.engine.oauth2.core.definition.service.EnhanceClientDetailsService;
 import cn.herodotus.engine.oauth2.management.entity.OAuth2Application;
 import cn.herodotus.engine.oauth2.management.entity.OAuth2Permission;

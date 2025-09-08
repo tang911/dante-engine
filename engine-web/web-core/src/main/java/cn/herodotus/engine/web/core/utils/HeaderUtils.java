@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.web.core.utils;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import cn.herodotus.engine.core.definition.constant.HerodotusHeaders;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -262,8 +262,8 @@ public class HeaderUtils {
      */
     public static String getBearerToken(HttpServletRequest request) {
         String header = getAuthorization(request);
-        if (StringUtils.isNotBlank(header) && Strings.CS.startsWith(header, BaseConstants.BEARER_TOKEN)) {
-            return Strings.CS.remove(header, BaseConstants.BEARER_TOKEN);
+        if (StringUtils.isNotBlank(header) && Strings.CS.startsWith(header, SystemConstants.BEARER_TOKEN)) {
+            return Strings.CS.remove(header, SystemConstants.BEARER_TOKEN);
         } else {
             return null;
         }

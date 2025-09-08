@@ -23,11 +23,10 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.jackson2;
+package cn.herodotus.engine.core.identity.jackson2;
 
-import cn.herodotus.engine.core.identity.jackson2.JsonNodeUtils;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusGrantedAuthority;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -26,7 +26,7 @@
 package cn.herodotus.engine.oauth2.data.jpa.jackson2;
 
 import cn.herodotus.engine.core.identity.jackson2.JsonNodeUtils;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

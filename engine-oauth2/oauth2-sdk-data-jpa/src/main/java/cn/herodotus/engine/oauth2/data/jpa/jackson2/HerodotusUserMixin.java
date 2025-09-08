@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.data.jpa.jackson2;
 
-import cn.herodotus.engine.oauth2.core.jackson2.HerodotusUserDeserializer;
+import cn.herodotus.engine.core.identity.jackson2.HerodotusUserDeserializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

@@ -26,6 +26,7 @@
 package cn.herodotus.engine.oauth2.core.exception;
 
 import cn.herodotus.engine.core.definition.domain.Feedback;
+import cn.herodotus.engine.core.identity.exception.PlatformAuthenticationException;
 import cn.herodotus.engine.oauth2.core.constants.OAuth2ErrorCodes;
 
 /**

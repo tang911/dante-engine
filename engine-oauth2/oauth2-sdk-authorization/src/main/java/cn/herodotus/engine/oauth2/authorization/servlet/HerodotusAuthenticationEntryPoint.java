@@ -23,22 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.enums;
+package cn.herodotus.engine.oauth2.authorization.servlet;
+
+import cn.herodotus.engine.core.definition.domain.Result;
+import cn.herodotus.engine.core.autoconfigure.oauth2.definition.SecurityGlobalExceptionHandler;
+import cn.herodotus.engine.oauth2.core.utils.WebUtils;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+
+import java.io.IOException;
 
 /**
- * <p>Description: 证书使用策略 </p>
+ * <p>Description: 自定义未认证处理 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/6 18:32
+ * @date : 2022/3/8 8:55
  */
-public enum Certificate {
+public class HerodotusAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    /**
-     * Spring Authorization Server 默认的 JWK 生成方式
-     */
-    STANDARD,
-    /**
-     * 自定义证书 JWK 生成方式
-     */
-    CUSTOM;
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+        Result<String> result = SecurityGlobalExceptionHandler.resolveSecurityException(authException, request.getRequestURI());
+        response.setStatus(result.getStatus());
+        WebUtils.renderJson(response, result);
+    }
 }

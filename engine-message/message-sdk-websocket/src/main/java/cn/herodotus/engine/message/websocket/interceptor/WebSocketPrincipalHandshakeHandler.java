@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.message.websocket.interceptor;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
-import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
+import cn.herodotus.engine.core.identity.domain.UserPrincipal;
 import cn.herodotus.engine.message.websocket.domain.WebSocketPrincipal;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
@@ -51,9 +51,9 @@ public class WebSocketPrincipalHandshakeHandler extends DefaultHandshakeHandler 
     @Override
     protected Principal determineUser(ServerHttpRequest request, WebSocketHandler wsHandler, Map<String, Object> attributes) {
 
-        Object object = attributes.get(BaseConstants.PRINCIPAL);
+        Object object = attributes.get(SystemConstants.PRINCIPAL);
 
-        if (ObjectUtils.isNotEmpty(object) && object instanceof PrincipalDetails details) {
+        if (ObjectUtils.isNotEmpty(object) && object instanceof UserPrincipal details) {
             WebSocketPrincipal webSocketPrincipal = new WebSocketPrincipal(details);
             log.debug("[Herodotus] |- Determine user by request parameter, userId is  [{}].", webSocketPrincipal.getUserId());
             return webSocketPrincipal;

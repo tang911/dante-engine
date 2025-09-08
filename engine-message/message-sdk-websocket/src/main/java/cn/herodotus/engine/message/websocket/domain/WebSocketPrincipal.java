@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.message.websocket.domain;
 
-import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
+import cn.herodotus.engine.core.identity.domain.UserPrincipal;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -51,9 +51,9 @@ public class WebSocketPrincipal implements Principal {
 
     private Set<String> roles;
 
-    public WebSocketPrincipal(PrincipalDetails details) {
-        this.userId = details.getOpenId();
-        this.username = details.getUsername();
+    public WebSocketPrincipal(UserPrincipal details) {
+        this.userId = details.getId();
+        this.username = details.getName();
         this.employeeId = details.getEmployeeId();
         this.avatar = details.getAvatar();
         this.roles = details.getRoles();

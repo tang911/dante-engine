@@ -25,6 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.definition;
 
+import cn.herodotus.engine.core.autoconfigure.oauth2.domain.HerodotusRequest;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityMetadataSourceStorage;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;

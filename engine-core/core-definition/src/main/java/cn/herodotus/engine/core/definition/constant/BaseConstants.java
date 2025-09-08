@@ -33,9 +33,6 @@ package cn.herodotus.engine.core.definition.constant;
  */
 public interface BaseConstants {
 
-    String NONE = "none";
-    String CODE = "code";
-
     /* ---------- 配置属性通用常量 ---------- */
     String PROPERTY_NAME_ENABLED = "enabled";
     String PROPERTY_ENABLED = SymbolConstants.PERIOD + PROPERTY_NAME_ENABLED;
@@ -92,28 +89,4 @@ public interface BaseConstants {
 
     String AREA_PREFIX = "data:";
 
-
-    /* ---------- Oauth2 和 Security 通用缓存常量 ---------- */
-
-    /**
-     * Oauth2 模式类型
-     */
-    String PASSWORD = "password";
-    String SOCIAL_CREDENTIALS = "social_credentials";
-
-    String OPEN_API_SECURITY_SCHEME_BEARER_NAME = "HERODOTUS_AUTH";
-
-    String BEARER_TYPE = "Bearer";
-    String BEARER_TOKEN = BEARER_TYPE + SymbolConstants.SPACE;
-    String BASIC_TYPE = "Basic";
-    String BASIC_TOKEN = BASIC_TYPE + SymbolConstants.SPACE;
-    String AUTHORITIES = "authorities";
-    String AVATAR = "avatar";
-    String EMPLOYEE_ID = "employeeId";
-    String LICENSE = "license";
-    String OPEN_ID = "openid";
-    String PRINCIPAL = "principal";
-    String ROLES = "roles";
-    String SOURCE = "source";
-    String USERNAME = "username";
 }

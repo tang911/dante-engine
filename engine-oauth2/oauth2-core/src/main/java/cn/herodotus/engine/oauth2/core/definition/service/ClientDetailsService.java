@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.core.definition.service;
 
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
 
 import java.util.Set;
 

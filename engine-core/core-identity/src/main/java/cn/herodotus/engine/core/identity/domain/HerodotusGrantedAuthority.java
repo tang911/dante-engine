@@ -25,80 +25,34 @@
 
 package cn.herodotus.engine.core.identity.domain;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
- * <p>Description: 用户登录额外信息 </p>
+ * <p>Description: 自定义 GrantedAuthority </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/7/13 14:31
+ * @date : 2022/3/5 0:12
  */
-public class PrincipalDetails {
+public class HerodotusGrantedAuthority implements GrantedAuthority {
 
-    private String openId;
+    private String authority;
 
-    private String username;
-
-    private Set<String> roles;
-
-    private String employeeId;
-
-    private String avatar;
-
-    public String getOpenId() {
-        return openId;
+    public HerodotusGrantedAuthority() {
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public HerodotusGrantedAuthority(String authority) {
+        this.authority = authority;
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public String getAuthority() {
+        return this.authority;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Set<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(BaseConstants.OPEN_ID, this.openId);
-        map.put(BaseConstants.USERNAME, this.username);
-        map.put(BaseConstants.ROLES, this.roles);
-        map.put(BaseConstants.EMPLOYEE_ID, this.employeeId);
-        map.put(BaseConstants.AVATAR, this.avatar);
-        return map;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     @Override
@@ -109,23 +63,19 @@ public class PrincipalDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PrincipalDetails that = (PrincipalDetails) o;
-        return Objects.equal(openId, that.openId);
+        HerodotusGrantedAuthority that = (HerodotusGrantedAuthority) o;
+        return Objects.equal(authority, that.authority);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(openId);
+        return Objects.hashCode(authority);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("userId", openId)
-                .add("username", username)
-                .add("roles", roles)
-                .add("employeeId", employeeId)
-                .add("avatar", avatar)
+                .add("authority", authority)
                 .toString();
     }
 }

@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.oauth2.authentication.customizer;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -60,7 +60,7 @@ public abstract class AbstractTokenCustomizer {
             Set<String> authorities = authentication.getAuthorities().stream()
                     .map(GrantedAuthority::getAuthority)
                     .collect(Collectors.toSet());
-            attributes.put(BaseConstants.AUTHORITIES, authorities);
+            attributes.put(SystemConstants.AUTHORITIES, authorities);
         }
     }
 
@@ -84,10 +84,10 @@ public abstract class AbstractTokenCustomizer {
 
     private void putUserInfo(Map<String, Object> attributes, Object object) {
         if (ObjectUtils.isNotEmpty(object) && object instanceof HerodotusUser principal) {
-            attributes.put(BaseConstants.OPEN_ID, principal.getUserId());
-            attributes.put(BaseConstants.ROLES, principal.getRoles());
-            attributes.put(BaseConstants.AVATAR, principal.getAvatar());
-            attributes.put(BaseConstants.EMPLOYEE_ID, principal.getEmployeeId());
+            attributes.put(SystemConstants.SCOPE_OPENID, principal.getUserId());
+            attributes.put(SystemConstants.ROLES, principal.getRoles());
+            attributes.put(SystemConstants.AVATAR, principal.getAvatar());
+            attributes.put(SystemConstants.EMPLOYEE_ID, principal.getEmployeeId());
         }
     }
 }

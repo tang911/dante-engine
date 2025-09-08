@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.core.enums;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.definition.enums.BaseUiEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.ImmutableMap;
@@ -56,8 +56,8 @@ public enum GrantType implements BaseUiEnum<String> {
     REFRESH_TOKEN(AuthorizationGrantType.REFRESH_TOKEN.getValue(), "Refresh Token 模式"),
     JWT_BEARER(AuthorizationGrantType.JWT_BEARER.getValue(), "JWT Token 模式"),
     TOKEN_EXCHANGE(AuthorizationGrantType.TOKEN_EXCHANGE.getValue(), "Token Exchange 模式"),
-    PASSWORD(BaseConstants.PASSWORD, "Password 模式"),
-    SOCIAL_CREDENTIALS(BaseConstants.SOCIAL_CREDENTIALS, "Social Credentials 模式");
+    PASSWORD(SystemConstants.PASSWORD, "Password 模式"),
+    SOCIAL_CREDENTIALS(SystemConstants.SOCIAL_CREDENTIALS, "Social Credentials 模式");
 
     private static final Map<Integer, GrantType> INDEX_MAP = new HashMap<>();
     private static final List<Map<String, Object>> JSON_STRUCTURE = new ArrayList<>();

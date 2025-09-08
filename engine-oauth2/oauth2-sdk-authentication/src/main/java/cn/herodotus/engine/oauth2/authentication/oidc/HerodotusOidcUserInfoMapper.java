@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authentication.oidc;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.core.oidc.StandardClaimNames;
 import org.springframework.security.oauth2.server.authorization.oidc.authentication.OidcUserInfoAuthenticationContext;
@@ -71,7 +71,7 @@ public class HerodotusOidcUserInfoMapper implements Function<OidcUserInfoAuthent
 
     private static Map<String, Object> getClaims(Map<String, Object> claims) {
         Set<String> needRemovedClaims = new HashSet<>(32);
-        needRemovedClaims.add(BaseConstants.AUTHORITIES);
+        needRemovedClaims.add(SystemConstants.AUTHORITIES);
 
         Map<String, Object> requestedClaims = new HashMap<>(claims);
         requestedClaims.keySet().removeIf(needRemovedClaims::contains);

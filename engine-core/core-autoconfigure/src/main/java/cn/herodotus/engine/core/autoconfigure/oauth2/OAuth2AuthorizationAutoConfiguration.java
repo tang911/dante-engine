@@ -23,31 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.response;
+package cn.herodotus.engine.core.autoconfigure.oauth2;
 
-import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.oauth2.core.exception.SecurityGlobalExceptionHandler;
-import cn.herodotus.engine.oauth2.core.utils.WebUtils;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.AuthenticationEntryPoint;
-
-import java.io.IOException;
+import jakarta.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.security.oauth2.core.OAuth2Token;
 
 /**
- * <p>Description: 自定义未认证处理 </p>
+ * <p>Description: OAuth2 认证统一配置 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/8 8:55
+ * @date : 2024/4/11 14:23
  */
-public class HerodotusAuthenticationEntryPoint implements AuthenticationEntryPoint {
+@AutoConfiguration
+@ConditionalOnClass(OAuth2Token.class)
+@EnableConfigurationProperties({OAuth2AuthorizationProperties.class})
+public class OAuth2AuthorizationAutoConfiguration {
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        Result<String> result = SecurityGlobalExceptionHandler.resolveSecurityException(authException, request.getRequestURI());
-        response.setStatus(result.getStatus());
-        WebUtils.renderJson(response, result);
+    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthorizationAutoConfiguration.class);
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("[Herodotus] |- Auto [OAuth2 Authorization] Configure.");
     }
 }

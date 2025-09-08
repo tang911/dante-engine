@@ -26,7 +26,7 @@
 package cn.herodotus.engine.oauth2.authorization.customizer;
 
 import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
-import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
+import cn.herodotus.engine.core.identity.domain.UserPrincipal;
 import cn.herodotus.engine.oauth2.core.utils.PrincipalUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +57,7 @@ public class HerodotusBearerTokenResolver implements BearerTokenResolver {
     }
 
     @Override
-    public PrincipalDetails resolve(String token) {
+    public UserPrincipal resolve(String token) {
 
         if (StringUtils.isBlank(token)) {
             throw new IllegalArgumentException("token can not be null");
@@ -68,14 +68,14 @@ public class HerodotusBearerTokenResolver implements BearerTokenResolver {
         if (isRemoteValidate) {
             OAuth2AuthenticatedPrincipal principal = getOpaque(bearer);
             if (ObjectUtils.isNotEmpty(principal)) {
-                PrincipalDetails details = PrincipalUtils.toPrincipalDetails(principal);
+                UserPrincipal details = PrincipalUtils.toPrincipalDetails(principal);
                 log.debug("[Herodotus] |- Resolve OPAQUE token to principal details [{}]", details);
                 return details;
             }
         } else {
             Jwt jwt = getJwt(bearer);
             if (ObjectUtils.isNotEmpty(jwt)) {
-                PrincipalDetails details = PrincipalUtils.toPrincipalDetails(jwt);
+                UserPrincipal details = PrincipalUtils.toPrincipalDetails(jwt);
                 log.debug("[Herodotus] |- Resolve JWT token to principal details [{}]", details);
                 return details;
             }

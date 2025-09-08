@@ -25,6 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authentication.provider;
 
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.identity.enums.AccountCategory;
 import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import cn.herodotus.engine.oauth2.authentication.utils.OAuth2EndpointUtils;
@@ -65,7 +66,7 @@ public class OAuth2SocialCredentialsAuthenticationConverter extends AbstractAuth
         String scope = OAuth2EndpointUtils.checkOptionalParameter(parameters, OAuth2ParameterNames.SCOPE);
 
         // source (REQUIRED)
-        String source = OAuth2EndpointUtils.checkRequiredParameter(parameters, BaseConstants.SOURCE);
+        String source = OAuth2EndpointUtils.checkRequiredParameter(parameters, SystemConstants.SOURCE);
         // others (REQUIRED)
         // TODO：2022-03-31 这里主要是作为参数的检查，社交登录内容比较多，后续根据实际情况添加
         if (StringUtils.hasText(source)) {

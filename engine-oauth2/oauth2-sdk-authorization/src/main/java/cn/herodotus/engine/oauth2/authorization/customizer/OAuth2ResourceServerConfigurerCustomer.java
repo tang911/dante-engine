@@ -28,10 +28,10 @@ package cn.herodotus.engine.oauth2.authorization.customizer;
 import cn.herodotus.engine.core.foundation.enums.DataAccessStrategy;
 import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
 import cn.herodotus.engine.oauth2.authorization.converter.HerodotusJwtAuthenticationConverter;
-import cn.herodotus.engine.oauth2.authorization.introspector.HerodotusOpaqueTokenIntrospector;
-import cn.herodotus.engine.oauth2.authorization.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.engine.oauth2.core.response.HerodotusAccessDeniedHandler;
-import cn.herodotus.engine.oauth2.core.response.HerodotusAuthenticationEntryPoint;
+import cn.herodotus.engine.core.autoconfigure.oauth2.servlet.HerodotusServletOpaqueTokenIntrospector;
+import cn.herodotus.engine.core.autoconfigure.oauth2.OAuth2AuthorizationProperties;
+import cn.herodotus.engine.oauth2.authorization.servlet.HerodotusAccessDeniedHandler;
+import cn.herodotus.engine.oauth2.authorization.servlet.HerodotusAuthenticationEntryPoint;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -55,7 +55,7 @@ public class OAuth2ResourceServerConfigurerCustomer implements Customizer<OAuth2
     public OAuth2ResourceServerConfigurerCustomer(OAuth2AuthorizationProperties authorizationProperties, JwtDecoder jwtDecoder, OAuth2ResourceServerProperties resourceServerProperties) {
         this.jwtDecoder = jwtDecoder;
         this.authorizationProperties = authorizationProperties;
-        this.opaqueTokenIntrospector = new HerodotusOpaqueTokenIntrospector(resourceServerProperties);
+        this.opaqueTokenIntrospector = new HerodotusServletOpaqueTokenIntrospector(resourceServerProperties);
         ;
     }
 

@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.constants;
+package cn.herodotus.engine.core.identity.constant;
 
 /**
  * <p>Description: 扩展 OAuth2 错误代码 </p>

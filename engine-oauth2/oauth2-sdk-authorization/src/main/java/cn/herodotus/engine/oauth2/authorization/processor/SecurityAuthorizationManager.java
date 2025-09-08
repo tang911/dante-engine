@@ -25,9 +25,10 @@
 
 package cn.herodotus.engine.oauth2.authorization.processor;
 
+import cn.herodotus.engine.core.autoconfigure.oauth2.servlet.ServletOAuth2ResourceMatcherConfigurer;
 import cn.herodotus.engine.web.core.utils.HeaderUtils;
-import cn.herodotus.engine.oauth2.authorization.definition.HerodotusConfigAttribute;
-import cn.herodotus.engine.oauth2.authorization.definition.HerodotusRequest;
+import cn.herodotus.engine.core.identity.domain.HerodotusSecurityAttribute;
+import cn.herodotus.engine.core.autoconfigure.oauth2.domain.HerodotusRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
@@ -64,11 +65,11 @@ public class SecurityAuthorizationManager implements AuthorizationManager<Reques
     private static final Logger log = LoggerFactory.getLogger(SecurityAuthorizationManager.class);
 
     private final SecurityMetadataSourceStorage securityMetadataSourceStorage;
-    private final SecurityMatcherConfigurer securityMatcherConfigurer;
+    private final ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer;
 
-    public SecurityAuthorizationManager(SecurityMetadataSourceStorage securityMetadataSourceStorage, SecurityMatcherConfigurer securityMatcherConfigurer) {
+    public SecurityAuthorizationManager(SecurityMetadataSourceStorage securityMetadataSourceStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
         this.securityMetadataSourceStorage = securityMetadataSourceStorage;
-        this.securityMatcherConfigurer = securityMatcherConfigurer;
+        this.servletOAuth2ResourceMatcherConfigurer = servletOAuth2ResourceMatcherConfigurer;
     }
 
     @Override
@@ -79,12 +80,12 @@ public class SecurityAuthorizationManager implements AuthorizationManager<Reques
         String url = request.getRequestURI();
         String method = request.getMethod();
 
-        if (securityMatcherConfigurer.isStaticResources(url)) {
+        if (servletOAuth2ResourceMatcherConfigurer.isStaticResources(url)) {
             log.trace("[Herodotus] |- Is static resource : [{}], Passed!", url);
             return new AuthorizationDecision(true);
         }
 
-        if (securityMatcherConfigurer.isPermitAllRequest(request)) {
+        if (servletOAuth2ResourceMatcherConfigurer.isPermitAllRequest(request)) {
             log.trace("[Herodotus] |- Is white list resource : [{}], Passed!", url);
             return new AuthorizationDecision(true);
         }
@@ -95,16 +96,16 @@ public class SecurityAuthorizationManager implements AuthorizationManager<Reques
             return new AuthorizationDecision(true);
         }
 
-        if (securityMatcherConfigurer.isHasAuthenticatedRequest(request)) {
+        if (servletOAuth2ResourceMatcherConfigurer.isHasAuthenticatedRequest(request)) {
             log.trace("[Herodotus] |- Is has authenticated resource : [{}]", url);
             return new AuthorizationDecision(authentication.get().isAuthenticated());
         }
 
-        List<HerodotusConfigAttribute> configAttributes = findConfigAttribute(url, method, request);
+        List<HerodotusSecurityAttribute> configAttributes = findConfigAttribute(url, method, request);
         if (CollectionUtils.isEmpty(configAttributes)) {
             log.warn("[Herodotus] |- NO PRIVILEGES : [{}].", url);
 
-            if (!securityMatcherConfigurer.isStrictMode()) {
+            if (!servletOAuth2ResourceMatcherConfigurer.isStrictMode()) {
                 if (authentication.get().isAuthenticated()) {
                     log.debug("[Herodotus] |- Request is authenticated: [{}].", url);
                     return new AuthorizationDecision(true);
@@ -114,7 +115,7 @@ public class SecurityAuthorizationManager implements AuthorizationManager<Reques
             return new AuthorizationDecision(false);
         }
 
-        for (HerodotusConfigAttribute configAttribute : configAttributes) {
+        for (HerodotusSecurityAttribute configAttribute : configAttributes) {
             WebExpressionAuthorizationManager webExpressionAuthorizationManager = new WebExpressionAuthorizationManager(configAttribute.getAttribute());
             AuthorizationDecision decision = webExpressionAuthorizationManager.check(authentication, object);
             if (decision.isGranted()) {
@@ -126,19 +127,19 @@ public class SecurityAuthorizationManager implements AuthorizationManager<Reques
         return new AuthorizationDecision(false);
     }
 
-    private List<HerodotusConfigAttribute> findConfigAttribute(String url, String method, HttpServletRequest request) {
+    private List<HerodotusSecurityAttribute> findConfigAttribute(String url, String method, HttpServletRequest request) {
 
         log.debug("[Herodotus] |- Current Request is : [{}] - [{}]", url, method);
 
-        List<HerodotusConfigAttribute> configAttributes = this.securityMetadataSourceStorage.getConfigAttribute(url, method);
+        List<HerodotusSecurityAttribute> configAttributes = this.securityMetadataSourceStorage.getConfigAttribute(url, method);
         if (CollectionUtils.isNotEmpty(configAttributes)) {
             log.debug("[Herodotus] |- Get configAttributes from local storage for : [{}] - [{}]", url, method);
             return configAttributes;
         } else {
-            LinkedHashMap<HerodotusRequest, List<HerodotusConfigAttribute>> compatible = this.securityMetadataSourceStorage.getCompatible();
+            LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> compatible = this.securityMetadataSourceStorage.getCompatible();
             if (MapUtils.isNotEmpty(compatible)) {
                 // 支持含有**通配符的路径搜索
-                for (Map.Entry<HerodotusRequest, List<HerodotusConfigAttribute>> entry : compatible.entrySet()) {
+                for (Map.Entry<HerodotusRequest, List<HerodotusSecurityAttribute>> entry : compatible.entrySet()) {
                     RequestMatcher.MatchResult matchResult = matches(request, entry.getKey());
                     if (matchResult.isMatch()) {
                         log.debug("[Herodotus] |- Request match the wildcard [{}] - [{}]", entry.getKey(), entry.getValue());

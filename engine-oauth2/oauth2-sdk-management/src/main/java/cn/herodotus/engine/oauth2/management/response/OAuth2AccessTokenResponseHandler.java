@@ -25,10 +25,10 @@
 
 package cn.herodotus.engine.oauth2.management.response;
 
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.definition.utils.Jackson2Utils;
+import cn.herodotus.engine.core.identity.domain.UserPrincipal;
 import cn.herodotus.engine.web.core.utils.SessionUtils;
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
-import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
 import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -103,11 +103,11 @@ public class OAuth2AccessTokenResponseHandler implements AuthenticationSuccessHa
             String sessionId = SessionUtils.analyseSessionId(request);
             Object details = authentication.getDetails();
             if (isHerodotusUserInfoPattern(sessionId, details)) {
-                PrincipalDetails authenticationDetails = (PrincipalDetails) details;
+                UserPrincipal authenticationDetails = (UserPrincipal) details;
                 String data = Jackson2Utils.toJson(authenticationDetails);
                 String encryptData = httpCryptoProcessor.encrypt(sessionId, data);
                 Map<String, Object> parameters = new HashMap<>(additionalParameters);
-                parameters.put(BaseConstants.OPEN_ID, encryptData);
+                parameters.put(SystemConstants.SCOPE_OPENID, encryptData);
                 builder.additionalParameters(parameters);
             } else {
                 log.warn("[Herodotus] |- OAuth2 authentication can not get use info.");
@@ -120,7 +120,7 @@ public class OAuth2AccessTokenResponseHandler implements AuthenticationSuccessHa
     }
 
     private boolean isHerodotusUserInfoPattern(String sessionId, Object details) {
-        return StringUtils.isNotBlank(sessionId) && ObjectUtils.isNotEmpty(details) && details instanceof PrincipalDetails;
+        return StringUtils.isNotBlank(sessionId) && ObjectUtils.isNotEmpty(details) && details instanceof UserPrincipal;
     }
 
     private boolean isOidcUserInfoPattern(Map<String, Object> additionalParameters) {

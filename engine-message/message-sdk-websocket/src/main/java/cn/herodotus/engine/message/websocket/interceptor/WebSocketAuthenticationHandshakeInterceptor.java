@@ -25,10 +25,10 @@
 
 package cn.herodotus.engine.message.websocket.interceptor;
 
-import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import cn.herodotus.engine.core.definition.constant.SymbolConstants;
-import cn.herodotus.engine.core.identity.domain.PrincipalDetails;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
+import cn.herodotus.engine.core.identity.domain.UserPrincipal;
+import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
 import cn.herodotus.engine.message.websocket.utils.WebSocketUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -79,8 +79,8 @@ public class WebSocketAuthenticationHandshakeInterceptor implements HandshakeInt
             String token = determineToken(protocol);
 
             if (StringUtils.isNotBlank(token)) {
-                PrincipalDetails details = bearerTokenResolver.resolve(token);
-                attributes.put(BaseConstants.PRINCIPAL, details);
+                UserPrincipal details = bearerTokenResolver.resolve(token);
+                attributes.put(SystemConstants.PRINCIPAL, details);
                 log.debug("[Herodotus] |- WebSocket fetch the token is [{}].", token);
             } else {
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);

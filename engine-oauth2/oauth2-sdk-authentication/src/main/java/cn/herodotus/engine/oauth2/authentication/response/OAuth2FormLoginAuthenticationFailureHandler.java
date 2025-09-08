@@ -27,7 +27,7 @@ package cn.herodotus.engine.oauth2.authentication.response;
 
 import cn.herodotus.engine.web.core.utils.SessionUtils;
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.oauth2.core.exception.SecurityGlobalExceptionHandler;
+import cn.herodotus.engine.core.autoconfigure.oauth2.definition.SecurityGlobalExceptionHandler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

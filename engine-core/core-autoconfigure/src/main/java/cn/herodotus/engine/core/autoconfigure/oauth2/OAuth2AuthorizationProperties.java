@@ -23,11 +23,11 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.properties;
+package cn.herodotus.engine.core.autoconfigure.oauth2;
 
+import cn.herodotus.engine.core.definition.constant.BaseConstants;
 import cn.herodotus.engine.core.foundation.enums.DataAccessStrategy;
-import cn.herodotus.engine.oauth2.core.constants.OAuth2Constants;
-import cn.herodotus.engine.oauth2.core.enums.Certificate;
+import cn.herodotus.engine.core.foundation.enums.Certificate;
 import com.google.common.base.MoreObjects;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -41,7 +41,7 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2022/3/6 16:36
  */
-@ConfigurationProperties(prefix = OAuth2Constants.PROPERTY_OAUTH2_AUTHORIZATION)
+@ConfigurationProperties(prefix = BaseConstants.PROPERTY_OAUTH2_AUTHORIZATION)
 public class OAuth2AuthorizationProperties {
 
     /**

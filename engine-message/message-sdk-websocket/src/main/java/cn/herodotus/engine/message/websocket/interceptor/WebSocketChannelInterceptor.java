@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.message.websocket.interceptor;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.message.websocket.domain.WebSocketPrincipal;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
@@ -89,8 +89,8 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
                     String token = null;
                     if (CollectionUtils.isNotEmpty(tokenHeaders)) {
                         String temp = tokenHeaders.get(0);
-                        if (StringUtils.isNotBlank(temp) && Strings.CS.startsWith(temp, BaseConstants.BEARER_TOKEN)) {
-                            token = Strings.CI.removeStart(temp, BaseConstants.BEARER_TOKEN);
+                        if (StringUtils.isNotBlank(temp) && Strings.CS.startsWith(temp, SystemConstants.BEARER_TOKEN)) {
+                            token = Strings.CI.removeStart(temp, SystemConstants.BEARER_TOKEN);
                         }
                     }
 

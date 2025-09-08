@@ -23,11 +23,11 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.introspector;
+package cn.herodotus.engine.core.autoconfigure.oauth2.servlet;
 
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -61,7 +61,7 @@ import java.util.*;
  * @author : gengwei.zheng
  * @date : 2022/10/10 14:34
  */
-public class HerodotusOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
+public class HerodotusServletOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
 
     private static final ParameterizedTypeReference<Map<String, Object>> STRING_OBJECT_MAP = new ParameterizedTypeReference<Map<String, Object>>() {
     };
@@ -72,7 +72,7 @@ public class HerodotusOpaqueTokenIntrospector implements OpaqueTokenIntrospector
 
     private Converter<String, RequestEntity<?>> requestEntityConverter;
 
-    public HerodotusOpaqueTokenIntrospector(OAuth2ResourceServerProperties resourceServerProperties) {
+    public HerodotusServletOpaqueTokenIntrospector(OAuth2ResourceServerProperties resourceServerProperties) {
         this(getIntrospectionUri(resourceServerProperties),
                 resourceServerProperties.getOpaquetoken().getClientId(),
                 resourceServerProperties.getOpaquetoken().getClientSecret());
@@ -85,7 +85,7 @@ public class HerodotusOpaqueTokenIntrospector implements OpaqueTokenIntrospector
      * @param clientId         The client id authorized to introspect
      * @param clientSecret     The client's secret
      */
-    public HerodotusOpaqueTokenIntrospector(String introspectionUri, String clientId, String clientSecret) {
+    public HerodotusServletOpaqueTokenIntrospector(String introspectionUri, String clientId, String clientSecret) {
         Assert.notNull(introspectionUri, "introspectionUri cannot be null");
         Assert.notNull(clientId, "clientId cannot be null");
         Assert.notNull(clientSecret, "clientSecret cannot be null");
@@ -104,7 +104,7 @@ public class HerodotusOpaqueTokenIntrospector implements OpaqueTokenIntrospector
      * @param introspectionUri The introspection endpoint uri
      * @param restOperations   The client for performing the introspection request
      */
-    public HerodotusOpaqueTokenIntrospector(String introspectionUri, RestOperations restOperations) {
+    public HerodotusServletOpaqueTokenIntrospector(String introspectionUri, RestOperations restOperations) {
         Assert.notNull(introspectionUri, "introspectionUri cannot be null");
         Assert.notNull(restOperations, "restOperations cannot be null");
         this.requestEntityConverter = this.defaultRequestEntityConverter(URI.create(introspectionUri));
@@ -234,7 +234,7 @@ public class HerodotusOpaqueTokenIntrospector implements OpaqueTokenIntrospector
                 (k, v) -> Instant.ofEpochSecond(((Number) v).longValue()));
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         claims.computeIfPresent(OAuth2TokenIntrospectionClaimNames.SCOPE, (k, v) -> v.toString());
-        claims.computeIfPresent(BaseConstants.AUTHORITIES, (k, v) -> {
+        claims.computeIfPresent(SystemConstants.AUTHORITIES, (k, v) -> {
             if (v instanceof ArrayList) {
                 List<String> values = (List<String>) v;
                 values.forEach(value -> authorities.add(new HerodotusGrantedAuthority(value)));

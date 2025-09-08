@@ -23,17 +23,14 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.exception;
+package cn.herodotus.engine.core.autoconfigure.oauth2.definition;
 
-import cn.herodotus.engine.core.definition.exception.GlobalExceptionHandler;
 import cn.herodotus.engine.core.definition.constant.ErrorCodes;
 import cn.herodotus.engine.core.definition.domain.Feedback;
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.core.definition.exception.PlatformException;
+import cn.herodotus.engine.core.definition.exception.GlobalExceptionHandler;
 import cn.herodotus.engine.core.definition.exception.PlatformRuntimeException;
-import cn.herodotus.engine.oauth2.core.constants.OAuth2ErrorKeys;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import cn.herodotus.engine.core.identity.constant.OAuth2ErrorKeys;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -43,17 +40,11 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2Error;
-import org.springframework.validation.BindException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.BiFunction;
 
 /**
  * <p>Description: 统一异常处理器 </p>
@@ -61,7 +52,6 @@ import java.util.Map;
  * @author : gengwei.zheng
  * @date : 2019/11/18 8:12
  */
-@RestControllerAdvice
 public class SecurityGlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(SecurityGlobalExceptionHandler.class);
@@ -93,75 +83,15 @@ public class SecurityGlobalExceptionHandler {
         EXCEPTION_DICTIONARY.put(OAuth2ErrorKeys.SESSION_EXPIRED, ErrorCodes.SESSION_EXPIRED);
     }
 
-    /**
-     * Rest Template 错误处理
-     *
-     * @param ex       错误
-     * @param request  请求
-     * @param response 响应
-     * @return Result 对象
-     * @see <a href="https://www.baeldung.com/spring-rest-template-error-handling">baeldung</a>
-     */
-    @ExceptionHandler({HttpClientErrorException.class, HttpServerErrorException.class})
-    public static Result<String> restTemplateException(Exception ex, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = resolveException(ex, request.getRequestURI());
-        response.setStatus(result.getStatus());
-        return result;
-    }
-
-    @ExceptionHandler({MethodArgumentNotValidException.class})
-    public static Result<String> validationMethodArgumentException(MethodArgumentNotValidException ex, HttpServletRequest request, HttpServletResponse response) {
-        return validationBindException(ex, request, response);
-    }
-
-    @ExceptionHandler({BindException.class})
-    public static Result<String> validationBindException(BindException ex, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = resolveException(ex, request.getRequestURI());
-
-        BindingResult bindingResult = ex.getBindingResult();
-        FieldError fieldError = bindingResult.getFieldError();
-        //返回第一个错误的信息
-        if (ObjectUtils.isNotEmpty(fieldError)) {
-            result.validation(fieldError.getDefaultMessage(), fieldError.getCode(), fieldError.getField());
-        }
-
-        response.setStatus(result.getStatus());
-        return result;
-    }
-
-    /**
-     * 统一异常处理
-     * AuthenticationException
-     *
-     * @param ex       错误
-     * @param request  请求
-     * @param response 响应
-     * @return Result 对象
-     */
-    @ExceptionHandler({AuthenticationException.class, PlatformAuthenticationException.class})
-    public static Result<String> authenticationException(Exception ex, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = resolveSecurityException(ex, request.getRequestURI());
-        response.setStatus(result.getStatus());
-        return result;
-    }
-
-    @ExceptionHandler({OAuth2AuthenticationException.class})
-    public static Result<String> oAuth2AuthenticationException(Exception ex, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = resolveSecurityException(ex, request.getRequestURI());
-        response.setStatus(result.getStatus());
-        return result;
-    }
-
-    @ExceptionHandler({Exception.class, PlatformException.class, PlatformRuntimeException.class})
-    public static Result<String> exception(Exception ex, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = resolveException(ex, request.getRequestURI());
-        response.setStatus(result.getStatus());
-        return result;
-    }
-
-
     public static Result<String> resolveException(Exception ex, String path) {
         return GlobalExceptionHandler.resolveException(ex, path);
+    }
+
+    private static Result<String> handle(Exception exception, String path, String key, BiFunction<Feedback, String, Result<String>> toResult) {
+        Optional<Feedback> optional = Optional.ofNullable(EXCEPTION_DICTIONARY.get(key));
+        return optional
+                .map(feedback -> toResult.apply(feedback, key))
+                .orElseGet(() -> resolveException(exception, path));
     }
 
     private static Result<String> handleAuthenticationException(AuthenticationException authenticationException, String path) {

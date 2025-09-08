@@ -34,7 +34,7 @@ import cn.herodotus.engine.logic.upms.entity.security.SysSocialUser;
 import cn.herodotus.engine.logic.upms.entity.security.SysUser;
 import cn.herodotus.engine.logic.upms.service.security.SysSocialUserService;
 import cn.herodotus.engine.logic.upms.service.security.SysUserService;
-import cn.herodotus.engine.oauth2.core.definition.domain.HerodotusUser;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import cn.herodotus.engine.oauth2.core.definition.domain.SocialUserDetails;
 import cn.herodotus.engine.logic.upms.definition.AbstractSocialAuthenticationHandler;
 import cn.herodotus.engine.oauth2.core.exception.SocialCredentialsParameterBindingFailedException;

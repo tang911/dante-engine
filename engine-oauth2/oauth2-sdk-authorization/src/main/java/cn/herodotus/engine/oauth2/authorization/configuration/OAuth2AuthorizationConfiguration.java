@@ -26,15 +26,15 @@
 package cn.herodotus.engine.oauth2.authorization.configuration;
 
 import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
-import cn.herodotus.engine.oauth2.authorization.auditing.SecurityAuditorAware;
+import cn.herodotus.engine.core.autoconfigure.oauth2.servlet.ServletSecurityAuditorAware;
 import cn.herodotus.engine.oauth2.authorization.customizer.OAuth2AuthorizeHttpRequestsConfigurerCustomer;
 import cn.herodotus.engine.oauth2.authorization.customizer.OAuth2ResourceServerConfigurerCustomer;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityAuthorizationManager;
-import cn.herodotus.engine.oauth2.authorization.processor.SecurityMatcherConfigurer;
+import cn.herodotus.engine.core.autoconfigure.oauth2.servlet.ServletOAuth2ResourceMatcherConfigurer;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityMetadataSourceAnalyzer;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityMetadataSourceStorage;
-import cn.herodotus.engine.oauth2.authorization.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.engine.oauth2.core.exception.SecurityGlobalExceptionHandler;
+import cn.herodotus.engine.core.autoconfigure.oauth2.OAuth2AuthorizationProperties;
+import cn.herodotus.engine.core.autoconfigure.oauth2.definition.SecurityGlobalExceptionHandler;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,32 +82,32 @@ public class OAuth2AuthorizationConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public SecurityMatcherConfigurer securityMatcherConfigurer(OAuth2AuthorizationProperties authorizationProperties, ResourceUrlProvider resourceUrlProvider) {
-        SecurityMatcherConfigurer securityMatcherConfigurer = new SecurityMatcherConfigurer(authorizationProperties, resourceUrlProvider);
+    public ServletOAuth2ResourceMatcherConfigurer securityMatcherConfigurer(OAuth2AuthorizationProperties authorizationProperties, ResourceUrlProvider resourceUrlProvider) {
+        ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer = new ServletOAuth2ResourceMatcherConfigurer(authorizationProperties, resourceUrlProvider);
         log.trace("[Herodotus] |- Bean [Security Metadata Configurer] Auto Configure.");
-        return securityMatcherConfigurer;
+        return servletOAuth2ResourceMatcherConfigurer;
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public SecurityAuthorizationManager securityAuthorizationManager(SecurityMetadataSourceStorage securityMetadataSourceStorage, SecurityMatcherConfigurer securityMatcherConfigurer) {
-        SecurityAuthorizationManager securityAuthorizationManager = new SecurityAuthorizationManager(securityMetadataSourceStorage, securityMatcherConfigurer);
+    public SecurityAuthorizationManager securityAuthorizationManager(SecurityMetadataSourceStorage securityMetadataSourceStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
+        SecurityAuthorizationManager securityAuthorizationManager = new SecurityAuthorizationManager(securityMetadataSourceStorage, servletOAuth2ResourceMatcherConfigurer);
         log.trace("[Herodotus] |- Bean [Authorization Manager] Auto Configure.");
         return securityAuthorizationManager;
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public OAuth2AuthorizeHttpRequestsConfigurerCustomer authorizeHttpRequestsConfigurerCustomer(SecurityMatcherConfigurer securityMatcherConfigurer, SecurityAuthorizationManager securityAuthorizationManager) {
-        OAuth2AuthorizeHttpRequestsConfigurerCustomer OAuth2AuthorizeHttpRequestsConfigurerCustomer = new OAuth2AuthorizeHttpRequestsConfigurerCustomer(securityMatcherConfigurer, securityAuthorizationManager);
+    public OAuth2AuthorizeHttpRequestsConfigurerCustomer authorizeHttpRequestsConfigurerCustomer(ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer, SecurityAuthorizationManager securityAuthorizationManager) {
+        OAuth2AuthorizeHttpRequestsConfigurerCustomer OAuth2AuthorizeHttpRequestsConfigurerCustomer = new OAuth2AuthorizeHttpRequestsConfigurerCustomer(servletOAuth2ResourceMatcherConfigurer, securityAuthorizationManager);
         log.trace("[Herodotus] |- Bean [Authorize Http Requests Configurer Customer] Auto Configure.");
         return OAuth2AuthorizeHttpRequestsConfigurerCustomer;
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer(SecurityMetadataSourceStorage securityMetadataSourceStorage, SecurityMatcherConfigurer securityMatcherConfigurer) {
-        SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer = new SecurityMetadataSourceAnalyzer(securityMetadataSourceStorage, securityMatcherConfigurer);
+    public SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer(SecurityMetadataSourceStorage securityMetadataSourceStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
+        SecurityMetadataSourceAnalyzer securityMetadataSourceAnalyzer = new SecurityMetadataSourceAnalyzer(securityMetadataSourceStorage, servletOAuth2ResourceMatcherConfigurer);
         log.trace("[Herodotus] |- Bean [Security Metadata Source Analyzer] Auto Configure.");
         return securityMetadataSourceAnalyzer;
     }
@@ -131,8 +131,8 @@ public class OAuth2AuthorizationConfiguration {
 
     @Bean
     public AuditorAware<String> auditorAware() {
-        SecurityAuditorAware securityAuditorAware = new SecurityAuditorAware();
+        ServletSecurityAuditorAware servletSecurityAuditorAware = new ServletSecurityAuditorAware();
         log.debug("[Herodotus] |- Bean [Security Auditor Aware] Auto Configure.");
-        return securityAuditorAware;
+        return servletSecurityAuditorAware;
     }
 }

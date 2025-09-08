@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.definition;
+package cn.herodotus.engine.core.autoconfigure.oauth2.domain;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;

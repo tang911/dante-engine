@@ -23,59 +23,40 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.definition.domain;
+package cn.herodotus.engine.core.identity.exception;
 
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import org.springframework.security.core.GrantedAuthority;
+import cn.herodotus.engine.core.definition.constant.ErrorCodes;
+import cn.herodotus.engine.core.definition.domain.Feedback;
+import cn.herodotus.engine.core.definition.domain.Result;
+import cn.herodotus.engine.core.definition.exception.HerodotusException;
+import org.springframework.security.core.AuthenticationException;
 
 /**
- * <p>Description: 自定义 GrantedAuthority </p>
+ * <p>Description: 平台认证基础Exception </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/5 0:12
+ * @date : 2021/10/16 14:41
  */
-public class HerodotusGrantedAuthority implements GrantedAuthority {
+public class PlatformAuthenticationException extends AuthenticationException implements HerodotusException {
 
-    private String authority;
-
-    public HerodotusGrantedAuthority() {
+    public PlatformAuthenticationException(String msg, Throwable cause) {
+        super(msg, cause);
     }
 
-    public HerodotusGrantedAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    @Override
-    public String getAuthority() {
-        return this.authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
+    public PlatformAuthenticationException(String msg) {
+        super(msg);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        HerodotusGrantedAuthority that = (HerodotusGrantedAuthority) o;
-        return Objects.equal(authority, that.authority);
+    public Feedback getFeedback() {
+        return ErrorCodes.INTERNAL_SERVER_ERROR;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(authority);
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("authority", authority)
-                .toString();
+    public Result<String> getResult() {
+        Result<String> result = Result.failure(getFeedback());
+        result.stackTrace(super.getStackTrace());
+        result.detail(super.getMessage());
+        return result;
     }
 }
