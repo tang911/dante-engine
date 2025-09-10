@@ -56,7 +56,7 @@ public class CacheCaffeineConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Cache Caffeine] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Cache Caffeine] Configure.");
     }
 
     @Bean
@@ -65,7 +65,7 @@ public class CacheCaffeineConfiguration {
                 .newBuilder()
                 .expireAfterWrite(ObjectUtils.isNotEmpty(cacheProperties.getLocalExpire()) ? cacheProperties.getLocalExpire() : cacheProperties.getExpire());
 
-        log.trace("[Herodotus] |- Bean [Caffeine] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Caffeine] Configure.");
 
         return caffeine;
     }
@@ -75,7 +75,7 @@ public class CacheCaffeineConfiguration {
     public CaffeineCacheManager caffeineCacheManager(Caffeine<Object, Object> caffeine) {
         HerodotusCaffeineCacheManager herodotusCaffeineCacheManager = new HerodotusCaffeineCacheManager(cacheProperties);
         herodotusCaffeineCacheManager.setCaffeine(caffeine);
-        log.trace("[Herodotus] |- Bean [Caffeine Cache Manager] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Caffeine Cache Manager] Configure.");
         return herodotusCaffeineCacheManager;
     }
 }

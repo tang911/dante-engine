@@ -61,14 +61,14 @@ public class AssistantAccessSmsConfiguration {
     public VerificationCodeStampManager verificationCodeStampManager(SmsProperties smsProperties) {
         VerificationCodeStampManager verificationCodeStampManager = new VerificationCodeStampManager();
         verificationCodeStampManager.setSmsProperties(smsProperties);
-        log.trace("[Herodotus] |- Bean [Verification Code Stamp Manager] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Verification Code Stamp Manager] Configure.");
         return verificationCodeStampManager;
     }
 
     @Bean(AccountCategory.PHONE_NUMBER_HANDLER)
     public PhoneNumberAccessHandler phoneNumberAccessHandler(VerificationCodeStampManager verificationCodeStampManager) {
         PhoneNumberAccessHandler phoneNumberAuthenticationHandler = new PhoneNumberAccessHandler(verificationCodeStampManager);
-        log.trace("[Herodotus] |- Bean [Phone Number SignIn Handler] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Phone Number SignIn Handler] Configure.");
         return phoneNumberAuthenticationHandler;
     }
 }

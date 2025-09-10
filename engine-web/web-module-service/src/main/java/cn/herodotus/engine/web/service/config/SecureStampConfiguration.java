@@ -50,14 +50,14 @@ public class SecureStampConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Protect Secure] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Protect Secure] Configure.");
     }
 
     @Bean
     @ConditionalOnMissingBean
     public IdempotentStampManager idempotentStampManager(SecureProperties secureProperties) {
         IdempotentStampManager idempotentStampManager = new IdempotentStampManager(secureProperties);
-        log.trace("[Herodotus] |- Bean [Idempotent Stamp Manager] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Idempotent Stamp Manager] Configure.");
         return idempotentStampManager;
     }
 
@@ -65,7 +65,7 @@ public class SecureStampConfiguration {
     @ConditionalOnMissingBean
     public AccessLimitedStampManager accessLimitedStampManager(SecureProperties secureProperties) {
         AccessLimitedStampManager accessLimitedStampManager = new AccessLimitedStampManager(secureProperties);
-        log.trace("[Herodotus] |- Bean [Access Limited Stamp Manager] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Access Limited Stamp Manager] Configure.");
         return accessLimitedStampManager;
     }
 }

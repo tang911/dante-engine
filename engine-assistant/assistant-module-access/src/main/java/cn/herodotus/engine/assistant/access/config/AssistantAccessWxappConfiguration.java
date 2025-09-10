@@ -70,7 +70,7 @@ public class AssistantAccessWxappConfiguration {
     @ConditionalOnMissingBean
     public WxappAccessHandler wxappAccessHandler(WxappProcessor wxappProcessor) {
         WxappAccessHandler wxappAccessHandler = new WxappAccessHandler(wxappProcessor);
-        log.debug("[Herodotus] |- Bean [Wxapp Access Handler] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [Wxapp Access Handler] Configure.");
         return wxappAccessHandler;
     }
 }

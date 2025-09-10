@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.data.tenant.properties;
 
-import cn.herodotus.engine.data.core.constants.DataConstants;
+import cn.herodotus.engine.data.tenant.constant.TenantConstants;
 import cn.herodotus.engine.data.tenant.enums.MultiTenant;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -35,7 +35,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author : gengwei.zheng
  * @date : 2022/9/8 18:22
  */
-@ConfigurationProperties(prefix = DataConstants.PROPERTY_PREFIX_MULTI_TENANT)
+@ConfigurationProperties(prefix = TenantConstants.PROPERTY_PREFIX_MULTI_TENANT)
 public class MultiTenantProperties {
 
     /**

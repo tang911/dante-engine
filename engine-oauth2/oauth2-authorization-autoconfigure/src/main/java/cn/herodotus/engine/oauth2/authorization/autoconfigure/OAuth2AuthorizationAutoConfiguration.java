@@ -68,14 +68,14 @@ public class OAuth2AuthorizationAutoConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.info("[Herodotus] |- Module [OAuth2 Resource Server Starter] Auto Configure.");
+        log.info("[Herodotus] |- Module [OAuth2 Resource Server Starter] Configure.");
     }
 
     @Bean
     @ConditionalOnMissingBean
     public RemoteAttributeTransmitterSyncListener remoteSecurityMetadataSyncListener(SecurityAttributeAnalyzer securityAttributeAnalyzer, ServiceMatcher serviceMatcher) {
         RemoteAttributeTransmitterSyncListener listener = new RemoteAttributeTransmitterSyncListener(securityAttributeAnalyzer, serviceMatcher);
-        log.trace("[Herodotus] |- Bean [Security Metadata Refresh Listener] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Security Metadata Refresh Listener] Configure.");
         return listener;
     }
 
@@ -83,7 +83,7 @@ public class OAuth2AuthorizationAutoConfiguration {
     @ConditionalOnMissingBean
     public RestMappingScanEventManager requestMappingScanEventManager(SecurityAttributeAnalyzer securityAttributeAnalyzer) {
         DefaultRestMappingScanEventManager manager = new DefaultRestMappingScanEventManager(securityAttributeAnalyzer);
-        log.trace("[Herodotus] |- Bean [Request Mapping Scan Manager] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Request Mapping Scan Manager] Configure.");
         return manager;
     }
 }

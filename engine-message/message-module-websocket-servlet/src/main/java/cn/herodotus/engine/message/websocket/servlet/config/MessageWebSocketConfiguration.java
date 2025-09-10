@@ -58,13 +58,13 @@ public class MessageWebSocketConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Message WebSocket] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Message WebSocket] Configure.");
     }
 
     @Bean
     public WebSocketAuthenticationHandshakeInterceptor webSocketPrincipalHandshakeHandler(BearerTokenResolver bearerTokenResolver) {
         WebSocketAuthenticationHandshakeInterceptor interceptor = new WebSocketAuthenticationHandshakeInterceptor(bearerTokenResolver);
-        log.trace("[Herodotus] |- Bean [WebSocket Authentication Handshake Interceptor] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [WebSocket Authentication Handshake Interceptor] Configure.");
         return interceptor;
     }
 
@@ -72,7 +72,7 @@ public class MessageWebSocketConfiguration {
     @ConditionalOnMissingBean
     public WebSocketMessagingTemplate webSocketMessagingTemplate(SimpMessagingTemplate simpMessagingTemplate, SimpUserRegistry simpUserRegistry) {
         WebSocketMessagingTemplate template = new WebSocketMessagingTemplate(simpMessagingTemplate, simpUserRegistry);
-        log.trace("[Herodotus] |- Bean [WebSocket Messaging Template] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [WebSocket Messaging Template] Configure.");
         return template;
     }
 
@@ -83,7 +83,7 @@ public class MessageWebSocketConfiguration {
         @ConditionalOnMissingBean
         public WebSocketMessageSender singleInstanceMessageSender(WebSocketMessagingTemplate webSocketMessagingTemplate) {
             SingleInstanceMessageSender sender = new SingleInstanceMessageSender(webSocketMessagingTemplate);
-            log.debug("[Herodotus] |- Strategy [Single Instance Web Socket Message Sender] Auto Configure.");
+            log.debug("[Herodotus] |- Strategy [Single Instance Web Socket Message Sender] Configure.");
             return sender;
         }
     }
@@ -96,14 +96,14 @@ public class MessageWebSocketConfiguration {
         @ConditionalOnMissingBean
         public WebSocketMessageSender multipleInstanceMessageSender(WebSocketMessagingTemplate webSocketMessagingTemplate) {
             MultipleInstanceMessageSender sender = new MultipleInstanceMessageSender(webSocketMessagingTemplate);
-            log.debug("[Herodotus] |- Strategy [Multiple Instance Web Socket Message Sender] Auto Configure.");
+            log.debug("[Herodotus] |- Strategy [Multiple Instance Web Socket Message Sender] Configure.");
             return sender;
         }
 
         @Bean
         public Consumer<WebSocketMessage> webSocketConsumer(WebSocketMessagingTemplate webSocketMessagingTemplate) {
             MultipleInstanceMessageSyncConsumer consumer = new MultipleInstanceMessageSyncConsumer(webSocketMessagingTemplate);
-            log.trace("[Herodotus] |- Bean [Multiple Instance Message Receiver] Auto Configure.");
+            log.trace("[Herodotus] |- Bean [Multiple Instance Message Receiver] Configure.");
             return consumer;
         }
     }
@@ -121,7 +121,7 @@ public class MessageWebSocketConfiguration {
         @Bean
         public WebSocketMessageSendingAdapter webSocketMessageSendingAdapter(WebSocketMessageSender webSocketMessageSender) {
             WebSocketMessageSendingAdapter adapter = new WebSocketMessageSendingAdapter(webSocketMessageSender);
-            log.trace("[Herodotus] |- Bean [WebSocket Message Sending Adapter] Auto Configure.");
+            log.trace("[Herodotus] |- Bean [WebSocket Message Sending Adapter] Configure.");
             return adapter;
         }
     }

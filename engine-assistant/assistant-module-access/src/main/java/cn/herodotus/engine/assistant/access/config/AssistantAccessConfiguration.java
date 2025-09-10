@@ -79,7 +79,7 @@ public class AssistantAccessConfiguration {
     @Bean
     public ErrorCodeMapperBuilderCustomizer accessErrorCodeMapperBuilderCustomizer() {
         AccessErrorCodeMapperBuilderCustomizer customizer = new AccessErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Access ErrorCodeMapper Builder Customizer] Auto Configure.");
+        log.debug("[Herodotus] |- Strategy [Access ErrorCodeMapper Builder Customizer] Configure.");
         return customizer;
     }
 }

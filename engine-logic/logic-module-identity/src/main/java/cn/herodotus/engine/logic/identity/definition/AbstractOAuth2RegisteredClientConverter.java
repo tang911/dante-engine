@@ -28,7 +28,7 @@ package cn.herodotus.engine.logic.identity.definition;
 import cn.herodotus.engine.logic.identity.entity.OAuth2Scope;
 import cn.herodotus.engine.oauth2.core.enums.AllJwsAlgorithm;
 import cn.herodotus.engine.oauth2.core.enums.SignatureJwsAlgorithm;
-import cn.herodotus.engine.persistence.sas.jpa.definition.RegisteredClientConverter;
+import cn.herodotus.engine.oauth2.persistence.sas.jpa.definition.RegisteredClientConverter;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.oauth2.jose.jws.JwsAlgorithm;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;

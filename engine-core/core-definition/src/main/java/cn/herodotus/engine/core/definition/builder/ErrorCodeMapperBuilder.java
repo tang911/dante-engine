@@ -112,6 +112,12 @@ public class ErrorCodeMapperBuilder {
         put(ErrorCodes.FORBIDDEN, ErrorCodes.FORBIDDEN.getSequence());
     }};
     /**
+     * 404	Not Found	服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置"您所请求的资源无法找到"的个性页面
+     */
+    private final Map<Feedback, Integer> notFoundConfigs = new LinkedHashMap<>() {{
+        put(ErrorCodes.NOT_FOUND, ErrorCodes.NOT_FOUND.getSequence());
+    }};
+    /**
      * 405	Method Not Allowed	客户端请求中的方法被禁止
      */
     private final Map<Feedback, Integer> methodNotAllowedConfigs = new LinkedHashMap<>() {{
@@ -164,6 +170,20 @@ public class ErrorCodeMapperBuilder {
         return this;
     }
 
+    public ErrorCodeMapperBuilder customize(CustomizeFeedback... items) {
+        for (Feedback item : items) {
+            if (item.isCustom()) {
+                Map<Feedback, Integer> config = customizeConfigs.get(item.getCustom());
+                if (MapUtils.isEmpty(config)) {
+                    config = new LinkedHashMap<>();
+                }
+                config.put(item, item.getSequence(config.size()));
+                customizeConfigs.put(item.getCustom(), config);
+            }
+        }
+        return this;
+    }
+
     /**
      * 401	Unauthorized	请求要求用户的身份认证
      *
@@ -182,6 +202,16 @@ public class ErrorCodeMapperBuilder {
      */
     public ErrorCodeMapperBuilder forbidden(ForbiddenFeedback... items) {
         return create(this.forbiddenConfigs, items);
+    }
+
+    /**
+     * 404	Not Found	服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置"您所请求的资源无法找到"的个性页面
+     *
+     * @param items 错误标识条目 {@link NotFoundFeedback}
+     * @return {@link NotFoundFeedback}
+     */
+    public ErrorCodeMapperBuilder notFound(NotFoundFeedback... items) {
+        return create(this.notFoundConfigs, items);
     }
 
     /**
@@ -254,20 +284,6 @@ public class ErrorCodeMapperBuilder {
         return create(this.serviceUnavailableConfigs, items);
     }
 
-    public ErrorCodeMapperBuilder customize(CustomizeFeedback... items) {
-        for (Feedback item : items) {
-            if (item.isCustom()) {
-                Map<Feedback, Integer> config = customizeConfigs.get(item.getCustom());
-                if (MapUtils.isEmpty(config)) {
-                    config = new LinkedHashMap<>();
-                }
-                config.put(item, item.getSequence(config.size()));
-                customizeConfigs.put(item.getCustom(), config);
-            }
-        }
-        return this;
-    }
-
     public ErrorCodeMapper build() {
         ErrorCodeMapper errorCodeMapper = ErrorCodeMapper.getInstance();
         errorCodeMapper.append(unauthorizedConfigs);
@@ -279,6 +295,7 @@ public class ErrorCodeMapperBuilder {
         errorCodeMapper.append(internalServerErrorConfigs);
         errorCodeMapper.append(notImplementedConfigs);
         errorCodeMapper.append(serviceUnavailableConfigs);
+        errorCodeMapper.append(notFoundConfigs);
 
         customizeConfigs.forEach((key, feedbacks) -> errorCodeMapper.append(feedbacks));
         return errorCodeMapper;

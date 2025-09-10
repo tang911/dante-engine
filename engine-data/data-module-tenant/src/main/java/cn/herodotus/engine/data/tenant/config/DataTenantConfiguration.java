@@ -52,6 +52,6 @@ public class DataTenantConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Tenant] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Tenant] Configure.");
     }
 }

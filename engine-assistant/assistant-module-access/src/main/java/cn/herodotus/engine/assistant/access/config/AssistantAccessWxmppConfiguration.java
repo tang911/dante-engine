@@ -63,7 +63,7 @@ public class AssistantAccessWxmppConfiguration {
         wxmppProcessor.setWxmppProperties(wxmppProperties);
         wxmppProcessor.setWxmppLogHandler(new WxmppLogHandler());
         wxmppProcessor.setStringRedisTemplate(stringRedisTemplate);
-        log.trace("[Herodotus] |- Bean [Wxmpp Processor] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Wxmpp Processor] Configure.");
         return wxmppProcessor;
     }
 }

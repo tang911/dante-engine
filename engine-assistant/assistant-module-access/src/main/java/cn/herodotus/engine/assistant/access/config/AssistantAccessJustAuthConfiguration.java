@@ -65,7 +65,7 @@ public class AssistantAccessJustAuthConfiguration {
     public JustAuthStateStampManager justAuthStateStampManager(JustAuthProperties justAuthProperties) {
         JustAuthStateStampManager justAuthStateStampManager = new JustAuthStateStampManager();
         justAuthStateStampManager.setJustAuthProperties(justAuthProperties);
-        log.trace("[Herodotus] |- Bean [Just Auth State Redis Cache] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Just Auth State Redis Cache] Configure.");
         return justAuthStateStampManager;
     }
 
@@ -76,7 +76,7 @@ public class AssistantAccessJustAuthConfiguration {
         JustAuthProcessor justAuthProcessor = new JustAuthProcessor();
         justAuthProcessor.setJustAuthStateRedisCache(justAuthStateStampManager);
         justAuthProcessor.setJustAuthProperties(justAuthProperties);
-        log.trace("[Herodotus] |- Bean [Just Auth Request Generator] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Just Auth Request Generator] Configure.");
         return justAuthProcessor;
     }
 
@@ -85,7 +85,7 @@ public class AssistantAccessJustAuthConfiguration {
     @ConditionalOnMissingBean
     public JustAuthAccessHandler justAuthAccessHandler(JustAuthProcessor justAuthProcessor) {
         JustAuthAccessHandler justAuthAccessHandler = new JustAuthAccessHandler(justAuthProcessor);
-        log.debug("[Herodotus] |- Bean [Just Auth Access Handler] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [Just Auth Access Handler] Configure.");
         return justAuthAccessHandler;
     }
 }

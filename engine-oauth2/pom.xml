@@ -32,12 +32,15 @@
     <parent>
         <artifactId>dante-engine</artifactId>
         <groupId>cn.herodotus.engine</groupId>
-        <version>3.5.5.2</version>
+        <version>3.5.5.3</version>
     </parent>
 
     <artifactId>engine-oauth2</artifactId>
     <name>engine-oauth2</name>
+
     <packaging>pom</packaging>
+
+    <description>Dante Cloud 微服务基座组件库 OAuth2 认证模块分组</description>
 
     <modules>
         <module>oauth2-core</module>
