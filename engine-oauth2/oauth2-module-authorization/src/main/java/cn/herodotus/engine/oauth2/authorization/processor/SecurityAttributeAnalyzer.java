@@ -203,7 +203,7 @@ public class SecurityAttributeAnalyzer {
      */
     public void processRequestMatchers() {
 
-        log.debug("[Herodotus] |- [3] Process local configured security metadata.");
+        log.debug("[Herodotus] |- [R3] Process local configured security metadata.");
 
         Map<HerodotusRequest, List<HerodotusSecurityAttribute>> requestMatchers = servletOAuth2ResourceMatcherConfigurer.getPermitAllAttributes();
         if (MapUtils.isNotEmpty(requestMatchers)) {
@@ -251,6 +251,6 @@ public class SecurityAttributeAnalyzer {
         log.debug("[Herodotus] |- Store full path type security attributes.");
         securityAttributeStorage.addToStorage(matchers, fullPaths, true);
 
-        log.debug("[Herodotus] |- [7] Security attributes process has FINISHED!");
+        log.debug("[Herodotus] |- [R7] Security attributes process has FINISHED!");
     }
 }
