@@ -37,7 +37,7 @@
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.5.5.2</version>
+    <version>3.5.5.3</version>
     <name>Dante Engine Dependencies</name>
     <packaging>pom</packaging>
 
@@ -105,7 +105,7 @@
         <fastjson2.version>2.0.58</fastjson2.version>
         <guava.version>33.4.8-jre</guava.version>
         <hutool.version>7.0.0-M1</hutool.version>
-        <hypersistence-utils-hibernate-63.version>3.10.3</hypersistence-utils-hibernate-63.version>
+        <hypersistence-utils-hibernate-63.version>3.11.0</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.3.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.8</jetcache.version>
@@ -142,7 +142,7 @@
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.18.2</quasar.version>
         <sm-crypto.version>0.3.13</sm-crypto.version>
-        <sweetalert2.verison>11.22.5</sweetalert2.verison>
+        <sweetalert2.verison>11.23.0</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
         <vue.version>3.5.21</vue.version>
 
