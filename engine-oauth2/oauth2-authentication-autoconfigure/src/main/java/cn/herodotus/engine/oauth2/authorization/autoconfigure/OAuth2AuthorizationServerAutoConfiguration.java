@@ -25,7 +25,8 @@
 
 package cn.herodotus.engine.oauth2.authorization.autoconfigure;
 
-import cn.herodotus.engine.oauth2.authentication.configuration.OAuth2AuthenticationConfiguration;
+import cn.herodotus.engine.oauth2.authentication.config.OAuth2AuthenticationConfiguration;
+import cn.herodotus.engine.oauth2.authorization.autoconfigure.message.OAuth2AuthenticationMessageConfiguration;
 import cn.herodotus.engine.oauth2.core.properties.OAuth2AuthenticationProperties;
 import cn.herodotus.engine.persistence.sas.jpa.config.OAuth2PersistenceSasJpaConfiguration;
 import jakarta.annotation.PostConstruct;
@@ -46,6 +47,7 @@ import org.springframework.context.annotation.Import;
 @Import({
         OAuth2PersistenceSasJpaConfiguration.class,
         OAuth2AuthenticationConfiguration.class,
+        OAuth2AuthenticationMessageConfiguration.class
 })
 public class OAuth2AuthorizationServerAutoConfiguration {
 

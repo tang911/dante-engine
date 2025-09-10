@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authentication.configuration;
+package cn.herodotus.engine.oauth2.authentication.config;
 
 import cn.herodotus.engine.oauth2.authentication.configurer.OAuth2AuthenticationConfigurerManager;
 import cn.herodotus.engine.oauth2.authentication.customizer.HerodotusJwtTokenCustomizer;

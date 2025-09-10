@@ -36,7 +36,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>Description: 账户锁定处理服务 </p>
@@ -44,7 +44,7 @@ import org.springframework.stereotype.Service;
  * @author : gengwei.zheng
  * @date : 2022/7/8 19:25
  */
-@Service
+@Component
 public class OAuth2AccountStatusManager {
 
     private static final Logger log = LoggerFactory.getLogger(OAuth2AccountStatusManager.class);

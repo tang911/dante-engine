@@ -38,6 +38,7 @@ import cn.herodotus.engine.oauth2.authorization.autoconfigure.bus.RemoteAccountS
  * @date : 2022/7/10 17:25
  */
 public class DefaultAccountStatusChangedEventManager implements AccountStatusChangedEventManager {
+
     @Override
     public String getDestinationServiceName() {
         return ServiceContextHolder.getUpmsServiceName();
