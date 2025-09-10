@@ -76,7 +76,7 @@ public class CacheRedissonConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Cache Redisson] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Cache Redisson] Configure.");
     }
 
     private File readConfigFile() {
@@ -180,7 +180,7 @@ public class CacheRedissonConfiguration {
 
         RedissonClient redissonClient = Redisson.create(config);
 
-        log.trace("[Herodotus] |- Bean [Redisson Client] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Redisson Client] Configure.");
 
         return redissonClient;
     }

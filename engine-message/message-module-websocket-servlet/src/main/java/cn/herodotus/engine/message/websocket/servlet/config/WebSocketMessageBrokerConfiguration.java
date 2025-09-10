@@ -75,7 +75,7 @@ public class WebSocketMessageBrokerConfiguration extends AbstractSessionWebSocke
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [WebSocket Message Broker] Auto Configure.");
+        log.debug("[Herodotus] |- Module [WebSocket Message Broker] Configure.");
     }
 
     /**

@@ -46,13 +46,13 @@ class DiscriminatorApproachConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Discriminator Approach] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Discriminator Approach] Configure.");
     }
 
     @Bean
     public HibernatePropertiesCustomizer herodotusTenantIdentifierResolver() {
         HerodotusTenantIdentifierResolver resolver = new HerodotusTenantIdentifierResolver();
-        log.debug("[Herodotus] |- Bean [Current Tenant Identifier Resolver] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [Current Tenant Identifier Resolver] Configure.");
         return resolver;
     }
 }

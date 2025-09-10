@@ -76,7 +76,7 @@ public class LogicUpmsConfiguration {
     @ConditionalOnMissingBean
     public SocialAuthenticationHandler socialAuthenticationHandler(SysUserService sysUserService, SysSocialUserService sysSocialUserService, AccessHandlerStrategyFactory accessHandlerStrategyFactory) {
         DefaultSocialAuthenticationHandler defaultSocialAuthenticationHandler = new DefaultSocialAuthenticationHandler(sysUserService, sysSocialUserService, accessHandlerStrategyFactory);
-        log.trace("[Herodotus] |- Bean [Default Social Authentication Handler] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Default Social Authentication Handler] Configure.");
         return defaultSocialAuthenticationHandler;
     }
 }

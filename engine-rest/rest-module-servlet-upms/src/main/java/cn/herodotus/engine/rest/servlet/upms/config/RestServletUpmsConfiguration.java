@@ -67,7 +67,7 @@ public class RestServletUpmsConfiguration {
     @ConditionalOnMissingBean
     public PhoneNumberAccessController phoneNumberAccessController() {
         PhoneNumberAccessController phoneNumberAuthenticationController = new PhoneNumberAccessController();
-        log.trace("[Herodotus] |- Bean [Phone Number Access Controller] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Phone Number Access Controller] Configure.");
         return phoneNumberAuthenticationController;
     }
 
@@ -76,7 +76,7 @@ public class RestServletUpmsConfiguration {
     @ConditionalOnMissingBean
     public JustAuthAccessController justAuthSignInController() {
         JustAuthAccessController justAuthAuthenticationController = new JustAuthAccessController();
-        log.trace("[Herodotus] |- Bean [Just Auth Access Controller] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Just Auth Access Controller] Configure.");
         return justAuthAuthenticationController;
     }
 
@@ -85,7 +85,7 @@ public class RestServletUpmsConfiguration {
     @ConditionalOnMissingBean
     public WxappAccessController wxappAccessController() {
         WxappAccessController wxappAccessController = new WxappAccessController();
-        log.trace("[Herodotus] |- Bean [Wxapp Access Controller] Auto Configure.");
+        log.trace("[Herodotus] |- Bean [Wxapp Access Controller] Configure.");
         return wxappAccessController;
     }
 }

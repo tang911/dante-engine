@@ -51,13 +51,13 @@ class SchemaApproachConfiguration {
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Schema Approach] Auto Configure.");
+        log.debug("[Herodotus] |- Module [Schema Approach] Configure.");
     }
 
     @Bean
     public HibernatePropertiesCustomizer schemaMultiTenantConnectionProvider(DataSource dataSource) {
         SchemaMultiTenantConnectionProvider provider = new SchemaMultiTenantConnectionProvider(dataSource);
-        log.debug("[Herodotus] |- Bean [Multi Tenant Connection Provider] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [Multi Tenant Connection Provider] Configure.");
         return provider;
     }
 }

@@ -56,7 +56,7 @@ public class ServletMessageAutoConfiguration {
     @Bean
     public ErrorCodeMapperBuilderCustomizer messageErrorCodeMapperBuilderCustomizer() {
         MessageErrorCodeMapperBuilderCustomizer customizer = new MessageErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Message ErrorCodeMapper Builder Customizer] Auto Configure.");
+        log.debug("[Herodotus] |- Strategy [Message ErrorCodeMapper Builder Customizer] Configure.");
         return customizer;
     }
 }

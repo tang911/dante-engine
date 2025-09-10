@@ -55,7 +55,7 @@ public class ErrorCodeAutoConfiguration {
     @Bean
     public ErrorCodeMapperBuilderCustomizer standardErrorCodeMapperBuilderCustomizer() {
         StandardErrorCodeMapperBuilderCustomizer customizer = new StandardErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Standard ErrorCodeMapper Builder Customizer] Auto Configure.");
+        log.debug("[Herodotus] |- Strategy [Standard ErrorCodeMapper Builder Customizer] Configure.");
         return customizer;
     }
 
@@ -63,7 +63,7 @@ public class ErrorCodeAutoConfiguration {
     public ErrorCodeMapperBuilder errorCodeMapperBuilder(List<ErrorCodeMapperBuilderCustomizer> customizers) {
         ErrorCodeMapperBuilder builder = new ErrorCodeMapperBuilder();
         customize(builder, customizers);
-        log.debug("[Herodotus] |- Bean [ErrorCodeMapper Builder] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [ErrorCodeMapper Builder] Configure.");
         return builder;
     }
 
@@ -76,7 +76,7 @@ public class ErrorCodeAutoConfiguration {
     @Bean
     public ErrorCodeMapper errorCodeMapper(ErrorCodeMapperBuilder builder) {
         ErrorCodeMapper mapper = builder.build();
-        log.debug("[Herodotus] |- Bean [ErrorCodeMapper] Auto Configure.");
+        log.debug("[Herodotus] |- Bean [ErrorCodeMapper] Configure.");
         return mapper;
     }
 }
