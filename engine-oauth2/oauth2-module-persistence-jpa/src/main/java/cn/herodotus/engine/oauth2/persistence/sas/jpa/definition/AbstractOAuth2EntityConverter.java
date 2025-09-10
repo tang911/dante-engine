@@ -23,37 +23,32 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.autoconfigure.message;
+package cn.herodotus.engine.oauth2.persistence.sas.jpa.definition;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import cn.herodotus.engine.oauth2.persistence.sas.jpa.jackson2.OAuth2JacksonProcessor;
+import org.springframework.core.convert.converter.Converter;
+
+import java.util.Map;
 
 /**
- * <p>Description: 认证服务器 OAuth2 消息配置 </p>
- * <p>
- * 本配置类中，仅配置认证服务器 UAA 所需要的相关信息内容
+ * <p>Description: 封装RegisteredClientAdapter 默认行为 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/8/21 17:54
+ * @date : 2023/5/12 23:54
  */
-@Configuration(proxyBeanMethods = false)
-public class OAuth2AuthenticationMessageConfiguration {
+public abstract class AbstractOAuth2EntityConverter<S, T> implements Converter<S, T> {
 
-    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthenticationMessageConfiguration.class);
+    private final OAuth2JacksonProcessor jacksonProcessor;
 
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Authentication Server Message] Configure.");
+    public AbstractOAuth2EntityConverter(OAuth2JacksonProcessor jacksonProcessor) {
+        this.jacksonProcessor = jacksonProcessor;
     }
 
-    @Bean
-    public AccountStatusChangedEventManager accountStatusChangedEventManager() {
-        DefaultAccountStatusChangedEventManager manager = new DefaultAccountStatusChangedEventManager();
-        log.trace("[Herodotus] |- Bean [Herodotus Account Status Event Manager] Configure.");
-        return manager;
+    protected Map<String, Object> parseMap(String data) {
+        return jacksonProcessor.parseMap(data);
+    }
+
+    protected String writeMap(Map<String, Object> data) {
+        return jacksonProcessor.writeMap(data);
     }
 }

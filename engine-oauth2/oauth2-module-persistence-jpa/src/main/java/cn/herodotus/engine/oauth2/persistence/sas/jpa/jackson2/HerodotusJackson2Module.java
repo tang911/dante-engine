@@ -23,37 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.autoconfigure.message;
+package cn.herodotus.engine.oauth2.persistence.sas.jpa.jackson2;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.domain.HerodotusUser;
+import cn.herodotus.engine.oauth2.core.domain.FormLoginWebAuthenticationDetails;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.springframework.security.jackson2.SecurityJackson2Modules;
 
 /**
- * <p>Description: 认证服务器 OAuth2 消息配置 </p>
- * <p>
- * 本配置类中，仅配置认证服务器 UAA 所需要的相关信息内容
+ * <p>Description: 自定义 User Details Module </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/8/21 17:54
+ * @date : 2022/2/17 23:39
  */
-@Configuration(proxyBeanMethods = false)
-public class OAuth2AuthenticationMessageConfiguration {
+public class HerodotusJackson2Module extends SimpleModule {
 
-    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthenticationMessageConfiguration.class);
-
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Authentication Server Message] Configure.");
+    public HerodotusJackson2Module() {
+        super(HerodotusJackson2Module.class.getName(), Jackson2Constants.VERSION);
     }
 
-    @Bean
-    public AccountStatusChangedEventManager accountStatusChangedEventManager() {
-        DefaultAccountStatusChangedEventManager manager = new DefaultAccountStatusChangedEventManager();
-        log.trace("[Herodotus] |- Bean [Herodotus Account Status Event Manager] Configure.");
-        return manager;
+    @Override
+    public void setupModule(SetupContext context) {
+        SecurityJackson2Modules.enableDefaultTyping(context.getOwner());
+        context.setMixInAnnotations(HerodotusUser.class, HerodotusUserMixin.class);
+        context.setMixInAnnotations(HerodotusGrantedAuthority.class, HerodotusGrantedAuthorityMixin.class);
+        context.setMixInAnnotations(FormLoginWebAuthenticationDetails.class, FormLoginWebAuthenticationDetailsMixin.class);
     }
 }

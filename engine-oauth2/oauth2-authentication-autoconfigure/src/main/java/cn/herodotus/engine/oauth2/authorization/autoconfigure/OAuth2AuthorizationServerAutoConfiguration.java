@@ -28,7 +28,7 @@ package cn.herodotus.engine.oauth2.authorization.autoconfigure;
 import cn.herodotus.engine.oauth2.authentication.config.OAuth2AuthenticationConfiguration;
 import cn.herodotus.engine.oauth2.authorization.autoconfigure.message.OAuth2AuthenticationMessageConfiguration;
 import cn.herodotus.engine.oauth2.core.properties.OAuth2AuthenticationProperties;
-import cn.herodotus.engine.persistence.sas.jpa.config.OAuth2PersistenceSasJpaConfiguration;
+import cn.herodotus.engine.oauth2.persistence.sas.jpa.config.OAuth2PersistenceSasJpaConfiguration;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

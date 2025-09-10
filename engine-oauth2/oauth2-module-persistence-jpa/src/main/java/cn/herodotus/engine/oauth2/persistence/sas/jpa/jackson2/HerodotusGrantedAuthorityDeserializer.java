@@ -23,37 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.autoconfigure.message;
+package cn.herodotus.engine.oauth2.persistence.sas.jpa.jackson2;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
+import cn.herodotus.engine.core.identity.jackson2.JsonNodeUtils;
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 
 /**
- * <p>Description: 认证服务器 OAuth2 消息配置 </p>
- * <p>
- * 本配置类中，仅配置认证服务器 UAA 所需要的相关信息内容
+ * <p>Description: HerodotusGrantedAuthority 反序列化 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/8/21 17:54
+ * @date : 2022/3/17 20:28
  */
-@Configuration(proxyBeanMethods = false)
-public class OAuth2AuthenticationMessageConfiguration {
-
-    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthenticationMessageConfiguration.class);
-
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Authentication Server Message] Configure.");
-    }
-
-    @Bean
-    public AccountStatusChangedEventManager accountStatusChangedEventManager() {
-        DefaultAccountStatusChangedEventManager manager = new DefaultAccountStatusChangedEventManager();
-        log.trace("[Herodotus] |- Bean [Herodotus Account Status Event Manager] Configure.");
-        return manager;
+public class HerodotusGrantedAuthorityDeserializer extends JsonDeserializer<HerodotusGrantedAuthority> {
+    @Override
+    public HerodotusGrantedAuthority deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JacksonException {
+        ObjectMapper mapper = (ObjectMapper) jp.getCodec();
+        JsonNode jsonNode = mapper.readTree(jp);
+        String authority = JsonNodeUtils.findStringValue(jsonNode, "authority");
+        return new HerodotusGrantedAuthority(authority);
     }
 }

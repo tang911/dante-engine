@@ -23,37 +23,35 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.autoconfigure.message;
+package cn.herodotus.engine.oauth2.persistence.sas.jpa.jackson2;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import cn.herodotus.engine.core.identity.jackson2.JsonNodeUtils;
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+
+import java.io.IOException;
+import java.util.Map;
 
 /**
- * <p>Description: 认证服务器 OAuth2 消息配置 </p>
- * <p>
- * 本配置类中，仅配置认证服务器 UAA 所需要的相关信息内容
+ * <p>Description: ClientSettingsDeserializer </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/8/21 17:54
+ * @date : 2022/10/24 23:18
  */
-@Configuration(proxyBeanMethods = false)
-public class OAuth2AuthenticationMessageConfiguration {
+public class ClientSettingsDeserializer extends JsonDeserializer<ClientSettings> {
 
-    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthenticationMessageConfiguration.class);
+    @Override
+    public ClientSettings deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+        ObjectMapper mapper = (ObjectMapper) jsonParser.getCodec();
+        JsonNode jsonNode = mapper.readTree(jsonParser);
 
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Authentication Server Message] Configure.");
-    }
+        Map<String, Object> settings = JsonNodeUtils.findValue(jsonNode, "settings", JsonNodeUtils.STRING_OBJECT_MAP, mapper);
 
-    @Bean
-    public AccountStatusChangedEventManager accountStatusChangedEventManager() {
-        DefaultAccountStatusChangedEventManager manager = new DefaultAccountStatusChangedEventManager();
-        log.trace("[Herodotus] |- Bean [Herodotus Account Status Event Manager] Configure.");
-        return manager;
+        return ClientSettings.withSettings(settings).build();
     }
 }

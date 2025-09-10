@@ -23,37 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.authorization.autoconfigure.message;
+package cn.herodotus.engine.oauth2.persistence.sas.jpa.jackson2;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * <p>Description: 认证服务器 OAuth2 消息配置 </p>
- * <p>
- * 本配置类中，仅配置认证服务器 UAA 所需要的相关信息内容
+ * <p>Description: HerodotusGrantedAuthority Jackson2 Mixin </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/8/21 17:54
+ * @date : 2022/3/17 20:28
  */
-@Configuration(proxyBeanMethods = false)
-public class OAuth2AuthenticationMessageConfiguration {
-
-    private static final Logger log = LoggerFactory.getLogger(OAuth2AuthenticationMessageConfiguration.class);
-
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Authentication Server Message] Configure.");
-    }
-
-    @Bean
-    public AccountStatusChangedEventManager accountStatusChangedEventManager() {
-        DefaultAccountStatusChangedEventManager manager = new DefaultAccountStatusChangedEventManager();
-        log.trace("[Herodotus] |- Bean [Herodotus Account Status Event Manager] Configure.");
-        return manager;
-    }
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
+@JsonDeserialize(using = HerodotusGrantedAuthorityDeserializer.class)
+@JsonAutoDetect(
+        fieldVisibility = JsonAutoDetect.Visibility.ANY,
+        getterVisibility = JsonAutoDetect.Visibility.NONE,
+        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public abstract class HerodotusGrantedAuthorityMixin {
 }

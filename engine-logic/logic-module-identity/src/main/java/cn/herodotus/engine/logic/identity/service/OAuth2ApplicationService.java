@@ -32,7 +32,7 @@ import cn.herodotus.engine.logic.identity.converter.OAuth2ApplicationToRegistere
 import cn.herodotus.engine.logic.identity.entity.OAuth2Application;
 import cn.herodotus.engine.logic.identity.entity.OAuth2Scope;
 import cn.herodotus.engine.logic.identity.repository.OAuth2ApplicationRepository;
-import cn.herodotus.engine.persistence.sas.jpa.repository.HerodotusRegisteredClientRepository;
+import cn.herodotus.engine.oauth2.persistence.sas.jpa.repository.HerodotusRegisteredClientRepository;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
