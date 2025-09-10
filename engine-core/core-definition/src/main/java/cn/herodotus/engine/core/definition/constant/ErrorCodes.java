@@ -130,6 +130,7 @@ public interface ErrorCodes {
     UnauthorizedFeedback UNAUTHORIZED_CLIENT = new UnauthorizedFeedback("客户端无权使用此方法请求授权码或访问令牌");
     UnauthorizedFeedback USERNAME_NOT_FOUND = new UnauthorizedFeedback("用户名或密码错误");
     UnauthorizedFeedback SESSION_EXPIRED = new UnauthorizedFeedback("Session 已过期，请刷新页面后再使用");
+    UnauthorizedFeedback NOT_AUTHENTICATED = new UnauthorizedFeedback("请求的地址未通过身份认证");
 
     /**
      * 403.** 禁止的请求，与403对应
@@ -141,6 +142,7 @@ public interface ErrorCodes {
     /**
      * 404.** Not Found	服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置"您所请求的资源无法找到"的个性页面
      */
+    NotFoundFeedback NOT_FOUND = new NotFoundFeedback("您所请求的资源无法找到");
     NotFoundFeedback NO_RESOURCE_FOUND_EXCEPTION = new NotFoundFeedback("指定的资源未找到");
 
     /**
@@ -173,6 +175,8 @@ public interface ErrorCodes {
     PreconditionFailedFeedback INVALID_REQUEST = new PreconditionFailedFeedback("无效的请求，参数使用错误或无效.");
     PreconditionFailedFeedback INVALID_SCOPE = new PreconditionFailedFeedback("授权范围错误");
     PreconditionFailedFeedback METHOD_ARGUMENT_NOT_VALID = new PreconditionFailedFeedback("接口参数校验失败，参数使用错误或者未接收到参数");
+    PreconditionFailedFeedback REGISTERED_CLIENT_EXISTS = new PreconditionFailedFeedback("当前客户端已存在");
+    PreconditionFailedFeedback SOCIAL_CREDENTIALS_PARAMETER_BINDING_FAILED = new PreconditionFailedFeedback("社会化授权模式失败，参数使用错误或者未接收到参数");
 
     /**
      * 415.* Unsupported Media Type	服务器无法处理请求附带的媒体格式
@@ -192,6 +196,7 @@ public interface ErrorCodes {
     InternalServerErrorFeedback NULL_POINTER_EXCEPTION = new InternalServerErrorFeedback("后台代码执行过程中出现了空值");
     InternalServerErrorFeedback TYPE_MISMATCH_EXCEPTION = new InternalServerErrorFeedback("类型不匹配");
     InternalServerErrorFeedback BORROW_OBJECT_FROM_POOL_ERROR_EXCEPTION = new InternalServerErrorFeedback("从对象池中获取对象错误");
+    InternalServerErrorFeedback OPENAPI_INVOKING_FAILED = new InternalServerErrorFeedback("OPEN API 调用失败，请检查API调用方式及参数是否正确");
 
     /**
      * 501. Not Implemented	服务器不支持请求的功能，无法完成请求
@@ -203,7 +208,7 @@ public interface ErrorCodes {
     NotImplementedFeedback ILLEGAL_SYMMETRIC_KEY = new NotImplementedFeedback("静态AES加密算法KEY非法");
 
     /**
-     * 503.* Service Unavailable	由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中
+     * 503.* Service Unavailable 由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中
      */
     ServiceUnavailableFeedback SERVICE_UNAVAILABLE = new ServiceUnavailableFeedback("服务不可用");
     ServiceUnavailableFeedback COOKIE_THEFT = new ServiceUnavailableFeedback("Cookie 信息不安全");
