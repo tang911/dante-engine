@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.data.tenant.entity;
 
-import cn.herodotus.engine.data.core.constants.DataConstants;
 import cn.herodotus.engine.data.core.jpa.entity.AbstractSysEntity;
+import cn.herodotus.engine.data.tenant.constant.TenantConstants;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -45,7 +45,7 @@ import org.hibernate.annotations.UuidGenerator;
         uniqueConstraints = {@UniqueConstraint(columnNames = {"tenant_id"})},
         indexes = {@Index(name = "sys_tenant_datasource_id_idx", columnList = "datasource_id")})
 @Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = DataConstants.REGION_SYS_TENANT_DATASOURCE)
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = TenantConstants.REGION_SYS_TENANT_DATASOURCE)
 public class SysTenantDataSource extends AbstractSysEntity {
 
     @Schema(name = "租户数据源主键")
