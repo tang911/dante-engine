@@ -114,7 +114,6 @@
         <mybatis-plus.version>3.5.14</mybatis-plus.version>
         <mysql.version>9.4.0</mysql.version>
         <nacos.version>3.0.3</nacos.version>
-        <okhttps.version>4.1.0</okhttps.version>
         <openfeign-querydsl.version>7.0</openfeign-querydsl.version>
         <opengauss-jdbc.version>6.0.0-og</opengauss-jdbc.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
@@ -597,16 +596,6 @@
                 <groupId>com.alibaba.nacos</groupId>
                 <artifactId>nacos-client</artifactId>
                 <version>${nacos.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.zhxu</groupId>
-                <artifactId>okhttps-jackson</artifactId>
-                <version>${okhttps.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.zhxu</groupId>
-                <artifactId>okhttps-gson</artifactId>
-                <version>${okhttps.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.opensteward.justauth</groupId>

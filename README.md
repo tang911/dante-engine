@@ -173,7 +173,7 @@ dante-engine
 
 ## 安全测试
 
-Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.vip/guide/develop/compliance.html)
+Dante Cloud 已通过由第三方进行的软件出厂安全测试。详情参见：[安全测试](https://www.herodotus.vip/guide/security/compliance.html)
 
 ## 阅读顺序
 
