@@ -31,13 +31,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.6</version>
         <relativePath/>
     </parent>
 
     <groupId>cn.herodotus.engine</groupId>
     <artifactId>dependencies</artifactId>
-    <version>3.5.5.3</version>
+    <version>3.5.6.0</version>
     <name>Dante Engine Dependencies</name>
     <packaging>pom</packaging>
 
@@ -88,35 +88,32 @@
         <maven-archetype-plugin.version>3.4.0</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 
-        <aliyun-java-sdk-core.version>4.7.6</aliyun-java-sdk-core.version>
-        <aliyun-java-sdk-green.version>3.6.6</aliyun-java-sdk-green.version>
-        <alipay-sdk-java.version>4.40.440.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.452.ALL</alipay-sdk-java.version>
         <aliyun-sdk-oss.version>3.18.3</aliyun-sdk-oss.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.8</antisamy.version>
         <aws-java-sdk-s3.version>1.12.791</aws-java-sdk-s3.version>
         <bcpkix-jdk18on.version>1.81</bcpkix-jdk18on.version>
         <bcprov-jdk18on.version>1.81</bcprov-jdk18on.version>
-        <camunda-bpm-spring-boot-starter-rest.version>7.23.0</camunda-bpm-spring-boot-starter-rest.version>
+        <camunda-bpm-spring-boot-starter-rest.version>7.24.0-alpha2</camunda-bpm-spring-boot-starter-rest.version>
         <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-io.version>2.20.0</commons-io.version>
         <commons-text.version>1.14.0</commons-text.version>
         <fastjson2.version>2.0.58</fastjson2.version>
-        <guava.version>33.4.8-jre</guava.version>
+        <guava.version>33.5.0-jre</guava.version>
         <hutool.version>7.0.0-M1</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.11.0</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.3.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.8</jetcache.version>
-        <justauth.verison>1.16.7</justauth.verison>
+        <justauth.verison>1.17.0</justauth.verison>
         <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
         <minio.version>8.5.17</minio.version>
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis-plus.version>3.5.14</mybatis-plus.version>
         <mysql.version>9.4.0</mysql.version>
         <nacos.version>3.0.3</nacos.version>
-        <okhttps.version>4.1.0</okhttps.version>
         <openfeign-querydsl.version>7.0</openfeign-querydsl.version>
         <opengauss-jdbc.version>6.0.0-og</opengauss-jdbc.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
@@ -125,14 +122,14 @@
         <skywalking.version>9.5.0</skywalking.version>
         <sms4j-spring-boot-starter.version>3.3.5</sms4j-spring-boot-starter.version>
         <springdoc.version>2.8.13</springdoc.version>
-        <spring-boot-dependencies.version>3.5.5</spring-boot-dependencies.version>
-        <spring-boot-admin-dependencies.version>3.5.2</spring-boot-admin-dependencies.version>
+        <spring-boot-dependencies.version>3.5.6</spring-boot-dependencies.version>
+        <spring-boot-admin-dependencies.version>3.5.5</spring-boot-admin-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2023.0.3.3</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
         <spring-cloud-tencent-dependencies.version>2.0.2.2-2024.0.1</spring-cloud-tencent-dependencies.version>
         <sqlite-jdbc.version>3.50.3.0</sqlite-jdbc.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <weixin-java-sdk.version>4.7.7-20250904.091948</weixin-java-sdk.version>
+        <weixin-java-sdk.version>4.7.7-20250915.094526</weixin-java-sdk.version>
         <zxing.version>3.5.3</zxing.version>
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
@@ -140,28 +137,28 @@
         <inter-ui.version>4.1.1</inter-ui.version>
         <jquery.version>3.7.1</jquery.version>
         <mdi__font.version>7.4.47</mdi__font.version>
-        <quasar.version>2.18.2</quasar.version>
+        <quasar.version>2.18.5</quasar.version>
         <sm-crypto.version>0.3.13</sm-crypto.version>
         <sweetalert2.verison>11.23.0</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
         <vue.version>3.5.21</vue.version>
 
         <!--以下为特殊处理, 统一版本处理漏洞等-->
-        <checker-qual.version>3.50.0</checker-qual.version>
+        <checker-qual.version>3.51.0</checker-qual.version>
         <commons-fileupload.version>1.6.0</commons-fileupload.version>
         <!--fix CVE-2025-48924 -->
         <commons-lang3.version>3.18.0</commons-lang3.version>
         <classgraph.version>4.8.181</classgraph.version>
-        <dom4j.version>2.1.4</dom4j.version>
+        <dom4j.version>2.2.0</dom4j.version>
         <error_prone_annotations.version>2.41.0</error_prone_annotations.version>
+        <jaxb-impl.version>4.0.5</jaxb-impl.version>
+        <javassist.version>3.30.2-GA</javassist.version>
+        <objenesis.version>3.4</objenesis.version>
         <!--sms4j 依赖 hutool 5，但更新频率低，在此进行统一升级和版本控制-->
         <hutool5.version>5.8.40</hutool5.version>
         <httpclient.version>4.5.14</httpclient.version>
-        <javassist.version>3.30.2-GA</javassist.version>
-        <jaxb-impl.version>4.0.5</jaxb-impl.version>
         <kryo.version>5.6.2</kryo.version>
         <okio.version>3.16.0</okio.version>
-        <org.json.version>20250517</org.json.version>
         <snappy-java.version>1.1.10.8</snappy-java.version>
         <!--fix CVE-2024-51504 -->
         <zookeeper.verison>3.9.4</zookeeper.verison>
@@ -491,16 +488,6 @@
 
             <!--第三方依赖组件-->
             <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>aliyun-java-sdk-core</artifactId>
-                <version>${aliyun-java-sdk-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>aliyun-java-sdk-green</artifactId>
-                <version>${aliyun-java-sdk-green.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun-sdk-oss.version}</version>
@@ -611,17 +598,7 @@
                 <version>${nacos.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.zhxu</groupId>
-                <artifactId>okhttps-jackson</artifactId>
-                <version>${okhttps.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.zhxu</groupId>
-                <artifactId>okhttps-gson</artifactId>
-                <version>${okhttps.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>me.zhyd.oauth</groupId>
+                <groupId>cn.herodotus.opensteward.justauth</groupId>
                 <artifactId>JustAuth</artifactId>
                 <version>${justauth.verison}</version>
             </dependency>
@@ -766,11 +743,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${org.json.version}</version>
-            </dependency>
             <!--统一控制kryo版本，减少不必要的低版本组件引入-->
             <dependency>
                 <groupId>com.esotericsoftware</groupId>
@@ -811,6 +783,12 @@
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>${javassist.version}</version>
+            </dependency>
+            <!--统一控制objenesis版本，去除重复版本依赖-->
+            <dependency>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+                <version>${objenesis.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.xerial.snappy</groupId>

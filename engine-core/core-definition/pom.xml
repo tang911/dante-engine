@@ -31,7 +31,7 @@
     <parent>
         <groupId>cn.herodotus.engine</groupId>
         <artifactId>engine-core</artifactId>
-        <version>3.5.5.3</version>
+        <version>3.5.6.0</version>
     </parent>
 
     <artifactId>core-definition</artifactId>
@@ -91,14 +91,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.zhxu</groupId>
-            <artifactId>okhttps-jackson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.zhxu</groupId>
-            <artifactId>okhttps-gson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
