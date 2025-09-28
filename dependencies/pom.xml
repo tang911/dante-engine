@@ -109,7 +109,7 @@
         <jetcache.version>2.7.8</jetcache.version>
         <justauth.verison>1.18.0</justauth.verison>
         <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
-        <minio.version>8.5.17</minio.version>
+        <minio.version>8.6.0</minio.version>
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis-plus.version>3.5.14</mybatis-plus.version>
         <mysql.version>9.4.0</mysql.version>
@@ -129,7 +129,7 @@
         <spring-cloud-tencent-dependencies.version>2.0.2.2-2024.0.1</spring-cloud-tencent-dependencies.version>
         <sqlite-jdbc.version>3.50.3.0</sqlite-jdbc.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <weixin-java-sdk.version>4.7.8.B</weixin-java-sdk.version>
+        <weixin-java-sdk.version>4.7.8-20250927.171143</weixin-java-sdk.version>
         <zxing.version>3.5.3</zxing.version>
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
