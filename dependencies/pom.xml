@@ -88,21 +88,21 @@
         <maven-archetype-plugin.version>3.4.1</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 
-        <alipay-sdk-java.version>4.40.467.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.472.ALL</alipay-sdk-java.version>
         <aliyun-sdk-oss.version>3.18.3</aliyun-sdk-oss.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.8</antisamy.version>
         <aws-java-sdk-s3.version>1.12.792</aws-java-sdk-s3.version>
         <bcpkix-jdk18on.version>1.82</bcpkix-jdk18on.version>
         <bcprov-jdk18on.version>1.82</bcprov-jdk18on.version>
-        <camunda-bpm-spring-boot-starter-rest.version>7.24.0-alpha3</camunda-bpm-spring-boot-starter-rest.version>
+        <camunda-bpm-spring-boot-starter-rest.version>7.24.0</camunda-bpm-spring-boot-starter-rest.version>
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-io.version>2.20.0</commons-io.version>
         <commons-text.version>1.14.0</commons-text.version>
         <fastjson2.version>2.0.59</fastjson2.version>
         <guava.version>33.5.0-jre</guava.version>
-        <hutool.version>7.0.0-M1</hutool.version>
+        <hutool.version>7.0.0-M2</hutool.version>
         <hypersistence-utils-hibernate-63.version>3.11.0</hypersistence-utils-hibernate-63.version>
         <influxdb-client.version>7.3.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
@@ -124,7 +124,7 @@
         <springdoc.version>2.8.13</springdoc.version>
         <spring-boot-dependencies.version>3.5.6</spring-boot-dependencies.version>
         <spring-boot-admin-dependencies.version>3.5.5</spring-boot-admin-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2023.0.3.3</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2023.0.3.4</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
         <spring-cloud-tencent-dependencies.version>2.0.2.2-2024.0.1</spring-cloud-tencent-dependencies.version>
         <sqlite-jdbc.version>3.50.3.0</sqlite-jdbc.version>
@@ -139,7 +139,7 @@
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.18.5</quasar.version>
         <sm-crypto-v2.version>1.15.0</sm-crypto-v2.version>
-        <sweetalert2.verison>11.26.1</sweetalert2.verison>
+        <sweetalert2.verison>11.26.2</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
         <vue.version>3.5.22</vue.version>
 
@@ -158,7 +158,7 @@
         <hutool5.version>5.8.40</hutool5.version>
         <httpclient.version>4.5.14</httpclient.version>
         <kryo.version>5.6.2</kryo.version>
-        <okio.version>3.16.1</okio.version>
+        <okio.version>3.16.2</okio.version>
         <snappy-java.version>1.1.10.8</snappy-java.version>
         <!--fix CVE-2024-51504 -->
         <zookeeper.verison>3.9.4</zookeeper.verison>
