@@ -23,13 +23,15 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.oauth2.core.utils;
+package cn.herodotus.engine.core.identity.utils;
 
+import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.identity.domain.UserPrincipal;
-import cn.herodotus.engine.oauth2.core.constants.OAuth2Constants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang3.ObjectUtils;
+
+import java.util.Optional;
 
 /**
  * <p>Description: Servlet 环境安全工具类 </p>
@@ -37,7 +39,7 @@ import org.apache.commons.lang3.ObjectUtils;
  * @author : gengwei.zheng
  * @date : 2025/10/17 23:36
  */
-public class ServletSecurityUtils extends OAuth2Utils {
+public class ServletSecurityUtils {
 
     /**
      * 从 {@link HttpSession} 读取用户信息 {@link UserPrincipal}
@@ -51,12 +53,24 @@ public class ServletSecurityUtils extends OAuth2Utils {
 
         HttpSession session = request.getSession(false);
         if (ObjectUtils.isNotEmpty(session)) {
-            Object object = session.getAttribute(OAuth2Constants.KEY_USER_PRINCIPAL);
+            Object object = session.getAttribute(SystemConstants.KEY__USER_PRINCIPAL);
             if (object instanceof UserPrincipal) {
                 return (UserPrincipal) object;
             }
         }
 
         return null;
+    }
+
+    /**
+     * 从 {@link HttpSession} 读取用户信息 {@link UserPrincipal}
+     * <p>
+     * 注意：该方法依赖于整体的 Session 环境，后端 Session 以及前端 Session 的配合。对于不支持 Session 的前端，该方法可能会获取不到值。
+     *
+     * @param request {@link HttpServletRequest}
+     * @return optional {@link Optional}
+     */
+    public static Optional<UserPrincipal> findUserPrincipal(HttpServletRequest request) {
+        return Optional.ofNullable(getUserPrincipal(request));
     }
 }

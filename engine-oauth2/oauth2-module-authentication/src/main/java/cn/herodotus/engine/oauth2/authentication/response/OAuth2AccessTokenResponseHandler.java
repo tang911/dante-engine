@@ -28,8 +28,7 @@ package cn.herodotus.engine.oauth2.authentication.response;
 import cn.herodotus.engine.core.definition.constant.SystemConstants;
 import cn.herodotus.engine.core.definition.utils.Jackson2Utils;
 import cn.herodotus.engine.core.identity.domain.UserPrincipal;
-import cn.herodotus.engine.oauth2.core.constants.OAuth2Constants;
-import cn.herodotus.engine.oauth2.core.utils.OAuth2Utils;
+import cn.herodotus.engine.core.identity.utils.SecurityUtils;
 import cn.herodotus.engine.web.core.servlet.utils.SessionUtils;
 import cn.herodotus.engine.web.servlet.crypto.HttpCryptoProcessor;
 import jakarta.servlet.ServletException;
@@ -101,7 +100,7 @@ public class OAuth2AccessTokenResponseHandler implements AuthenticationSuccessHa
         }
 
         String sessionId = SessionUtils.analyseSessionId(request);
-        UserPrincipal userPrincipal = OAuth2Utils.getUserPrincipal(accessTokenAuthentication);
+        UserPrincipal userPrincipal = SecurityUtils.getUserPrincipal(accessTokenAuthentication);
 
         // 如果包含 ID_TOKEN，那么前端直接解析 ID_TOKEN，从中获取用户基本信息
         if (isOidcUserInfoPattern(additionalParameters)) {
@@ -124,7 +123,7 @@ public class OAuth2AccessTokenResponseHandler implements AuthenticationSuccessHa
             HttpSession session = request.getSession(false);
             if (ObjectUtils.isNotEmpty(session)) {
                 log.debug("[Herodotus] |- Adding user principal to session [{}].", sessionId);
-                session.setAttribute(OAuth2Constants.KEY_USER_PRINCIPAL, userPrincipal);
+                session.setAttribute(SystemConstants.KEY__USER_PRINCIPAL, userPrincipal);
             }
         }
 
