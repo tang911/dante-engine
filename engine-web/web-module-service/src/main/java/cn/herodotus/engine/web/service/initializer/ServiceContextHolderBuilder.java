@@ -72,6 +72,7 @@ public class ServiceContextHolderBuilder {
     public void build() {
         ServiceContextHolder.setPort(String.valueOf(this.getPort()));
         ServiceContextHolder.setIp(getHostAddress());
+        ServiceContextHolder.setContextPath(serverProperties.getServlet().getContextPath());
         setProperties(platformProperties, endpointProperties);
     }
 

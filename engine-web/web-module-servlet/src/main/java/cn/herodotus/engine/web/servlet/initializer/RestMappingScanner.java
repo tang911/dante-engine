@@ -50,7 +50,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * <p>Description: RequestMapping扫描器 </p>
@@ -67,8 +66,6 @@ public class RestMappingScanner extends AbstractRestMappingScanner {
     }
 
     public void onApplicationEvent(ApplicationContext applicationContext) {
-
-        String contextPath = getContextPath(applicationContext);
 
         // 1、获取服务ID：该服务ID对于微服务是必需的。
         String serviceId = WebPropertyFinder.getApplicationName(applicationContext);
@@ -98,7 +95,7 @@ public class RestMappingScanner extends AbstractRestMappingScanner {
                     }
 
                     // 4.2、拼装扫描信息
-                    RestMapping restMapping = createRestMapping(serviceId, requestMappingInfo, handlerMethod, contextPath);
+                    RestMapping restMapping = createRestMapping(serviceId, requestMappingInfo, handlerMethod);
                     if (ObjectUtils.isEmpty(restMapping)) {
                         continue;
                     }
@@ -111,7 +108,7 @@ public class RestMappingScanner extends AbstractRestMappingScanner {
         complete(serviceId, resources);
     }
 
-    private RestMapping createRestMapping(String serviceId, RequestMappingInfo info, HandlerMethod method, String contextPath) {
+    private RestMapping createRestMapping(String serviceId, RequestMappingInfo info, HandlerMethod method) {
         // 4.2.1、获取类名
         // method.getMethod().getDeclaringClass().getName() 取到的是注解实际所在类的名字，比如注解在父类叫BaseController，那么拿到的就是BaseController
         // method.getBeanType().getName() 取到的是注解实际Bean的名字，比如注解在在父类叫BaseController，而实际类是SysUserController，那么拿到的就是SysUserController
@@ -139,9 +136,7 @@ public class RestMappingScanner extends AbstractRestMappingScanner {
             return null;
         }
 
-        String urls = patternValues.stream()
-                .map(url -> toInterface(contextPath, url))
-                .collect(Collectors.joining(SymbolConstants.COMMA));
+        String urls = String.join(SymbolConstants.COMMA, patternValues);
 
         // 5.2.8、根据serviceId, requestMethods, urls生成的MD5值，作为自定义主键
         String flag = serviceId + SymbolConstants.DASH + requestMethods + SymbolConstants.DASH + urls;

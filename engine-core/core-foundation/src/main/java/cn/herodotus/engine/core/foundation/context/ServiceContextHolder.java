@@ -157,6 +157,18 @@ public class ServiceContextHolder {
         getServiceContext().setApplicationContext(applicationContext);
     }
 
+    public static String getContextPath() {
+        return getServiceContext().getContextPath();
+    }
+
+    public static void setContextPath(String contextPath) {
+        getServiceContext().setContextPath(contextPath);
+    }
+
+    public static boolean hasContextPath() {
+        return StringUtils.isNotBlank(getServiceContext().getContextPath());
+    }
+
     public static String getUaaServiceName() {
         return getServiceContext().getUaaServiceName();
     }

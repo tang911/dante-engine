@@ -76,6 +76,10 @@ class ServiceContext {
      * 留存一份ApplicationContext
      */
     private ApplicationContext applicationContext;
+    /**
+     * Web上下文路径
+     */
+    private String contextPath;
 
     /**
      * 认证中心服务名称
@@ -278,6 +282,14 @@ class ServiceContext {
 
     public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
+    }
+
+    public String getContextPath() {
+        return contextPath;
+    }
+
+    public void setContextPath(String contextPath) {
+        this.contextPath = contextPath;
     }
 
     public String getUaaServiceName() {
@@ -548,6 +560,7 @@ class ServiceContext {
                 .add("url", url)
                 .add("applicationName", applicationName)
                 .add("applicationContext", applicationContext)
+                .add("contextPath", contextPath)
                 .add("uaaServiceName", uaaServiceName)
                 .add("upmsServiceName", upmsServiceName)
                 .add("messageServiceName", messageServiceName)
