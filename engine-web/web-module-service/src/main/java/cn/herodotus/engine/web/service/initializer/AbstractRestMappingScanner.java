@@ -200,19 +200,4 @@ public abstract class AbstractRestMappingScanner implements ApplicationListener<
             return StringUtils.EMPTY;
         }
     }
-
-    /**
-     * 拼接实际的 URL。
-     *
-     * @param contextPath 上下文路径
-     * @param url         实际的 Controller 地址。
-     * @return 实际的 URL。
-     */
-    protected String toInterface(String contextPath, String url) {
-        if (StringUtils.isBlank(contextPath)) {
-            return url;
-        } else {
-            return contextPath + url;
-        }
-    }
 }

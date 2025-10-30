@@ -32,6 +32,7 @@ import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
 import cn.herodotus.engine.message.websocket.servlet.utils.WebSocketUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
@@ -40,6 +41,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.session.web.socket.server.SessionRepositoryMessageInterceptor;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
@@ -71,21 +73,25 @@ public class WebSocketAuthenticationHandshakeInterceptor implements HandshakeInt
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
 
         HttpServletRequest httpServletRequest = WebSocketUtils.getHttpServletRequest(request);
-
         if (ObjectUtils.isNotEmpty(httpServletRequest)) {
+            // 在本地调试时经常会出现，停止后端看代码，但是前端没有停止的情况。这时再启动后端，后端就会直接链接后端。
+            // 这时后端的 Session 是空的，但是前端 Token 还是有效的。如果不加 Session != null 的判断，就会出现 attributes 还是会获取到 PRINCIPAL
+            // 就会导致WebSocketRegistryListener#gafterConnectionEstablished 方法能够获取到 Principal，继续处理 Session，出现 getSessionId(null) 导致抛错问题
+            HttpSession session = httpServletRequest.getSession(false);
+            if (session != null) {
+                SessionRepositoryMessageInterceptor.setSessionId(attributes, session.getId());
 
-            String protocol = httpServletRequest.getHeader(SEC_WEBSOCKET_PROTOCOL);
-
-            String token = determineToken(protocol);
-
-            if (StringUtils.isNotBlank(token)) {
-                UserPrincipal details = bearerTokenResolver.resolve(token);
-                attributes.put(SystemConstants.PRINCIPAL, details);
-                log.debug("[Herodotus] |- WebSocket fetch the token is [{}].", token);
-            } else {
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
-                log.info("[Herodotus] |- Token is invalid for WebSocket, stop handshake.");
-                return false;
+                String protocol = httpServletRequest.getHeader(SEC_WEBSOCKET_PROTOCOL);
+                String token = determineToken(protocol);
+                if (StringUtils.isNotBlank(token)) {
+                    UserPrincipal details = bearerTokenResolver.resolve(token);
+                    attributes.put(SystemConstants.PRINCIPAL, details);
+                    log.debug("[Herodotus] |- WebSocket fetch the token is [{}].", token);
+                } else {
+                    response.setStatusCode(HttpStatus.UNAUTHORIZED);
+                    log.info("[Herodotus] |- Token is invalid for WebSocket, stop handshake.");
+                    return false;
+                }
             }
         }
 
