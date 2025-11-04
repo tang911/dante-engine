@@ -181,8 +181,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--springdoc import 要配置在 sct 前面。-->
-            <!--否则 sct 中的 <springdoc.version> 会干扰当前配置，从而引入低版本 springdoc，导致系统无法启动-->
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi</artifactId>
@@ -716,6 +714,7 @@
                 <version>${vue.version}</version>
             </dependency>
             <!--特殊处理, 防止被 sct 中的依赖影响版本控制-->
+            <!--sct 中的 <springdoc.version> 会干扰当前配置，从而引入低版本 springdoc，导致系统无法启动-->
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
