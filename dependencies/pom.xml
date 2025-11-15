@@ -137,7 +137,7 @@
         <inter-ui.version>4.1.1</inter-ui.version>
         <jquery.version>3.7.1</jquery.version>
         <mdi__font.version>7.4.47</mdi__font.version>
-        <quasar.version>2.18.5</quasar.version>
+        <quasar.version>2.18.6</quasar.version>
         <sm-crypto-v2.version>1.15.0</sm-crypto-v2.version>
         <sweetalert2.verison>11.26.3</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
