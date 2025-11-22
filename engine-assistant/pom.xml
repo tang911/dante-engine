@@ -44,5 +44,6 @@
     <modules>
         <module>assistant-module-access</module>
         <module>assistant-module-captcha</module>
+        <module>assistant-module-oss</module>
     </modules>
 </project>

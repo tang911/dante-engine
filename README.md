@@ -120,8 +120,9 @@
 dante-engine
 ├── dependencies -- 工程 Maven 顶级依赖，统一控制版本和依赖
 ├── engine-assistant -- 辅助功能模块
-├    ├── assistant-access -- 第三方登录接入辅助功能模块
-├    └── assistant-captcha -- 验证码辅助功能模块
+├    ├── assistant-module-access -- 第三方登录接入辅助功能模块
+├    ├── assistant-module-captcha -- 验证码辅助功能模块
+├    └── assistant-module-oss -- AWS SDK V2 对象存储辅助功能模块
 ├── engine-cache -- 缓存功能模块
 ├    ├── cache-core -- 缓存通用代码模块
 ├    ├── cache-module-caffeine -- Caffeine 缓存功能封装模块
@@ -156,6 +157,7 @@ dante-engine
 ├    ├── oauth2-module-extension -- Spring Authorization Server 功能扩展模块
 ├    └── oauth2-module-persistence-jpa -- 以 JPA 作为 SAS 核心数据访问层代码实现模块
 ├── engine-rest -- 系统内置功能 REST 接口模块
+├    ├── rest-module-oss -- 对象存储功能 REST 接口模块
 ├    ├── rest-module-servlet-identity -- 身份认证功能 Servlet 环境 REST 接口模块
 ├    ├── rest-module-servlet-message -- 消息功能 Servlet 环境 REST 接口模块
 ├    └── rest-module-servlet-upms -- UPMS 功能 Servlet 环境 REST 接口模块
@@ -169,6 +171,7 @@ dante-engine
 ├    ├── facility-kafka-spring-boot-starter -- 基于 Kafka 的消息事件自动配置 Starter
 ├    ├── facility-tencent-spring-boot-starter -- 面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter
 ├    ├── logging-spring-boot-starter -- 日志收集和聚合自动配置 Starter
+├    ├── oss-spring-boot-starter -- 基于 AWS SDK V2 对象存储自动配置 Starter
 ├    ├── reactive-container-spring-boot-starter -- Reactive 容器基础配置自动配置 Starter
 ├    ├── servlet-container-spring-boot-starter -- Servlet 容器基础配置自动配置 Starter
 ├    ├── servlet-message-spring-boot-starter -- Servlet 环境消息模块自动配置 Starter
