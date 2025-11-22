@@ -23,17 +23,33 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.domain;
+package cn.herodotus.engine.logic.upms.converter;
+
+import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.engine.logic.upms.entity.security.SysDictionary;
+import cn.herodotus.engine.logic.upms.entity.security.SysEnum;
 
 /**
- * <p>Description: 系统对象通用定义 </p>
- * <p>
- * 主要用于域对象的定义。
- * 与 {@link BaseEntity} 的区别是 {@link BaseEntity} 主要面向存储层，简单的说其对应的字段与数据库中的字段对应。
- * 与 {@link BaseDto} 的区别是 {@link BaseDto} 主要面向接口层
+ * <p>Description: SysEnum 转 SysDictionary 转换器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2025/3/29 16:39
+ * @date : 2024/8/23 22:51
  */
-public non-sealed interface BaseModel extends BaseDomain {
+public class SysEnumToSysDictionaryConverter implements ListConverter<SysEnum, SysDictionary> {
+    @Override
+    public SysDictionary from(SysEnum source) {
+
+        SysDictionary target = new SysDictionary();
+        target.setCategory(source.getCategory());
+        target.setDictionaryId(source.getEnumId());
+        target.setLabel(source.getLabel());
+        target.setName(source.getName());
+        target.setOrdinal(source.getOrdinal());
+        target.setValue(source.getValue());
+        target.setValueType(source.getValueType());
+        target.setRanking(source.getRanking());
+        target.setReserved(true);
+
+        return target;
+    }
 }

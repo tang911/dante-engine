@@ -23,66 +23,28 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.logic.upms.enums;
+package cn.herodotus.engine.core.definition.builder;
 
 import cn.herodotus.engine.core.definition.domain.Dictionary;
-import cn.herodotus.engine.core.definition.domain.DictionaryEnum;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * @author gengwei.zheng
+ * <p>Description: 枚举数据字典构造器 </p>
+ *
+ * @author : gengwei.zheng
+ * @date : 2024/8/23 15:05
  */
-@Schema(name = "性别")
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum Gender implements DictionaryEnum {
-    /**
-     * enum
-     */
-    MAN("0", "男"),
-    WOMAN("1", "女"),
-    OTHERS("2", "其它");
+public class EnumDictionaryBuilder {
 
-    private static final Map<Integer, Gender> INDEX_MAP = new HashMap<>();
-    private static final List<Dictionary> DICTIONARIES = new ArrayList<>();
+    private final List<Dictionary> dictionaries = new ArrayList<>();
 
-    static {
-        for (Gender gender : Gender.values()) {
-            INDEX_MAP.put(gender.ordinal(), gender);
-            DICTIONARIES.add(gender.getDictionary(gender.name(), gender.ordinal()));
-        }
+    public void append(List<Dictionary> values) {
+        dictionaries.addAll(values);
     }
 
-    @Schema(name = "枚举值")
-    private final String value;
-    @Schema(name = "文字")
-    private final String label;
-
-    Gender(String value, String label) {
-        this.value = value;
-        this.label = label;
-    }
-
-    public static Gender get(Integer index) {
-        return INDEX_MAP.get(index);
-    }
-
-    public static List<Dictionary> getDictionaries() {
-        return DICTIONARIES;
-    }
-
-    @Override
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String getLabel() {
-        return label;
+    public List<Dictionary> getDictionaries() {
+        return dictionaries;
     }
 }

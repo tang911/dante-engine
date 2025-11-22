@@ -23,20 +23,36 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.enums;
+package cn.herodotus.engine.oauth2.authorization.autoconfigure.strategy;
+
+import cn.herodotus.engine.core.definition.domain.Dictionary;
+import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
+import cn.herodotus.engine.message.core.definition.strategy.EnumDictionaryGatherEventManager;
+import cn.herodotus.engine.message.core.event.EnumDictionaryGatherEvent;
+import cn.herodotus.engine.oauth2.authorization.autoconfigure.bus.RemoteEnumDictionaryGatherEvent;
+
+import java.util.List;
 
 /**
- * <p>Description: 枚举值定义 </p>
+ * <p>Description: 默认枚举数据字典收集事件管理器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/26 16:49
+ * @date : 2024/8/23 17:03
  */
-public interface EnumValue<T> {
+public class DefaultEnumDictionaryGatherEventManager implements EnumDictionaryGatherEventManager {
 
-    /**
-     * 获取枚举自定义值
-     *
-     * @return 自定义枚举值
-     */
-    T getValue();
+    @Override
+    public String getDestinationServiceName() {
+        return ServiceContextHolder.getUpmsServiceName();
+    }
+
+    @Override
+    public void postLocalProcess(List<Dictionary> data) {
+        publishEvent(new EnumDictionaryGatherEvent(data));
+    }
+
+    @Override
+    public void postRemoteProcess(String data, String originService, String destinationService) {
+        publishEvent(new RemoteEnumDictionaryGatherEvent(data, originService, destinationService));
+    }
 }

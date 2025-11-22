@@ -25,15 +25,42 @@
 
 package cn.herodotus.engine.core.definition.domain;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
- * <p>Description: 系统对象通用定义 </p>
- * <p>
- * 主要用于域对象的定义。
- * 与 {@link BaseEntity} 的区别是 {@link BaseEntity} 主要面向存储层，简单的说其对应的字段与数据库中的字段对应。
- * 与 {@link BaseDto} 的区别是 {@link BaseDto} 主要面向接口层
+ * <p>Description: 数据字典定义 </p>
  *
  * @author : gengwei.zheng
- * @date : 2025/3/29 16:39
+ * @date : 2024/8/23 12:26
  */
-public non-sealed interface BaseModel extends BaseDomain {
+public interface DictionaryEnum {
+
+    /**
+     * 枚举的实际值，用于 Jackson 确定枚举类型以及实际的交互值，以实现反序列化。
+     * <p>
+     * · String 类型的 Integer 对应枚举的 ordinal() 值
+     * · String 类型对应枚举的 name() 值
+     *
+     * @return 数据字典枚举的值。目前主要为 Integer 或 String。
+     */
+    @JsonValue
+    String getValue();
+
+    /**
+     * 枚举选项的展示值。主要用于前端展示信息。
+     *
+     * @return 展示值
+     */
+    String getLabel();
+
+    default Dictionary getDictionary(String name, int ordinal) {
+        Dictionary dictionary = new Dictionary();
+        dictionary.setClazz(this.getClass().getName());
+        dictionary.setCategory(this.getClass().getSimpleName());
+        dictionary.setOrdinal(ordinal);
+        dictionary.setName(name);
+        dictionary.setLabel(getLabel());
+        dictionary.setValue(getValue());
+        return dictionary;
+    }
 }

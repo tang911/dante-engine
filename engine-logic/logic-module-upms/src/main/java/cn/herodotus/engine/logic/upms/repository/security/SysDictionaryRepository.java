@@ -23,28 +23,40 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.logic.upms.constants;
+package cn.herodotus.engine.logic.upms.repository.security;
 
-import cn.herodotus.engine.core.definition.constant.BaseConstants;
+import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.engine.logic.upms.entity.security.SysDictionary;
+import jakarta.persistence.QueryHint;
+import org.hibernate.jpa.AvailableHints;
+import org.springframework.data.jpa.repository.QueryHints;
+
+import java.util.List;
+import java.util.Set;
 
 /**
- * <p>Description: Upms 模块常量 </p>
+ * <p>Description: SysDictionaryRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/2/16 18:19
+ * @date : 2024/8/23 18:35
  */
-public interface LogicUpmsConstants extends BaseConstants {
+public interface SysDictionaryRepository extends BaseJpaRepository<SysDictionary, String> {
 
-    String UPMS_AREA_PREFIX = AREA_PREFIX + "upms:";
+    /**
+     * 根据分类查找所有字典条目
+     *
+     * @param category 字典分类
+     * @return 字典条目
+     */
+    @QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
+    List<SysDictionary> findAllByCategory(String category);
 
-    String REGION_SYS_USER = UPMS_AREA_PREFIX + "sys:user";
-    String REGION_SYS_ROLE = UPMS_AREA_PREFIX + "sys:role";
-    String REGION_SYS_DEFAULT_ROLE = UPMS_AREA_PREFIX + "sys:defaults:role";
-    String REGION_SYS_PERMISSION = UPMS_AREA_PREFIX + "sys:permission";
-    String REGION_SYS_OWNERSHIP = UPMS_AREA_PREFIX + "sys:ownership";
-    String REGION_SYS_ELEMENT = UPMS_AREA_PREFIX + "sys:element";
-    String REGION_SYS_SOCIAL_USER = UPMS_AREA_PREFIX + "sys:social:user";
-    String REGION_SYS_DEPARTMENT = UPMS_AREA_PREFIX + "sys:department";
-    String REGION_SYS_EMPLOYEE = UPMS_AREA_PREFIX + "sys:employee";
-    String REGION_SYS_ORGANIZATION = UPMS_AREA_PREFIX + "sys:organization";
+    /**
+     * 同时查询多个字典分类的字典条目
+     *
+     * @param categories 多个字典条目
+     * @return 字典条目
+     */
+    @QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
+    List<SysDictionary> findByCategoryIn(Set<String> categories);
 }

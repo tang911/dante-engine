@@ -25,10 +25,9 @@
 
 package cn.herodotus.engine.data.core.enums;
 
-import cn.herodotus.engine.core.definition.enums.BaseUiEnum;
+import cn.herodotus.engine.core.definition.domain.Dictionary;
+import cn.herodotus.engine.core.definition.domain.DictionaryEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.google.common.collect.ImmutableMap;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.ArrayList;
@@ -44,68 +43,53 @@ import java.util.Map;
  */
 @Schema(name = "应用类型")
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum ApplicationType implements BaseUiEnum<Integer> {
+public enum ApplicationType implements DictionaryEnum {
 
     /**
      * 应用类型
      */
-    WEB(0, "PC网页应用"),
-    SERVICE(1, "服务应用"),
-    APP(2, "手机APP应用"),
-    WAP(3, "手机网页应用"),
-    MINI(4, "小程序应用"),
-    IOT(5, "物联网应用");
+    WEB("0", "PC网页应用"),
+    SERVICE("1", "服务应用"),
+    APP("2", "手机APP应用"),
+    WAP("3", "手机网页应用"),
+    MINI("4", "小程序应用"),
+    IOT("5", "物联网应用");
 
     private static final Map<Integer, ApplicationType> INDEX_MAP = new HashMap<>();
-    private static final List<Map<String, Object>> JSON_STRUCT = new ArrayList<>();
+    private static final List<Dictionary> DICTIONARIES = new ArrayList<>();
 
     static {
-        for (ApplicationType applicationType : ApplicationType.values()) {
-            INDEX_MAP.put(applicationType.getValue(), applicationType);
-            JSON_STRUCT.add(applicationType.getValue(),
-                    ImmutableMap.<String, Object>builder()
-                            .put("value", applicationType.getValue())
-                            .put("key", applicationType.name())
-                            .put("text", applicationType.getDescription())
-                            .put("index", applicationType.getValue())
-                            .build());
+        for (ApplicationType type : ApplicationType.values()) {
+            INDEX_MAP.put(type.ordinal(), type);
+            DICTIONARIES.add(type.getDictionary(type.name(), type.ordinal()));
         }
     }
 
     @Schema(name = "枚举值")
-    private final Integer value;
+    private final String value;
     @Schema(name = "文字")
-    private final String description;
+    private final String label;
 
-    ApplicationType(Integer value, String description) {
+    ApplicationType(String value, String label) {
         this.value = value;
-        this.description = description;
+        this.label = label;
     }
 
     public static ApplicationType get(Integer index) {
         return INDEX_MAP.get(index);
     }
 
-    public static List<Map<String, Object>> getPreprocessedJsonStructure() {
-        return JSON_STRUCT;
+    public static List<Dictionary> getDictionaries() {
+        return DICTIONARIES;
     }
 
     @Override
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * 不加@JsonValue，转换的时候转换出完整的对象。
-     * 加了@JsonValue，只会显示相应的属性的值
-     * <p>
-     * 不使用@JsonValue @JsonDeserializer类里面要做相应的处理
-     *
-     * @return Enum枚举值
-     */
-    @JsonValue
-    @Override
-    public Integer getValue() {
+    public String getValue() {
         return value;
+    }
+
+    @Override
+    public String getLabel() {
+        return label;
     }
 }

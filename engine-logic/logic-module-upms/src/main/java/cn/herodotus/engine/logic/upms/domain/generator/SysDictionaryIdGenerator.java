@@ -23,38 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.logic.upms.service.assistant;
+package cn.herodotus.engine.logic.upms.domain.generator;
 
-import cn.herodotus.engine.data.core.enums.DataItemStatus;
-import cn.herodotus.engine.logic.upms.enums.Gender;
-import cn.herodotus.engine.logic.upms.enums.Identity;
-import cn.herodotus.engine.logic.upms.enums.OrganizationCategory;
-import org.springframework.stereotype.Service;
+import org.hibernate.annotations.IdGeneratorType;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 
 /**
- * <p>Description: Upms 常量 服务 </p>
+ * <p>Description: SysDictionaryUuid </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/2/25 15:37
+ * @date : 2022/11/7 17:42
  */
-@Service
-public class ConstantsService {
-
-    private static final List<Map<String, Object>> STATUS_ENUM = DataItemStatus.getPreprocessedJsonStructure();
-    private static final List<Map<String, Object>> GENDER_ENUM = Gender.getPreprocessedJsonStructure();
-    private static final List<Map<String, Object>> IDENTITY_ENUM = Identity.getPreprocessedJsonStructure();
-    private static final List<Map<String, Object>> ORGANIZATION_CATEGORY_ENUM = OrganizationCategory.getPreprocessedJsonStructure();
-
-    public Map<String, Object> getAllEnums() {
-        Map<String, Object> map = new HashMap<>(8);
-        map.put("status", STATUS_ENUM);
-        map.put("gender", GENDER_ENUM);
-        map.put("identity", IDENTITY_ENUM);
-        map.put("organizationCategory", ORGANIZATION_CATEGORY_ENUM);
-        return map;
-    }
+@IdGeneratorType(SysDictionaryIdGeneratorType.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({FIELD, METHOD})
+public @interface SysDictionaryIdGenerator {
 }

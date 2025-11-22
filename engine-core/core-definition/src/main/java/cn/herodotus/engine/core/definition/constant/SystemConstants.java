@@ -49,6 +49,8 @@ public interface SystemConstants {
      * 默认的时间日期格式
      */
     String DATE_TIME_FORMAT = DateFormatPool.NORM_DATETIME_PATTERN;
+    String DATA_TYPE_STRING = "STRING";
+    String DATA_TYPE_NUMBER = "NUMBER";
 
     /* ---------- 系统信息 ---------- */
 

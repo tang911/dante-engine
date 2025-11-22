@@ -23,17 +23,37 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.domain;
+package cn.herodotus.engine.logic.upms.domain.generator;
+
+import cn.herodotus.engine.data.hibernate.generator.AbstractIdGeneratorType;
+import cn.herodotus.engine.logic.upms.entity.security.SysEnum;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
+
+import java.lang.reflect.Member;
 
 /**
- * <p>Description: 系统对象通用定义 </p>
- * <p>
- * 主要用于域对象的定义。
- * 与 {@link BaseEntity} 的区别是 {@link BaseEntity} 主要面向存储层，简单的说其对应的字段与数据库中的字段对应。
- * 与 {@link BaseDto} 的区别是 {@link BaseDto} 主要面向接口层
+ * <p>Description: 自定义UUID生成器，使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键 </p>
  *
  * @author : gengwei.zheng
- * @date : 2025/3/29 16:39
+ * @date : 2023/3/7 11:03
  */
-public non-sealed interface BaseModel extends BaseDomain {
+public class SysEnumIdGeneratorType extends AbstractIdGeneratorType {
+
+    public SysEnumIdGeneratorType(SysEnumIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+        super(member);
+    }
+
+    @Override
+    public Object generate(SharedSessionContractImplementor session, Object object) {
+
+        SysEnum sysEnum = (SysEnum) object;
+
+        if (StringUtils.isEmpty(sysEnum.getEnumId())) {
+            return super.generate(session, object);
+        } else {
+            return sysEnum.getEnumId();
+        }
+    }
 }

@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.logic.upms.enums;
 
-import cn.herodotus.stirrup.core.definition.domain.Dictionary;
-import cn.herodotus.stirrup.core.definition.domain.DictionaryEnum;
+import cn.herodotus.engine.core.definition.domain.Dictionary;
+import cn.herodotus.engine.core.definition.domain.DictionaryEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 

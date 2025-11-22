@@ -23,17 +23,22 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.domain;
+package cn.herodotus.engine.logic.message.customizer;
+
+import cn.herodotus.engine.core.definition.builder.EnumDictionaryBuilder;
+import cn.herodotus.engine.core.definition.function.EnumDictionaryBuilderCustomizer;
+import cn.herodotus.engine.logic.message.enums.NotificationCategory;
 
 /**
- * <p>Description: 系统对象通用定义 </p>
- * <p>
- * 主要用于域对象的定义。
- * 与 {@link BaseEntity} 的区别是 {@link BaseEntity} 主要面向存储层，简单的说其对应的字段与数据库中的字段对应。
- * 与 {@link BaseDto} 的区别是 {@link BaseDto} 主要面向接口层
+ * <p>Description: Message 枚举数据字典定义器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2025/3/29 16:39
+ * @date : 2024/8/23 16:00
  */
-public non-sealed interface BaseModel extends BaseDomain {
+public class MessageEnumDictionaryBuilderCustomizer implements EnumDictionaryBuilderCustomizer {
+
+    @Override
+    public void customize(EnumDictionaryBuilder builder) {
+        builder.append(NotificationCategory.getDictionaries());
+    }
 }

@@ -23,20 +23,30 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.enums;
+package cn.herodotus.engine.logic.upms.customizer;
+
+import cn.herodotus.engine.core.definition.builder.EnumDictionaryBuilder;
+import cn.herodotus.engine.core.definition.function.EnumDictionaryBuilderCustomizer;
+import cn.herodotus.engine.data.core.enums.ApplicationType;
+import cn.herodotus.engine.data.core.enums.DataItemStatus;
+import cn.herodotus.engine.logic.upms.enums.*;
 
 /**
- * <p>Description: 枚举文字表述 </p>
+ * <p>Description: Upms 枚举数据字典定义器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/26 16:50
+ * @date : 2024/8/23 16:00
  */
-public interface EnumDescription {
+public class UpmsEnumDictionaryBuilderCustomizer implements EnumDictionaryBuilderCustomizer {
 
-    /**
-     * 获取枚举文字表述
-     *
-     * @return 枚举文字表述
-     */
-    String getDescription();
+    @Override
+    public void customize(EnumDictionaryBuilder builder) {
+        builder.append(Gender.getDictionaries());
+        builder.append(DataItemStatus.getDictionaries());
+        builder.append(OrganizationCategory.getDictionaries());
+        builder.append(Identity.getDictionaries());
+        builder.append(ApplicationType.getDictionaries());
+        builder.append(ElementCategory.getDictionaries());
+        builder.append(MenuScenario.getDictionaries());
+    }
 }

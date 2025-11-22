@@ -23,49 +23,45 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.logic.message.config;
+package cn.herodotus.engine.core.autoconfigure.enums;
 
+import cn.herodotus.engine.core.definition.builder.EnumDictionaryBuilder;
 import cn.herodotus.engine.core.definition.function.EnumDictionaryBuilderCustomizer;
-import cn.herodotus.engine.logic.message.customizer.MessageEnumDictionaryBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import java.util.List;
 
 /**
- * <p>Description: 消息业务逻辑模块配置 </p>
+ * <p>Description: 枚举字典自动配置 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/2/19 16:40
+ * @date : 2024/8/23 15:52
  */
-@Configuration(proxyBeanMethods = false)
-@EntityScan(basePackages = {
-        "cn.herodotus.engine.logic.message.entity"
-})
-@EnableJpaRepositories(basePackages = {
-        "cn.herodotus.engine.logic.message.repository",
-})
-@ComponentScan(basePackages = {
-        "cn.herodotus.engine.logic.message.service",
-        "cn.herodotus.engine.logic.message.listener",
-})
-public class LogicMessageConfiguration {
+@AutoConfiguration
+public class EnumDictionaryAutoConfiguration {
 
-    private static final Logger log = LoggerFactory.getLogger(LogicMessageConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(EnumDictionaryAutoConfiguration.class);
 
     @PostConstruct
     public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Logic Message] Configure.");
+        log.info("[Herodotus] |- Auto [Enum Dictionary] Configure.");
     }
 
     @Bean
-    public EnumDictionaryBuilderCustomizer messageEnumDictionaryBuilderCustomizer() {
-        MessageEnumDictionaryBuilderCustomizer customizer = new MessageEnumDictionaryBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Message EnumDictionary Builder Customizer] Configure.");
-        return customizer;
+    public EnumDictionaryBuilder enumDictionaryBuilder(List<EnumDictionaryBuilderCustomizer> customizers) {
+        EnumDictionaryBuilder builder = new EnumDictionaryBuilder();
+        customize(builder, customizers);
+        log.trace("[Herodotus] |- Bean [Enum Dictionary Builder] Configure.");
+        return builder;
+    }
+
+    private void customize(EnumDictionaryBuilder builder, List<EnumDictionaryBuilderCustomizer> customizers) {
+        for (EnumDictionaryBuilderCustomizer customizer : customizers) {
+            customizer.customize(builder);
+        }
     }
 }

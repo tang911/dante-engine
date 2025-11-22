@@ -23,14 +23,28 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.core.definition.enums;
+package cn.herodotus.engine.logic.identity.customizer;
+
+import cn.herodotus.engine.core.definition.builder.EnumDictionaryBuilder;
+import cn.herodotus.engine.core.definition.function.EnumDictionaryBuilderCustomizer;
+import cn.herodotus.engine.core.identity.enums.PermissionExpression;
+import cn.herodotus.engine.logic.identity.enums.*;
 
 /**
- * <p>Description: 基础枚举定义 </p>
+ * <p>Description: Identity 枚举数据字典定义器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/26 16:52
+ * @date : 2024/8/23 16:00
  */
-public interface BaseUiEnum<T> extends EnumValue<T>, EnumDescription {
+public class IdentityEnumDictionaryBuilderCustomizer implements EnumDictionaryBuilderCustomizer {
 
+    @Override
+    public void customize(EnumDictionaryBuilder builder) {
+        builder.append(AllJwsAlgorithm.getDictionaries());
+        builder.append(AuthenticationMethod.getDictionaries());
+        builder.append(GrantType.getDictionaries());
+        builder.append(SignatureJwsAlgorithm.getDictionaries());
+        builder.append(TokenFormat.getDictionaries());
+        builder.append(PermissionExpression.getDictionaries());
+    }
 }
