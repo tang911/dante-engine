@@ -1,3 +1,4 @@
+cn.herodotus.engine.core.autoconfigure.async.AsyncAutoConfiguration
 cn.herodotus.engine.core.autoconfigure.ApplicationAutoConfiguration
 cn.herodotus.engine.core.autoconfigure.captcha.CaptchaAutoConfiguration
 cn.herodotus.engine.core.autoconfigure.client.reactive.WebClientAutoConfiguration

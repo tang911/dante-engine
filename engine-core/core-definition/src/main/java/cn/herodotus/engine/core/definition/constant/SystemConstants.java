@@ -52,6 +52,8 @@ public interface SystemConstants {
     String DATA_TYPE_STRING = "STRING";
     String DATA_TYPE_NUMBER = "NUMBER";
 
+    String VIRTUAL_ASYNC_PREFIX = "async-";
+
     /**
      * 大部分测试的测试资源，放入本地的 resources 目录即可满足。
      * 但还是有部分测试资源，还是需要外部环境，才能验证具体的可用性。
