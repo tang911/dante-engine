@@ -82,6 +82,7 @@ public class SysElementToTreeNodeConverter implements Converter<SysElement, Tree
             }
         }
         extra.put("componentPath", sysMenu.getComponent());
+        extra.put("scenario", sysMenu.getMenuScenario().name());
 
         return extra;
     }
