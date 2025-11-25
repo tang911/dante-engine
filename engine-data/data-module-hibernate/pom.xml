@@ -80,7 +80,7 @@
         <!--Hibernate 6.6, 6.5, 6.4, and 6.3-->
         <dependency>
             <groupId>io.hypersistence</groupId>
-            <artifactId>hypersistence-utils-hibernate-63</artifactId>
+            <artifactId>hypersistence-utils-hibernate-71</artifactId>
         </dependency>
 
     </dependencies>
