@@ -48,7 +48,7 @@
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>logic-module-identity</artifactId>
+            <artifactId>dante-logic-identity</artifactId>
         </dependency>
 
         <dependency>

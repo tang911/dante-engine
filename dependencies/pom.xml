@@ -349,17 +349,17 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>logic-module-identity</artifactId>
+                <artifactId>dante-logic-identity</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>logic-module-message</artifactId>
+                <artifactId>dante-logic-message</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>logic-module-upms</artifactId>
+                <artifactId>dante-logic-upms</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

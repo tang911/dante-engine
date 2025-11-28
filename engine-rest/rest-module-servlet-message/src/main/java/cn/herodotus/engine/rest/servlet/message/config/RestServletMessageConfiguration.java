@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.rest.servlet.message.config;
 
-import cn.herodotus.engine.logic.message.annotation.EnableHerodotusLogicMessage;
+import cn.herodotus.dante.logic.message.annotation.EnableHerodotusLogicMessage;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

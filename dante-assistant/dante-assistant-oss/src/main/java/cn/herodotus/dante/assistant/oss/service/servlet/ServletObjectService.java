@@ -27,13 +27,9 @@ package cn.herodotus.dante.assistant.oss.service.servlet;
 
 import cn.herodotus.dante.assistant.oss.converter.argument.*;
 import cn.herodotus.dante.assistant.oss.converter.result.*;
+import cn.herodotus.dante.assistant.oss.definition.service.AbstractServletService;
 import cn.herodotus.dante.assistant.oss.entity.argument.*;
 import cn.herodotus.dante.assistant.oss.entity.result.*;
-import cn.herodotus.engine.assistant.oss.converter.argument.*;
-import cn.herodotus.engine.assistant.oss.converter.result.*;
-import cn.herodotus.dante.assistant.oss.definition.service.AbstractServletService;
-import cn.herodotus.engine.assistant.oss.entity.argument.*;
-import cn.herodotus.engine.assistant.oss.entity.result.*;
 import cn.herodotus.dante.assistant.oss.service.base.S3AsyncClientObjectService;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.core.async.AsyncRequestBody;

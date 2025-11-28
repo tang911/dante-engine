@@ -108,7 +108,7 @@
         <module>dante-assistant</module>
         <module>engine-cache</module>
         <module>engine-core</module>
-        <module>engine-logic</module>
+        <module>dante-logic</module>
         <module>engine-rest</module>
         <module>engine-message</module>
         <module>engine-oauth2</module>

@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.rest.servlet.identity.config;
 
-import cn.herodotus.engine.logic.identity.config.LogicIdentityConfiguration;
+import cn.herodotus.dante.logic.identity.config.LogicIdentityConfiguration;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
