@@ -123,23 +123,20 @@ dante-engine
 ├    ├── dante-assistant-access -- 第三方登录接入辅助功能模块
 ├    ├── dante-assistant-captcha -- 验证码辅助功能模块
 ├    └── dante-assistant-oss -- AWS SDK V2 对象存储辅助功能模块
-├── engine-cache -- 缓存功能模块
-├    ├── cache-core -- 缓存通用代码模块
-├    ├── cache-module-caffeine -- Caffeine 缓存功能封装模块
-├    ├── cache-module-jetcache -- JetCache 缓存功能封装模块
-├    ├── cache-module-redis -- Redis 缓存功能封装模块
-├    └── cache-module-redisson -- Redisson 缓存功能封装模块
+├── dante-cache -- 缓存功能模块
+├    ├── dante-cache-commons -- 缓存通用代码模块
+├    ├── dante-cache-caffeine -- Caffeine 缓存功能封装模块
+├    ├── dante-cache-jetcache -- JetCache 缓存功能封装模块
+├    └── dante-cache-redis -- Redis 缓存功能封装模块
 ├── engine-core -- 基础核心模块
 ├    ├── core-autoconfigure -- 核心自动配置模块
 ├    ├── core-definition -- 核心定义模块
 ├    ├── core-foundation -- 基础通用模块
 ├    └── core-identity -- 身份认证通用模块
-├── engine-data -- 数据访问模块
-├    ├── data-core -- 数据访问通用代码模块
-├    ├── data-core-jpa -- 以 JPA 作为数据访问层的通用代码模块
-├    ├── data-core-mongodb -- 以 MongoDB 作为数据访问层的通用代码模块
-├    ├── data-module-hibernate -- Hibernate 扩展模块
-├    └── data-module-tenant -- 基于 JPA 的多租户扩展配置模块
+├── dante-data -- 数据访问模块
+├    ├── dante-data-commons -- 数据访问通用代码模块
+├    ├── dante-data-jpa -- 以 JPA 作为数据访问层的通用代码模块
+├    └── dante-data-mongodb -- 以 MongoDB 作为数据访问层的通用代码模块
 ├── dante-logic -- 系统内置功能业务逻辑模块
 ├    ├── dante-logic-identity -- 身份认证功能业务逻辑模块
 ├    ├── dante-logic-message -- 系统消息业务逻辑模块
@@ -161,7 +158,7 @@ dante-engine
 ├    ├── rest-module-servlet-identity -- 身份认证功能 Servlet 环境 REST 接口模块
 ├    ├── rest-module-servlet-message -- 消息功能 Servlet 环境 REST 接口模块
 ├    └── rest-module-servlet-upms -- UPMS 功能 Servlet 环境 REST 接口模块
-├── engine-starter -- Starters
+├── dante-starter -- Starters
 ├    ├── cache-spring-boot-starter -- 缓存自动配置 Starter
 ├    ├── captcha-spring-boot-starter -- 验证码自动配置 Starter
 ├    ├── data-mongodb-spring-boot-starter -- MongoDB 数据访问层自动配置 Starter
