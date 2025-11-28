@@ -109,10 +109,9 @@
         <module>engine-cache</module>
         <module>engine-core</module>
         <module>dante-logic</module>
-        <module>engine-rest</module>
+        <module>dante-rest</module>
         <module>engine-message</module>
         <module>engine-oauth2</module>
-        <module>engine-starter</module>
         <module>engine-web</module>
         <module>dante-framework</module>
         <module>dante-starter</module>

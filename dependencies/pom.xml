@@ -414,22 +414,22 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>rest-module-oss</artifactId>
+                <artifactId>dante-rest-oss</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>rest-module-servlet-identity</artifactId>
+                <artifactId>dante-rest-servlet-identity</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>rest-module-servlet-message</artifactId>
+                <artifactId>dante-rest-servlet-message</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>rest-module-servlet-upms</artifactId>
+                <artifactId>dante-rest-servlet-upms</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

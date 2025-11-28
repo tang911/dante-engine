@@ -62,7 +62,7 @@
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>rest-module-servlet-identity</artifactId>
+            <artifactId>dante-rest-servlet-identity</artifactId>
         </dependency>
 
         <dependency>
