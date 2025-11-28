@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.rest.oss.config;
 
-import cn.herodotus.engine.assistant.oss.config.AssistantOssConfiguration;
+import cn.herodotus.dante.assistant.oss.config.AssistantOssConfiguration;
 import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;

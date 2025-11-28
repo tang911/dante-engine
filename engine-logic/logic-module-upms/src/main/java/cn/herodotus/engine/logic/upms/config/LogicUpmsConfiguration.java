@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.logic.upms.config;
 
-import cn.herodotus.engine.assistant.access.config.AssistantAccessConfiguration;
-import cn.herodotus.engine.assistant.access.factory.AccessHandlerStrategyFactory;
+import cn.herodotus.dante.assistant.access.config.AssistantAccessConfiguration;
+import cn.herodotus.dante.assistant.access.factory.AccessHandlerStrategyFactory;
 import cn.herodotus.dante.core.function.EnumDictionaryBuilderCustomizer;
 import cn.herodotus.engine.logic.upms.customizer.UpmsEnumDictionaryBuilderCustomizer;
 import cn.herodotus.engine.logic.upms.definition.SocialAuthenticationHandler;

@@ -25,13 +25,13 @@
 
 package cn.herodotus.engine.rest.oss.controller;
 
-import cn.herodotus.engine.assistant.oss.entity.argument.CreateBucketArgument;
-import cn.herodotus.engine.assistant.oss.entity.argument.DeleteBucketArgument;
-import cn.herodotus.engine.assistant.oss.entity.argument.ListBucketsArgument;
-import cn.herodotus.engine.assistant.oss.entity.result.CreateBucketResult;
-import cn.herodotus.engine.assistant.oss.entity.result.DeleteBucketResult;
-import cn.herodotus.engine.assistant.oss.entity.result.ListBucketsResult;
-import cn.herodotus.engine.assistant.oss.service.servlet.ServletBucketService;
+import cn.herodotus.dante.assistant.oss.entity.argument.CreateBucketArgument;
+import cn.herodotus.dante.assistant.oss.entity.argument.DeleteBucketArgument;
+import cn.herodotus.dante.assistant.oss.entity.argument.ListBucketsArgument;
+import cn.herodotus.dante.assistant.oss.entity.result.CreateBucketResult;
+import cn.herodotus.dante.assistant.oss.entity.result.DeleteBucketResult;
+import cn.herodotus.dante.assistant.oss.entity.result.ListBucketsResult;
+import cn.herodotus.dante.assistant.oss.service.servlet.ServletBucketService;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.engine.web.core.annotation.AccessLimited;
 import cn.herodotus.engine.web.core.annotation.Idempotent;

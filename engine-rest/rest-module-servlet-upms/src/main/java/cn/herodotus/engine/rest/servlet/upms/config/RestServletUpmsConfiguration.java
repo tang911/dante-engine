@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.rest.servlet.upms.config;
 
-import cn.herodotus.engine.assistant.access.condition.ConditionalOnJustAuthEnabled;
-import cn.herodotus.engine.assistant.access.condition.ConditionalOnSmsEnabled;
-import cn.herodotus.engine.assistant.access.condition.ConditionalOnWxappEnabled;
+import cn.herodotus.dante.assistant.access.condition.ConditionalOnJustAuthEnabled;
+import cn.herodotus.dante.assistant.access.condition.ConditionalOnSmsEnabled;
+import cn.herodotus.dante.assistant.access.condition.ConditionalOnWxappEnabled;
 import cn.herodotus.engine.logic.upms.annotation.EnableHerodotusLogicUpms;
 import cn.herodotus.engine.rest.servlet.upms.controller.social.JustAuthAccessController;
 import cn.herodotus.engine.rest.servlet.upms.controller.social.PhoneNumberAccessController;
