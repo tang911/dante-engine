@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.persistence.sas.jpa.event;
 
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
+import cn.herodotus.dante.spring.context.AbstractApplicationEvent;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
 

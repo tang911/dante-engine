@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.autoconfigure.condition;
 
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnServletApplication;
+import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
 import cn.herodotus.engine.rest.servlet.upms.config.RestServletUpmsConfiguration;
 import org.springframework.boot.autoconfigure.condition.AllNestedConditions;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

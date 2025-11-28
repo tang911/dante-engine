@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.reactive.container.autoconfigure;
 
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnReactiveApplication;
+import cn.herodotus.dante.spring.condition.ConditionalOnReactiveApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

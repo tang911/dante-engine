@@ -26,7 +26,7 @@
 package cn.herodotus.dante.data.tenant.autoconfigure.repository;
 
 import cn.herodotus.dante.data.tenant.autoconfigure.entity.SysTenantDataSource;
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;
 import org.springframework.data.jpa.repository.QueryHints;

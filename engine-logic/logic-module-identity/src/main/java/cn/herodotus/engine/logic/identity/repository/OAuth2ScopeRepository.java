@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.identity.repository;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.engine.logic.identity.entity.OAuth2Scope;
 
 import java.util.List;

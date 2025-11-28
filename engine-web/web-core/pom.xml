@@ -42,7 +42,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>core-foundation</artifactId>
+            <artifactId>dante-web</artifactId>
         </dependency>
 
         <dependency>

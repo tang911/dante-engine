@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.logic.message.service;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
-import cn.herodotus.engine.data.core.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
 import cn.herodotus.engine.logic.message.entity.Announcement;
 import cn.herodotus.engine.logic.message.repository.AnnouncementRepository;
 import org.springframework.stereotype.Service;

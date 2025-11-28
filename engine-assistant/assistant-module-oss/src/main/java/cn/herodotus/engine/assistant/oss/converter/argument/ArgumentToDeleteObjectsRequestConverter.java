@@ -28,7 +28,7 @@ package cn.herodotus.engine.assistant.oss.converter.argument;
 import cn.herodotus.engine.assistant.oss.converter.domain.DomainToObjectIdentifiersConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.DeletedDomain;
 import cn.herodotus.engine.assistant.oss.entity.argument.DeleteObjectsArgument;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.Delete;
 import software.amazon.awssdk.services.s3.model.DeleteObjectsRequest;

@@ -26,7 +26,7 @@
 package cn.herodotus.dante.autoconfigure.async;
 
 import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnServletApplication;
+import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

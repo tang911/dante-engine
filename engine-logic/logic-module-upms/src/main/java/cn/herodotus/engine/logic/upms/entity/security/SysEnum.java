@@ -26,7 +26,7 @@
 package cn.herodotus.engine.logic.upms.entity.security;
 
 import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.engine.data.core.jpa.entity.AbstractSysEntity;
+import cn.herodotus.dante.data.jpa.entity.AbstractSysEntity;
 import cn.herodotus.engine.logic.upms.domain.generator.SysEnumIdGenerator;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;

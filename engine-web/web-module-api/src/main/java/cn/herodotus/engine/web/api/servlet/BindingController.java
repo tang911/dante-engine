@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.web.api.servlet;
 
-import cn.herodotus.engine.core.definition.domain.BaseEntity;
-import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.service.BaseService;
+import cn.herodotus.dante.core.domain.BaseEntity;
+import cn.herodotus.dante.core.domain.Result;
+import cn.herodotus.dante.data.commons.service.BaseService;
 
 import java.io.Serializable;
 import java.util.List;

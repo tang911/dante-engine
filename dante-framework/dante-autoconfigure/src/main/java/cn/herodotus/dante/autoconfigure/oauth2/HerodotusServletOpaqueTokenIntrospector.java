@@ -26,7 +26,7 @@
 package cn.herodotus.dante.autoconfigure.oauth2;
 
 import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
+import cn.herodotus.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.engine.core.identity.domain.HerodotusGrantedAuthority;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;

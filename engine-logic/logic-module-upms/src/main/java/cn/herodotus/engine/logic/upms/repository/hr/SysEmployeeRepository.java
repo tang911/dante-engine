@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.upms.repository.hr;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.engine.logic.upms.entity.hr.SysEmployee;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;

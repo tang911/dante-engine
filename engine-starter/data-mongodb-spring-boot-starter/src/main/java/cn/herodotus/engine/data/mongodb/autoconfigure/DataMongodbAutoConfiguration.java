@@ -25,11 +25,11 @@
 
 package cn.herodotus.engine.data.mongodb.autoconfigure;
 
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnServletApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
@@ -50,7 +50,7 @@ public class DataMongodbAutoConfiguration {
     }
 
     @Configuration(proxyBeanMethods = false)
-    @ConditionalOnServletApplication
+    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
     @EnableMongoAuditing
     static class ServletMongoDBConfiguration {
 

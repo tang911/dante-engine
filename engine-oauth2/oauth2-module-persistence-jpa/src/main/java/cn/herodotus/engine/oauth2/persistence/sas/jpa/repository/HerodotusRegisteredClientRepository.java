@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.persistence.sas.jpa.repository;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.engine.oauth2.persistence.sas.jpa.entity.HerodotusRegisteredClient;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;

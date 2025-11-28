@@ -26,7 +26,7 @@
 package cn.herodotus.engine.assistant.oss.converter.result;
 
 import cn.herodotus.engine.assistant.oss.entity.result.FailedFileUploadResult;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.transfer.s3.model.CompletedDirectoryUpload;
 import software.amazon.awssdk.transfer.s3.model.FailedFileUpload;

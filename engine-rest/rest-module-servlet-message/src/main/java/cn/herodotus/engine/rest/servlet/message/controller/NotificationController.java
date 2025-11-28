@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.rest.servlet.message.controller;
 
-import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.core.domain.Result;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.message.entity.Notification;
 import cn.herodotus.engine.logic.message.enums.NotificationCategory;
 import cn.herodotus.engine.logic.message.service.NotificationService;

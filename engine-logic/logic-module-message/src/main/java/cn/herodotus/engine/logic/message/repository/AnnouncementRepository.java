@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.message.repository;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.engine.logic.message.entity.Announcement;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;

@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.identity.entity;
 
-import cn.herodotus.engine.data.core.enums.ApplicationType;
+import cn.herodotus.dante.data.commons.enums.ApplicationType;
 import cn.herodotus.engine.logic.identity.definition.AbstractOAuth2RegisteredClient;
 import cn.herodotus.engine.oauth2.core.constants.OAuth2Constants;
 import com.google.common.base.MoreObjects;

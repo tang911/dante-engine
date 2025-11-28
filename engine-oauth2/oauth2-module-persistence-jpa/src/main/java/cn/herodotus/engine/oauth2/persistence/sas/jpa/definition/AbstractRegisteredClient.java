@@ -26,10 +26,10 @@
 package cn.herodotus.engine.oauth2.persistence.sas.jpa.definition;
 
 import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.engine.core.foundation.jackson.ArrayToCommaDelimitedStringDeserializer;
-import cn.herodotus.engine.core.foundation.jackson.CommaDelimitedStringToSetSerializer;
+import cn.herodotus.dante.spring.jackson.ArrayToCommaDelimitedStringDeserializer;
+import cn.herodotus.dante.spring.jackson.CommaDelimitedStringToSetSerializer;
 import cn.herodotus.engine.core.identity.domain.RegisteredClientDetails;
-import cn.herodotus.engine.data.core.jpa.entity.AbstractSysEntity;
+import cn.herodotus.dante.data.jpa.entity.AbstractSysEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;

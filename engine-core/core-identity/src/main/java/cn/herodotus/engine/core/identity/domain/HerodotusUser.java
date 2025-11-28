@@ -26,15 +26,14 @@
 package cn.herodotus.engine.core.identity.domain;
 
 import cn.herodotus.engine.core.identity.jackson.HerodotusUserDeserializer;
-import tools.jackson.databind.annotation.JsonDeserialize;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.SpringSecurityCoreVersion;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 import java.io.Serializable;
 import java.util.*;
@@ -232,8 +231,6 @@ public class HerodotusUser implements UserDetails, CredentialsContainer {
     }
 
     private static class AuthorityComparator implements Comparator<GrantedAuthority>, Serializable {
-
-        private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
         @Override
         public int compare(GrantedAuthority g1, GrantedAuthority g2) {

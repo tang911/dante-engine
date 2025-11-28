@@ -25,12 +25,12 @@
 
 package cn.herodotus.engine.oauth2.authentication.provider;
 
-import cn.herodotus.engine.core.definition.domain.captcha.Verification;
-import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaHasExpiredException;
-import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaIsEmptyException;
-import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaMismatchException;
-import cn.herodotus.engine.core.foundation.exception.captcha.CaptchaParameterIllegalException;
-import cn.herodotus.engine.core.foundation.support.captcha.CaptchaRendererFactory;
+import cn.herodotus.dante.core.domain.captcha.Verification;
+import cn.herodotus.dante.spring.exception.captcha.CaptchaHasExpiredException;
+import cn.herodotus.dante.spring.exception.captcha.CaptchaIsEmptyException;
+import cn.herodotus.dante.spring.exception.captcha.CaptchaMismatchException;
+import cn.herodotus.dante.spring.exception.captcha.CaptchaParameterIllegalException;
+import cn.herodotus.dante.spring.support.captcha.CaptchaRendererFactory;
 import cn.herodotus.engine.oauth2.core.domain.FormLoginWebAuthenticationDetails;
 import cn.herodotus.engine.oauth2.core.exception.OAuth2CaptchaArgumentIllegalException;
 import cn.herodotus.engine.oauth2.core.exception.OAuth2CaptchaHasExpiredException;

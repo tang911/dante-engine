@@ -26,7 +26,7 @@
 package cn.herodotus.engine.assistant.captcha.renderer.graphic;
 
 import cn.herodotus.engine.assistant.captcha.provider.ResourceProvider;
-import cn.herodotus.engine.core.foundation.enums.CaptchaCategory;
+import cn.herodotus.dante.spring.enums.CaptchaCategory;
 
 /**
  * <p>Description: Gif 类型验证码绘制器 </p>

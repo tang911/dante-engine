@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.logic.upms.service.hr;
 
-import cn.herodotus.engine.core.foundation.exception.transaction.TransactionalRollbackException;
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
-import cn.herodotus.engine.data.core.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.spring.exception.transaction.TransactionalRollbackException;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
 import cn.herodotus.engine.logic.upms.entity.hr.SysDepartment;
 import cn.herodotus.engine.logic.upms.entity.hr.SysOrganization;
 import cn.herodotus.engine.logic.upms.enums.OrganizationCategory;

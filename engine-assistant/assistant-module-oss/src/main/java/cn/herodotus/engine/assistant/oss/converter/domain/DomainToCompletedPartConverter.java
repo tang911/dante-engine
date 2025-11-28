@@ -27,7 +27,7 @@ package cn.herodotus.engine.assistant.oss.converter.domain;
 
 import cn.herodotus.engine.assistant.oss.definition.domain.CompletedPartDomain;
 import cn.herodotus.engine.assistant.oss.utils.OssUtils;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.apache.commons.lang3.ObjectUtils;
 import software.amazon.awssdk.services.s3.model.CompletedPart;
 

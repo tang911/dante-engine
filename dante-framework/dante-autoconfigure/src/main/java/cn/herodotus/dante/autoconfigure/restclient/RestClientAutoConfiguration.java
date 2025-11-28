@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.autoconfigure.restclient;
 
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnArchitecture;
-import cn.herodotus.engine.core.foundation.enums.Architecture;
+import cn.herodotus.dante.spring.condition.ConditionalOnArchitecture;
+import cn.herodotus.dante.spring.enums.Architecture;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

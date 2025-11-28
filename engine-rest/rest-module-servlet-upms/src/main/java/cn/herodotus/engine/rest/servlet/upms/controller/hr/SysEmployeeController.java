@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.rest.servlet.upms.controller.hr;
 
-import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.core.domain.Result;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.upms.entity.hr.SysEmployee;
 import cn.herodotus.engine.logic.upms.enums.Gender;
 import cn.herodotus.engine.logic.upms.enums.Identity;

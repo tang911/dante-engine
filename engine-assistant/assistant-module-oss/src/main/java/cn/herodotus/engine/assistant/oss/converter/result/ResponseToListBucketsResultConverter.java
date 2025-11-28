@@ -31,7 +31,7 @@ import cn.herodotus.engine.assistant.oss.definition.converter.ResponseConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.BucketDomain;
 import cn.herodotus.engine.assistant.oss.definition.domain.OwnerDomain;
 import cn.herodotus.engine.assistant.oss.entity.result.ListBucketsResult;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.Bucket;
 import software.amazon.awssdk.services.s3.model.ListBucketsResponse;

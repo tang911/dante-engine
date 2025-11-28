@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.logic.upms.service.security;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
-import cn.herodotus.engine.data.core.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
 import cn.herodotus.engine.logic.upms.entity.security.SysAttribute;
 import cn.herodotus.engine.logic.upms.entity.security.SysPermission;
 import cn.herodotus.engine.logic.upms.repository.security.SysAttributeRepository;
