@@ -29,7 +29,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <artifactId>engine-rest</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
@@ -37,27 +37,27 @@
     <artifactId>rest-module-servlet-identity</artifactId>
     <name>rest-module-servlet-identity</name>
 
-    <description>Dante Cloud 微服务基座组件库身份认证功能 Servlet 环境 REST 接口模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库身份认证功能 Servlet 环境 REST 接口模块</description>
 
     <dependencies>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>oauth2-module-extension</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>logic-module-identity</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>web-module-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>web-module-servlet</artifactId>
         </dependency>
 
@@ -96,6 +96,11 @@
         <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>sm-crypto-v2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-session</artifactId>
         </dependency>
     </dependencies>
 

@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.web.core.definition.utils;
 
-import cn.herodotus.engine.core.definition.constant.SymbolConstants;
+import cn.herodotus.dante.core.constant.SymbolConstants;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
@@ -126,7 +126,7 @@ public class HttpUtils {
      * @return true 请求体数据类型为 application/json，false 请求体数据类型不是 application/json
      */
     public static boolean isJson(String contentType) {
-        return Strings.CI.equals(MediaType.APPLICATION_JSON_VALUE, contentType) || Strings.CI.equals(MediaType.APPLICATION_JSON_UTF8_VALUE, contentType);
+        return Strings.CI.equals(MediaType.APPLICATION_JSON_VALUE, contentType);
     }
 
     /**

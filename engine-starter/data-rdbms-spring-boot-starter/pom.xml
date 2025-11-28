@@ -29,7 +29,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <artifactId>engine-starter</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
@@ -37,14 +37,9 @@
     <artifactId>data-rdbms-spring-boot-starter</artifactId>
     <name>data-rdbms-spring-boot-starter</name>
 
-    <description>Dante Cloud 微服务基座组件库关系型数据库数据访问层自动配置 Starter</description>
+    <description>Dante Cloud 云原生微服务基座组件库关系型数据库数据访问层自动配置 Starter</description>
 
     <dependencies>
-        <dependency>
-            <groupId>cn.herodotus.engine</groupId>
-            <artifactId>data-module-tenant</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-envers</artifactId>

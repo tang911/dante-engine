@@ -29,7 +29,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <artifactId>engine-core</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
@@ -37,9 +37,15 @@
     <artifactId>core-definition</artifactId>
     <name>core-definition</name>
 
-    <description>Dante Cloud 微服务基座组件库核心定义模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库核心定义模块</description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>cn.herodotus.dante</groupId>
+            <artifactId>dante-core</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
@@ -77,20 +83,8 @@
             <artifactId>core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-kotlin</artifactId>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>

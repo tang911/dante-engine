@@ -26,7 +26,7 @@
 package cn.herodotus.engine.web.core.servlet.utils;
 
 import cn.herodotus.engine.core.definition.constant.HerodotusHeaders;
-import cn.herodotus.engine.core.definition.constant.SystemConstants;
+import cn.herodotus.dante.core.constant.SystemConstants;
 import cn.hutool.v7.http.server.servlet.ServletUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
@@ -112,7 +112,7 @@ public class HeaderUtils {
      * @return true 存在，false 不存在
      */
     public static boolean hasHeader(HttpHeaders httpHeaders, String name) {
-        return httpHeaders.containsKey(name);
+        return httpHeaders.containsHeader(name);
     }
 
     /**

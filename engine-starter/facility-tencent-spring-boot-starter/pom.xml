@@ -30,7 +30,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <artifactId>engine-starter</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
@@ -38,12 +38,12 @@
     <artifactId>facility-tencent-spring-boot-starter</artifactId>
     <name>facility-tencent-spring-boot-starter</name>
 
-    <description>Dante Cloud 微服务基座组件库面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter</description>
+    <description>Dante Cloud 云原生微服务基座组件库面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter</description>
 
     <dependencies>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>core-foundation</artifactId>
         </dependency>
 

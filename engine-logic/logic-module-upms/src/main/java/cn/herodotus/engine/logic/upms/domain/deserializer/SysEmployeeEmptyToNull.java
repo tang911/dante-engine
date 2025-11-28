@@ -26,14 +26,12 @@
 package cn.herodotus.engine.logic.upms.domain.deserializer;
 
 import cn.herodotus.engine.logic.upms.entity.hr.SysEmployee;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ValueDeserializer;
 
 /**
  * <p>Description: SysEmployee 反序列化 空对象 '{}' 转 为 null </p>
@@ -41,11 +39,11 @@ import java.io.IOException;
  * @author : gengwei.zheng
  * @date : 2021/10/10 20:19
  */
-public class SysEmployeeEmptyToNull extends JsonDeserializer<SysEmployee> {
+public class SysEmployeeEmptyToNull extends ValueDeserializer<SysEmployee> {
 
     @Override
-    public SysEmployee deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        JsonNode jsonNode = jsonParser.readValueAsTree();
+    public SysEmployee deserialize(JsonParser parser, DeserializationContext context) throws JacksonException {
+        JsonNode jsonNode = parser.readValueAsTree();
         if (jsonNode.isEmpty() || jsonNode.isNull()) {
             return null;
         } else {

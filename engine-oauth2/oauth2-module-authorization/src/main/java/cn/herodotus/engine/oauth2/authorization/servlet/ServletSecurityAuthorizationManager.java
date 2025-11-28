@@ -25,8 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.servlet;
 
-import cn.herodotus.engine.core.autoconfigure.oauth2.domain.HerodotusRequest;
-import cn.herodotus.engine.core.autoconfigure.oauth2.servlet.ServletOAuth2ResourceMatcherConfigurer;
+import cn.herodotus.dante.oauth2.domain.HerodotusRequest;
 import cn.herodotus.engine.core.identity.domain.HerodotusSecurityAttribute;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityAttributeStorage;
 import cn.herodotus.engine.web.core.servlet.utils.HeaderUtils;
@@ -34,11 +33,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.authorization.AuthorizationManager;
+import org.springframework.security.authorization.AuthorizationResult;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.access.expression.WebExpressionAuthorizationManager;
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
@@ -74,8 +75,7 @@ public class ServletSecurityAuthorizationManager implements AuthorizationManager
     }
 
     @Override
-    public AuthorizationDecision check(Supplier<Authentication> authentication, RequestAuthorizationContext object) {
-
+    public @Nullable AuthorizationResult authorize(Supplier<? extends @Nullable Authentication> authentication, RequestAuthorizationContext object) {
         final HttpServletRequest request = object.getRequest();
 
         String url = request.getRequestURI();
@@ -118,7 +118,7 @@ public class ServletSecurityAuthorizationManager implements AuthorizationManager
 
         for (HerodotusSecurityAttribute configAttribute : configAttributes) {
             WebExpressionAuthorizationManager webExpressionAuthorizationManager = new WebExpressionAuthorizationManager(configAttribute.getAttribute());
-            AuthorizationDecision decision = webExpressionAuthorizationManager.check(authentication, object);
+            AuthorizationResult decision = webExpressionAuthorizationManager.authorize(authentication, object);
             if (decision.isGranted()) {
                 log.debug("[Herodotus] |- Request [{}] is authorized!", object.getRequest().getRequestURI());
                 return decision;

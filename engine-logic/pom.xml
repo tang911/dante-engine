@@ -29,7 +29,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <artifactId>dante-engine</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
@@ -38,7 +38,7 @@
     <name>engine-logic</name>
     <packaging>pom</packaging>
 
-    <description>Dante Cloud 微服务基座组件库系统内置功能业务逻辑模块分组</description>
+    <description>Dante Cloud 云原生微服务基座组件库系统内置功能业务逻辑模块分组</description>
 
     <modules>
         <module>logic-module-identity</module>

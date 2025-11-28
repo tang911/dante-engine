@@ -31,24 +31,28 @@
 
     <parent>
         <artifactId>engine-cache</artifactId>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <version>4.0.0.0-M1</version>
     </parent>
 
     <artifactId>cache-module-redisson</artifactId>
     <name>cache-module-redisson</name>
 
-    <description>Dante Cloud 微服务基座组件库 Redisson 缓存功能封装模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库 Redisson 缓存功能封装模块</description>
 
     <dependencies>
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>cache-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-data-redis</artifactId>
         </dependency>
     </dependencies>
 

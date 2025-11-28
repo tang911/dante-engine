@@ -31,23 +31,23 @@
 
     <parent>
         <artifactId>engine-oauth2</artifactId>
-        <groupId>cn.herodotus.engine</groupId>
+        <groupId>cn.herodotus.dante</groupId>
         <version>4.0.0.0-M1</version>
     </parent>
 
     <artifactId>oauth2-core</artifactId>
     <name>oauth2-core</name>
 
-    <description>Dante Cloud 微服务基座组件库 OAuth2 共性通用代码模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库 OAuth2 共性通用代码模块</description>
 
     <dependencies>
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>core-identity</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.herodotus.engine</groupId>
+            <groupId>cn.herodotus.dante</groupId>
             <artifactId>web-core</artifactId>
         </dependency>
 
@@ -65,6 +65,11 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
         </dependency>
 
         <dependency>

@@ -25,11 +25,11 @@
 
 package cn.herodotus.engine.logic.upms.domain.generator;
 
-import cn.herodotus.engine.data.hibernate.generator.AbstractIdGeneratorType;
+import cn.herodotus.dante.data.hibernate.generator.AbstractIdGeneratorType;
 import cn.herodotus.engine.logic.upms.entity.security.SysInterface;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.id.factory.spi.CustomIdGeneratorCreationContext;
+import org.hibernate.generator.GeneratorCreationContext;
 
 import java.lang.reflect.Member;
 
@@ -41,7 +41,7 @@ import java.lang.reflect.Member;
  */
 public class SysInterfaceIdGeneratorTypeType extends AbstractIdGeneratorType {
 
-    public SysInterfaceIdGeneratorTypeType(SysInterfaceIdGenerator config, Member member, CustomIdGeneratorCreationContext context) {
+    public SysInterfaceIdGeneratorTypeType(SysInterfaceIdGenerator config, Member member, GeneratorCreationContext context) {
         super(member);
     }
 
