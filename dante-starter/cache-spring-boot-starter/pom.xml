@@ -30,7 +30,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>engine-starter</artifactId>
+        <artifactId>dante-starter</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
@@ -47,7 +47,7 @@
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>cache-module-jetcache</artifactId>
+            <artifactId>dante-cache-jetcache</artifactId>
         </dependency>
 
         <dependency>
