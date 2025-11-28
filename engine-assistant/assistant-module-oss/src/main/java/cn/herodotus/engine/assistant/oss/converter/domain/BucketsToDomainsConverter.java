@@ -26,7 +26,7 @@
 package cn.herodotus.engine.assistant.oss.converter.domain;
 
 import cn.herodotus.engine.assistant.oss.definition.domain.BucketDomain;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import software.amazon.awssdk.services.s3.model.Bucket;
 

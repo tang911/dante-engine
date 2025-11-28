@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.oauth2.authorization.autoconfigure;
 
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnArchitecture;
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnServletApplication;
-import cn.herodotus.engine.core.foundation.enums.Architecture;
+import cn.herodotus.dante.spring.condition.ConditionalOnArchitecture;
+import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
+import cn.herodotus.dante.spring.enums.Architecture;
 import cn.herodotus.engine.message.core.definition.strategy.EnumDictionaryGatherEventManager;
 import cn.herodotus.engine.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.engine.oauth2.authorization.autoconfigure.listener.RemoteAttributeTransmitterSyncListener;

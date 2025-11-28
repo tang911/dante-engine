@@ -26,7 +26,7 @@
 package cn.herodotus.engine.assistant.oss.converter.domain;
 
 import cn.herodotus.engine.assistant.oss.definition.domain.DeletedDomain;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import software.amazon.awssdk.services.s3.model.ObjectIdentifier;
 
 /**

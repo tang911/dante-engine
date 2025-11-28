@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.upms.domain.listener;
 
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationContextAware;
+import cn.herodotus.dante.spring.context.AbstractApplicationContextAware;
 import cn.herodotus.engine.logic.upms.domain.event.SysAttributeChangeEvent;
 import cn.herodotus.engine.logic.upms.entity.security.SysAttribute;
 import jakarta.persistence.PostUpdate;

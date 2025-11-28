@@ -26,7 +26,7 @@
 package cn.herodotus.dante.autoconfigure.jackson;
 
 import cn.herodotus.dante.autoconfigure.jackson.initializer.JacksonInitializer;
-import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
+import cn.herodotus.dante.spring.context.ServiceContextHolder;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

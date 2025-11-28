@@ -27,7 +27,7 @@ package cn.herodotus.dante.autoconfigure.openfeign;
 
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.core.utils.JacksonUtils;
-import cn.herodotus.engine.core.foundation.exception.feigin.FeignDecodeIOException;
+import cn.herodotus.dante.spring.exception.feigin.FeignDecodeIOException;
 import feign.Response;
 import feign.Util;
 import feign.codec.ErrorDecoder;

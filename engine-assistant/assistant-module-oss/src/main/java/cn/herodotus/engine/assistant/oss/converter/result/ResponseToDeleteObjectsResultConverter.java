@@ -31,7 +31,7 @@ import cn.herodotus.engine.assistant.oss.definition.converter.ResponseConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.DeletedObjectDomain;
 import cn.herodotus.engine.assistant.oss.definition.domain.S3ErrorDomain;
 import cn.herodotus.engine.assistant.oss.entity.result.DeleteObjectsResult;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.apache.commons.collections4.CollectionUtils;
 import software.amazon.awssdk.services.s3.model.DeleteObjectsResponse;
 import software.amazon.awssdk.services.s3.model.DeletedObject;

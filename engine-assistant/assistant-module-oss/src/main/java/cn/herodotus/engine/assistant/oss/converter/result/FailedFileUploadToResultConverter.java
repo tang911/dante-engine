@@ -30,7 +30,7 @@ import cn.herodotus.engine.assistant.oss.definition.domain.ObjectLockDomain;
 import cn.herodotus.engine.assistant.oss.definition.domain.PutObjectDomain;
 import cn.herodotus.engine.assistant.oss.definition.domain.SsekmsDomain;
 import cn.herodotus.engine.assistant.oss.entity.result.FailedFileUploadResult;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.transfer.s3.model.FailedFileUpload;

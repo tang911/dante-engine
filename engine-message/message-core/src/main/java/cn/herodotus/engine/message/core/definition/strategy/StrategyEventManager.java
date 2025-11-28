@@ -26,7 +26,7 @@
 package cn.herodotus.engine.message.core.definition.strategy;
 
 import cn.herodotus.dante.core.utils.JacksonUtils;
-import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
+import cn.herodotus.dante.spring.context.ServiceContextHolder;
 import org.apache.commons.lang3.Strings;
 import org.springframework.context.ApplicationEvent;
 

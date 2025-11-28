@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.upms.converter;
 
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import cn.herodotus.engine.core.identity.domain.AttributeTransmitter;
 import cn.herodotus.engine.logic.upms.entity.security.SysAttribute;
 import cn.herodotus.engine.logic.upms.entity.security.SysPermission;

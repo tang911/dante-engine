@@ -29,7 +29,7 @@ import cn.herodotus.engine.assistant.captcha.provider.RandomProvider;
 import cn.herodotus.engine.assistant.captcha.provider.ResourceProvider;
 import cn.herodotus.dante.core.constant.RegexPool;
 import cn.herodotus.dante.core.domain.captcha.Metadata;
-import cn.herodotus.engine.core.foundation.enums.CaptchaCategory;
+import cn.herodotus.dante.spring.enums.CaptchaCategory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

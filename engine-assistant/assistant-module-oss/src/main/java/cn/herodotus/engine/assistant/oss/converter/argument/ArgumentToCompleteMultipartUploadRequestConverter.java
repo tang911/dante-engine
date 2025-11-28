@@ -28,7 +28,7 @@ package cn.herodotus.engine.assistant.oss.converter.argument;
 import cn.herodotus.engine.assistant.oss.converter.domain.DomainToCompletedPartConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.CompletedPartDomain;
 import cn.herodotus.engine.assistant.oss.entity.argument.CompleteMultipartUploadArgument;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.CompleteMultipartUploadRequest;

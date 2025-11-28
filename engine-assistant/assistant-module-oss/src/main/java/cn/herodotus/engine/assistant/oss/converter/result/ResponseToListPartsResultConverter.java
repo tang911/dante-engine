@@ -32,7 +32,7 @@ import cn.herodotus.engine.assistant.oss.definition.converter.ResponseConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.OwnerDomain;
 import cn.herodotus.engine.assistant.oss.definition.domain.PartDomain;
 import cn.herodotus.engine.assistant.oss.entity.result.ListPartsResult;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.core.convert.converter.Converter;

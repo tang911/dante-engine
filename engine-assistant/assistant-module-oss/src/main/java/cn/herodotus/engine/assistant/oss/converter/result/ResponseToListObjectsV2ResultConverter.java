@@ -30,7 +30,7 @@ import cn.herodotus.engine.assistant.oss.converter.domain.S3ObjectsToDomainConve
 import cn.herodotus.engine.assistant.oss.definition.converter.ResponseConverter;
 import cn.herodotus.engine.assistant.oss.definition.domain.ObjectDomain;
 import cn.herodotus.engine.assistant.oss.entity.result.ListObjectsV2Result;
-import cn.herodotus.engine.core.foundation.founction.ListConverter;
+import cn.herodotus.dante.spring.founction.ListConverter;
 import org.apache.commons.collections4.CollectionUtils;
 import software.amazon.awssdk.services.s3.model.CommonPrefix;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;

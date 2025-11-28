@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.web.core.condition;
 
-import cn.herodotus.engine.core.foundation.condition.AbstractEnumSpringBootCondition;
-import cn.herodotus.engine.core.foundation.enums.DataAccessStrategy;
+import cn.herodotus.dante.spring.condition.AbstractEnumSpringBootCondition;
+import cn.herodotus.dante.spring.enums.DataAccessStrategy;
 import org.springframework.context.annotation.Condition;
 
 import java.lang.annotation.Annotation;

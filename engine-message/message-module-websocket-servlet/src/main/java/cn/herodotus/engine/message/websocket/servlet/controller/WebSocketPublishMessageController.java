@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.message.websocket.servlet.controller;
 
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationContextAware;
+import cn.herodotus.dante.spring.context.AbstractApplicationContextAware;
 import cn.herodotus.engine.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.core.domain.DialogueMessage;
 import cn.herodotus.engine.message.core.domain.WebSocketMessage;

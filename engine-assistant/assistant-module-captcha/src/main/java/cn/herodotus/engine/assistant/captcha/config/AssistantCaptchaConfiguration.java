@@ -34,7 +34,7 @@ import cn.herodotus.engine.assistant.captcha.renderer.hutool.CircleCaptchaRender
 import cn.herodotus.engine.assistant.captcha.renderer.hutool.GifCaptchaRenderer;
 import cn.herodotus.engine.assistant.captcha.renderer.hutool.LineCaptchaRenderer;
 import cn.herodotus.engine.assistant.captcha.renderer.hutool.ShearCaptchaRenderer;
-import cn.herodotus.engine.core.foundation.enums.CaptchaCategory;
+import cn.herodotus.dante.spring.enums.CaptchaCategory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

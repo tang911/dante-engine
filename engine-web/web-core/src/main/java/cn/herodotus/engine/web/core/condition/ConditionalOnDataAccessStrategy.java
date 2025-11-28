@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.web.core.condition;
 
-import cn.herodotus.engine.core.foundation.enums.DataAccessStrategy;
+import cn.herodotus.dante.spring.enums.DataAccessStrategy;
 import org.springframework.context.annotation.Conditional;
 
 import java.lang.annotation.*;

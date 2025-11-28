@@ -26,7 +26,7 @@
 package cn.herodotus.dante.autoconfigure.session;
 
 import cn.herodotus.dante.autoconfigure.jackson.JacksonAutoConfiguration;
-import cn.herodotus.engine.core.foundation.condition.ConditionalOnServletApplication;
+import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

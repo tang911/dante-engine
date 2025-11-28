@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.message.core;
 
-import cn.herodotus.engine.core.foundation.context.AbstractApplicationEvent;
-import cn.herodotus.engine.core.foundation.context.ServiceContextHolder;
+import cn.herodotus.dante.spring.context.AbstractApplicationEvent;
+import cn.herodotus.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.engine.message.core.domain.StreamMessage;
 import cn.herodotus.engine.message.core.domain.TemplateMessage;
 import cn.herodotus.engine.message.core.domain.WebSocketMessage;

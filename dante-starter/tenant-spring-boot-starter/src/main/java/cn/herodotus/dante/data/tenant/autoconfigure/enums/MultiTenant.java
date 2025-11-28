@@ -26,7 +26,7 @@
 package cn.herodotus.dante.data.tenant.autoconfigure.enums;
 
 import cn.herodotus.dante.data.tenant.autoconfigure.constant.TenantConstants;
-import cn.herodotus.engine.core.foundation.condition.ConditionEnum;
+import cn.herodotus.dante.spring.condition.ConditionEnum;
 import org.springframework.core.env.Environment;
 
 /**

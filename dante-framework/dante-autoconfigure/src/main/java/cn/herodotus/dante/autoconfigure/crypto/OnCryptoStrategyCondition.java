@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.autoconfigure.crypto;
 
-import cn.herodotus.engine.core.foundation.condition.AbstractEnumSpringBootCondition;
+import cn.herodotus.dante.spring.condition.AbstractEnumSpringBootCondition;
 import org.springframework.context.annotation.Condition;
 
 import java.lang.annotation.Annotation;

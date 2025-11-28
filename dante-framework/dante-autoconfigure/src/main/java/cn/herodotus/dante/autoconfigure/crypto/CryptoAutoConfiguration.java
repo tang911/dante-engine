@@ -27,10 +27,10 @@ package cn.herodotus.dante.autoconfigure.crypto;
 
 import cn.herodotus.dante.core.support.crypto.AsymmetricCryptoProcessor;
 import cn.herodotus.dante.core.support.crypto.SymmetricCryptoProcessor;
-import cn.herodotus.engine.core.foundation.support.crypto.AESCryptoProcessor;
-import cn.herodotus.engine.core.foundation.support.crypto.RSACryptoProcessor;
-import cn.herodotus.engine.core.foundation.support.crypto.SM2CryptoProcessor;
-import cn.herodotus.engine.core.foundation.support.crypto.SM4CryptoProcessor;
+import cn.herodotus.dante.spring.support.crypto.AESCryptoProcessor;
+import cn.herodotus.dante.spring.support.crypto.RSACryptoProcessor;
+import cn.herodotus.dante.spring.support.crypto.SM2CryptoProcessor;
+import cn.herodotus.dante.spring.support.crypto.SM4CryptoProcessor;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

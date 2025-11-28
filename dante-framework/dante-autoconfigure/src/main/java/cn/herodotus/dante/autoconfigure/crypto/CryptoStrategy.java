@@ -26,7 +26,7 @@
 package cn.herodotus.dante.autoconfigure.crypto;
 
 import cn.herodotus.dante.core.constant.BaseConstants;
-import cn.herodotus.engine.core.foundation.condition.ConditionEnum;
+import cn.herodotus.dante.spring.condition.ConditionEnum;
 import org.springframework.core.env.Environment;
 
 /**
