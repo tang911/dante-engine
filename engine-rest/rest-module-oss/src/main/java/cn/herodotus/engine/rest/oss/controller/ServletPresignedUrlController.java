@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.rest.oss.controller;
 
-import cn.herodotus.engine.assistant.oss.service.logic.PresignedUrlService;
+import cn.herodotus.dante.assistant.oss.service.logic.PresignedUrlService;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.engine.web.core.annotation.Idempotent;
 import cn.herodotus.engine.web.core.definition.Controller;

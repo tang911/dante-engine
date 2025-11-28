@@ -299,17 +299,17 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>assistant-module-oss</artifactId>
+                <artifactId>dante-assistant-oss</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>assistant-module-access</artifactId>
+                <artifactId>dante-assistant-access</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>assistant-module-captcha</artifactId>
+                <artifactId>dante-assistant-captcha</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

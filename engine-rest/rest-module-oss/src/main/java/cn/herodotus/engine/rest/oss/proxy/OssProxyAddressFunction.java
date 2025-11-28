@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.rest.oss.proxy;
 
-import cn.herodotus.engine.assistant.oss.constant.OssConstants;
-import cn.herodotus.engine.assistant.oss.properties.OssProperties;
+import cn.herodotus.dante.assistant.oss.constant.OssConstants;
+import cn.herodotus.dante.assistant.oss.properties.OssProperties;
 import cn.herodotus.dante.core.constant.SymbolConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;

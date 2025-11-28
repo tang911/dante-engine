@@ -43,7 +43,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>assistant-module-captcha</artifactId>
+            <artifactId>dante-assistant-captcha</artifactId>
         </dependency>
     </dependencies>
 

@@ -25,20 +25,20 @@
 
 package cn.herodotus.engine.rest.oss.controller;
 
-import cn.herodotus.engine.assistant.oss.converter.result.ResponseToPutObjectResultConverter;
-import cn.herodotus.engine.assistant.oss.definition.converter.ResponseConverter;
-import cn.herodotus.engine.assistant.oss.entity.argument.DeleteObjectArgument;
-import cn.herodotus.engine.assistant.oss.entity.argument.DeleteObjectsArgument;
-import cn.herodotus.engine.assistant.oss.entity.argument.GetObjectArgument;
-import cn.herodotus.engine.assistant.oss.entity.argument.ListObjectsV2Argument;
-import cn.herodotus.engine.assistant.oss.entity.result.DeleteObjectResult;
-import cn.herodotus.engine.assistant.oss.entity.result.DeleteObjectsResult;
-import cn.herodotus.engine.assistant.oss.entity.result.ListObjectsV2Result;
-import cn.herodotus.engine.assistant.oss.entity.result.PutObjectResult;
-import cn.herodotus.engine.assistant.oss.exception.DownloadObjectException;
-import cn.herodotus.engine.assistant.oss.exception.UploadObjectException;
-import cn.herodotus.engine.assistant.oss.service.base.S3TransferManagerService;
-import cn.herodotus.engine.assistant.oss.service.servlet.ServletObjectService;
+import cn.herodotus.dante.assistant.oss.converter.result.ResponseToPutObjectResultConverter;
+import cn.herodotus.dante.assistant.oss.definition.converter.ResponseConverter;
+import cn.herodotus.dante.assistant.oss.entity.argument.DeleteObjectArgument;
+import cn.herodotus.dante.assistant.oss.entity.argument.DeleteObjectsArgument;
+import cn.herodotus.dante.assistant.oss.entity.argument.GetObjectArgument;
+import cn.herodotus.dante.assistant.oss.entity.argument.ListObjectsV2Argument;
+import cn.herodotus.dante.assistant.oss.entity.result.DeleteObjectResult;
+import cn.herodotus.dante.assistant.oss.entity.result.DeleteObjectsResult;
+import cn.herodotus.dante.assistant.oss.entity.result.ListObjectsV2Result;
+import cn.herodotus.dante.assistant.oss.entity.result.PutObjectResult;
+import cn.herodotus.dante.assistant.oss.exception.DownloadObjectException;
+import cn.herodotus.dante.assistant.oss.exception.UploadObjectException;
+import cn.herodotus.dante.assistant.oss.service.base.S3TransferManagerService;
+import cn.herodotus.dante.assistant.oss.service.servlet.ServletObjectService;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.engine.rest.oss.service.ServletObjectStreamService;
 import cn.herodotus.engine.web.core.annotation.AccessLimited;

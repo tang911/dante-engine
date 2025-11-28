@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.logic.upms.handler;
 
-import cn.herodotus.engine.assistant.access.definition.domain.AccessUserDetails;
-import cn.herodotus.engine.assistant.access.exception.AccessIdentityVerificationFailedException;
-import cn.herodotus.engine.assistant.access.factory.AccessHandlerStrategyFactory;
+import cn.herodotus.dante.assistant.access.definition.domain.AccessUserDetails;
+import cn.herodotus.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
+import cn.herodotus.dante.assistant.access.factory.AccessHandlerStrategyFactory;
 import cn.herodotus.engine.core.identity.domain.AccessPrincipal;
 import cn.herodotus.engine.core.identity.domain.HerodotusUser;
 import cn.herodotus.engine.logic.upms.converter.SysUserToHerodotusUserConverter;

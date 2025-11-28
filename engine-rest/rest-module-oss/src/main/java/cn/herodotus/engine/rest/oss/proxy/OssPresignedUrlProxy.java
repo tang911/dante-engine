@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.rest.oss.proxy;
 
-import cn.herodotus.engine.assistant.oss.properties.OssProperties;
+import cn.herodotus.dante.assistant.oss.properties.OssProperties;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.*;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;

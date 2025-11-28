@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.captcha.autoconfigure;
 
-import cn.herodotus.engine.assistant.captcha.config.AssistantCaptchaConfiguration;
-import cn.herodotus.engine.assistant.captcha.provider.ResourceProvider;
+import cn.herodotus.dante.assistant.captcha.config.AssistantCaptchaConfiguration;
+import cn.herodotus.dante.assistant.captcha.provider.ResourceProvider;
 import cn.herodotus.dante.spring.support.captcha.CaptchaRendererFactory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;

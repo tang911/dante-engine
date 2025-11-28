@@ -25,10 +25,10 @@
 
 package cn.herodotus.engine.rest.oss.service;
 
-import cn.herodotus.engine.assistant.oss.definition.domain.PutObjectDomain;
-import cn.herodotus.engine.assistant.oss.entity.argument.GetObjectArgument;
-import cn.herodotus.engine.assistant.oss.entity.result.GetObjectResult;
-import cn.herodotus.engine.assistant.oss.service.servlet.ServletObjectService;
+import cn.herodotus.dante.assistant.oss.definition.domain.PutObjectDomain;
+import cn.herodotus.dante.assistant.oss.entity.argument.GetObjectArgument;
+import cn.herodotus.dante.assistant.oss.entity.result.GetObjectResult;
+import cn.herodotus.dante.assistant.oss.service.servlet.ServletObjectService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
