@@ -26,7 +26,7 @@
 package cn.herodotus.engine.rest.servlet.identity.controller;
 
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.identity.entity.OAuth2Device;
 import cn.herodotus.engine.logic.identity.service.OAuth2DeviceService;
 import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;

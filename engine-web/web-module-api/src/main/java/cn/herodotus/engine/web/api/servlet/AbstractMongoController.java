@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.web.api.servlet;
 
-import cn.herodotus.engine.data.core.mongodb.entity.AbstractAuditEntity;
-import cn.herodotus.engine.data.core.mongodb.service.BaseMongoService;
+import cn.herodotus.dante.data.mongodb.entity.AbstractAuditEntity;
+import cn.herodotus.dante.data.mongodb.service.BaseMongoService;
 
 import java.io.Serializable;
 

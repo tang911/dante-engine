@@ -26,7 +26,7 @@
 package cn.herodotus.engine.logic.upms.repository.security;
 
 import cn.herodotus.engine.core.identity.enums.AccountCategory;
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.engine.logic.upms.entity.security.SysDefaultRole;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;

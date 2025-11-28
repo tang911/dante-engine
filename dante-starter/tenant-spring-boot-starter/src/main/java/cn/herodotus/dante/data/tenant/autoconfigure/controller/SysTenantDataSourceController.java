@@ -28,7 +28,7 @@ package cn.herodotus.dante.data.tenant.autoconfigure.controller;
 import cn.herodotus.dante.data.tenant.autoconfigure.entity.SysTenantDataSource;
 import cn.herodotus.dante.data.tenant.autoconfigure.service.SysTenantDataSourceService;
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
 import cn.herodotus.engine.web.core.annotation.AccessLimited;
 import io.swagger.v3.oas.annotations.Operation;

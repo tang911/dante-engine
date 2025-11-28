@@ -26,7 +26,7 @@
 package cn.herodotus.engine.rest.servlet.upms.controller.security;
 
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.upms.entity.security.SysUser;
 import cn.herodotus.engine.logic.upms.service.security.SysUserService;
 import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;

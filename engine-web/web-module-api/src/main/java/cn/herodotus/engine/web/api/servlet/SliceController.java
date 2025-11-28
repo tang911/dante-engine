@@ -27,7 +27,7 @@ package cn.herodotus.engine.web.api.servlet;
 
 import cn.herodotus.engine.core.definition.domain.BaseEntity;
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.service.BaseSliceService;
+import cn.herodotus.dante.data.commons.service.BaseSliceService;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 

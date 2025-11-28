@@ -47,13 +47,13 @@
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>data-core-jpa</artifactId>
+            <artifactId>dante-data-jpa</artifactId>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>data-core-mongodb</artifactId>
+            <artifactId>dante-data-mongodb</artifactId>
             <optional>true</optional>
         </dependency>
 

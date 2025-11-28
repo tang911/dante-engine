@@ -27,7 +27,7 @@ package cn.herodotus.engine.web.api.servlet;
 
 import cn.herodotus.engine.core.definition.domain.BaseEntity;
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 
 import java.io.Serializable;
 

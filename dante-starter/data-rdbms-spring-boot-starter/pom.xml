@@ -42,7 +42,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>data-core-jpa</artifactId>
+            <artifactId>dante-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>

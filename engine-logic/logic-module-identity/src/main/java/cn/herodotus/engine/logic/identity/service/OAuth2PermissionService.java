@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.logic.identity.service;
 
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
-import cn.herodotus.engine.data.core.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
 import cn.herodotus.engine.logic.identity.entity.OAuth2Permission;
 import cn.herodotus.engine.logic.identity.repository.OAuth2PermissionRepository;
 import org.springframework.stereotype.Service;

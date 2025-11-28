@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.upms.entity.security;
 
-import cn.herodotus.engine.data.core.jpa.entity.AbstractSysEntity;
+import cn.herodotus.dante.data.jpa.entity.AbstractSysEntity;
 import cn.herodotus.engine.logic.upms.domain.generator.SysInterfaceIdGenerator;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;

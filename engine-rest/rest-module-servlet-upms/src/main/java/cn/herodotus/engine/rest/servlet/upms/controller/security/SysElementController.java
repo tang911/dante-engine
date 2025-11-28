@@ -26,8 +26,8 @@
 package cn.herodotus.engine.rest.servlet.upms.controller.security;
 
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.enums.ApplicationType;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.commons.enums.ApplicationType;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.upms.entity.security.SysElement;
 import cn.herodotus.engine.logic.upms.service.security.SysElementService;
 import cn.herodotus.engine.rest.servlet.upms.converter.SysElementToTreeNodeConverter;

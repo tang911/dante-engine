@@ -27,8 +27,8 @@ package cn.herodotus.engine.logic.upms.service.security;
 
 import cn.herodotus.engine.core.definition.domain.Dictionary;
 import cn.herodotus.engine.core.foundation.founction.ListConverter;
-import cn.herodotus.engine.data.core.jpa.repository.BaseJpaRepository;
-import cn.herodotus.engine.data.core.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
 import cn.herodotus.engine.logic.upms.converter.DictionaryToSysEnumConverter;
 import cn.herodotus.engine.logic.upms.entity.security.SysDictionary;
 import cn.herodotus.engine.logic.upms.entity.security.SysEnum;

@@ -42,7 +42,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.JacksonJsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -76,7 +76,7 @@ public class CacheRedisConfiguration {
      */
 //    @Bean(name = "springSessionDefaultRedisSerializer")
     private RedisSerializer<Object> valueSerializer() {
-        RedisSerializer<Object> redisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        RedisSerializer<Object> redisSerializer = new JacksonJsonRedisSerializer<>(Object.class);
         log.trace("[Herodotus] |- Bean [Jackson2Json Redis Serializer] Configure.");
         return redisSerializer;
     }

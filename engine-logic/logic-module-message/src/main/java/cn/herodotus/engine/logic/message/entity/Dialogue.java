@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.logic.message.entity;
 
-import cn.herodotus.engine.data.core.jpa.entity.AbstractAuditEntity;
+import cn.herodotus.dante.data.jpa.entity.AbstractAuditEntity;
 import cn.herodotus.engine.logic.message.constant.LogicMessageConstants;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;

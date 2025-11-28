@@ -26,7 +26,7 @@
 package cn.herodotus.engine.rest.servlet.message.controller;
 
 import cn.herodotus.engine.core.definition.domain.Result;
-import cn.herodotus.engine.data.core.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.engine.logic.message.entity.DialogueDetail;
 import cn.herodotus.engine.logic.message.service.DialogueDetailService;
 import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;

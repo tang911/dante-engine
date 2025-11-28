@@ -254,6 +254,21 @@
             <!--Dante Engine-->
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
+                <artifactId>dante-data-commons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.herodotus.dante</groupId>
+                <artifactId>dante-data-jpa</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.herodotus.dante</groupId>
+                <artifactId>dante-data-mongodb</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.herodotus.dante</groupId>
                 <artifactId>dante-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -340,16 +355,6 @@
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
                 <artifactId>data-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.dante</groupId>
-                <artifactId>data-core-jpa</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.herodotus.dante</groupId>
-                <artifactId>data-core-mongodb</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
