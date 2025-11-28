@@ -42,7 +42,7 @@
     <description>Dante Cloud 云原生微服务基座辅助功能模块分组</description>
 
     <modules>
-        <module>assistant-module-access</module>
+        <module>dante-assistant-access</module>
         <module>dante-assistant-captcha</module>
         <module>dante-assistant-oss</module>
     </modules>

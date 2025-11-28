@@ -34,8 +34,8 @@
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>assistant-module-access</artifactId>
-    <name>assistant-module-access</name>
+    <artifactId>dante-assistant-access</artifactId>
+    <name>dante-assistant-access</name>
 
     <description>Dante Cloud 云原生微服务基座组件库第三方登录接入辅助功能模块</description>
 

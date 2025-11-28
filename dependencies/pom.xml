@@ -304,7 +304,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>assistant-module-access</artifactId>
+                <artifactId>dante-assistant-access</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
