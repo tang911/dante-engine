@@ -29,7 +29,6 @@ import cn.herodotus.dante.core.builder.EnumDictionaryBuilder;
 import cn.herodotus.dante.core.function.EnumDictionaryBuilderCustomizer;
 import cn.herodotus.dante.logic.identity.enums.*;
 import cn.herodotus.engine.core.identity.enums.PermissionExpression;
-import cn.herodotus.engine.logic.identity.enums.*;
 
 /**
  * <p>Description: Identity 枚举数据字典定义器 </p>

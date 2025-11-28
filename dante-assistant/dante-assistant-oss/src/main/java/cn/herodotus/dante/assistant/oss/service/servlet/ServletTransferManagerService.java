@@ -26,14 +26,12 @@
 package cn.herodotus.dante.assistant.oss.service.servlet;
 
 import cn.herodotus.dante.assistant.oss.converter.argument.*;
-import cn.herodotus.dante.assistant.oss.entity.argument.*;
-import cn.herodotus.engine.assistant.oss.converter.argument.*;
 import cn.herodotus.dante.assistant.oss.converter.result.CompletedDirectoryUploadToResultConverter;
 import cn.herodotus.dante.assistant.oss.converter.result.CompletedFileDownloadToResultConverter;
 import cn.herodotus.dante.assistant.oss.converter.result.CompletedFileUploadToResultConverter;
 import cn.herodotus.dante.assistant.oss.converter.result.CompletedUploadToResultConverter;
 import cn.herodotus.dante.assistant.oss.definition.service.AbstractServletService;
-import cn.herodotus.engine.assistant.oss.entity.argument.*;
+import cn.herodotus.dante.assistant.oss.entity.argument.*;
 import cn.herodotus.dante.assistant.oss.entity.result.FailedFileUploadResult;
 import cn.herodotus.dante.assistant.oss.entity.result.GetObjectResult;
 import cn.herodotus.dante.assistant.oss.entity.result.PutObjectResult;

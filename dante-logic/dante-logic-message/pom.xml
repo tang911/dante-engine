@@ -30,7 +30,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>engine-logic</artifactId>
+        <artifactId>dante-logic</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 

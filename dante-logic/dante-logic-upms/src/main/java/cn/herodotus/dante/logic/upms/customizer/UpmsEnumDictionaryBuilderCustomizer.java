@@ -30,7 +30,6 @@ import cn.herodotus.dante.core.function.EnumDictionaryBuilderCustomizer;
 import cn.herodotus.dante.data.commons.enums.ApplicationType;
 import cn.herodotus.dante.data.commons.enums.DataItemStatus;
 import cn.herodotus.dante.logic.upms.enums.*;
-import cn.herodotus.engine.logic.upms.enums.*;
 
 /**
  * <p>Description: Upms 枚举数据字典定义器 </p>

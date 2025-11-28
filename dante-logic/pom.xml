@@ -35,7 +35,8 @@
     </parent>
 
     <artifactId>dante-logic</artifactId>
-    <name>engine-logic</name>
+    <name>dante-logic</name>
+
     <packaging>pom</packaging>
 
     <description>Dante Cloud 云原生微服务基座组件库系统内置功能业务逻辑模块分组</description>
