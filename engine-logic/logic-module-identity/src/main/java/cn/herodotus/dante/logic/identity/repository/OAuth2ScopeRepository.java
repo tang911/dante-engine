@@ -23,40 +23,34 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.servlet.identity.controller;
+package cn.herodotus.dante.logic.identity.repository;
 
-import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
-import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
-import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Scope;
+
+import java.util.List;
 
 /**
- * <p>Description: OAuth2ProductController </p>
+ * <p> Description : OauthScopeRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/5/15 16:37
+ * @date : 2020/3/19 16:57
  */
-@RestController
-@RequestMapping("/authorize/product")
-@Tags({
-        @Tag(name = "OAuth2 认证服务接口"),
-        @Tag(name = "物联网管理接口"),
-        @Tag(name = "物联网产品接口")
-})
-public class OAuth2ProductController extends AbstractJpaWriteableController<OAuth2Product, String> {
+public interface OAuth2ScopeRepository extends BaseJpaRepository<OAuth2Scope, String> {
 
-    private final OAuth2ProductService iotProductService;
+    /**
+     * 根据范围代码查询应用范围
+     *
+     * @param scopeCode 范围代码
+     * @return 应用范围 {@link OAuth2Scope}
+     */
+    OAuth2Scope findByScopeCode(String scopeCode);
 
-    public OAuth2ProductController(OAuth2ProductService iotProductService) {
-        this.iotProductService = iotProductService;
-    }
-
-    @Override
-    public BaseJpaWriteableService<OAuth2Product, String> getService() {
-        return iotProductService;
-    }
+    /**
+     * 根据 scope codes 查询对应的对象列表
+     *
+     * @param scopeCodes 范围代码
+     * @return 对象列表
+     */
+    List<OAuth2Scope> findByScopeCodeIn(List<String> scopeCodes);
 }

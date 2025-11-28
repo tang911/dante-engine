@@ -23,40 +23,31 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.servlet.identity.controller;
+package cn.herodotus.dante.logic.identity.service;
 
-import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
-import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
-import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import cn.herodotus.dante.data.jpa.repository.BaseJpaRepository;
+import cn.herodotus.dante.data.jpa.service.AbstractJpaService;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Permission;
+import cn.herodotus.dante.logic.identity.repository.OAuth2PermissionRepository;
+import org.springframework.stereotype.Service;
 
 /**
- * <p>Description: OAuth2ProductController </p>
+ * <p>Description: OAuth2PermissionService </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/5/15 16:37
+ * @date : 2022/4/1 13:53
  */
-@RestController
-@RequestMapping("/authorize/product")
-@Tags({
-        @Tag(name = "OAuth2 认证服务接口"),
-        @Tag(name = "物联网管理接口"),
-        @Tag(name = "物联网产品接口")
-})
-public class OAuth2ProductController extends AbstractJpaWriteableController<OAuth2Product, String> {
+@Service
+public class OAuth2PermissionService extends AbstractJpaService<OAuth2Permission, String> {
 
-    private final OAuth2ProductService iotProductService;
+    private final OAuth2PermissionRepository authorityRepository;
 
-    public OAuth2ProductController(OAuth2ProductService iotProductService) {
-        this.iotProductService = iotProductService;
+    public OAuth2PermissionService(OAuth2PermissionRepository authorityRepository) {
+        this.authorityRepository = authorityRepository;
     }
 
     @Override
-    public BaseJpaWriteableService<OAuth2Product, String> getService() {
-        return iotProductService;
+    public BaseJpaRepository<OAuth2Permission, String> getRepository() {
+        return authorityRepository;
     }
 }

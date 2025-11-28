@@ -23,40 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.servlet.identity.controller;
+package cn.herodotus.dante.logic.identity.generator;
 
-import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
-import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
-import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import cn.herodotus.dante.data.hibernate.generator.AbstractIdGeneratorType;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Permission;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.generator.GeneratorCreationContext;
+
+import java.lang.reflect.Member;
 
 /**
- * <p>Description: OAuth2ProductController </p>
+ * <p>Description: 使得保存实体类时可以在保留主键生成策略的情况下自定义表的主键 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/5/15 16:37
+ * @date : 2022/3/31 21:11
  */
-@RestController
-@RequestMapping("/authorize/product")
-@Tags({
-        @Tag(name = "OAuth2 认证服务接口"),
-        @Tag(name = "物联网管理接口"),
-        @Tag(name = "物联网产品接口")
-})
-public class OAuth2ProductController extends AbstractJpaWriteableController<OAuth2Product, String> {
+public class OAuth2PermissionIdGeneratorType extends AbstractIdGeneratorType {
 
-    private final OAuth2ProductService iotProductService;
-
-    public OAuth2ProductController(OAuth2ProductService iotProductService) {
-        this.iotProductService = iotProductService;
+    public OAuth2PermissionIdGeneratorType(OAuth2PermissionIdGenerator config, Member member, GeneratorCreationContext context) {
+        super(member);
     }
 
     @Override
-    public BaseJpaWriteableService<OAuth2Product, String> getService() {
-        return iotProductService;
+    public Object generate(SharedSessionContractImplementor session, Object object) {
+
+        OAuth2Permission permission = (OAuth2Permission) object;
+
+        if (StringUtils.isEmpty(permission.getPermissionId())) {
+            return super.generate(session, object);
+        } else {
+            return permission.getPermissionId();
+        }
     }
 }
+

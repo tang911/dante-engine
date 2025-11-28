@@ -23,40 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.rest.servlet.identity.controller;
+package cn.herodotus.dante.logic.identity.generator;
 
-import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
-import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
-import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.hibernate.annotations.IdGeneratorType;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 
 /**
- * <p>Description: OAuth2ProductController </p>
+ * <p>Description: OAuth2AuthorityUuid </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/5/15 16:37
+ * @date : 2022/11/7 17:11
  */
-@RestController
-@RequestMapping("/authorize/product")
-@Tags({
-        @Tag(name = "OAuth2 认证服务接口"),
-        @Tag(name = "物联网管理接口"),
-        @Tag(name = "物联网产品接口")
-})
-public class OAuth2ProductController extends AbstractJpaWriteableController<OAuth2Product, String> {
-
-    private final OAuth2ProductService iotProductService;
-
-    public OAuth2ProductController(OAuth2ProductService iotProductService) {
-        this.iotProductService = iotProductService;
-    }
-
-    @Override
-    public BaseJpaWriteableService<OAuth2Product, String> getService() {
-        return iotProductService;
-    }
+@IdGeneratorType(OAuth2PermissionIdGeneratorType.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({FIELD, METHOD})
+public @interface OAuth2PermissionIdGenerator {
 }

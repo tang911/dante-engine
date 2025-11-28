@@ -27,9 +27,9 @@ package cn.herodotus.engine.rest.servlet.identity.controller;
 
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.engine.logic.identity.entity.OAuth2Permission;
-import cn.herodotus.engine.logic.identity.entity.OAuth2Scope;
-import cn.herodotus.engine.logic.identity.service.OAuth2ScopeService;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Permission;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Scope;
+import cn.herodotus.dante.logic.identity.service.OAuth2ScopeService;
 import cn.herodotus.engine.rest.servlet.identity.dto.OAuth2PermissionDto;
 import cn.herodotus.engine.rest.servlet.identity.dto.OAuth2ScopeDto;
 import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;

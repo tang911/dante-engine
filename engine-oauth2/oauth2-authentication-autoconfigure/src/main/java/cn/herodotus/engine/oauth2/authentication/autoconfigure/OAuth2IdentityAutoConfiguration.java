@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authentication.autoconfigure;
 
-import cn.herodotus.engine.logic.identity.config.LogicIdentityConfiguration;
+import cn.herodotus.dante.logic.identity.config.LogicIdentityConfiguration;
 import cn.herodotus.engine.oauth2.extension.config.OAuth2ExtensionConfiguration;
 import cn.herodotus.engine.rest.servlet.identity.config.RestServletIdentityConfiguration;
 import jakarta.annotation.PostConstruct;
