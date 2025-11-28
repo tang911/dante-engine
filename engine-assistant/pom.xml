@@ -43,7 +43,7 @@
 
     <modules>
         <module>assistant-module-access</module>
-        <module>assistant-module-captcha</module>
+        <module>dante-assistant-captcha</module>
         <module>dante-assistant-oss</module>
     </modules>
 </project>

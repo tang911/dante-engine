@@ -34,8 +34,8 @@
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>assistant-module-captcha</artifactId>
-    <name>assistant-module-captcha</name>
+    <artifactId>dante-assistant-captcha</artifactId>
+    <name>dante-assistant-captcha</name>
 
     <description>Dante Cloud 云原生微服务基座件库验证码辅助功能模块</description>
 
