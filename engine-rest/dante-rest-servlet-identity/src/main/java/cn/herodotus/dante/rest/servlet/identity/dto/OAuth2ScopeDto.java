@@ -23,43 +23,51 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.rest.oss.config;
+package cn.herodotus.dante.rest.servlet.identity.dto;
 
-import cn.herodotus.dante.assistant.oss.config.AssistantOssConfiguration;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import com.google.common.base.MoreObjects;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * <p>Description: 对象存储REST模块配置类 </p>
+ * <p>Description: OAuth2 Scope Dto </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 18:10
+ * @date : 2022/4/1 13:55
  */
-@Configuration(proxyBeanMethods = false)
-@Import({
-        AssistantOssConfiguration.class
-})
-public class RestOssConfiguration {
+@Schema(name = "OAuth2 范围请求 Dto")
+public class OAuth2ScopeDto {
 
-    private static final Logger log = LoggerFactory.getLogger(RestOssConfiguration.class);
+    @Schema(name = "范围ID")
+    @NotNull(message = "范围ID不能为空")
+    private String scopeId;
 
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Rest Oss] Configure.");
+    @Schema(name = "范围权限列表")
+    private Set<OAuth2PermissionDto> permissions = new HashSet<>();
+
+    public String getScopeId() {
+        return scopeId;
     }
 
-    @Configuration(proxyBeanMethods = false)
-    @ConditionalOnServletApplication
-    @ComponentScan(basePackages = {
-            "cn.herodotus.dante.rest.oss.service",
-            "cn.herodotus.dante.rest.oss.controller"
-    })
-    static class ServletOssRestConfiguration {
+    public void setScopeId(String scopeId) {
+        this.scopeId = scopeId;
+    }
 
+    public Set<OAuth2PermissionDto> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(Set<OAuth2PermissionDto> permissions) {
+        this.permissions = permissions;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("scopeId", scopeId)
+                .toString();
     }
 }

@@ -23,43 +23,40 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.rest.oss.config;
+package cn.herodotus.dante.rest.servlet.identity.controller;
 
-import cn.herodotus.dante.assistant.oss.config.AssistantOssConfiguration;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import cn.herodotus.dante.data.jpa.service.BaseJpaWriteableService;
+import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
+import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
+import cn.herodotus.engine.web.api.servlet.AbstractJpaWriteableController;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.tags.Tags;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p>Description: 对象存储REST模块配置类 </p>
+ * <p>Description: OAuth2ProductController </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 18:10
+ * @date : 2023/5/15 16:37
  */
-@Configuration(proxyBeanMethods = false)
-@Import({
-        AssistantOssConfiguration.class
+@RestController
+@RequestMapping("/authorize/product")
+@Tags({
+        @Tag(name = "OAuth2 认证服务接口"),
+        @Tag(name = "物联网管理接口"),
+        @Tag(name = "物联网产品接口")
 })
-public class RestOssConfiguration {
+public class OAuth2ProductController extends AbstractJpaWriteableController<OAuth2Product, String> {
 
-    private static final Logger log = LoggerFactory.getLogger(RestOssConfiguration.class);
+    private final OAuth2ProductService iotProductService;
 
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Rest Oss] Configure.");
+    public OAuth2ProductController(OAuth2ProductService iotProductService) {
+        this.iotProductService = iotProductService;
     }
 
-    @Configuration(proxyBeanMethods = false)
-    @ConditionalOnServletApplication
-    @ComponentScan(basePackages = {
-            "cn.herodotus.dante.rest.oss.service",
-            "cn.herodotus.dante.rest.oss.controller"
-    })
-    static class ServletOssRestConfiguration {
-
+    @Override
+    public BaseJpaWriteableService<OAuth2Product, String> getService() {
+        return iotProductService;
     }
 }

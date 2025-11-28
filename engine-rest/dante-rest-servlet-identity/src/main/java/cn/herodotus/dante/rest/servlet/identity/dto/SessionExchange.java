@@ -23,43 +23,51 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.rest.oss.config;
+package cn.herodotus.dante.rest.servlet.identity.dto;
 
-import cn.herodotus.dante.assistant.oss.config.AssistantOssConfiguration;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import cn.herodotus.dante.core.domain.AbstractDto;
+import com.google.common.base.MoreObjects;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
 
 /**
- * <p>Description: 对象存储REST模块配置类 </p>
+ * <p>Description: 机要传递实体 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 18:10
+ * @date : 2021/10/2 16:29
  */
-@Configuration(proxyBeanMethods = false)
-@Import({
-        AssistantOssConfiguration.class
-})
-public class RestOssConfiguration {
+@Schema(name = "机要传递实体")
+public class SessionExchange extends AbstractDto {
 
-    private static final Logger log = LoggerFactory.getLogger(RestOssConfiguration.class);
+    @NotBlank(message = "confidential参数不能为空")
+    @Schema(name = "用后端RSA/SM2 PublicKey加密的前端RSA/SM2 PublicKey")
+    private String publicKey;
 
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("[Herodotus] |- Module [Rest Oss] Configure.");
+    @NotBlank(message = "Session Key不能为空")
+    @Schema(name = "未登录前端身份标识")
+    private String sessionId;
+
+    public String getPublicKey() {
+        return publicKey;
     }
 
-    @Configuration(proxyBeanMethods = false)
-    @ConditionalOnServletApplication
-    @ComponentScan(basePackages = {
-            "cn.herodotus.dante.rest.oss.service",
-            "cn.herodotus.dante.rest.oss.controller"
-    })
-    static class ServletOssRestConfiguration {
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
+    }
 
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("publicKey", publicKey)
+                .add("sessionId", sessionId)
+                .toString();
     }
 }
