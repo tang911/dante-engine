@@ -28,45 +28,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
+        <artifactId>dante-engine</artifactId>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>engine-oauth2</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>oauth2-authorization-autoconfigure</artifactId>
-    <name>oauth2-authorization-autoconfigure</name>
+    <artifactId>dante-rest</artifactId>
+    <name>dante-rest</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库 OAuth2 资源服务器基础内容自动配置模块</description>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>oauth2-module-authorization</artifactId>
-        </dependency>
+    <description>Dante Cloud 云原生微服务基座组件库系统内置功能 REST 接口模块分组</description>
 
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>facility-kafka-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-rsocket</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>servlet-message-spring-boot-starter</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-rest-servlet-upms</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>dante-rest-servlet-message</module>
+        <module>dante-rest-servlet-identity</module>
+        <module>dante-rest-servlet-upms</module>
+        <module>dante-rest-oss</module>
+    </modules>
 
 </project>

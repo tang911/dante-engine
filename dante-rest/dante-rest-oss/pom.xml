@@ -30,42 +30,23 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>engine-oauth2</artifactId>
+        <artifactId>dante-rest</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>oauth2-authorization-autoconfigure</artifactId>
-    <name>oauth2-authorization-autoconfigure</name>
+    <artifactId>dante-rest-oss</artifactId>
+    <name>dante-rest-oss</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库 OAuth2 资源服务器基础内容自动配置模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库对象存储功能 REST 接口模块</description>
 
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>oauth2-module-authorization</artifactId>
+            <artifactId>dante-assistant-oss</artifactId>
         </dependency>
-
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>facility-kafka-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-rsocket</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>servlet-message-spring-boot-starter</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-rest-servlet-upms</artifactId>
-            <optional>true</optional>
+            <artifactId>web-core</artifactId>
         </dependency>
     </dependencies>
 
