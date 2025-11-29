@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.config;
 
-import cn.herodotus.dante.oauth2.properties.OAuth2AuthorizationProperties;
+import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
 import cn.herodotus.engine.oauth2.authorization.servlet.ServletOAuth2ResourceMatcherConfigurer;
 import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
 import cn.herodotus.engine.oauth2.authorization.processor.SecurityAttributeAnalyzer;

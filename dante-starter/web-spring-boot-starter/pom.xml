@@ -30,43 +30,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>dante-framework</artifactId>
+        <artifactId>dante-starter</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>dante-spring</artifactId>
-    <name>dante-spring</name>
+    <artifactId>web-spring-boot-starter</artifactId>
+    <name>web-spring-boot-starter</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库框架Spring及SpringBoot相关基础模块</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-
-        <!--让所有依赖该模块的其它模块，可以实现自动配置已经配置类的 meta 文件自动生成-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-    </dependencies>
+    <description>Dante Cloud 云原生微服务基座组件库Web微服务通用Starter</description>
 
 </project>

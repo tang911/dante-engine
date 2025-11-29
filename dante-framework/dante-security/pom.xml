@@ -34,38 +34,34 @@
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>dante-spring</artifactId>
-    <name>dante-spring</name>
+    <artifactId>dante-security</artifactId>
+    <name>dante-security</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库框架Spring及SpringBoot相关基础模块</description>
+    <description>Dante Cloud 云原生微服务基座组件库框架OAuth2相关基础模块</description>
 
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-core</artifactId>
+            <artifactId>core-identity</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>cn.herodotus.dante</groupId>
+            <artifactId>dante-spring</artifactId>
         </dependency>
 
-        <!--让所有依赖该模块的其它模块，可以实现自动配置已经配置类的 meta 文件自动生成-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-resource-server</artifactId>
             <optional>true</optional>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
         </dependency>
     </dependencies>
 

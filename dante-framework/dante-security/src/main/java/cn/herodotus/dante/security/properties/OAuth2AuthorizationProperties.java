@@ -23,9 +23,9 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.properties;
+package cn.herodotus.dante.security.properties;
 
-import cn.herodotus.dante.oauth2.condition.TokenFormat;
+import cn.herodotus.dante.security.condition.TokenFormat;
 import cn.herodotus.dante.core.constant.BaseConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

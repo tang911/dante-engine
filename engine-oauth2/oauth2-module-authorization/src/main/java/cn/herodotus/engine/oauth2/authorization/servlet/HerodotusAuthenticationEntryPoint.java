@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.servlet;
 
-import cn.herodotus.dante.oauth2.exception.SecurityGlobalExceptionHandler;
+import cn.herodotus.dante.security.exception.SecurityGlobalExceptionHandler;
 import cn.herodotus.engine.web.core.servlet.template.AbstractResponseHandler;
 import cn.herodotus.engine.web.core.servlet.template.ThymeleafTemplateHandler;
 import jakarta.servlet.ServletException;

@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.autoconfigure.oauth2;
 
-import cn.herodotus.dante.oauth2.converter.UserPrincipalConverter;
+import cn.herodotus.dante.security.converter.UserPrincipalConverter;
 import cn.herodotus.engine.core.identity.domain.UserPrincipal;
 import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
 import org.apache.commons.lang3.ObjectUtils;

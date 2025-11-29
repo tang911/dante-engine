@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.autoconfigure.oauth2;
 
-import cn.herodotus.dante.oauth2.condition.ConditionalOnTokenFormat;
-import cn.herodotus.dante.oauth2.condition.TokenFormat;
-import cn.herodotus.dante.oauth2.properties.OAuth2AuthorizationProperties;
+import cn.herodotus.dante.security.condition.ConditionalOnTokenFormat;
+import cn.herodotus.dante.security.condition.TokenFormat;
+import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
 import cn.herodotus.engine.core.identity.oauth2.BearerTokenResolver;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;

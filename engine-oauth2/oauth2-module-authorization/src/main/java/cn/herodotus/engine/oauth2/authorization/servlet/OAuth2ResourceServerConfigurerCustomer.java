@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.oauth2.authorization.servlet;
 
-import cn.herodotus.dante.oauth2.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.dante.oauth2.condition.TokenFormat;
+import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
+import cn.herodotus.dante.security.condition.TokenFormat;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;

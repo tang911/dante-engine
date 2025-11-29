@@ -23,29 +23,47 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.condition;
+package cn.herodotus.dante.security.condition;
 
-import org.springframework.context.annotation.Conditional;
-
-import java.lang.annotation.*;
+import cn.herodotus.dante.core.constant.BaseConstants;
+import cn.herodotus.dante.spring.condition.ConditionEnum;
+import org.springframework.core.env.Environment;
 
 /**
- * <p>Description: {@link Conditional @Conditional} 当指定的 OAuth2 Token 格式属性配置时条件匹配</p>
+ * <p>Description: Access Token 格式 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/12/9 22:42
+ * @date : 2024/12/9 22:33
  */
-
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Conditional(OnTokenFormatCondition.class)
-public @interface ConditionalOnTokenFormat {
+public enum TokenFormat implements ConditionEnum {
 
     /**
-     * {@link TokenFormat accessTokenFormat} 属性必须配置.
-     *
-     * @return 预期的 AccessToken 格式
+     * 一种自包含的、无状态的令牌。无需服务端验证。
      */
-    TokenFormat value();
+    JWT {
+        @Override
+        public boolean isActive(Environment environment) {
+            return isActive(environment, BaseConstants.ITEM_AUTHORIZATION_TOKEN_FORMAT);
+        }
+
+        @Override
+        public String getConstant() {
+            return name();
+        }
+    },
+
+    /**
+     * 不透明令牌。需要发送回授权服务器进行验证
+     */
+    OPAQUE {
+        @Override
+        public boolean isActive(Environment environment) {
+            return !JWT.isActive(environment);
+        }
+
+        @Override
+        public String getConstant() {
+            return name();
+        }
+    };
 }

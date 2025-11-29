@@ -23,10 +23,10 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.definition;
+package cn.herodotus.dante.security.definition;
 
-import cn.herodotus.dante.oauth2.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.dante.oauth2.domain.HerodotusRequest;
+import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
+import cn.herodotus.dante.security.domain.HerodotusRequest;
 import cn.herodotus.dante.core.constant.SecurityResources;
 import cn.herodotus.dante.core.utils.ListUtils;
 import cn.herodotus.engine.core.identity.domain.HerodotusSecurityAttribute;

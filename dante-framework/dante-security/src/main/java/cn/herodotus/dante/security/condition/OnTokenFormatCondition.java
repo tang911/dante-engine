@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.condition;
+package cn.herodotus.dante.security.condition;
 
 import cn.herodotus.dante.spring.condition.AbstractEnumSpringBootCondition;
 import org.springframework.context.annotation.Condition;

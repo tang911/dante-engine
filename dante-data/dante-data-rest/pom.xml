@@ -30,39 +30,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>dante-framework</artifactId>
+        <artifactId>dante-data</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>dante-oauth2</artifactId>
-    <name>dante-oauth2</name>
+    <artifactId>dante-data-rest</artifactId>
+    <name>dante-data-rest</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库框架OAuth2相关基础模块</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>core-identity</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-spring</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-resource-server</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-jose</artifactId>
-        </dependency>
-    </dependencies>
-
+    <description>Dante Cloud 云原生微服务基座组件库 REST 通用代码模块</description>
 </project>

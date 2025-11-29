@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authorization.processor;
 
-import cn.herodotus.dante.oauth2.domain.HerodotusRequest;
+import cn.herodotus.dante.security.domain.HerodotusRequest;
 import cn.herodotus.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.spring.enums.UrlCategory;
 import cn.herodotus.engine.core.identity.domain.AttributeTransmitter;

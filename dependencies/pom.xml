@@ -284,7 +284,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>dante-oauth2</artifactId>
+                <artifactId>dante-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

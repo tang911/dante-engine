@@ -23,25 +23,29 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.definition;
+package cn.herodotus.dante.security.condition;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.security.oauth2.server.resource.introspection.OAuth2IntrospectionAuthenticatedPrincipal;
+import org.springframework.context.annotation.Conditional;
+
+import java.lang.annotation.*;
 
 /**
- * <p>Description: AuditorAware 通用内容抽象方法 </p>
+ * <p>Description: {@link Conditional @Conditional} 当指定的 OAuth2 Token 格式属性配置时条件匹配</p>
  *
  * @author : gengwei.zheng
- * @date : 2025/1/2 12:10
+ * @date : 2024/12/9 22:42
  */
-public abstract class AbstractAuditorAware {
 
-    private static final Logger log = LoggerFactory.getLogger(AbstractAuditorAware.class);
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Conditional(OnTokenFormatCondition.class)
+public @interface ConditionalOnTokenFormat {
 
-    protected String getName(OAuth2IntrospectionAuthenticatedPrincipal principal) {
-        String username = principal.getName();
-        log.trace("[Herodotus] |- Current auditor is : [{}]", username);
-        return username;
-    }
+    /**
+     * {@link TokenFormat accessTokenFormat} 属性必须配置.
+     *
+     * @return 预期的 AccessToken 格式
+     */
+    TokenFormat value();
 }

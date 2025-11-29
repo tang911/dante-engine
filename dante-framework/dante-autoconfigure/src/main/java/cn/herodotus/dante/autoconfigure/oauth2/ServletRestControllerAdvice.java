@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.autoconfigure.oauth2;
 
-import cn.herodotus.dante.oauth2.exception.SecurityGlobalExceptionHandler;
+import cn.herodotus.dante.security.exception.SecurityGlobalExceptionHandler;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.core.exception.PlatformRuntimeException;
 import cn.herodotus.engine.core.identity.exception.PlatformAuthenticationException;

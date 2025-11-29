@@ -23,47 +23,25 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.condition;
+package cn.herodotus.dante.security.definition;
 
-import cn.herodotus.dante.core.constant.BaseConstants;
-import cn.herodotus.dante.spring.condition.ConditionEnum;
-import org.springframework.core.env.Environment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.oauth2.server.resource.introspection.OAuth2IntrospectionAuthenticatedPrincipal;
 
 /**
- * <p>Description: Access Token 格式 </p>
+ * <p>Description: AuditorAware 通用内容抽象方法 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/12/9 22:33
+ * @date : 2025/1/2 12:10
  */
-public enum TokenFormat implements ConditionEnum {
+public abstract class AbstractAuditorAware {
 
-    /**
-     * 一种自包含的、无状态的令牌。无需服务端验证。
-     */
-    JWT {
-        @Override
-        public boolean isActive(Environment environment) {
-            return isActive(environment, BaseConstants.ITEM_AUTHORIZATION_TOKEN_FORMAT);
-        }
+    private static final Logger log = LoggerFactory.getLogger(AbstractAuditorAware.class);
 
-        @Override
-        public String getConstant() {
-            return name();
-        }
-    },
-
-    /**
-     * 不透明令牌。需要发送回授权服务器进行验证
-     */
-    OPAQUE {
-        @Override
-        public boolean isActive(Environment environment) {
-            return !JWT.isActive(environment);
-        }
-
-        @Override
-        public String getConstant() {
-            return name();
-        }
-    };
+    protected String getName(OAuth2IntrospectionAuthenticatedPrincipal principal) {
+        String username = principal.getName();
+        log.trace("[Herodotus] |- Current auditor is : [{}]", username);
+        return username;
+    }
 }
