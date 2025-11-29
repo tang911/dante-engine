@@ -38,4 +38,23 @@
     <name>dante-data-rest</name>
 
     <description>Dante Cloud 云原生微服务基座组件库 REST 通用代码模块</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.herodotus.dante</groupId>
+            <artifactId>dante-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.herodotus.dante</groupId>
+            <artifactId>dante-data-jpa</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.herodotus.dante</groupId>
+            <artifactId>dante-data-mongodb</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 </project>
