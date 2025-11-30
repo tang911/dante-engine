@@ -34,7 +34,7 @@
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>message-autoconfigure</artifactId>
+    <artifactId>dante-message-autoconfigure</artifactId>
     <name>message-autoconfigure</name>
 
     <description>Dante Cloud 云原生微服务基座组件库消息自动配置模块</description>

@@ -376,7 +376,7 @@
 
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>message-autoconfigure</artifactId>
+                <artifactId>dante-message-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

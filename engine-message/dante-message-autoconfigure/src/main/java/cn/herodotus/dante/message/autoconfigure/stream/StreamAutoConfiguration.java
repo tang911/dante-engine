@@ -23,32 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.engine.message.autoconfigure.message;
+package cn.herodotus.dante.message.autoconfigure.stream;
 
-
-import cn.herodotus.dante.core.builder.ErrorCodeMapperBuilder;
-import cn.herodotus.dante.core.constant.ErrorCodeMapperBuilderOrdered;
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.dante.message.core.constants.MessageErrorCodes;
-import org.springframework.core.Ordered;
+import jakarta.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.cloud.stream.function.FunctionConfiguration;
+import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.context.annotation.Bean;
 
 /**
- * <p>Description: Message 错误代码映射定义 </p>
+ * <p>Description: Stream 消息发送适配器配置 </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/9/26 23:27
+ * @date : 2024/6/18 11:43
  */
-public class MessageErrorCodeMapperBuilderCustomizer implements ErrorCodeMapperBuilderCustomizer, Ordered {
+@AutoConfiguration(after = FunctionConfiguration.class)
+@ConditionalOnBean(StreamBridge.class)
+public class StreamAutoConfiguration {
 
-    @Override
-    public void customize(ErrorCodeMapperBuilder builder) {
-        builder
-                .notAcceptable(MessageErrorCodes.ILLEGAL_CHANNEL, MessageErrorCodes.PRINCIPAL_NOT_FOUND)
-                .internalServerError(MessageErrorCodes.INTEGRATION_MESSAGE_EXCEPTION);
+    private static final Logger log = LoggerFactory.getLogger(StreamAutoConfiguration.class);
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("[Herodotus] |- Auto [Stream] Configure.");
     }
 
-    @Override
-    public int getOrder() {
-        return ErrorCodeMapperBuilderOrdered.MESSAGE;
+    @Bean
+    public StreamMessageSendingAdapter streamMessageSendingAdapter(StreamBridge streamBridge) {
+        StreamMessageSendingAdapter adapter = new StreamMessageSendingAdapter(streamBridge);
+        log.trace("[Herodotus] |- Bean [Stream Message Sending Adapter] Configure.");
+        return adapter;
     }
 }

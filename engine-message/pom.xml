@@ -43,7 +43,7 @@
     <description>Dante Cloud 云原生微服务基座组件库消息通用代码模块分组</description>
 
     <modules>
-        <module>message-autoconfigure</module>
+        <module>dante-message-autoconfigure</module>
         <module>dante-message-commons</module>
         <module>message-module-websocket-servlet</module>
     </modules>
