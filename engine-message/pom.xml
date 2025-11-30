@@ -44,7 +44,7 @@
 
     <modules>
         <module>message-autoconfigure</module>
-        <module>message-core</module>
+        <module>dante-message-commons</module>
         <module>message-module-websocket-servlet</module>
     </modules>
 

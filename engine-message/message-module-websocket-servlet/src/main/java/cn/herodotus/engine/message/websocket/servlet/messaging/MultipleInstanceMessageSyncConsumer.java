@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.message.websocket.servlet.messaging;
 
-import cn.herodotus.engine.message.core.constants.MessageConstants;
-import cn.herodotus.engine.message.core.domain.WebSocketMessage;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.core.domain.WebSocketMessage;
 import org.apache.commons.lang3.Strings;
 
 import java.util.function.Consumer;

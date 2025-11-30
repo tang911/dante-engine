@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.oauth2.authentication.autoconfigure.message;
 
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
+import cn.herodotus.dante.message.core.definition.strategy.AccountStatusChangedEventManager;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

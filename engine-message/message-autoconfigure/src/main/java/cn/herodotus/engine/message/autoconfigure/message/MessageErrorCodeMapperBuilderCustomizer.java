@@ -29,7 +29,7 @@ package cn.herodotus.engine.message.autoconfigure.message;
 import cn.herodotus.dante.core.builder.ErrorCodeMapperBuilder;
 import cn.herodotus.dante.core.constant.ErrorCodeMapperBuilderOrdered;
 import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.engine.message.core.constants.MessageErrorCodes;
+import cn.herodotus.dante.message.core.constants.MessageErrorCodes;
 import org.springframework.core.Ordered;
 
 /**

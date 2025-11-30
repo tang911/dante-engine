@@ -26,7 +26,7 @@
 package cn.herodotus.engine.message.websocket.servlet.condition;
 
 import cn.herodotus.dante.spring.context.PropertyResolver;
-import cn.herodotus.engine.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.websocket.servlet.enums.InstanceMode;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;

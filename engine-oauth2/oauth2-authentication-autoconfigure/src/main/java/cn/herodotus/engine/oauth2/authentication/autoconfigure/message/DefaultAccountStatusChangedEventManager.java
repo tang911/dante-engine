@@ -26,9 +26,9 @@
 package cn.herodotus.engine.oauth2.authentication.autoconfigure.message;
 
 import cn.herodotus.dante.spring.context.ServiceContextHolder;
-import cn.herodotus.engine.message.core.definition.strategy.AccountStatusChangedEventManager;
-import cn.herodotus.engine.message.core.domain.AccountStatus;
-import cn.herodotus.engine.message.core.event.AccountStatusChangedEvent;
+import cn.herodotus.dante.message.core.definition.strategy.AccountStatusChangedEventManager;
+import cn.herodotus.dante.message.core.domain.AccountStatus;
+import cn.herodotus.dante.message.core.event.AccountStatusChangedEvent;
 import cn.herodotus.engine.oauth2.authorization.autoconfigure.bus.RemoteAccountStatusChangedEvent;
 
 /**

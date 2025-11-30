@@ -25,9 +25,9 @@
 
 package cn.herodotus.engine.message.websocket.servlet.messaging;
 
-import cn.herodotus.engine.message.core.definition.MessageSendingAdapter;
-import cn.herodotus.engine.message.core.domain.WebSocketMessage;
-import cn.herodotus.engine.message.core.event.TemplateMessageSendingEvent;
+import cn.herodotus.dante.message.core.definition.MessageSendingAdapter;
+import cn.herodotus.dante.message.core.domain.WebSocketMessage;
+import cn.herodotus.dante.message.core.event.TemplateMessageSendingEvent;
 import cn.herodotus.engine.message.websocket.servlet.definition.WebSocketMessageSender;
 import org.apache.commons.lang3.StringUtils;
 

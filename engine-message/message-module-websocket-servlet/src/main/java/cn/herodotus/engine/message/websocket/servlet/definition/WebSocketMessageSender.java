@@ -25,8 +25,8 @@
 
 package cn.herodotus.engine.message.websocket.servlet.definition;
 
-import cn.herodotus.engine.message.core.constants.MessageConstants;
-import cn.herodotus.engine.message.core.domain.WebSocketMessage;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.core.domain.WebSocketMessage;
 
 /**
  * <p>Description: WebSocket 消息发送操作定义 </p>

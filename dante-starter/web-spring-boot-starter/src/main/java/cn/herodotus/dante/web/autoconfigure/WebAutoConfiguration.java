@@ -36,7 +36,7 @@ import cn.herodotus.dante.web.autoconfigure.initializer.ServiceContextHolderBuil
 import cn.herodotus.dante.web.properties.EndpointProperties;
 import cn.herodotus.dante.web.properties.PlatformProperties;
 import cn.herodotus.dante.web.support.WebPropertyFinder;
-import cn.herodotus.engine.message.core.definition.strategy.EnumDictionaryGatherEventManager;
+import cn.herodotus.dante.message.core.definition.strategy.EnumDictionaryGatherEventManager;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;

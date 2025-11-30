@@ -112,7 +112,6 @@
         <module>dante-logic</module>
         <module>dante-rest</module>
         <module>dante-starter</module>
-        <module>engine-core</module>
         <module>engine-message</module>
         <module>engine-oauth2</module>
     </modules>

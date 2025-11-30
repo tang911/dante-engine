@@ -25,7 +25,7 @@
 
 package cn.herodotus.engine.message.websocket.servlet.config;
 
-import cn.herodotus.engine.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.websocket.servlet.interceptor.WebSocketAuthenticationHandshakeInterceptor;
 import cn.herodotus.engine.message.websocket.servlet.interceptor.WebSocketChannelInterceptor;
 import cn.herodotus.engine.message.websocket.servlet.interceptor.WebSocketPrincipalHandshakeHandler;

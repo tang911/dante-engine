@@ -26,7 +26,7 @@
 package cn.herodotus.engine.message.websocket.servlet.definition;
 
 import cn.herodotus.dante.cache.redis.utils.RedisBitMapUtils;
-import cn.herodotus.engine.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.engine.message.websocket.servlet.domain.WebSocketPrincipal;
 import cn.herodotus.engine.message.websocket.servlet.utils.WebSocketUtils;
 import org.apache.commons.lang3.ObjectUtils;
