@@ -27,9 +27,9 @@ package cn.herodotus.dante.rest.servlet.identity.controller;
 
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.core.domain.SecretKey;
-import cn.herodotus.engine.oauth2.extension.dto.SignInErrorPrompt;
-import cn.herodotus.engine.oauth2.extension.dto.SignInErrorStatus;
-import cn.herodotus.engine.oauth2.extension.stamp.SignInFailureLimitedStampManager;
+import cn.herodotus.dante.oauth2.extension.dto.SignInErrorPrompt;
+import cn.herodotus.dante.oauth2.extension.dto.SignInErrorStatus;
+import cn.herodotus.dante.oauth2.extension.stamp.SignInFailureLimitedStampManager;
 import cn.herodotus.dante.rest.servlet.identity.dto.Session;
 import cn.herodotus.dante.rest.servlet.identity.dto.SessionCreate;
 import cn.herodotus.dante.rest.servlet.identity.dto.SessionExchange;

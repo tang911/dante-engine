@@ -29,7 +29,7 @@ import cn.herodotus.dante.core.domain.SecretKey;
 import cn.herodotus.dante.core.enums.Protocol;
 import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
 import cn.herodotus.dante.web.servlet.utils.SessionUtils;
-import cn.herodotus.engine.oauth2.core.properties.OAuth2AuthenticationProperties;
+import cn.herodotus.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
 import cn.hutool.v7.core.codec.binary.Base64;
 import com.google.common.net.HttpHeaders;
 import jakarta.servlet.http.HttpServletRequest;

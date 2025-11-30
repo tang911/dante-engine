@@ -391,37 +391,37 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-authorization-autoconfigure</artifactId>
+                <artifactId>dante-authorization-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-authentication-autoconfigure</artifactId>
+                <artifactId>dante-authentication-autoconfigure</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-core</artifactId>
+                <artifactId>dante-oauth2-commons</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-module-authentication</artifactId>
+                <artifactId>dante-oauth2-authentication</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-module-authorization</artifactId>
+                <artifactId>dante-oauth2-authorization</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-module-extension</artifactId>
+                <artifactId>dante-oauth2-extension</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>oauth2-module-persistence-jpa</artifactId>
+                <artifactId>dante-oauth2-persistence-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

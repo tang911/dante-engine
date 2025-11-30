@@ -47,7 +47,7 @@
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>oauth2-core</artifactId>
+            <artifactId>dante-oauth2-commons</artifactId>
         </dependency>
 
         <dependency>

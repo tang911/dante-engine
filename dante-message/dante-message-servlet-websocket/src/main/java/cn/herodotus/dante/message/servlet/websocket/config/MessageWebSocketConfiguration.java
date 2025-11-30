@@ -25,14 +25,13 @@
 
 package cn.herodotus.dante.message.servlet.websocket.config;
 
-import cn.herodotus.dante.message.servlet.websocket.messaging.*;
-import cn.herodotus.dante.security.oauth2.BearerTokenResolver;
 import cn.herodotus.dante.message.core.domain.WebSocketMessage;
 import cn.herodotus.dante.message.servlet.websocket.annotation.ConditionalOnMultipleWebSocketInstance;
 import cn.herodotus.dante.message.servlet.websocket.annotation.ConditionalOnSingleWebSocketInstance;
 import cn.herodotus.dante.message.servlet.websocket.definition.WebSocketMessageSender;
 import cn.herodotus.dante.message.servlet.websocket.interceptor.WebSocketAuthenticationHandshakeInterceptor;
-import cn.herodotus.engine.message.websocket.servlet.messaging.*;
+import cn.herodotus.dante.message.servlet.websocket.messaging.*;
+import cn.herodotus.dante.security.oauth2.BearerTokenResolver;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -114,8 +113,8 @@ public class MessageWebSocketConfiguration {
             WebSocketMessageBrokerConfiguration.class,
     })
     @ComponentScan(basePackages = {
-            "cn.herodotus.engine.message.websocket.servlet.controller",
-            "cn.herodotus.engine.message.websocket.servlet.listener",
+            "cn.herodotus.dante.message.websocket.servlet.controller",
+            "cn.herodotus.dante.message.websocket.servlet.listener",
     })
     static class WebSocketConfiguration {
 
