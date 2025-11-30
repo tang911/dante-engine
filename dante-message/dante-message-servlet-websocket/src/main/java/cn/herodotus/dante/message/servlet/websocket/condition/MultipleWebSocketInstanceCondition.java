@@ -23,40 +23,35 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.servlet.message.autoconfigure;
+package cn.herodotus.dante.message.servlet.websocket.condition;
 
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
-import cn.herodotus.dante.message.servlet.websocket.annotation.EnableHerodotusServletWebSocket;
-import cn.herodotus.dante.rest.servlet.message.annotation.EnableHerodotusRestServletMessage;
-import cn.herodotus.dante.servlet.message.autoconfigure.customizer.MessageErrorCodeMapperBuilderCustomizer;
-import jakarta.annotation.PostConstruct;
+import cn.herodotus.dante.spring.context.PropertyResolver;
+import cn.herodotus.dante.message.core.constants.MessageConstants;
+import cn.herodotus.dante.message.servlet.websocket.enums.InstanceMode;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Condition;
+import org.springframework.context.annotation.ConditionContext;
+import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * <p>Description: Servlet Message 自动配置 </p>
+ * <p>Description: WebSocket 多实例环境判断条件 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/4/10 0:31
+ * @date : 2023/9/14 13:50
  */
-@AutoConfiguration
-@EnableHerodotusServletWebSocket
-@EnableHerodotusRestServletMessage
-public class ServletMessageAutoConfiguration {
+public class MultipleWebSocketInstanceCondition implements Condition {
 
-    private static final Logger log = LoggerFactory.getLogger(ServletMessageAutoConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(MultipleWebSocketInstanceCondition.class);
 
-    @PostConstruct
-    public void postConstruct() {
-        log.info("[Herodotus] |- Starter [Servlet Message] Configure.");
-    }
-
-    @Bean
-    public ErrorCodeMapperBuilderCustomizer messageErrorCodeMapperBuilderCustomizer() {
-        MessageErrorCodeMapperBuilderCustomizer customizer = new MessageErrorCodeMapperBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Message ErrorCodeMapper Builder Customizer] Configure.");
-        return customizer;
+    @SuppressWarnings("NullableProblems")
+    @Override
+    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata) {
+        String property = PropertyResolver.getProperty(conditionContext, MessageConstants.ITEM_WEBSOCKET_MULTIPLE_INSTANCE);
+        boolean result = StringUtils.isNotBlank(property) && Strings.CI.equals(property, InstanceMode.MULTIPLE.name());
+        log.debug("[Herodotus] |- Condition [Multiple Web Socket Instance] value is [{}]", result);
+        return result;
     }
 }

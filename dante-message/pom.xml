@@ -28,32 +28,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
+        <artifactId>dante-engine</artifactId>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>dante-starter</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>servlet-message-spring-boot-starter</artifactId>
-    <name>servlet-message-spring-boot-starter</name>
+    <artifactId>dante-message</artifactId>
+    <name>engine-message</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库 Servlet 环境消息模块自动配置 Starter</description>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-message-servlet-websocket</artifactId>
-        </dependency>
+    <description>Dante Cloud 云原生微服务基座组件库消息通用代码模块分组</description>
 
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>webmvc-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-rest-servlet-message</artifactId>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>dante-message-autoconfigure</module>
+        <module>dante-message-commons</module>
+        <module>dante-message-servlet-websocket</module>
+    </modules>
 
 </project>

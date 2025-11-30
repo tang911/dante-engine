@@ -30,29 +30,45 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.herodotus.dante</groupId>
-        <artifactId>dante-starter</artifactId>
+        <artifactId>engine-message</artifactId>
         <version>4.0.0.0-M1</version>
     </parent>
 
-    <artifactId>servlet-message-spring-boot-starter</artifactId>
-    <name>servlet-message-spring-boot-starter</name>
+    <artifactId>dante-message-servlet-websocket</artifactId>
+    <name>message-module-websocket-servlet</name>
 
-    <description>Dante Cloud 云原生微服务基座组件库 Servlet 环境消息模块自动配置 Starter</description>
+    <description>Dante Cloud 云原生微服务基座组件库基于 Servlet 环境下的 Websocket 功能封装模块</description>
 
     <dependencies>
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-message-servlet-websocket</artifactId>
+            <artifactId>dante-message-commons</artifactId>
         </dependency>
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>webmvc-spring-boot-starter</artifactId>
+            <artifactId>dante-data-rest</artifactId>
         </dependency>
 
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
-            <artifactId>dante-rest-servlet-message</artifactId>
+            <artifactId>dante-cache-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
     </dependencies>
 

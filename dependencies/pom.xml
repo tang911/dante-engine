@@ -386,7 +386,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
-                <artifactId>message-module-websocket-servlet</artifactId>
+                <artifactId>dante-message-servlet-websocket</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
