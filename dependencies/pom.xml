@@ -88,11 +88,11 @@
         <maven-archetype-plugin.version>3.4.1</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 
-        <alipay-sdk-java.version>4.40.546.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.560.ALL</alipay-sdk-java.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.8</antisamy.version>
-        <bcpkix-jdk18on.version>1.82</bcpkix-jdk18on.version>
-        <bcprov-jdk18on.version>1.82</bcprov-jdk18on.version>
+        <bcpkix-jdk18on.version>1.83</bcpkix-jdk18on.version>
+        <bcprov-jdk18on.version>1.83</bcprov-jdk18on.version>
         <camunda-bpm-spring-boot-starter-rest.version>7.24.0</camunda-bpm-spring-boot-starter-rest.version>
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
@@ -108,7 +108,7 @@
         <justauth.verison>1.18.2</justauth.verison>
         <logstash-logback-encoder.version>9.0</logstash-logback-encoder.version>
         <mybatis.version>3.5.19</mybatis.version>
-        <mybatis-plus.version>3.5.14</mybatis-plus.version>
+        <mybatis-plus.version>3.5.15</mybatis-plus.version>
         <nacos.version>3.1.0</nacos.version>
         <openfeign-querydsl.version>7.0</openfeign-querydsl.version>
         <opengauss-jdbc.version>6.0.2-og</opengauss-jdbc.version>
@@ -117,16 +117,16 @@
         <redisson.version>3.52.0</redisson.version>
         <skywalking.version>9.5.0</skywalking.version>
         <sms4j-spring-boot-starter.version>3.3.5</sms4j-spring-boot-starter.version>
-        <software.amazon.awssdk.version>2.39.3</software.amazon.awssdk.version>
+        <software.amazon.awssdk.version>2.39.5</software.amazon.awssdk.version>
         <software.amazon.awssdk.crt.version>0.40.1</software.amazon.awssdk.crt.version>
-        <springdoc.version>2.8.14</springdoc.version>
+        <springdoc.version>3.0.0</springdoc.version>
         <spring-boot-dependencies.version>4.0.0</spring-boot-dependencies.version>
         <spring-boot-admin-dependencies.version>3.5.6</spring-boot-admin-dependencies.version>
         <spring-cloud-dependencies.version>2025.1.0</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2025.0.0.0</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-tencent-dependencies.version>2.1.0.2-2024.0.2</spring-cloud-tencent-dependencies.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <weixin-java.version>4.7.8-20251117.120146</weixin-java.version>
+        <weixin-java.version>4.7.9.B</weixin-java.version>
         <zxing.version>3.5.4</zxing.version>
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
@@ -138,14 +138,14 @@
         <sm-crypto-v2.version>1.15.0</sm-crypto-v2.version>
         <sweetalert2.verison>11.26.3</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
-        <vue.version>3.5.24</vue.version>
+        <vue.version>3.5.25</vue.version>
 
         <!--以下为特殊处理, 统一版本处理漏洞等-->
         <checker-qual.version>3.52.0</checker-qual.version>
         <commons-fileupload.version>1.6.0</commons-fileupload.version>
         <classgraph.version>4.8.184</classgraph.version>
         <dom4j.version>2.2.0</dom4j.version>
-        <error_prone_annotations.version>2.44.0</error_prone_annotations.version>
+        <error_prone_annotations.version>2.45.0</error_prone_annotations.version>
         <jaxb-impl.version>4.0.6</jaxb-impl.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <objenesis.version>3.4</objenesis.version>
