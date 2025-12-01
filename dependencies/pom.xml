@@ -109,7 +109,7 @@
         <logstash-logback-encoder.version>9.0</logstash-logback-encoder.version>
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis-plus.version>3.5.15</mybatis-plus.version>
-        <nacos.version>3.1.0</nacos.version>
+        <nacos.version>3.1.1</nacos.version>
         <openfeign-querydsl.version>7.0</openfeign-querydsl.version>
         <opengauss-jdbc.version>6.0.2-og</opengauss-jdbc.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
