@@ -244,13 +244,6 @@
                 <artifactId>aws-crt</artifactId>
                 <version>${software.amazon.awssdk.crt.version}</version>
             </dependency>
-            <dependency>
-                <groupId>cn.hutool.v7</groupId>
-                <artifactId>hutool-bom</artifactId>
-                <version>${hutool.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!--Dante Engine-->
             <dependency>
                 <groupId>cn.herodotus.dante</groupId>
