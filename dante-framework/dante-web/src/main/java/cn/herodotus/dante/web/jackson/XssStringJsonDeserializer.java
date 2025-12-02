@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.web.jackson;
 
-import cn.herodotus.dante.web.utils.XssUtils;
+import cn.herodotus.dante.spring.utils.XssUtils;
 import org.apache.commons.lang3.StringUtils;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;

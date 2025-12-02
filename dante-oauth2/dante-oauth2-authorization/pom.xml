@@ -32,7 +32,7 @@
     <parent>
         <artifactId>dante-oauth2</artifactId>
         <groupId>cn.herodotus.dante</groupId>
-        <version>4.0.0.0-M1</version>
+        <version>4.0.0.0-M2</version>
     </parent>
 
     <artifactId>dante-oauth2-authorization</artifactId>
@@ -47,8 +47,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-webmvc</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <optional>true</optional>
         </dependency>
 
@@ -68,7 +68,6 @@
             <artifactId>spring-boot-security</artifactId>
             <optional>true</optional>
         </dependency>
-
     </dependencies>
 
 </project>

@@ -31,7 +31,7 @@
     <parent>
         <groupId>cn.herodotus.dante</groupId>
         <artifactId>dante-framework</artifactId>
-        <version>4.0.0.0-M1</version>
+        <version>4.0.0.0-M2</version>
     </parent>
 
     <artifactId>dante-autoconfigure</artifactId>
@@ -102,7 +102,17 @@
             <artifactId>spring-session-data-redis</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-session</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-web-server</artifactId>
+            <optional>true</optional>
+        </dependency>
 
+        <!--Spring Security 和 OAuth2 自动配置-->
         <dependency>
             <groupId>cn.herodotus.dante</groupId>
             <artifactId>dante-security</artifactId>
@@ -110,11 +120,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-security-oauth2-resource-server</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-resource-server</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>
