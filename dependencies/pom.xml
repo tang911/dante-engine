@@ -141,6 +141,7 @@
         <vue.version>3.5.25</vue.version>
 
         <!--以下为特殊处理, 统一版本处理漏洞等-->
+        <asm.version>9.9</asm.version>
         <checker-qual.version>3.52.0</checker-qual.version>
         <commons-fileupload.version>1.6.0</commons-fileupload.version>
         <classgraph.version>4.8.184</classgraph.version>
@@ -731,6 +732,13 @@
                 <version>${springdoc.version}</version>
             </dependency>
             <!--以下为特殊处理, 统一版本处理漏洞等-->
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-bom</artifactId>
+                <version>${asm.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.checkerframework</groupId>
                 <artifactId>checker-qual</artifactId>
