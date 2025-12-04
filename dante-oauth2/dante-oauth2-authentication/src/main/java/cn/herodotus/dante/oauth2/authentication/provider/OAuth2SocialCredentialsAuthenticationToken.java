@@ -27,7 +27,6 @@ package cn.herodotus.dante.oauth2.authentication.provider;
 
 import cn.herodotus.dante.oauth2.authentication.customizer.HerodotusGrantType;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationGrantAuthenticationToken;
 import org.springframework.util.Assert;
@@ -47,7 +46,7 @@ public class OAuth2SocialCredentialsAuthenticationToken extends OAuth2Authorizat
 
     private final Set<String> scopes;
 
-    public OAuth2SocialCredentialsAuthenticationToken(Authentication clientPrincipal, @Nullable Set<String> scopes, @Nullable Map<String, Object> additionalParameters) {
+    public OAuth2SocialCredentialsAuthenticationToken(Authentication clientPrincipal, Set<String> scopes, Map<String, Object> additionalParameters) {
         super(HerodotusGrantType.SOCIAL, clientPrincipal, additionalParameters);
         Assert.notNull(clientPrincipal, "clientPrincipal cannot be null");
         this.scopes = Collections.unmodifiableSet(CollectionUtils.isNotEmpty(scopes) ? new HashSet<>(scopes) : Collections.emptySet());

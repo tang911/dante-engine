@@ -28,10 +28,10 @@ package cn.herodotus.dante.cache.jetcache.enhance;
 import cn.herodotus.dante.core.jackson.JacksonUtils;
 import com.alicp.jetcache.Cache;
 import org.apache.commons.lang3.ObjectUtils;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.support.AbstractValueAdaptingCache;
-import org.springframework.lang.Nullable;
 
 import java.util.concurrent.Callable;
 
@@ -65,8 +65,7 @@ public class JetCacheSpringCache extends AbstractValueAdaptingCache {
     }
 
     @Override
-    @Nullable
-    protected Object lookup(Object key) {
+    protected @Nullable Object lookup(Object key) {
         Object value = cache.get(key);
         if (ObjectUtils.isNotEmpty(value)) {
             log.trace("[Herodotus] |- CACHE - Lookup data in herodotus cache, value is : [{}]", JacksonUtils.toJson(value));
@@ -78,9 +77,7 @@ public class JetCacheSpringCache extends AbstractValueAdaptingCache {
 
     @SuppressWarnings("unchecked")
     @Override
-    @Nullable
-    public <T> T get(Object key, Callable<T> valueLoader) {
-
+    public <T> @Nullable T get(Object key, Callable<T> valueLoader) {
         log.trace("[Herodotus] |- CACHE - Get data in herodotus cache, key: {}", key);
 
         return (T) fromStoreValue(cache.computeIfAbsent(key, k -> {
@@ -93,16 +90,13 @@ public class JetCacheSpringCache extends AbstractValueAdaptingCache {
     }
 
     @Override
-    @Nullable
     public void put(Object key, @Nullable Object value) {
         log.trace("[Herodotus] |- CACHE - Put data in herodotus cache, key: {}", key);
         cache.put(key, this.toStoreValue(value));
     }
 
-
     @Override
-    @Nullable
-    public ValueWrapper putIfAbsent(Object key, @Nullable Object value) {
+    public @Nullable ValueWrapper putIfAbsent(Object key, @Nullable Object value) {
         log.trace("[Herodotus] |- CACHE - PutIfPresent data in herodotus cache, key: {}", key);
         Object existing = cache.putIfAbsent(key, toStoreValue(value));
         return toValueWrapper(existing);
@@ -125,4 +119,5 @@ public class JetCacheSpringCache extends AbstractValueAdaptingCache {
         log.trace("[Herodotus] |- CACHE - Clear data in herodotus cache.");
         cache.close();
     }
+
 }
