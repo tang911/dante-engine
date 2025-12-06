@@ -23,27 +23,43 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.persistence.sas.jpa.jackson;
+package cn.herodotus.dante.core.domain.cache;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import tools.jackson.databind.annotation.JsonDeserialize;
+import com.google.common.base.Objects;
+
+import java.io.Serializable;
 
 /**
- * <p>Description: FormLoginWebAuthenticationDetailsMixin </p>
+ * <p>Description: Hibernate QueryKey 对象包装器 </p>
+ * <p>
+ * 通过对 Hibernate QueryKey 对象的包装，让 Cache 模块不需要依赖 Hibernate，实现解耦
  *
  * @author : gengwei.zheng
- * @date : 2022/4/14 11:03
+ * @date : 2025/12/6 11:22
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
-@JsonDeserialize(using = FormLoginWebAuthenticationDetailsDeserializer.class)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonAutoDetect(
-        fieldVisibility = JsonAutoDetect.Visibility.ANY,
-        getterVisibility = JsonAutoDetect.Visibility.NONE,
-        isGetterVisibility = JsonAutoDetect.Visibility.NONE,
-        creatorVisibility = JsonAutoDetect.Visibility.ANY)
-public class FormLoginWebAuthenticationDetailsMixin {
+public class HiberanteQueryKeyWrapper implements Serializable {
 
+    private final Object key;
+
+    public HiberanteQueryKeyWrapper(Object key) {
+        this.key = key;
+    }
+
+    public Object getKey() {
+        return key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HiberanteQueryKeyWrapper cacheKey = (HiberanteQueryKeyWrapper) o;
+        return Objects.equal(key, cacheKey.key);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(key);
+    }
 }

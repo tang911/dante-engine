@@ -33,12 +33,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Strings;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpMethod;
-import org.springframework.lang.Nullable;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -124,8 +124,7 @@ public class DecryptRequestParamMapResolver implements HandlerMethodArgumentReso
     }
 
     @Override
-    @Nullable
-    public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+    public @Nullable Object resolveArgument(MethodParameter methodParameter, @Nullable ModelAndViewContainer mavContainer, NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
 
         HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
         String requestURI = request.getRequestURI();

@@ -23,17 +23,27 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.persistence.sas.jpa.jackson;
+package cn.herodotus.dante.security.jackson;
 
-import tools.jackson.core.Version;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * <p>Description: Jackson 用到的常量值 </p>
+ * <p>Description: FormLoginWebAuthenticationDetailsMixin </p>
  *
  * @author : gengwei.zheng
- * @date : 2023/4/28 14:39
+ * @date : 2022/4/14 11:03
  */
-public class Jackson2Constants {
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
+@JsonDeserialize(using = FormLoginWebAuthenticationDetailsDeserializer.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonAutoDetect(
+        fieldVisibility = JsonAutoDetect.Visibility.ANY,
+        getterVisibility = JsonAutoDetect.Visibility.NONE,
+        isGetterVisibility = JsonAutoDetect.Visibility.NONE,
+        creatorVisibility = JsonAutoDetect.Visibility.ANY)
+public class FormLoginWebAuthenticationDetailsMixin {
 
-    public static final Version VERSION = new Version(2, 14, 2, null, null, null);
 }

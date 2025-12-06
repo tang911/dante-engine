@@ -113,8 +113,8 @@ public class MessageWebSocketConfiguration {
             WebSocketMessageBrokerConfiguration.class,
     })
     @ComponentScan(basePackages = {
-            "cn.herodotus.dante.message.websocket.servlet.controller",
-            "cn.herodotus.dante.message.websocket.servlet.listener",
+            "cn.herodotus.dante.message.servlet.websocket.controller",
+            "cn.herodotus.dante.message.servlet.websocket.listener",
     })
     static class WebSocketConfiguration {
 

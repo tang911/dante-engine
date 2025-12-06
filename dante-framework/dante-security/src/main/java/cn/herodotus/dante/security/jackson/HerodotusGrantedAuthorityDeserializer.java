@@ -23,36 +23,27 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package cn.herodotus.dante.oauth2.authentication.provider;
+package cn.herodotus.dante.security.jackson;
 
-import cn.herodotus.dante.oauth2.authentication.customizer.HerodotusGrantType;
-import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationGrantAuthenticationToken;
-import org.springframework.util.Assert;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import cn.herodotus.dante.core.jackson.JsonNodeUtils;
+import cn.herodotus.dante.security.domain.HerodotusGrantedAuthority;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ValueDeserializer;
 
 /**
- * <p>Description: 自定义社会化登录认证Token </p>
+ * <p>Description: HerodotusGrantedAuthority 反序列化 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/31 14:54
+ * @date : 2022/3/17 20:28
  */
-public class OAuth2SocialCredentialsAuthenticationToken extends OAuth2AuthorizationGrantAuthenticationToken {
-
-    private final Set<String> scopes;
-
-    public OAuth2SocialCredentialsAuthenticationToken(Authentication clientPrincipal, Set<String> scopes, Map<String, Object> additionalParameters) {
-        super(HerodotusGrantType.SOCIAL, clientPrincipal, additionalParameters);
-        Assert.notNull(clientPrincipal, "clientPrincipal cannot be null");
-        this.scopes = Collections.unmodifiableSet(CollectionUtils.isNotEmpty(scopes) ? new HashSet<>(scopes) : Collections.emptySet());
-    }
-
-    public Set<String> getScopes() {
-        return scopes;
+public class HerodotusGrantedAuthorityDeserializer extends ValueDeserializer<HerodotusGrantedAuthority> {
+    @Override
+    public HerodotusGrantedAuthority deserialize(JsonParser parser, DeserializationContext context) throws JacksonException {
+        JsonNode jsonNode = context.readTree(parser);
+        String authority = JsonNodeUtils.findStringValue(jsonNode, "authority");
+        return new HerodotusGrantedAuthority(authority);
     }
 }

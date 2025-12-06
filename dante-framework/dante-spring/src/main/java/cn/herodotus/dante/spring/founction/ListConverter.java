@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.spring.founction;
 
+import org.jspecify.annotations.Nullable;
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -40,9 +40,8 @@ import java.util.List;
 public interface ListConverter<S, T> extends Converter<List<S>, List<T>> {
 
     @Override
-    @Nullable
-    default List<T> convert(List<S> source) {
-        return source.stream()
+    default @Nullable List<T> convert(List<S> source) {
+                return source.stream()
                 .map(this::from)
                 .toList();
     }

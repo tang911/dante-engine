@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.crypto;
 
+import cn.herodotus.dante.core.jackson.JacksonUtils;
 import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.core.utils.JacksonUtils;
 import cn.herodotus.dante.web.annotation.Crypto;
 import cn.herodotus.dante.web.exception.SessionInvalidException;
 import cn.herodotus.dante.web.servlet.utils.SessionUtils;
@@ -35,6 +35,7 @@ import cn.hutool.v7.core.util.ByteUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -147,7 +148,7 @@ public class DecryptRequestBodyAdvice implements RequestBodyAdvice {
     }
 
     @Override
-    public Object handleEmptyBody(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+    public @Nullable Object handleEmptyBody(@Nullable Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         return body;
     }
 

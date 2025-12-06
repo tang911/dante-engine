@@ -25,13 +25,14 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.crypto;
 
+import cn.herodotus.dante.core.jackson.JacksonUtils;
 import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.core.utils.JacksonUtils;
 import cn.herodotus.dante.web.annotation.Crypto;
 import cn.herodotus.dante.web.exception.SessionInvalidException;
 import cn.herodotus.dante.web.servlet.utils.SessionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -73,7 +74,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+    public @Nullable Object beforeBodyWrite(@Nullable Object body, MethodParameter methodParameter, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
         String sessionId = SessionUtils.analyseSessionId(request);
         if (SessionUtils.isCryptoEnabled(request, sessionId)) {

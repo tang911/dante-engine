@@ -32,7 +32,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.lang.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -92,7 +91,6 @@ public class JetCacheSpringCacheManager implements CacheManager {
     }
 
     @Override
-    @Nullable
     public Cache getCache(String name) {
         String usedName = availableCacheName(name);
         return this.cacheMap.computeIfAbsent(usedName, cacheName ->
@@ -104,7 +102,7 @@ public class JetCacheSpringCacheManager implements CacheManager {
         return Collections.unmodifiableSet(this.cacheMap.keySet());
     }
 
-    private void setCacheNames(@Nullable Collection<String> cacheNames) {
+    private void setCacheNames(Collection<String> cacheNames) {
         if (cacheNames != null) {
             for (String name : cacheNames) {
                 this.cacheMap.put(name, createJetCache(name));
