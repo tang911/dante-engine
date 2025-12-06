@@ -25,11 +25,8 @@
 
 package cn.herodotus.dante.data.hibernate.cache.spi;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.context.TenantContextHolder;
-import cn.hutool.v7.crypto.SecureUtil;
+import cn.herodotus.dante.core.domain.cache.HiberanteQueryKeyWrapper;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.cache.spi.QueryKey;
 import org.hibernate.cache.spi.support.DomainDataStorageAccess;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
@@ -56,30 +53,11 @@ public class HerodotusDomainDataStorageAccess implements DomainDataStorageAccess
         this.cache = cache;
     }
 
-    private String secure(Object key) {
+    private Object wrapper(Object key) {
         if (key instanceof QueryKey queryKey) {
-            int hashCode = queryKey.hashCode();
-            String hashCodeString = String.valueOf(hashCode);
-            String secureKey = SecureUtil.md5(hashCodeString);
-            log.trace("[Herodotus] |- SPI - Convert query key hashcode [{}] to secureKey [{}]", hashCode, secureKey);
-            return secureKey;
+            return new HiberanteQueryKeyWrapper(queryKey);
         }
-        return String.valueOf(key);
-    }
-
-    private String getTenantId() {
-        String tenantId = TenantContextHolder.getTenantId();
-        log.trace("[Herodotus] |- SPI - Tenant identifier for jpa second level cache is : [{}]", tenantId);
-        return StringUtils.toRootLowerCase(tenantId);
-    }
-
-    private String wrapper(Object key) {
-        String original = secure(key);
-        String tenantId = getTenantId();
-
-        String result = tenantId + SymbolConstants.COLON + original;
-        log.trace("[Herodotus] |- SPI - Current cache key is : [{}]", result);
-        return result;
+        return key;
     }
 
     private Object get(Object key) {
@@ -93,39 +71,34 @@ public class HerodotusDomainDataStorageAccess implements DomainDataStorageAccess
 
     @Override
     public boolean contains(Object key) {
-        String wrapperKey = wrapper(key);
-        Object value = this.get(wrapperKey);
-        log.trace("[Herodotus] |- SPI - check is key : [{}] exist.", wrapperKey);
+        Object value = this.get(wrapper(key));
+        log.trace("[Herodotus] |- SPI - check is key : [{}] exist.", key);
         return ObjectUtils.isNotEmpty(value);
     }
 
     @Override
     public Object getFromCache(Object key, SharedSessionContractImplementor session) {
-        String wrapperKey = wrapper(key);
-        Object value = this.get(wrapperKey);
-        log.trace("[Herodotus] |- SPI - get from cache key is : [{}], value is : [{}]", wrapperKey, value);
+        Object value = this.get(wrapper(key));
+        log.trace("[Herodotus] |- SPI - get from cache key is : [{}], value is : [{}]", key, value);
         return value;
     }
 
     @Override
     public void putIntoCache(Object key, Object value, SharedSessionContractImplementor session) {
-        String wrapperKey = wrapper(key);
-        log.trace("[Herodotus] |- SPI - put into cache key is : [{}], value is : [{}]", wrapperKey, value);
-        cache.put(wrapperKey, value);
+        log.trace("[Herodotus] |- SPI - put into cache key is : [{}], value is : [{}]", key, value);
+        cache.put(wrapper(key), value);
     }
 
     @Override
     public void removeFromCache(Object key, SharedSessionContractImplementor session) {
-        String wrapperKey = wrapper(key);
-        log.trace("[Herodotus] |- SPI - remove from cache key is : [{}]", wrapperKey);
-        cache.evict(wrapperKey);
+        log.trace("[Herodotus] |- SPI - remove from cache key is : [{}]", key);
+        cache.evict(wrapper(key));
     }
 
     @Override
     public void evictData(Object key) {
-        String wrapperKey = wrapper(key);
-        log.trace("[Herodotus] |- SPI - evict key : [{}] from cache.", wrapperKey);
-        cache.evict(wrapperKey);
+        log.trace("[Herodotus] |- SPI - evict key : [{}] from cache.", key);
+        cache.evict(wrapper(key));
     }
 
     @Override

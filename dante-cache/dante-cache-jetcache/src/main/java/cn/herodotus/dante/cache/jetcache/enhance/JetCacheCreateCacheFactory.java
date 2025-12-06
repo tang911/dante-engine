@@ -28,8 +28,6 @@ package cn.herodotus.dante.cache.jetcache.enhance;
 import cn.herodotus.dante.cache.commons.enums.CacheMethod;
 import cn.herodotus.dante.cache.commons.properties.CacheProperties;
 import cn.herodotus.dante.cache.commons.properties.CacheSetting;
-import cn.hutool.v7.crypto.SecureUtil;
-import com.alibaba.fastjson2.JSON;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.CacheManager;
 import com.alicp.jetcache.anno.CacheType;
@@ -50,10 +48,13 @@ public class JetCacheCreateCacheFactory {
 
     private final CacheManager cacheManager;
     private final CacheProperties cacheProperties;
+    private final HerodotusKeyConverter herodotusKeyConverter;
+
 
     public JetCacheCreateCacheFactory(CacheManager cacheManager, CacheProperties cacheProperties) {
         this.cacheManager = cacheManager;
         this.cacheProperties = cacheProperties;
+        this.herodotusKeyConverter = new HerodotusKeyConverter();
     }
 
     public <K, V> Cache<K, V> create(String name, CacheSetting cacheSetting) {
@@ -118,13 +119,9 @@ public class JetCacheCreateCacheFactory {
             }
         }
 
-        builder.keyConvertor(key -> {
-            if (key instanceof String) {
-                return key;
-            } else {
-                return SecureUtil.md5(JSON.toJSONString(key));
-            }
-        });
+        // 自定义 KeyConverter，用以支持 Hibernate 的二级缓存扩展
+        // 这里自定了 KeyConverter，配置文件中配置的 fastjson2 将不会对 JetCacheCreateCacheFactory 管理的缓存生效。
+        builder.keyConvertor(herodotusKeyConverter);
 
         QuickConfig quickConfig = builder.build();
         return create(quickConfig);
