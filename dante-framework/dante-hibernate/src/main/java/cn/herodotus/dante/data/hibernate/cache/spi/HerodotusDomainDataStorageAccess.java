@@ -26,6 +26,7 @@
 package cn.herodotus.dante.data.hibernate.cache.spi;
 
 import cn.herodotus.dante.core.domain.cache.HiberanteQueryKeyWrapper;
+import cn.herodotus.dante.core.domain.cache.HibernateCacheKeyWrapper;
 import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.cache.spi.QueryKey;
 import org.hibernate.cache.spi.support.DomainDataStorageAccess;
@@ -57,9 +58,9 @@ public class HerodotusDomainDataStorageAccess implements DomainDataStorageAccess
         if (key instanceof QueryKey queryKey) {
             return new HiberanteQueryKeyWrapper(queryKey);
         }
-        // 转换为 String 之后，在 HerodotusKeyConverter 中，直接走 String 类型的判断，防止与其它缓存内容混合在一起不好区分和处理
-        // 原有修改 QueryKey 代码方式，也是通过将 QueryKey 以外的内容转换为 String 类型，从而可以简化 JetCache KeyConverter 处理逻辑
-        return String.valueOf(key);
+        // 因为其它缓存内容例如 Stamp 和自定义 Hibernate 缓存均使用同一个自定义 JetCacheKeyConverter。
+        // 其它缓存内容不需要增加 TenantId，而 Hibernate 缓存需要添加 TenantId，为了方便区分所以定义了 HibernateCacheKeyWrapper
+        return new HibernateCacheKeyWrapper(key);
     }
 
     private Object get(Object key) {

@@ -28,6 +28,7 @@ package cn.herodotus.dante.cache.jetcache.enhance;
 import cn.herodotus.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.core.context.TenantContextHolder;
 import cn.herodotus.dante.core.domain.cache.HiberanteQueryKeyWrapper;
+import cn.herodotus.dante.core.domain.cache.HibernateCacheKeyWrapper;
 import cn.hutool.v7.crypto.SecureUtil;
 import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -69,18 +70,25 @@ public class HerodotusKeyConverter implements Function<Object, Object> {
             return null;
         }
 
-        if (originalKey instanceof String stringKey) {
-            return createKey(stringKey);
+        // 常规String类型内容，非自定义 Hibernate 相关String类型内容，无需添加 TenantId
+        if (originalKey instanceof String) {
+            return originalKey;
         }
 
-        if (originalKey instanceof HiberanteQueryKeyWrapper herodotusKey) {
+        // 自定义 Hibernate 相关String类型内容，需添加 TenantId
+        // 通过 HibernateCacheKeyWrapper 与常规 String 类型内容进行区分
+        if (originalKey instanceof HibernateCacheKeyWrapper cacheKeyWrapper) {
+            return createKey(cacheKeyWrapper.getKey());
+        }
+
+        if (originalKey instanceof HiberanteQueryKeyWrapper queryKeyWrapper) {
             // 将 Hibernate QueryKey 对象转成 JSON，解决分页查询缓存问题。
             // 原有 QueryKey 只有一个 hashcode 方法可用，但 Hibernate 团段将这个方法中的 firstRow 和 maxRow 注释掉了，无法区分到底是那一页的查询。
             // 与 Hibernate 团队沟通多次，不同意修改。所以转成 JSON 是目前最合理的解决办法。
             // 之前版本是手动修改 QueryKey 代码然后覆盖原始代码，因为依赖 hibernate-core 的模块多，这种方式需要在很多模块复制相同的代码，不够优雅。
-            String json = toJson(herodotusKey.getKey());
+            String json = converterQueryKeyToJson(queryKeyWrapper.getKey());
 
-            log.trace("[Herodotus] |- Herodotus KeyConverter convert queryKey to json is : [{}]", json);
+            log.trace("[Herodotus] |- HerodotusKeyConverter convert queryKey to json is : [{}]", json);
 
             if (StringUtils.isNotBlank(json)) {
                 String storedKey = SecureUtil.md5(json);
@@ -101,7 +109,7 @@ public class HerodotusKeyConverter implements Function<Object, Object> {
         return StringUtils.toRootLowerCase(tenantId);
     }
 
-    private String toJson(Object value) {
+    private String converterQueryKeyToJson(Object value) {
         try {
             return this.objectMapper.writeValueAsString(value);
         } catch (JacksonException e) {
