@@ -28,7 +28,7 @@ package org.dromara.dante.assistant.access.config;
 import org.dromara.dante.assistant.access.customizer.AccessErrorCodeMapperBuilderCustomizer;
 import org.dromara.dante.assistant.access.definition.AccessHandler;
 import org.dromara.dante.assistant.access.factory.AccessHandlerStrategyFactory;
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
+import org.dromara.dante.core.function.ErrorCodeMapperBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

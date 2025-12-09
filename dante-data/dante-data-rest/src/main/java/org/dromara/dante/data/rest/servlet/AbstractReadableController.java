@@ -25,12 +25,12 @@
 
 package org.dromara.dante.data.rest.servlet;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.core.domain.BaseEntity;
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.domain.BaseEntity;
+import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.data.commons.service.BasePageService;
-import cn.herodotus.dante.web.annotation.AccessLimited;
-import cn.herodotus.dante.web.definition.dto.Pager;
+import org.dromara.dante.web.annotation.AccessLimited;
+import org.dromara.dante.web.definition.dto.Pager;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

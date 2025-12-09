@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.facility.alibaba.autoconfigure.sentinel;
 
-import cn.herodotus.dante.core.domain.Result;
-import cn.herodotus.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.core.domain.Result;
+import org.dromara.dante.core.jackson.JacksonUtils;
 import cn.herodotus.dante.facility.alibaba.autoconfigure.sentinel.enhance.HerodotusSentinelFeign;
 import com.alibaba.csp.sentinel.adapter.spring.webflux.callback.BlockRequestHandler;
 import com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.callback.BlockExceptionHandler;

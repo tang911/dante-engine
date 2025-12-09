@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.extension.manager;
 
-import cn.herodotus.dante.security.domain.HerodotusUser;
-import cn.herodotus.dante.security.service.EnhanceUserDetailsService;
+import org.dromara.dante.security.domain.HerodotusUser;
+import org.dromara.dante.security.service.EnhanceUserDetailsService;
 import org.dromara.dante.data.commons.enums.DataItemStatus;
 import cn.herodotus.dante.message.core.definition.strategy.AccountStatusChangedEventManager;
 import cn.herodotus.dante.message.core.domain.AccountStatus;

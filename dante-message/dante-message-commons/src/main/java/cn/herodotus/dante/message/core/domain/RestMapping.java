@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.core.domain;
 
-import cn.herodotus.dante.security.domain.AbstractRest;
+import org.dromara.dante.security.domain.AbstractRest;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 

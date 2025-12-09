@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.generator;
 
-import cn.herodotus.dante.data.hibernate.generator.AbstractIdGeneratorType;
+import org.dromara.dante.data.hibernate.generator.AbstractIdGeneratorType;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.entity.HerodotusAuthorization;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;

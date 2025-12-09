@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authorization.servlet;
 
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExceptionHandlingConfigurer;

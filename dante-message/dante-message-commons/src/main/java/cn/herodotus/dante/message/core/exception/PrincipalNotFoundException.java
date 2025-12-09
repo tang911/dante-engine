@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.message.core.exception;
 
-import cn.herodotus.dante.core.domain.Feedback;
-import cn.herodotus.dante.core.exception.PlatformRuntimeException;
+import org.dromara.dante.core.domain.Feedback;
+import org.dromara.dante.core.exception.PlatformRuntimeException;
 import cn.herodotus.dante.message.core.constants.MessageErrorCodes;
 
 /**

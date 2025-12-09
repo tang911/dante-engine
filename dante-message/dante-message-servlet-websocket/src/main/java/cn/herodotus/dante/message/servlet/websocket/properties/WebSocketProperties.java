@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.message.servlet.websocket.properties;
 
-import cn.herodotus.dante.core.constant.HerodotusHeaders;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.HerodotusHeaders;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.dante.message.servlet.websocket.enums.InstanceMode;
 import org.apache.commons.collections4.CollectionUtils;

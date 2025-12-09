@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.rest.servlet.message.controller;
 
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.dante.logic.message.entity.Notification;
 import cn.herodotus.dante.logic.message.enums.NotificationCategory;

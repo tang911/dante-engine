@@ -25,10 +25,10 @@
 
 package org.dromara.dante.cache.jetcache.enhance;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.context.TenantContextHolder;
-import cn.herodotus.dante.core.domain.cache.HiberanteQueryKeyWrapper;
-import cn.herodotus.dante.core.domain.cache.HibernateCacheKeyWrapper;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.context.TenantContextHolder;
+import org.dromara.dante.core.domain.cache.HiberanteQueryKeyWrapper;
+import org.dromara.dante.core.domain.cache.HibernateCacheKeyWrapper;
 import cn.hutool.v7.crypto.SecureUtil;
 import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

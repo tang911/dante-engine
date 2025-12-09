@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.config;
 
-import cn.herodotus.dante.core.support.crypto.AsymmetricCryptoProcessor;
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.core.support.crypto.SymmetricCryptoProcessor;
-import cn.herodotus.dante.web.autoconfigure.secure.DefaultDigitalEnvelopeProcessor;
+import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.core.support.crypto.SymmetricCryptoProcessor;
+import org.dromara.dante.web.autoconfigure.secure.DefaultDigitalEnvelopeProcessor;
 import cn.herodotus.dante.webmvc.autoconfigure.crypto.DecryptRequestBodyAdvice;
 import cn.herodotus.dante.webmvc.autoconfigure.crypto.DecryptRequestParamMapResolver;
 import cn.herodotus.dante.webmvc.autoconfigure.crypto.DecryptRequestParamResolver;

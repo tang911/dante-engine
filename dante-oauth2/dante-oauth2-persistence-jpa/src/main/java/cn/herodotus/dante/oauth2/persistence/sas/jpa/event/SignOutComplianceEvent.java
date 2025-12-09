@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.event;
 
-import cn.herodotus.dante.spring.context.AbstractApplicationEvent;
+import org.dromara.dante.spring.context.AbstractApplicationEvent;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
 

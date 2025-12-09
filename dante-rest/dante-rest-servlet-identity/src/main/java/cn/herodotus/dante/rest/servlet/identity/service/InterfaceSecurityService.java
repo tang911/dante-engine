@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.rest.servlet.identity.service;
 
-import cn.herodotus.dante.core.domain.SecretKey;
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.security.utils.SecurityUtils;
+import org.dromara.dante.core.domain.SecretKey;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.security.utils.SecurityUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2ErrorCodes;

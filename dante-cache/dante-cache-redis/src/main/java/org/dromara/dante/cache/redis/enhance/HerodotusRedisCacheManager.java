@@ -27,7 +27,7 @@ package org.dromara.dante.cache.redis.enhance;
 
 import org.dromara.dante.cache.commons.properties.CacheProperties;
 import org.dromara.dante.cache.commons.properties.CacheSetting;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;

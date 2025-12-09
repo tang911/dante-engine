@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure.listener;
 
-import cn.herodotus.dante.core.jackson.JacksonUtils;
-import cn.herodotus.dante.security.domain.AttributeTransmitter;
+import org.dromara.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.security.domain.AttributeTransmitter;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.bus.RemoteAttributeTransmitterSyncEvent;
 import cn.herodotus.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
 import org.slf4j.Logger;

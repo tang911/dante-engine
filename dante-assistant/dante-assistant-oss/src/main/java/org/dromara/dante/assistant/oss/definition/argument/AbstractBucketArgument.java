@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.oss.definition.argument;
 
-import cn.herodotus.dante.core.constant.RegexPool;
+import org.dromara.dante.core.constant.RegexPool;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

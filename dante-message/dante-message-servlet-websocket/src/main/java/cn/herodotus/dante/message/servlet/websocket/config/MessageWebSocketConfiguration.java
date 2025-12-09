@@ -31,7 +31,7 @@ import cn.herodotus.dante.message.servlet.websocket.annotation.ConditionalOnSing
 import cn.herodotus.dante.message.servlet.websocket.definition.WebSocketMessageSender;
 import cn.herodotus.dante.message.servlet.websocket.interceptor.WebSocketAuthenticationHandshakeInterceptor;
 import cn.herodotus.dante.message.servlet.websocket.messaging.*;
-import cn.herodotus.dante.security.oauth2.BearerTokenResolver;
+import org.dromara.dante.security.oauth2.BearerTokenResolver;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

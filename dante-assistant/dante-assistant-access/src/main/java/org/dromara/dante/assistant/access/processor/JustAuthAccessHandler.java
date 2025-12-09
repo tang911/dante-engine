@@ -29,7 +29,7 @@ import org.dromara.dante.assistant.access.definition.AccessHandler;
 import org.dromara.dante.assistant.access.definition.domain.AccessResponse;
 import org.dromara.dante.assistant.access.definition.domain.AccessUserDetails;
 import org.dromara.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
-import cn.herodotus.dante.security.domain.AccessPrincipal;
+import org.dromara.dante.security.domain.AccessPrincipal;
 import me.zhyd.oauth.model.AuthCallback;
 import me.zhyd.oauth.model.AuthResponse;
 import me.zhyd.oauth.model.AuthToken;

@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure;
 
-import cn.herodotus.dante.core.constant.SecurityResources;
-import cn.herodotus.dante.web.autoconfigure.WebAutoConfiguration;
+import org.dromara.dante.core.constant.SecurityResources;
+import org.dromara.dante.web.autoconfigure.WebAutoConfiguration;
 import cn.herodotus.dante.webmvc.autoconfigure.config.SecureConfiguration;
 import cn.herodotus.dante.webmvc.autoconfigure.config.TemplateConfiguration;
 import cn.herodotus.dante.webmvc.autoconfigure.config.TenantConfiguration;

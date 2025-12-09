@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.oauth2.authorization.servlet;
 
-import cn.herodotus.dante.security.definition.AbstractSecurityMatcherConfigurer;
-import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.dante.security.utils.WebPathUtils;
+import org.dromara.dante.security.definition.AbstractSecurityMatcherConfigurer;
+import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
+import org.dromara.dante.security.utils.WebPathUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.web.util.matcher.RequestMatcher;

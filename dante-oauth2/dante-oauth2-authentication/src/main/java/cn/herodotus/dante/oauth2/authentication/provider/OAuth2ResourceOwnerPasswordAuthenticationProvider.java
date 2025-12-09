@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.security.service.EnhanceUserDetailsService;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.security.service.EnhanceUserDetailsService;
 import cn.herodotus.dante.oauth2.authentication.customizer.HerodotusGrantType;
 import cn.herodotus.dante.oauth2.authentication.utils.DPoPProofVerifier;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2AuthenticationProviderUtils;

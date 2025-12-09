@@ -32,7 +32,7 @@ import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
 import org.dromara.dante.assistant.oss.definition.domain.OwnerDomain;
 import org.dromara.dante.assistant.oss.definition.domain.PartDomain;
 import org.dromara.dante.assistant.oss.entity.result.ListPartsResult;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.core.convert.converter.Converter;

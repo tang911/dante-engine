@@ -26,7 +26,7 @@
 package cn.herodotus.dante.rest.servlet.upms.controller.social;
 
 import org.dromara.dante.assistant.access.processor.JustAuthProcessor;
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.domain.Result;
 import cn.herodotus.dante.rest.servlet.upms.event.AutomaticSignInEvent;
 import cn.hutool.v7.core.bean.BeanUtil;
 import com.google.common.collect.ImmutableMap;

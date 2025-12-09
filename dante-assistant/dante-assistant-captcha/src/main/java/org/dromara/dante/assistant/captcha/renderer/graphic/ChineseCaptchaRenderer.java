@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.captcha.renderer.graphic;
 
 import org.dromara.dante.assistant.captcha.provider.ResourceProvider;
-import cn.herodotus.dante.spring.enums.CaptchaCategory;
+import org.dromara.dante.spring.enums.CaptchaCategory;
 
 import java.awt.*;
 

@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.converter;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.definition.AbstractOAuth2EntityConverter;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.entity.HerodotusAuthorization;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.jackson.OAuth2JacksonProcessor;

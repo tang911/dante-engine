@@ -27,8 +27,8 @@ package cn.herodotus.dante.logic.upms.converter;
 
 import cn.herodotus.dante.logic.upms.entity.security.SysAttribute;
 import cn.herodotus.dante.logic.upms.entity.security.SysPermission;
-import cn.herodotus.dante.security.domain.AttributeTransmitter;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.security.domain.AttributeTransmitter;
+import org.dromara.dante.spring.founction.ListConverter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.util.StringUtils;
 

@@ -25,9 +25,9 @@
 
 package org.dromara.dante.data.rest.servlet;
 
-import cn.herodotus.dante.core.domain.BaseEntity;
-import cn.herodotus.dante.core.domain.Result;
-import cn.herodotus.dante.web.definition.Controller;
+import org.dromara.dante.core.domain.BaseEntity;
+import org.dromara.dante.core.domain.Result;
+import org.dromara.dante.web.definition.Controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

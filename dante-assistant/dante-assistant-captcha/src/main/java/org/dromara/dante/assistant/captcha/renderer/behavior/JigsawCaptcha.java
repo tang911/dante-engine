@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.captcha.renderer.behavior;
 
-import cn.herodotus.dante.core.domain.captcha.Captcha;
+import org.dromara.dante.core.domain.captcha.Captcha;
 
 /**
  * <p>Description: 滑块拼图验证码返回前端信息 </p>

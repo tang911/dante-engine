@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.oauth2.extension.converter;
 
-import cn.herodotus.dante.security.utils.SecurityUtils;
+import org.dromara.dante.security.utils.SecurityUtils;
 import cn.herodotus.dante.oauth2.extension.entity.OAuth2UserLogging;
-import cn.herodotus.dante.web.servlet.utils.HeaderUtils;
+import org.dromara.dante.web.servlet.utils.HeaderUtils;
 import cn.hutool.v7.http.useragent.UserAgent;
 import cn.hutool.v7.http.useragent.UserAgentUtil;
 import com.google.common.net.HttpHeaders;

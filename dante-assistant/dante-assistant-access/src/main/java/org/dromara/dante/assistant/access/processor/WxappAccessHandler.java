@@ -32,9 +32,9 @@ import org.dromara.dante.assistant.access.definition.domain.AccessResponse;
 import org.dromara.dante.assistant.access.definition.domain.AccessUserDetails;
 import org.dromara.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
 import org.dromara.dante.assistant.access.exception.AccessPreProcessFailedException;
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.security.domain.AccessPrincipal;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.security.domain.AccessPrincipal;
+import org.dromara.dante.security.enums.AccountCategory;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**

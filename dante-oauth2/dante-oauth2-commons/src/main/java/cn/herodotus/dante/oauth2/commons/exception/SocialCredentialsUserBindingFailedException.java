@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.commons.exception;
 
-import cn.herodotus.dante.security.exception.PlatformAuthenticationException;
+import org.dromara.dante.security.exception.PlatformAuthenticationException;
 
 /**
  * <p>Description: 社交登录绑定用户出错 </p>

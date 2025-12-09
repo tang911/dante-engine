@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logic.message.config;
 
-import cn.herodotus.dante.core.function.EnumDictionaryBuilderCustomizer;
+import org.dromara.dante.core.function.EnumDictionaryBuilderCustomizer;
 import cn.herodotus.dante.logic.message.customizer.MessageEnumDictionaryBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;

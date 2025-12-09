@@ -29,7 +29,7 @@ import org.dromara.dante.assistant.access.condition.ConditionalOnSmsEnabled;
 import org.dromara.dante.assistant.access.processor.PhoneNumberAccessHandler;
 import org.dromara.dante.assistant.access.properties.SmsProperties;
 import org.dromara.dante.assistant.access.stamp.VerificationCodeStampManager;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.security.enums.AccountCategory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

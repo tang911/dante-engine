@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.captcha.renderer.behavior;
 
-import cn.herodotus.dante.core.domain.captcha.Captcha;
+import org.dromara.dante.core.domain.captcha.Captcha;
 import com.google.common.base.MoreObjects;
 
 /**

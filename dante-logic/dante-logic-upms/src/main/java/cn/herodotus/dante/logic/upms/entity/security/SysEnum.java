@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logic.upms.entity.security;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.data.jpa.entity.AbstractSysEntity;
 import cn.herodotus.dante.logic.upms.domain.generator.SysEnumIdGenerator;
 import com.google.common.base.MoreObjects;

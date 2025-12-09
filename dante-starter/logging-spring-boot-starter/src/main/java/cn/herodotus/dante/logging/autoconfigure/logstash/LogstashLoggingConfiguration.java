@@ -26,10 +26,10 @@
 package cn.herodotus.dante.logging.autoconfigure.logstash;
 
 import ch.qos.logback.classic.LoggerContext;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.logging.autoconfigure.LoggingProperties;
 import cn.herodotus.dante.logging.autoconfigure.logging.LogbackConfigurator;
-import cn.herodotus.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.core.jackson.JacksonUtils;
 import com.google.common.base.MoreObjects;
 import jakarta.annotation.PostConstruct;
 import net.logstash.logback.LogstashFormatter;

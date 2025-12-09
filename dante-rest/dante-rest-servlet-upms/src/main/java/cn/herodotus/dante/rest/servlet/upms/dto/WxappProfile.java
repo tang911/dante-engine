@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.rest.servlet.upms.dto;
 
-import cn.herodotus.dante.core.domain.AbstractDto;
+import org.dromara.dante.core.domain.AbstractDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 

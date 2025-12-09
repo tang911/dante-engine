@@ -28,7 +28,7 @@ package org.dromara.dante.assistant.oss.converter.domain;
 import org.dromara.dante.assistant.oss.definition.domain.ChecksumDomain;
 import org.dromara.dante.assistant.oss.definition.domain.PartDomain;
 import org.dromara.dante.assistant.oss.utils.OssUtils;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import software.amazon.awssdk.services.s3.model.Part;
 

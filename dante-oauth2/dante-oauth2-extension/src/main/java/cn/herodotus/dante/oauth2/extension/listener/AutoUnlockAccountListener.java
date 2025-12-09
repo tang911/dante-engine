@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.extension.listener;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;
 import cn.herodotus.dante.oauth2.extension.manager.OAuth2ComplianceManager;
 import org.apache.commons.lang3.StringUtils;

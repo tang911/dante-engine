@@ -25,11 +25,11 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.crypto;
 
-import cn.herodotus.dante.core.jackson.JacksonUtils;
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.web.annotation.Crypto;
-import cn.herodotus.dante.web.exception.SessionInvalidException;
-import cn.herodotus.dante.web.servlet.utils.SessionUtils;
+import org.dromara.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.annotation.Crypto;
+import org.dromara.dante.web.exception.SessionInvalidException;
+import org.dromara.dante.web.servlet.utils.SessionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jspecify.annotations.Nullable;

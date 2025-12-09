@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.definition.service;
 
 import org.dromara.dante.assistant.oss.pool.S3AsyncClientObjectPool;
-import cn.herodotus.dante.core.support.pool.AbstractPooledObjectService;
+import org.dromara.dante.core.support.pool.AbstractPooledObjectService;
 import software.amazon.awssdk.services.s3.S3AsyncClient;
 
 import java.util.concurrent.CompletableFuture;

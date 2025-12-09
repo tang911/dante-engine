@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authentication.consumer;
 
-import cn.herodotus.dante.security.service.ClientDetailsService;
+import org.dromara.dante.security.service.ClientDetailsService;
 import cn.herodotus.dante.oauth2.authentication.provider.OAuth2AuthorizationCodeAuthenticationProvider;
 import cn.herodotus.dante.oauth2.authentication.provider.OAuth2ClientCredentialsAuthenticationProvider;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2ConfigurerUtils;

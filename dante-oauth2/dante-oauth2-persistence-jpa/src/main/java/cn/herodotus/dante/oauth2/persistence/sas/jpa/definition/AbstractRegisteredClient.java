@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.definition;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.spring.jackson.ArrayToCommaDelimitedStringDeserializer;
-import cn.herodotus.dante.spring.jackson.CommaDelimitedStringToSetSerializer;
-import cn.herodotus.dante.security.domain.RegisteredClientDetails;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.spring.jackson.ArrayToCommaDelimitedStringDeserializer;
+import org.dromara.dante.spring.jackson.CommaDelimitedStringToSetSerializer;
+import org.dromara.dante.security.domain.RegisteredClientDetails;
 import org.dromara.dante.data.jpa.entity.AbstractSysEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;

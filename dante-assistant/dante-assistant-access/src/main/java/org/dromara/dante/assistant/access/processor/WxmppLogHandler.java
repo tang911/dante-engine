@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.access.processor;
 
-import cn.herodotus.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.core.jackson.JacksonUtils;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;

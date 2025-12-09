@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.extension.condition;
 
-import cn.herodotus.dante.spring.context.PropertyResolver;
+import org.dromara.dante.spring.context.PropertyResolver;
 import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

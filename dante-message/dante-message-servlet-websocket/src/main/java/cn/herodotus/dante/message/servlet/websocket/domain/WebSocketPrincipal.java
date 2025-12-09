@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.servlet.websocket.domain;
 
-import cn.herodotus.dante.security.domain.UserPrincipal;
+import org.dromara.dante.security.domain.UserPrincipal;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 

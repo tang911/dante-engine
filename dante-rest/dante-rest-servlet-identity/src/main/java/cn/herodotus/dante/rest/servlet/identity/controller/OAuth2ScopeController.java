@@ -25,15 +25,15 @@
 
 package cn.herodotus.dante.rest.servlet.identity.controller;
 
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Permission;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Scope;
-import cn.herodotus.dante.logic.identity.service.OAuth2ScopeService;
+import org.dromara.dante.logic.identity.entity.OAuth2Permission;
+import org.dromara.dante.logic.identity.entity.OAuth2Scope;
+import org.dromara.dante.logic.identity.service.OAuth2ScopeService;
 import cn.herodotus.dante.rest.servlet.identity.dto.OAuth2PermissionDto;
 import cn.herodotus.dante.rest.servlet.identity.dto.OAuth2ScopeDto;
 import org.dromara.dante.data.rest.servlet.AbstractJpaWriteableController;
-import cn.herodotus.dante.web.annotation.AccessLimited;
+import org.dromara.dante.web.annotation.AccessLimited;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

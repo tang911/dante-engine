@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authorization.servlet;
 
-import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector;
 

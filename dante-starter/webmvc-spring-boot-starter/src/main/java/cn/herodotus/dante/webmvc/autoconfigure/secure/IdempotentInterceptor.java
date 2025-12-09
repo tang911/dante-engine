@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.secure;
 
-import cn.herodotus.dante.web.annotation.Idempotent;
-import cn.herodotus.dante.web.autoconfigure.secure.IdempotentHandler;
-import cn.herodotus.dante.web.autoconfigure.stamp.IdempotentStampManager;
+import org.dromara.dante.web.annotation.Idempotent;
+import org.dromara.dante.web.autoconfigure.secure.IdempotentHandler;
+import org.dromara.dante.web.autoconfigure.stamp.IdempotentStampManager;
 import cn.herodotus.dante.webmvc.autoconfigure.definition.AbstractHandlerInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

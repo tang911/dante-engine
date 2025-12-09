@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.jackson;
 
-import cn.herodotus.dante.security.jackson.HerodotusSecurityJacksonModules;
+import org.dromara.dante.security.jackson.HerodotusSecurityJacksonModules;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

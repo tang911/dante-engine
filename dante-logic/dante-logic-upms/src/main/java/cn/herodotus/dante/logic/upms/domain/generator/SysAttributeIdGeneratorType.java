@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logic.upms.domain.generator;
 
-import cn.herodotus.dante.data.hibernate.generator.AbstractIdGeneratorType;
+import org.dromara.dante.data.hibernate.generator.AbstractIdGeneratorType;
 import cn.herodotus.dante.logic.upms.entity.security.SysAttribute;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;

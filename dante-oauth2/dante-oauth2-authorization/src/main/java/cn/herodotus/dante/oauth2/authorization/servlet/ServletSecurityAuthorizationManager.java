@@ -26,10 +26,10 @@
 package cn.herodotus.dante.oauth2.authorization.servlet;
 
 import cn.herodotus.dante.oauth2.authorization.processor.SecurityAttributeStorage;
-import cn.herodotus.dante.security.domain.HerodotusRequest;
-import cn.herodotus.dante.security.domain.HerodotusSecurityAttribute;
-import cn.herodotus.dante.spring.context.ServiceContextHolder;
-import cn.herodotus.dante.web.servlet.utils.HeaderUtils;
+import org.dromara.dante.security.domain.HerodotusRequest;
+import org.dromara.dante.security.domain.HerodotusSecurityAttribute;
+import org.dromara.dante.spring.context.ServiceContextHolder;
+import org.dromara.dante.web.servlet.utils.HeaderUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;

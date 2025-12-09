@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.oss.constant;
 
-import cn.herodotus.dante.core.feedback.InternalServerErrorFeedback;
+import org.dromara.dante.core.feedback.InternalServerErrorFeedback;
 
 /**
  * <p>Description: 对象存储错误码 </p>

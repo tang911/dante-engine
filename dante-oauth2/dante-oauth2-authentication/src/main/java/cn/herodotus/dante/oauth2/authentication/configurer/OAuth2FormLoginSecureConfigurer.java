@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.configurer;
 
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.spring.support.captcha.CaptchaRendererFactory;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.spring.support.captcha.CaptchaRendererFactory;
 import cn.herodotus.dante.oauth2.authentication.provider.OAuth2FormLoginAuthenticationProvider;
 import cn.herodotus.dante.oauth2.authentication.response.OAuth2FormLoginAuthenticationFailureHandler;
 import cn.herodotus.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;

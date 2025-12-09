@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.entity;
 
-import cn.herodotus.dante.core.domain.BaseEntity;
+import org.dromara.dante.core.domain.BaseEntity;
 import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.generator.HerodotusAuthorizationIdGenerator;
 import com.google.common.base.MoreObjects;

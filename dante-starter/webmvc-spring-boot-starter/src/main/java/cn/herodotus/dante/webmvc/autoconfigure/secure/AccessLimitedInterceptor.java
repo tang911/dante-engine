@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.secure;
 
-import cn.herodotus.dante.web.annotation.AccessLimited;
-import cn.herodotus.dante.web.autoconfigure.secure.AccessLimitedHandler;
-import cn.herodotus.dante.web.autoconfigure.stamp.AccessLimitedStampManager;
+import org.dromara.dante.web.annotation.AccessLimited;
+import org.dromara.dante.web.autoconfigure.secure.AccessLimitedHandler;
+import org.dromara.dante.web.autoconfigure.stamp.AccessLimitedStampManager;
 import cn.herodotus.dante.webmvc.autoconfigure.definition.AbstractHandlerInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

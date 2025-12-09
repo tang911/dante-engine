@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.core.definition.strategy;
 
-import cn.herodotus.dante.spring.context.ServiceContextHolder;
+import org.dromara.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.dante.message.core.domain.RestMapping;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;

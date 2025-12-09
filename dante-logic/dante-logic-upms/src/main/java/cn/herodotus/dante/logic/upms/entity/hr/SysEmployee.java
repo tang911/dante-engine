@@ -32,7 +32,7 @@ import cn.herodotus.dante.logic.upms.domain.deserializer.SysUserEmptyToNull;
 import cn.herodotus.dante.logic.upms.entity.security.SysUser;
 import cn.herodotus.dante.logic.upms.enums.Gender;
 import cn.herodotus.dante.logic.upms.enums.Identity;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.security.enums.AccountCategory;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.google.common.base.MoreObjects;

@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.servlet.message.autoconfigure.customizer;
 
-import cn.herodotus.dante.core.builder.ErrorCodeMapperBuilder;
-import cn.herodotus.dante.core.constant.ErrorCodeMapperBuilderOrdered;
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
+import org.dromara.dante.core.builder.ErrorCodeMapperBuilder;
+import org.dromara.dante.core.constant.ErrorCodeMapperBuilderOrdered;
+import org.dromara.dante.core.function.ErrorCodeMapperBuilderCustomizer;
 import cn.herodotus.dante.message.core.constants.MessageErrorCodes;
 import org.springframework.core.Ordered;
 

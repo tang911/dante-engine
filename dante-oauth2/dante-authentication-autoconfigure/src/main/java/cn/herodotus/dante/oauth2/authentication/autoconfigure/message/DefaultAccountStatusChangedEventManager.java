@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authentication.autoconfigure.message;
 
-import cn.herodotus.dante.spring.context.ServiceContextHolder;
+import org.dromara.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.dante.message.core.definition.strategy.AccountStatusChangedEventManager;
 import cn.herodotus.dante.message.core.domain.AccountStatus;
 import cn.herodotus.dante.message.core.event.AccountStatusChangedEvent;

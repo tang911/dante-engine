@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.rest.servlet.upms.converter;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.constant.SystemConstants;
 import cn.herodotus.dante.logic.upms.entity.security.SysElement;
 import cn.herodotus.dante.logic.upms.enums.ElementCategory;
 import cn.herodotus.dante.rest.servlet.upms.dto.Elements;

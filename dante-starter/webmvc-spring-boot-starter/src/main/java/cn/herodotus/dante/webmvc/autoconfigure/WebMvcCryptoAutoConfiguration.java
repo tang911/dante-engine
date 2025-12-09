@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure;
 
-import cn.herodotus.dante.autoconfigure.crypto.CryptoAutoConfiguration;
+import org.dromara.dante.autoconfigure.crypto.CryptoAutoConfiguration;
 import cn.herodotus.dante.webmvc.autoconfigure.config.HttpCryptoConfiguration;
 import cn.herodotus.dante.webmvc.autoconfigure.crypto.DecryptRequestParamMapResolver;
 import cn.herodotus.dante.webmvc.autoconfigure.crypto.DecryptRequestParamResolver;

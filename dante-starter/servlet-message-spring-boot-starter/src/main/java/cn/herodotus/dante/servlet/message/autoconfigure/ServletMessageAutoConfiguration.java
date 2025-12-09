@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.servlet.message.autoconfigure;
 
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
+import org.dromara.dante.core.function.ErrorCodeMapperBuilderCustomizer;
 import cn.herodotus.dante.message.servlet.websocket.annotation.EnableHerodotusServletWebSocket;
 import cn.herodotus.dante.rest.servlet.message.annotation.EnableHerodotusRestServletMessage;
 import cn.herodotus.dante.servlet.message.autoconfigure.customizer.MessageErrorCodeMapperBuilderCustomizer;

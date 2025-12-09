@@ -35,7 +35,7 @@ import cn.herodotus.dante.logic.upms.enums.Gender;
 import cn.herodotus.dante.logic.upms.enums.Identity;
 import cn.herodotus.dante.logic.upms.repository.hr.SysEmployeeRepository;
 import cn.herodotus.dante.logic.upms.service.security.SysUserService;
-import cn.herodotus.dante.spring.exception.transaction.TransactionalRollbackException;
+import org.dromara.dante.spring.exception.transaction.TransactionalRollbackException;
 import jakarta.persistence.criteria.*;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

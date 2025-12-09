@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.access.constant;
 
-import cn.herodotus.dante.core.feedback.PreconditionFailedFeedback;
+import org.dromara.dante.core.feedback.PreconditionFailedFeedback;
 
 /**
  * <p>Description: Access 模块错误代码 </p>

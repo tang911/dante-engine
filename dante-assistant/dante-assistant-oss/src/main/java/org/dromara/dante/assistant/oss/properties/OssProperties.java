@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.properties;
 
 import org.dromara.dante.assistant.oss.constant.OssConstants;
-import cn.herodotus.dante.core.domain.Pool;
+import org.dromara.dante.core.domain.Pool;
 import com.google.common.base.MoreObjects;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

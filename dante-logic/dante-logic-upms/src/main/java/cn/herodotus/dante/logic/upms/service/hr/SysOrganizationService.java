@@ -31,7 +31,7 @@ import cn.herodotus.dante.logic.upms.entity.hr.SysDepartment;
 import cn.herodotus.dante.logic.upms.entity.hr.SysOrganization;
 import cn.herodotus.dante.logic.upms.enums.OrganizationCategory;
 import cn.herodotus.dante.logic.upms.repository.hr.SysOrganizationRepository;
-import cn.herodotus.dante.spring.exception.transaction.TransactionalRollbackException;
+import org.dromara.dante.spring.exception.transaction.TransactionalRollbackException;
 import jakarta.persistence.criteria.Predicate;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

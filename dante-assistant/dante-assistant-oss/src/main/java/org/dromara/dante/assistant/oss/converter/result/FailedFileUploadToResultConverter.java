@@ -30,7 +30,7 @@ import org.dromara.dante.assistant.oss.definition.domain.ObjectLockDomain;
 import org.dromara.dante.assistant.oss.definition.domain.PutObjectDomain;
 import org.dromara.dante.assistant.oss.definition.domain.SsekmsDomain;
 import org.dromara.dante.assistant.oss.entity.result.FailedFileUploadResult;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import cn.hutool.v7.core.date.DateUtil;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.transfer.s3.model.FailedFileUpload;

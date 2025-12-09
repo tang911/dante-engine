@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.converter.argument;
 
 import org.dromara.dante.assistant.oss.definition.domain.SseCustomerDomain;
 import org.dromara.dante.assistant.oss.entity.argument.HeadObjectArgument;
-import cn.herodotus.dante.core.utils.DateTimeUtils;
+import org.dromara.dante.core.utils.DateTimeUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.HeadObjectRequest;

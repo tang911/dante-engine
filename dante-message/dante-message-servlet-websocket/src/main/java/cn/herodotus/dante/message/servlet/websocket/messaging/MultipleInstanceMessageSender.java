@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.servlet.websocket.messaging;
 
-import cn.herodotus.dante.spring.context.ServiceContextHolder;
+import org.dromara.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.dante.message.core.domain.StreamMessage;
 import cn.herodotus.dante.message.core.domain.WebSocketMessage;

@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.config;
 
-import cn.herodotus.dante.web.autoconfigure.stamp.AccessLimitedStampManager;
-import cn.herodotus.dante.web.autoconfigure.stamp.IdempotentStampManager;
+import org.dromara.dante.web.autoconfigure.stamp.AccessLimitedStampManager;
+import org.dromara.dante.web.autoconfigure.stamp.IdempotentStampManager;
 import cn.herodotus.dante.webmvc.autoconfigure.secure.AccessLimitedInterceptor;
 import cn.herodotus.dante.webmvc.autoconfigure.secure.IdempotentInterceptor;
 import cn.herodotus.dante.webmvc.autoconfigure.secure.XssHttpServletFilter;

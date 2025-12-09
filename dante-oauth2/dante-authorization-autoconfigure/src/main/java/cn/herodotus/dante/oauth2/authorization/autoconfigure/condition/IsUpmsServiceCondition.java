@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure.condition;
 
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
+import org.dromara.dante.spring.condition.ConditionalOnServletApplication;
 import cn.herodotus.dante.rest.servlet.upms.config.RestServletUpmsConfiguration;
 import org.springframework.boot.autoconfigure.condition.AllNestedConditions;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

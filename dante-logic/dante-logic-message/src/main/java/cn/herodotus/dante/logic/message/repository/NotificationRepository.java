@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logic.message.repository;
 
-import cn.herodotus.dante.spring.exception.transaction.TransactionalRollbackException;
+import org.dromara.dante.spring.exception.transaction.TransactionalRollbackException;
 import org.dromara.dante.data.jpa.repository.BaseJpaRepository;
 import cn.herodotus.dante.logic.message.entity.Notification;
 import org.springframework.data.jpa.repository.Modifying;

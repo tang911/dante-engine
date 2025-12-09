@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.rest.servlet.upms.controller.hr;
 
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
 import cn.herodotus.dante.logic.upms.entity.hr.SysEmployee;
 import cn.herodotus.dante.logic.upms.enums.Gender;

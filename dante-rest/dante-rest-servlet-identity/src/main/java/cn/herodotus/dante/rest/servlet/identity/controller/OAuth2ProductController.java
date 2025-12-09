@@ -26,8 +26,8 @@
 package cn.herodotus.dante.rest.servlet.identity.controller;
 
 import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
-import cn.herodotus.dante.logic.identity.entity.OAuth2Product;
-import cn.herodotus.dante.logic.identity.service.OAuth2ProductService;
+import org.dromara.dante.logic.identity.entity.OAuth2Product;
+import org.dromara.dante.logic.identity.service.OAuth2ProductService;
 import org.dromara.dante.data.rest.servlet.AbstractJpaWriteableController;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;

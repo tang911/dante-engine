@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.security.domain.HerodotusGrantedAuthority;
-import cn.herodotus.dante.security.service.ClientDetailsService;
+import org.dromara.dante.security.domain.HerodotusGrantedAuthority;
+import org.dromara.dante.security.service.ClientDetailsService;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2AuthenticationProviderUtils;
 import cn.hutool.v7.core.reflect.FieldUtil;
 import org.slf4j.Logger;

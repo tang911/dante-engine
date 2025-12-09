@@ -26,10 +26,10 @@
 package cn.herodotus.dante.rest.oss.controller;
 
 import org.dromara.dante.assistant.oss.service.logic.PresignedUrlService;
-import cn.herodotus.dante.core.domain.Result;
-import cn.herodotus.dante.web.annotation.Idempotent;
-import cn.herodotus.dante.web.definition.Controller;
-import cn.herodotus.dante.web.definition.dto.OssPresigned;
+import org.dromara.dante.core.domain.Result;
+import org.dromara.dante.web.annotation.Idempotent;
+import org.dromara.dante.web.definition.Controller;
+import org.dromara.dante.web.definition.dto.OssPresigned;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.security.constant.OAuth2ErrorKeys;
-import cn.herodotus.dante.security.service.EnhanceUserDetailsService;
+import org.dromara.dante.security.constant.OAuth2ErrorKeys;
+import org.dromara.dante.security.service.EnhanceUserDetailsService;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2EndpointUtils;
 import cn.herodotus.dante.oauth2.commons.exception.AccountEndpointLimitedException;
 import cn.herodotus.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;

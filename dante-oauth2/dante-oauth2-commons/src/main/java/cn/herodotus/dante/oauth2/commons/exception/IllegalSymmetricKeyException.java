@@ -26,9 +26,9 @@
 package cn.herodotus.dante.oauth2.commons.exception;
 
 
-import cn.herodotus.dante.core.constant.ErrorCodes;
-import cn.herodotus.dante.core.domain.Feedback;
-import cn.herodotus.dante.security.exception.PlatformAuthenticationException;
+import org.dromara.dante.core.constant.ErrorCodes;
+import org.dromara.dante.core.domain.Feedback;
+import org.dromara.dante.security.exception.PlatformAuthenticationException;
 
 /**
  * <p> Description : 非法加密Key HerodotusException </p>

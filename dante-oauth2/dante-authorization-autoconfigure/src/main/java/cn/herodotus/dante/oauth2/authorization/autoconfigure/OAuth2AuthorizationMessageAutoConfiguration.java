@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure;
 
-import cn.herodotus.dante.spring.condition.ConditionalOnArchitecture;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
-import cn.herodotus.dante.spring.enums.Architecture;
+import org.dromara.dante.spring.condition.ConditionalOnArchitecture;
+import org.dromara.dante.spring.condition.ConditionalOnServletApplication;
+import org.dromara.dante.spring.enums.Architecture;
 import cn.herodotus.dante.message.core.definition.strategy.EnumDictionaryGatherEventManager;
 import cn.herodotus.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.listener.RemoteAttributeTransmitterSyncListener;

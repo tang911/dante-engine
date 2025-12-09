@@ -25,11 +25,11 @@
 
 package cn.herodotus.dante.logic.upms.converter;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.core.domain.Dictionary;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.domain.Dictionary;
 import cn.herodotus.dante.logic.upms.entity.security.SysEnum;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import cn.hutool.v7.crypto.SecureUtil;
 import org.apache.commons.lang3.StringUtils;
 

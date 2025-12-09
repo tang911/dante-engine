@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.converter;
 
-import cn.herodotus.dante.security.domain.HerodotusGrantedAuthority;
+import org.dromara.dante.security.domain.HerodotusGrantedAuthority;
 import cn.herodotus.dante.oauth2.persistence.sas.jpa.entity.HerodotusAuthorizationConsent;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.dao.DataRetrievalFailureException;

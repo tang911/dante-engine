@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.tenant;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.core.context.TenantContextHolder;
-import cn.herodotus.dante.web.servlet.utils.HeaderUtils;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.context.TenantContextHolder;
+import org.dromara.dante.web.servlet.utils.HeaderUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;

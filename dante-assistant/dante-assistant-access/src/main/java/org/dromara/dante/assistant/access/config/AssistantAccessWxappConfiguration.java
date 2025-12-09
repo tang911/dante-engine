@@ -29,7 +29,7 @@ import org.dromara.dante.assistant.access.condition.ConditionalOnWxappEnabled;
 import org.dromara.dante.assistant.access.processor.WxappAccessHandler;
 import org.dromara.dante.assistant.access.processor.WxappProcessor;
 import org.dromara.dante.assistant.access.properties.WxappProperties;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.security.enums.AccountCategory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

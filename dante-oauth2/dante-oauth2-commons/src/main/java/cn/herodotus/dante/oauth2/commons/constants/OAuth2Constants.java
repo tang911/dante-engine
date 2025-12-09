@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.commons.constants;
 
-import cn.herodotus.dante.core.constant.BaseConstants;
+import org.dromara.dante.core.constant.BaseConstants;
 
 /**
  * <p>Description: OAuth2 模块通用常量 </p>

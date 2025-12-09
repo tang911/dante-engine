@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.core.domain;
 
-import cn.herodotus.dante.core.domain.BaseModel;
+import org.dromara.dante.core.domain.BaseModel;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 

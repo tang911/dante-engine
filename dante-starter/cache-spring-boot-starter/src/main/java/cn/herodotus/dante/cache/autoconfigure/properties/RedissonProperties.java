@@ -26,8 +26,8 @@
 package cn.herodotus.dante.cache.autoconfigure.properties;
 
 import org.dromara.dante.cache.commons.constants.CacheConstants;
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.enums.Protocol;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.enums.Protocol;
 import com.google.common.base.MoreObjects;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;

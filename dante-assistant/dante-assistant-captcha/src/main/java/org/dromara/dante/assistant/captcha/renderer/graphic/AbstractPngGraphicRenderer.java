@@ -26,8 +26,8 @@
 package org.dromara.dante.assistant.captcha.renderer.graphic;
 
 import org.dromara.dante.assistant.captcha.provider.ResourceProvider;
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.domain.captcha.Metadata;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.domain.captcha.Metadata;
 import org.apache.commons.lang3.StringUtils;
 
 import java.awt.image.BufferedImage;

@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.definition;
 
-import cn.herodotus.dante.security.domain.RegisteredClientDetails;
+import org.dromara.dante.security.domain.RegisteredClientDetails;
 import cn.herodotus.dante.oauth2.commons.utils.OAuth2AuthenticationUtils;
 import cn.hutool.v7.core.date.DateUtil;
 import org.springframework.core.convert.converter.Converter;

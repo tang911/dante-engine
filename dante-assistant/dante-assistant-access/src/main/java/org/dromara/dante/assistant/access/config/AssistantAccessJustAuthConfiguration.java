@@ -30,7 +30,7 @@ import org.dromara.dante.assistant.access.processor.JustAuthAccessHandler;
 import org.dromara.dante.assistant.access.processor.JustAuthProcessor;
 import org.dromara.dante.assistant.access.properties.JustAuthProperties;
 import org.dromara.dante.assistant.access.stamp.JustAuthStateStampManager;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.security.enums.AccountCategory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

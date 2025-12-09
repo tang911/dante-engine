@@ -35,7 +35,7 @@ import org.dromara.dante.assistant.captcha.renderer.hutool.CircleCaptchaRenderer
 import org.dromara.dante.assistant.captcha.renderer.hutool.GifCaptchaRenderer;
 import org.dromara.dante.assistant.captcha.renderer.hutool.LineCaptchaRenderer;
 import org.dromara.dante.assistant.captcha.renderer.hutool.ShearCaptchaRenderer;
-import cn.herodotus.dante.spring.enums.CaptchaCategory;
+import org.dromara.dante.spring.enums.CaptchaCategory;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

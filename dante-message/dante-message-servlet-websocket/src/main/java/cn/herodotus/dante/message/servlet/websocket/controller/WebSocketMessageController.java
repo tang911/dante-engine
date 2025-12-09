@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.servlet.websocket.controller;
 
-import cn.herodotus.dante.core.domain.Result;
+import org.dromara.dante.core.domain.Result;
 import cn.herodotus.dante.message.servlet.websocket.definition.WebSocketMessageSender;
 import cn.herodotus.dante.message.servlet.websocket.utils.WebSocketUtils;
 import io.swagger.v3.oas.annotations.Operation;

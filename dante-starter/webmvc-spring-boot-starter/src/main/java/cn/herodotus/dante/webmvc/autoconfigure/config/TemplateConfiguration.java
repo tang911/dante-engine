@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.config;
 
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

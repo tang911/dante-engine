@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.message.servlet.websocket.interceptor;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.security.domain.UserPrincipal;
-import cn.herodotus.dante.security.oauth2.BearerTokenResolver;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.security.domain.UserPrincipal;
+import org.dromara.dante.security.oauth2.BearerTokenResolver;
 import cn.herodotus.dante.message.servlet.websocket.utils.WebSocketUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

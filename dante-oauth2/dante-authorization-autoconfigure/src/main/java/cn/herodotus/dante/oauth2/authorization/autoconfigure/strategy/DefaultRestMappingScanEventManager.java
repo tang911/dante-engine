@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure.strategy;
 
-import cn.herodotus.dante.spring.context.ServiceContextHolder;
+import org.dromara.dante.spring.context.ServiceContextHolder;
 import cn.herodotus.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.dante.message.core.domain.RestMapping;
 import cn.herodotus.dante.message.core.event.RestMappingGatherEvent;

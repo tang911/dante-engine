@@ -25,11 +25,11 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.core.utils.ListUtils;
-import cn.herodotus.dante.web.exception.SessionInvalidException;
-import cn.herodotus.dante.web.servlet.utils.SessionUtils;
-import cn.herodotus.dante.security.constant.OAuth2ErrorKeys;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.core.utils.ListUtils;
+import org.dromara.dante.web.exception.SessionInvalidException;
+import org.dromara.dante.web.servlet.utils.SessionUtils;
+import org.dromara.dante.security.constant.OAuth2ErrorKeys;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2EndpointUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;

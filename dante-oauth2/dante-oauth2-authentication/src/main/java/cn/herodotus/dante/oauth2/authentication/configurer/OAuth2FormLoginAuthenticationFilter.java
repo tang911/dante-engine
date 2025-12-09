@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.configurer;
 
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.web.servlet.utils.SessionUtils;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.servlet.utils.SessionUtils;
 import cn.herodotus.dante.oauth2.authentication.provider.OAuth2FormLoginAuthenticationToken;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

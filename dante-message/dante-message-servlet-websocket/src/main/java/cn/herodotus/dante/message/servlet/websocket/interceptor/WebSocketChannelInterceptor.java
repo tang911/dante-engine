@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.servlet.websocket.interceptor;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.constant.SystemConstants;
 import cn.herodotus.dante.message.servlet.websocket.domain.WebSocketPrincipal;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

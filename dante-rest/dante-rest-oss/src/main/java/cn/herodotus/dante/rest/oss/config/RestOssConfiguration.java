@@ -26,7 +26,7 @@
 package cn.herodotus.dante.rest.oss.config;
 
 import org.dromara.dante.assistant.oss.config.AssistantOssConfiguration;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
+import org.dromara.dante.spring.condition.ConditionalOnServletApplication;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

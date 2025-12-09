@@ -26,12 +26,11 @@
 package cn.herodotus.dante.oauth2.authorization.autoconfigure;
 
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.listener.*;
-import cn.herodotus.dante.spring.condition.ConditionalOnArchitecture;
-import cn.herodotus.dante.spring.enums.Architecture;
+import org.dromara.dante.spring.condition.ConditionalOnArchitecture;
+import org.dromara.dante.spring.enums.Architecture;
 import cn.herodotus.dante.logic.upms.annotation.EnableHerodotusLogicUpms;
 import cn.herodotus.dante.logic.upms.service.security.SysUserService;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.condition.ConditionalOnUpmsService;
-import cn.herodotus.dante.oauth2.authorization.autoconfigure.listener.*;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.processor.AttributeTransmitterDistributeProcessor;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.processor.EnumDictionaryGatherProcessor;
 import jakarta.annotation.PostConstruct;

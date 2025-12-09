@@ -31,7 +31,7 @@ import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
 import org.dromara.dante.assistant.oss.definition.domain.DeletedObjectDomain;
 import org.dromara.dante.assistant.oss.definition.domain.S3ErrorDomain;
 import org.dromara.dante.assistant.oss.entity.result.DeleteObjectsResult;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import org.apache.commons.collections4.CollectionUtils;
 import software.amazon.awssdk.services.s3.model.DeleteObjectsResponse;
 import software.amazon.awssdk.services.s3.model.DeletedObject;

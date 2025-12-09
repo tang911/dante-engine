@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.commons.exception;
 
-import cn.herodotus.dante.core.constant.ErrorCodes;
-import cn.herodotus.dante.core.domain.Feedback;
+import org.dromara.dante.core.constant.ErrorCodes;
+import org.dromara.dante.core.domain.Feedback;
 
 /**
  * <p>Description: 验证码为空 </p>

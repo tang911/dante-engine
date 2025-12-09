@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.oauth2.authentication.customizer;
 
-import cn.herodotus.dante.security.domain.AccessPrincipal;
-import cn.herodotus.dante.security.domain.HerodotusUser;
-import cn.herodotus.dante.security.service.EnhanceUserDetailsService;
-import cn.herodotus.dante.security.strategy.StrategyUserDetailsService;
+import org.dromara.dante.security.domain.AccessPrincipal;
+import org.dromara.dante.security.domain.HerodotusUser;
+import org.dromara.dante.security.service.EnhanceUserDetailsService;
+import org.dromara.dante.security.strategy.StrategyUserDetailsService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.extension.dto;
 
-import cn.herodotus.dante.core.domain.BaseDto;
+import org.dromara.dante.core.domain.BaseDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 

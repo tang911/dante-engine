@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.logic.message.enums;
 
-import cn.herodotus.dante.core.domain.Dictionary;
-import cn.herodotus.dante.core.domain.DictionaryEnum;
+import org.dromara.dante.core.domain.Dictionary;
+import org.dromara.dante.core.domain.DictionaryEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 

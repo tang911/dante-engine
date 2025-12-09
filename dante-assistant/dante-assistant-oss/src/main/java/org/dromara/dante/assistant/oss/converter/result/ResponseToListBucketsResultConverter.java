@@ -31,7 +31,7 @@ import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
 import org.dromara.dante.assistant.oss.definition.domain.BucketDomain;
 import org.dromara.dante.assistant.oss.definition.domain.OwnerDomain;
 import org.dromara.dante.assistant.oss.entity.result.ListBucketsResult;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.Bucket;
 import software.amazon.awssdk.services.s3.model.ListBucketsResponse;

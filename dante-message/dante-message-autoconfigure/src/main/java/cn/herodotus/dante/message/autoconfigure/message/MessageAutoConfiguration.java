@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.autoconfigure.message;
 
-import cn.herodotus.dante.core.function.ErrorCodeMapperBuilderCustomizer;
+import org.dromara.dante.core.function.ErrorCodeMapperBuilderCustomizer;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

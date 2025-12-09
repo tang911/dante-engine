@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.cache.autoconfigure.config;
 
-import cn.herodotus.dante.spring.utils.ResourceResolverUtils;
+import org.dromara.dante.spring.utils.ResourceResolverUtils;
 import cn.herodotus.dante.cache.autoconfigure.annotation.ConditionalOnRedisson;
 import cn.herodotus.dante.cache.autoconfigure.properties.RedissonProperties;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

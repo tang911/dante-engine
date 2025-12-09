@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authentication.configurer;
 
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import cn.herodotus.dante.oauth2.authentication.customizer.OAuth2ExceptionHandlingConfigurerCustomizer;
 import cn.herodotus.dante.oauth2.authentication.customizer.OAuth2FormLoginConfigurerCustomizer;
 import cn.herodotus.dante.oauth2.authentication.response.OAuth2AccessTokenResponseHandler;

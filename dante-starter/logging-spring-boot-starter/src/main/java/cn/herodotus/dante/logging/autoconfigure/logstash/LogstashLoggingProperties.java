@@ -26,7 +26,7 @@
 package cn.herodotus.dante.logging.autoconfigure.logstash;
 
 import ch.qos.logback.core.util.Duration;
-import cn.herodotus.dante.core.constant.BaseConstants;
+import org.dromara.dante.core.constant.BaseConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**

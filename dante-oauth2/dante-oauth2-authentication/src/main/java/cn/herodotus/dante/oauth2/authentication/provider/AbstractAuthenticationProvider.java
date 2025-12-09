@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.security.domain.HerodotusUser;
+import org.dromara.dante.security.domain.HerodotusUser;
 import cn.herodotus.dante.oauth2.commons.utils.PrincipalUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

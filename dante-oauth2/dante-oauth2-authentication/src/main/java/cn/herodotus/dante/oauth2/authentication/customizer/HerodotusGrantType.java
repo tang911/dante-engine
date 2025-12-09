@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authentication.customizer;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.constant.SystemConstants;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 
 /**

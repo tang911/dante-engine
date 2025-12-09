@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.oauth2.commons.utils;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.security.domain.HerodotusUser;
-import cn.herodotus.dante.security.domain.UserPrincipal;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.security.domain.HerodotusUser;
+import org.dromara.dante.security.domain.UserPrincipal;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;

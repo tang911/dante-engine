@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.oss.utils;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.hutool.v7.http.html.HtmlUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;

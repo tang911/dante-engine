@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.core.definition;
 
-import cn.herodotus.dante.spring.context.AbstractApplicationEvent;
+import org.dromara.dante.spring.context.AbstractApplicationEvent;
 import cn.herodotus.dante.message.core.domain.Message;
 import org.springframework.context.ApplicationListener;
 

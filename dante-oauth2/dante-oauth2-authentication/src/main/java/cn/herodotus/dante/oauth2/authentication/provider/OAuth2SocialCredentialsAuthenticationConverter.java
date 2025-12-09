@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.security.enums.AccountCategory;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.security.enums.AccountCategory;
 import cn.herodotus.dante.oauth2.authentication.customizer.HerodotusGrantType;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2EndpointUtils;
 import jakarta.servlet.http.HttpServletRequest;

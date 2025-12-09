@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logging.autoconfigure;
 
-import cn.herodotus.dante.core.constant.BaseConstants;
+import org.dromara.dante.core.constant.BaseConstants;
 import com.google.common.base.MoreObjects;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.logging.LogLevel;

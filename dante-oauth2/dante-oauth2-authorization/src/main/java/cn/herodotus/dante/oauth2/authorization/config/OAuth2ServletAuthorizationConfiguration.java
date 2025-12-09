@@ -31,9 +31,9 @@ import cn.herodotus.dante.oauth2.authorization.servlet.OAuth2SessionManagementCo
 import cn.herodotus.dante.oauth2.authorization.servlet.ServletOAuth2AuthorizationConfigurerManager;
 import cn.herodotus.dante.oauth2.authorization.servlet.ServletOAuth2ResourceMatcherConfigurer;
 import cn.herodotus.dante.oauth2.authorization.servlet.ServletSecurityAuthorizationManager;
-import cn.herodotus.dante.security.properties.OAuth2AuthorizationProperties;
-import cn.herodotus.dante.spring.condition.ConditionalOnServletApplication;
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
+import org.dromara.dante.spring.condition.ConditionalOnServletApplication;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

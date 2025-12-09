@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure;
 
-import cn.herodotus.dante.security.exception.SecurityGlobalExceptionHandler;
+import org.dromara.dante.security.exception.SecurityGlobalExceptionHandler;
 import cn.herodotus.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.listener.RemoteAttributeTransmitterSyncListener;
 import cn.herodotus.dante.oauth2.authorization.autoconfigure.strategy.DefaultRestMappingScanEventManager;

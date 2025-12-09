@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.tenant;
 
-import cn.herodotus.dante.core.constant.SystemConstants;
-import cn.herodotus.dante.core.context.TenantContextHolder;
-import cn.herodotus.dante.web.servlet.utils.HeaderUtils;
-import cn.herodotus.dante.web.servlet.utils.SessionUtils;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.context.TenantContextHolder;
+import org.dromara.dante.web.servlet.utils.HeaderUtils;
+import org.dromara.dante.web.servlet.utils.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;

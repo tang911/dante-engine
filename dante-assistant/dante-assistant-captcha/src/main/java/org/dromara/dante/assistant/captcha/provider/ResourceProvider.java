@@ -28,7 +28,7 @@ package org.dromara.dante.assistant.captcha.provider;
 import org.dromara.dante.assistant.captcha.enums.CaptchaResource;
 import org.dromara.dante.assistant.captcha.enums.FontStyle;
 import org.dromara.dante.assistant.captcha.properties.CaptchaProperties;
-import cn.herodotus.dante.spring.utils.ResourceResolverUtils;
+import org.dromara.dante.spring.utils.ResourceResolverUtils;
 import cn.hutool.v7.core.data.id.IdUtil;
 import cn.hutool.v7.core.io.IORuntimeException;
 import cn.hutool.v7.core.io.file.FileUtil;

@@ -25,12 +25,12 @@
 
 package cn.herodotus.dante.oauth2.authorization.processor;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.oauth2.authorization.servlet.ServletOAuth2ResourceMatcherConfigurer;
-import cn.herodotus.dante.security.domain.AttributeTransmitter;
-import cn.herodotus.dante.security.domain.HerodotusRequest;
-import cn.herodotus.dante.security.domain.HerodotusSecurityAttribute;
-import cn.herodotus.dante.spring.enums.UrlCategory;
+import org.dromara.dante.security.domain.AttributeTransmitter;
+import org.dromara.dante.security.domain.HerodotusRequest;
+import org.dromara.dante.security.domain.HerodotusSecurityAttribute;
+import org.dromara.dante.spring.enums.UrlCategory;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;

@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.rest.servlet.identity.controller;
 
-import cn.herodotus.dante.core.domain.SecretKey;
-import cn.herodotus.dante.core.enums.Protocol;
-import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import cn.herodotus.dante.web.servlet.utils.SessionUtils;
+import org.dromara.dante.core.domain.SecretKey;
+import org.dromara.dante.core.enums.Protocol;
+import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.servlet.utils.SessionUtils;
 import cn.herodotus.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
 import cn.hutool.v7.core.codec.binary.Base64;
 import com.google.common.net.HttpHeaders;

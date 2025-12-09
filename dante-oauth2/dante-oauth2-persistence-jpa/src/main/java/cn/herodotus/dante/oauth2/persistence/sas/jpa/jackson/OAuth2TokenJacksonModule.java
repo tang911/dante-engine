@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.persistence.sas.jpa.jackson;
 
-import cn.herodotus.dante.core.jackson.JacksonConstants;
+import org.dromara.dante.core.jackson.JacksonConstants;
 import org.springframework.security.jackson.SecurityJacksonModule;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -34,7 +34,6 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 import tools.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
-import tools.jackson.databind.module.SimpleModule;
 
 /**
  * <p>Description: 自定义 OAutho2 Module </p>

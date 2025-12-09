@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.logic.upms.definition;
 
-import cn.herodotus.dante.security.domain.AccessPrincipal;
-import cn.herodotus.dante.security.domain.HerodotusUser;
+import org.dromara.dante.security.domain.AccessPrincipal;
+import org.dromara.dante.security.domain.HerodotusUser;
 import org.springframework.security.core.AuthenticationException;
 
 /**

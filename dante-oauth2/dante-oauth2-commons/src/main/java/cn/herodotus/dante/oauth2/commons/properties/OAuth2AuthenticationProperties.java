@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.commons.properties;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
-import cn.herodotus.dante.spring.enums.Certificate;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.spring.enums.Certificate;
 import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;
 import com.google.common.base.MoreObjects;
 import org.apache.commons.lang3.StringUtils;

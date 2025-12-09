@@ -25,7 +25,7 @@
 
 package org.dromara.dante.assistant.captcha.constant;
 
-import cn.herodotus.dante.core.constant.BaseConstants;
+import org.dromara.dante.core.constant.BaseConstants;
 
 /**
  * <p>Description: 验证码常量 </p>

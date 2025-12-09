@@ -30,7 +30,7 @@ import org.dromara.dante.assistant.oss.converter.domain.S3ObjectsToDomainConvert
 import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
 import org.dromara.dante.assistant.oss.definition.domain.ObjectDomain;
 import org.dromara.dante.assistant.oss.entity.result.ListObjectsV2Result;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.spring.founction.ListConverter;
 import org.apache.commons.collections4.CollectionUtils;
 import software.amazon.awssdk.services.s3.model.CommonPrefix;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;

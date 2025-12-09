@@ -27,7 +27,7 @@ package cn.herodotus.dante.logic.upms.config;
 
 import org.dromara.dante.assistant.access.config.AssistantAccessConfiguration;
 import org.dromara.dante.assistant.access.factory.AccessHandlerStrategyFactory;
-import cn.herodotus.dante.core.function.EnumDictionaryBuilderCustomizer;
+import org.dromara.dante.core.function.EnumDictionaryBuilderCustomizer;
 import cn.herodotus.dante.logic.upms.customizer.UpmsEnumDictionaryBuilderCustomizer;
 import cn.herodotus.dante.logic.upms.definition.SocialAuthenticationHandler;
 import cn.herodotus.dante.logic.upms.handler.DefaultSocialAuthenticationHandler;

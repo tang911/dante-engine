@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.message.core.event;
 
-import cn.herodotus.dante.core.domain.Dictionary;
-import cn.herodotus.dante.spring.context.AbstractApplicationEvent;
+import org.dromara.dante.core.domain.Dictionary;
+import org.dromara.dante.spring.context.AbstractApplicationEvent;
 
 import java.util.List;
 

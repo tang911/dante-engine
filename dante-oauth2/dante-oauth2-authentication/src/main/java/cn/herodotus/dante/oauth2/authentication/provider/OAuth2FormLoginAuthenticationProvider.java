@@ -25,13 +25,13 @@
 
 package cn.herodotus.dante.oauth2.authentication.provider;
 
-import cn.herodotus.dante.core.domain.captcha.Verification;
-import cn.herodotus.dante.spring.exception.captcha.CaptchaHasExpiredException;
-import cn.herodotus.dante.spring.exception.captcha.CaptchaIsEmptyException;
-import cn.herodotus.dante.spring.exception.captcha.CaptchaMismatchException;
-import cn.herodotus.dante.spring.exception.captcha.CaptchaParameterIllegalException;
-import cn.herodotus.dante.spring.support.captcha.CaptchaRendererFactory;
-import cn.herodotus.dante.security.domain.FormLoginWebAuthenticationDetails;
+import org.dromara.dante.core.domain.captcha.Verification;
+import org.dromara.dante.spring.exception.captcha.CaptchaHasExpiredException;
+import org.dromara.dante.spring.exception.captcha.CaptchaIsEmptyException;
+import org.dromara.dante.spring.exception.captcha.CaptchaMismatchException;
+import org.dromara.dante.spring.exception.captcha.CaptchaParameterIllegalException;
+import org.dromara.dante.spring.support.captcha.CaptchaRendererFactory;
+import org.dromara.dante.security.domain.FormLoginWebAuthenticationDetails;
 import cn.herodotus.dante.oauth2.commons.exception.OAuth2CaptchaArgumentIllegalException;
 import cn.herodotus.dante.oauth2.commons.exception.OAuth2CaptchaHasExpiredException;
 import cn.herodotus.dante.oauth2.commons.exception.OAuth2CaptchaIsEmptyException;

@@ -27,7 +27,7 @@ package org.dromara.dante.cache.caffeine.enhance;
 
 import org.dromara.dante.cache.commons.properties.CacheProperties;
 import org.dromara.dante.cache.commons.properties.CacheSetting;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.apache.commons.collections4.MapUtils;

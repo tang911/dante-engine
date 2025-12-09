@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.argument;
 
 import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectRequestPayerArgument;
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 

@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.core.definition.strategy;
 
-import cn.herodotus.dante.core.domain.Dictionary;
+import org.dromara.dante.core.domain.Dictionary;
 
 import java.util.List;
 

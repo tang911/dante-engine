@@ -25,7 +25,7 @@
 
 package org.dromara.dante.data.jpa.repository;
 
-import cn.herodotus.dante.core.domain.BaseEntity;
+import org.dromara.dante.core.domain.BaseEntity;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;
 import org.springframework.data.domain.Page;

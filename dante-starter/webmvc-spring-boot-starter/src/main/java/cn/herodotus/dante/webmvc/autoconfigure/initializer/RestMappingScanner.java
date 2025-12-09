@@ -25,12 +25,12 @@
 
 package cn.herodotus.dante.webmvc.autoconfigure.initializer;
 
-import cn.herodotus.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
 import cn.herodotus.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import cn.herodotus.dante.message.core.domain.RestMapping;
-import cn.herodotus.dante.web.autoconfigure.initializer.AbstractRestMappingScanner;
-import cn.herodotus.dante.web.autoconfigure.properties.ServiceProperties;
-import cn.herodotus.dante.web.support.WebPropertyFinder;
+import org.dromara.dante.web.autoconfigure.initializer.AbstractRestMappingScanner;
+import org.dromara.dante.web.autoconfigure.properties.ServiceProperties;
+import org.dromara.dante.web.support.WebPropertyFinder;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;

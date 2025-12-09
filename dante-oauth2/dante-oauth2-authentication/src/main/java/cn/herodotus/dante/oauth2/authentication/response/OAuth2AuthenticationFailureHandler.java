@@ -25,10 +25,10 @@
 
 package cn.herodotus.dante.oauth2.authentication.response;
 
-import cn.herodotus.dante.security.exception.SecurityGlobalExceptionHandler;
+import org.dromara.dante.security.exception.SecurityGlobalExceptionHandler;
 import cn.herodotus.dante.oauth2.authentication.utils.OAuth2EndpointUtils;
-import cn.herodotus.dante.web.servlet.template.AbstractResponseHandler;
-import cn.herodotus.dante.web.servlet.template.ThymeleafTemplateHandler;
+import org.dromara.dante.web.servlet.template.AbstractResponseHandler;
+import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

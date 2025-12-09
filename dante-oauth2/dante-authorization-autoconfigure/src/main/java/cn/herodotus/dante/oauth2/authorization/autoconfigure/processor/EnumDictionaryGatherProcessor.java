@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.oauth2.authorization.autoconfigure.processor;
 
-import cn.herodotus.dante.core.domain.Dictionary;
-import cn.herodotus.dante.spring.founction.ListConverter;
+import org.dromara.dante.core.domain.Dictionary;
+import org.dromara.dante.spring.founction.ListConverter;
 import cn.herodotus.dante.logic.upms.converter.SysEnumToSysDictionaryConverter;
 import cn.herodotus.dante.logic.upms.entity.security.SysDictionary;
 import cn.herodotus.dante.logic.upms.entity.security.SysEnum;

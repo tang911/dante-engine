@@ -25,14 +25,14 @@
 
 package cn.herodotus.dante.rest.servlet.identity.controller;
 
-import cn.herodotus.dante.core.domain.Result;
-import cn.herodotus.dante.core.domain.captcha.Captcha;
-import cn.herodotus.dante.core.domain.captcha.Verification;
-import cn.herodotus.dante.spring.support.captcha.CaptchaRendererFactory;
+import org.dromara.dante.core.domain.Result;
+import org.dromara.dante.core.domain.captcha.Captcha;
+import org.dromara.dante.core.domain.captcha.Verification;
+import org.dromara.dante.spring.support.captcha.CaptchaRendererFactory;
 import org.dromara.dante.data.rest.servlet.PaginationController;
-import cn.herodotus.dante.web.annotation.AccessLimited;
-import cn.herodotus.dante.web.annotation.Crypto;
-import cn.herodotus.dante.web.annotation.Idempotent;
+import org.dromara.dante.web.annotation.AccessLimited;
+import org.dromara.dante.web.annotation.Crypto;
+import org.dromara.dante.web.annotation.Idempotent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
