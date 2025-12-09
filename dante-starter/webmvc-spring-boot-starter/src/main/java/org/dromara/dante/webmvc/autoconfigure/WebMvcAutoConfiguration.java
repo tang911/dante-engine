@@ -25,6 +25,7 @@
 
 package org.dromara.dante.webmvc.autoconfigure;
 
+import jakarta.annotation.PostConstruct;
 import org.dromara.dante.core.constant.SecurityResources;
 import org.dromara.dante.web.autoconfigure.WebAutoConfiguration;
 import org.dromara.dante.webmvc.autoconfigure.config.SecureConfiguration;
@@ -33,7 +34,6 @@ import org.dromara.dante.webmvc.autoconfigure.config.TenantConfiguration;
 import org.dromara.dante.webmvc.autoconfigure.secure.AccessLimitedInterceptor;
 import org.dromara.dante.webmvc.autoconfigure.secure.IdempotentInterceptor;
 import org.dromara.dante.webmvc.autoconfigure.tenant.MultiTenantInterceptor;
-import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;

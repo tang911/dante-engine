@@ -26,8 +26,8 @@
 package org.dromara.dante.web.autoconfigure.stamp;
 
 import org.dromara.dante.cache.jetcache.stamp.AbstractStampManager;
-import org.dromara.dante.web.constant.WebConstants;
 import org.dromara.dante.web.autoconfigure.properties.SecureProperties;
+import org.dromara.dante.web.constant.WebConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
