@@ -25,12 +25,6 @@
 
 package org.dromara.dante.data.tenant.autoconfigure.controller;
 
-import org.dromara.dante.data.tenant.autoconfigure.entity.SysTenantDataSource;
-import org.dromara.dante.data.tenant.autoconfigure.service.SysTenantDataSourceService;
-import org.dromara.dante.core.domain.Result;
-import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
-import org.dromara.dante.data.rest.servlet.AbstractJpaWriteableController;
-import org.dromara.dante.web.annotation.AccessLimited;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -40,6 +34,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import org.dromara.dante.core.domain.Result;
+import org.dromara.dante.data.jpa.service.BaseJpaWriteableService;
+import org.dromara.dante.data.rest.servlet.AbstractJpaWriteableController;
+import org.dromara.dante.data.tenant.autoconfigure.entity.SysTenantDataSource;
+import org.dromara.dante.data.tenant.autoconfigure.service.SysTenantDataSourceService;
+import org.dromara.dante.web.annotation.AccessLimited;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

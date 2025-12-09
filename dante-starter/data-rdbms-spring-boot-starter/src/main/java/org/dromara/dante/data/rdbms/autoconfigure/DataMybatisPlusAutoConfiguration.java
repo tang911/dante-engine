@@ -25,8 +25,6 @@
 
 package org.dromara.dante.data.rdbms.autoconfigure;
 
-import org.dromara.dante.core.constant.BaseConstants;
-import org.dromara.dante.data.rdbms.autoconfigure.enhance.HerodotusIdentifierGenerator;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -35,6 +33,8 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.dromara.dante.core.constant.BaseConstants;
+import org.dromara.dante.data.rdbms.autoconfigure.enhance.HerodotusIdentifierGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

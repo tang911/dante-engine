@@ -25,9 +25,9 @@
 
 package org.dromara.dante.facility.kafka.autoconfigure;
 
+import jakarta.annotation.PostConstruct;
 import org.dromara.dante.facility.kafka.autoconfigure.annotation.ConditionalOnKafkaEnabled;
 import org.dromara.dante.facility.kafka.autoconfigure.properties.KafkaProperties;
-import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;

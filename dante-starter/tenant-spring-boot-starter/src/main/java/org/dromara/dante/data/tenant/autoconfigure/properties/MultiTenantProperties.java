@@ -25,9 +25,9 @@
 
 package org.dromara.dante.data.tenant.autoconfigure.properties;
 
+import com.google.common.base.MoreObjects;
 import org.dromara.dante.data.tenant.autoconfigure.constant.TenantConstants;
 import org.dromara.dante.data.tenant.autoconfigure.enums.MultiTenant;
-import com.google.common.base.MoreObjects;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
