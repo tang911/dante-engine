@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.message.servlet.websocket.definition;
 
-import cn.herodotus.dante.cache.redis.utils.RedisBitMapUtils;
+import org.dromara.dante.cache.redis.utils.RedisBitMapUtils;
 import cn.herodotus.dante.message.core.constants.MessageConstants;
 import cn.herodotus.dante.message.servlet.websocket.domain.WebSocketPrincipal;
 import cn.herodotus.dante.message.servlet.websocket.utils.WebSocketUtils;

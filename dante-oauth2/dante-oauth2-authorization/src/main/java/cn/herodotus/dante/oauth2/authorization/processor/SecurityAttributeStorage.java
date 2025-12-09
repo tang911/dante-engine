@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.oauth2.authorization.processor;
 
-import cn.herodotus.dante.cache.jetcache.utils.JetCacheUtils;
+import org.dromara.dante.cache.jetcache.utils.JetCacheUtils;
 import cn.herodotus.dante.oauth2.authorization.matcher.HerodotusPathPatternRequestMatcher;
 import cn.herodotus.dante.oauth2.authorization.matcher.HerodotusRequestMatcher;
 import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;

@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.web.autoconfigure.secure;
 
-import cn.herodotus.dante.cache.commons.exception.StampHasExpiredException;
-import cn.herodotus.dante.cache.jetcache.stamp.AbstractStampManager;
+import org.dromara.dante.cache.commons.exception.StampHasExpiredException;
+import org.dromara.dante.cache.jetcache.stamp.AbstractStampManager;
 import cn.herodotus.dante.core.domain.SecretKey;
 import cn.herodotus.dante.core.support.crypto.AsymmetricCryptoProcessor;
 import cn.herodotus.dante.core.support.crypto.DigitalEnvelopeProcessor;
