@@ -29,7 +29,7 @@ import org.dromara.dante.logic.identity.entity.OAuth2Scope;
 import org.dromara.dante.logic.identity.enums.AllJwsAlgorithm;
 import org.dromara.dante.logic.identity.enums.SignatureJwsAlgorithm;
 import org.dromara.dante.logic.identity.enums.TokenFormat;
-import cn.herodotus.dante.oauth2.persistence.sas.jpa.definition.AbstractRegisteredClient;
+import org.dromara.dante.oauth2.persistence.sas.jpa.definition.AbstractRegisteredClient;
 import cn.hutool.v7.core.data.id.IdUtil;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;

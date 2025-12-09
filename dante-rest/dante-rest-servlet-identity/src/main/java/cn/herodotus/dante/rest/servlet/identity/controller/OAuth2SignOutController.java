@@ -27,7 +27,7 @@ package cn.herodotus.dante.rest.servlet.identity.controller;
 
 import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.spring.context.ServiceContextHolder;
-import cn.herodotus.dante.oauth2.persistence.sas.jpa.event.SignOutComplianceEvent;
+import org.dromara.dante.oauth2.persistence.sas.jpa.event.SignOutComplianceEvent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

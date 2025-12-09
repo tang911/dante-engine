@@ -32,7 +32,7 @@ import org.dromara.dante.logic.identity.converter.OAuth2ApplicationToRegisteredC
 import org.dromara.dante.logic.identity.entity.OAuth2Application;
 import org.dromara.dante.logic.identity.entity.OAuth2Scope;
 import org.dromara.dante.logic.identity.repository.OAuth2ApplicationRepository;
-import cn.herodotus.dante.oauth2.persistence.sas.jpa.repository.HerodotusRegisteredClientRepository;
+import org.dromara.dante.oauth2.persistence.sas.jpa.repository.HerodotusRegisteredClientRepository;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

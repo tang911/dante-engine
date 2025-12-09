@@ -27,7 +27,7 @@ package org.dromara.dante.logic.identity.entity;
 
 import org.dromara.dante.data.commons.enums.ApplicationType;
 import org.dromara.dante.logic.identity.definition.AbstractOAuth2RegisteredClient;
-import cn.herodotus.dante.oauth2.commons.constants.OAuth2Constants;
+import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;

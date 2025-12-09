@@ -29,7 +29,7 @@ import org.dromara.dante.core.domain.SecretKey;
 import org.dromara.dante.core.enums.Protocol;
 import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.web.servlet.utils.SessionUtils;
-import cn.herodotus.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
+import org.dromara.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
 import cn.hutool.v7.core.codec.binary.Base64;
 import com.google.common.net.HttpHeaders;
 import jakarta.servlet.http.HttpServletRequest;
