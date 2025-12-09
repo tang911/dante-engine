@@ -32,13 +32,14 @@
 
     <parent>
         <groupId>org.dromara.dante</groupId>
-        <artifactId>dependencies</artifactId>
+        <artifactId>dante-bom</artifactId>
         <version>4.0.0.0-M3</version>
-        <relativePath>dependencies/pom.xml</relativePath>
+        <relativePath>dante-bom/pom.xml</relativePath>
     </parent>
 
     <artifactId>dante-engine</artifactId>
     <name>dante-engine</name>
+
     <packaging>pom</packaging>
 
     <description>Dante Engine</description>
@@ -104,7 +105,7 @@
     </profiles>
 
     <modules>
-        <module>dependencies</module>
+        <module>dante-bom</module>
         <module>dante-assistant</module>
         <module>dante-cache</module>
         <module>dante-data</module>

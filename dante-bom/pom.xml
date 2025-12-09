@@ -36,9 +36,9 @@
     </parent>
 
     <groupId>org.dromara.dante</groupId>
-    <artifactId>dependencies</artifactId>
+    <artifactId>dante-bom</artifactId>
     <version>4.0.0.0-M3</version>
-    <name>Dante Engine Dependencies</name>
+    <name>Dante Engine Bom</name>
     <packaging>pom</packaging>
 
     <description>基于 Spring Authorization Server 的 Dante Cloud Dependencies</description>
