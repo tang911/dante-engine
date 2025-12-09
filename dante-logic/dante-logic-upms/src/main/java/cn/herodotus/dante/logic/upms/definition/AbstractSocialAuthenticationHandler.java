@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.logic.upms.definition;
 
-import cn.herodotus.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
+import org.dromara.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
 import cn.herodotus.dante.oauth2.commons.exception.SocialCredentialsUserBindingFailedException;
 import cn.herodotus.dante.oauth2.commons.exception.UsernameAlreadyExistsException;
 import cn.herodotus.dante.security.domain.AccessPrincipal;

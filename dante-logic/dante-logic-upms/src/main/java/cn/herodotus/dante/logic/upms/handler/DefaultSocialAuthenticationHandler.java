@@ -25,9 +25,9 @@
 
 package cn.herodotus.dante.logic.upms.handler;
 
-import cn.herodotus.dante.assistant.access.definition.domain.AccessUserDetails;
-import cn.herodotus.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
-import cn.herodotus.dante.assistant.access.factory.AccessHandlerStrategyFactory;
+import org.dromara.dante.assistant.access.definition.domain.AccessUserDetails;
+import org.dromara.dante.assistant.access.exception.AccessIdentityVerificationFailedException;
+import org.dromara.dante.assistant.access.factory.AccessHandlerStrategyFactory;
 import cn.herodotus.dante.logic.upms.converter.SysUserToHerodotusUserConverter;
 import cn.herodotus.dante.logic.upms.definition.AbstractSocialAuthenticationHandler;
 import cn.herodotus.dante.logic.upms.definition.SocialUserDetails;

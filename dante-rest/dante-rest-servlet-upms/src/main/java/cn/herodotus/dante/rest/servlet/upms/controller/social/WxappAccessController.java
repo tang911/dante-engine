@@ -26,8 +26,8 @@
 package cn.herodotus.dante.rest.servlet.upms.controller.social;
 
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
-import cn.herodotus.dante.assistant.access.definition.domain.AccessResponse;
-import cn.herodotus.dante.assistant.access.factory.AccessHandlerStrategyFactory;
+import org.dromara.dante.assistant.access.definition.domain.AccessResponse;
+import org.dromara.dante.assistant.access.factory.AccessHandlerStrategyFactory;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.security.enums.AccountCategory;
 import cn.herodotus.dante.rest.servlet.upms.dto.WxappProfile;

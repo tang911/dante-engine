@@ -25,20 +25,20 @@
 
 package cn.herodotus.dante.rest.oss.controller;
 
-import cn.herodotus.dante.assistant.oss.converter.result.ResponseToPutObjectResultConverter;
-import cn.herodotus.dante.assistant.oss.definition.converter.ResponseConverter;
-import cn.herodotus.dante.assistant.oss.entity.argument.DeleteObjectArgument;
-import cn.herodotus.dante.assistant.oss.entity.argument.DeleteObjectsArgument;
-import cn.herodotus.dante.assistant.oss.entity.argument.GetObjectArgument;
-import cn.herodotus.dante.assistant.oss.entity.argument.ListObjectsV2Argument;
-import cn.herodotus.dante.assistant.oss.entity.result.DeleteObjectResult;
-import cn.herodotus.dante.assistant.oss.entity.result.DeleteObjectsResult;
-import cn.herodotus.dante.assistant.oss.entity.result.ListObjectsV2Result;
-import cn.herodotus.dante.assistant.oss.entity.result.PutObjectResult;
-import cn.herodotus.dante.assistant.oss.exception.DownloadObjectException;
-import cn.herodotus.dante.assistant.oss.exception.UploadObjectException;
-import cn.herodotus.dante.assistant.oss.service.base.S3TransferManagerService;
-import cn.herodotus.dante.assistant.oss.service.servlet.ServletObjectService;
+import org.dromara.dante.assistant.oss.converter.result.ResponseToPutObjectResultConverter;
+import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
+import org.dromara.dante.assistant.oss.entity.argument.DeleteObjectArgument;
+import org.dromara.dante.assistant.oss.entity.argument.DeleteObjectsArgument;
+import org.dromara.dante.assistant.oss.entity.argument.GetObjectArgument;
+import org.dromara.dante.assistant.oss.entity.argument.ListObjectsV2Argument;
+import org.dromara.dante.assistant.oss.entity.result.DeleteObjectResult;
+import org.dromara.dante.assistant.oss.entity.result.DeleteObjectsResult;
+import org.dromara.dante.assistant.oss.entity.result.ListObjectsV2Result;
+import org.dromara.dante.assistant.oss.entity.result.PutObjectResult;
+import org.dromara.dante.assistant.oss.exception.DownloadObjectException;
+import org.dromara.dante.assistant.oss.exception.UploadObjectException;
+import org.dromara.dante.assistant.oss.service.base.S3TransferManagerService;
+import org.dromara.dante.assistant.oss.service.servlet.ServletObjectService;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.rest.oss.service.ServletObjectStreamService;
 import cn.herodotus.dante.web.annotation.AccessLimited;

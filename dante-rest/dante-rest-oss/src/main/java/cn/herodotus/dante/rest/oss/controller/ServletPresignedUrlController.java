@@ -25,7 +25,7 @@
 
 package cn.herodotus.dante.rest.oss.controller;
 
-import cn.herodotus.dante.assistant.oss.service.logic.PresignedUrlService;
+import org.dromara.dante.assistant.oss.service.logic.PresignedUrlService;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.web.annotation.Idempotent;
 import cn.herodotus.dante.web.definition.Controller;

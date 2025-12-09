@@ -25,8 +25,8 @@
 
 package cn.herodotus.dante.rest.servlet.upms.controller.social;
 
-import cn.herodotus.dante.assistant.access.definition.domain.AccessResponse;
-import cn.herodotus.dante.assistant.access.factory.AccessHandlerStrategyFactory;
+import org.dromara.dante.assistant.access.definition.domain.AccessResponse;
+import org.dromara.dante.assistant.access.factory.AccessHandlerStrategyFactory;
 import cn.herodotus.dante.core.domain.Result;
 import cn.herodotus.dante.security.enums.AccountCategory;
 import io.swagger.v3.oas.annotations.Operation;
