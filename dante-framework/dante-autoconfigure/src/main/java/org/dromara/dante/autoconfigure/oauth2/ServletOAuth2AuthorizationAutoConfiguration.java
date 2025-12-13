@@ -30,13 +30,11 @@ import org.dromara.dante.autoconfigure.context.ServletServiceContextAutoConfigur
 import org.dromara.dante.security.condition.ConditionalOnTokenFormat;
 import org.dromara.dante.security.condition.TokenFormat;
 import org.dromara.dante.security.oauth2.BearerTokenResolver;
-import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.security.oauth2.server.resource.autoconfigure.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,7 +46,6 @@ import org.springframework.security.oauth2.server.resource.introspection.OpaqueT
 
 @AutoConfiguration(after = ServletServiceContextAutoConfiguration.class)
 @ConditionalOnClass(BearerTokenAuthenticationToken.class)
-@EnableConfigurationProperties({OAuth2AuthorizationProperties.class})
 @Import({
         ServletRestControllerAdvice.class
 })

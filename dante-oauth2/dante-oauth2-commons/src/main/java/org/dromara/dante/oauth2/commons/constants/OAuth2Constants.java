@@ -26,6 +26,9 @@
 package org.dromara.dante.oauth2.commons.constants;
 
 import org.dromara.dante.core.constant.BaseConstants;
+import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SystemConstants;
+import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
 
 /**
  * <p>Description: OAuth2 模块通用常量 </p>
@@ -36,8 +39,20 @@ import org.dromara.dante.core.constant.BaseConstants;
 public interface OAuth2Constants extends BaseConstants {
 
     String PROPERTY_SIGN_IN_FAILURE_LIMITED = PROPERTY_OAUTH2_AUTHENTICATION + ".sign-in-failure-limited";
+    String PROPERTY_FORMLOGIN = PROPERTY_OAUTH2_AUTHENTICATION + ".form-login";
 
     String ITEM_SIGN_IN_FAILURE_LIMITED_AUTO_UNLOCK = PROPERTY_SIGN_IN_FAILURE_LIMITED + ".auto-unlock";
+    String ITEM_FORMLOGIN_LOGINPAGEURL = PROPERTY_FORMLOGIN + ".login-page-url";
+    String ITEM_AUTHORIZATION_CONSENT_URI = PROPERTY_OAUTH2_AUTHENTICATION + ".authorization-consent-uri";
+
+    /**
+     * ${herodotus.oauth2.authentication.authorization-consent-uri:/oauth2/consent}
+     */
+    String ANNOTATION_AUTHORIZATION_CONSENT_URI = PLACEHOLDER_PREFIX + ITEM_AUTHORIZATION_CONSENT_URI + SymbolConstants.COLON + SystemConstants.OAUTH2_AUTHORIZATION_CONSENT_URI + PLACEHOLDER_SUFFIX;
+    /**
+     * ${herodotus.oauth2.authentication.form-login.login-page-url:/login}
+     */
+    String ANNOTATION_FORMLOGIN_LOGINPAGEURL = PLACEHOLDER_PREFIX + ITEM_FORMLOGIN_LOGINPAGEURL + SymbolConstants.COLON + DefaultLoginPageGeneratingFilter.DEFAULT_LOGIN_PAGE_URL + PLACEHOLDER_SUFFIX;
 
     String REGION_OAUTH2_AUTHORIZATION = AREA_PREFIX + "oauth2:authorization";
     String REGION_OAUTH2_AUTHORIZATION_CONSENT = AREA_PREFIX + "oauth2:authorization:consent";

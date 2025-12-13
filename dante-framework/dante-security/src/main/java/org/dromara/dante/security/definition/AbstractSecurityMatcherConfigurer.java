@@ -26,12 +26,10 @@
 package org.dromara.dante.security.definition;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.dromara.dante.core.constant.SecurityResources;
-import org.dromara.dante.core.utils.ListUtils;
+import org.dromara.dante.core.builder.SecurityMatcher;
 import org.dromara.dante.security.domain.HerodotusRequest;
 import org.dromara.dante.security.domain.HerodotusSecurityAttribute;
 import org.dromara.dante.security.enums.PermissionExpression;
-import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -45,17 +43,17 @@ import java.util.Map;
  */
 public abstract class AbstractSecurityMatcherConfigurer {
 
-    private final OAuth2AuthorizationProperties authorizationProperties;
     private final List<String> staticResources;
     private final List<String> permitAllResources;
     private final List<String> hasAuthenticatedResources;
     private final Map<HerodotusRequest, List<HerodotusSecurityAttribute>> permitAllAttributes;
+    private final boolean strictMode;
 
-    protected AbstractSecurityMatcherConfigurer(OAuth2AuthorizationProperties authorizationProperties) {
-        this.authorizationProperties = authorizationProperties;
-        this.staticResources = ListUtils.merge(authorizationProperties.getMatcher().getStaticResources(), SecurityResources.DEFAULT_IGNORED_STATIC_RESOURCES);
-        this.permitAllResources = ListUtils.merge(authorizationProperties.getMatcher().getPermitAll(), SecurityResources.DEFAULT_PERMIT_ALL_RESOURCES);
-        this.hasAuthenticatedResources = ListUtils.merge(authorizationProperties.getMatcher().getHasAuthenticated(), SecurityResources.DEFAULT_HAS_AUTHENTICATED_RESOURCES);
+    protected AbstractSecurityMatcherConfigurer(boolean strictMode, SecurityMatcher securityMatcher) {
+        this.strictMode = strictMode;
+        this.staticResources = securityMatcher.getStaticResources();
+        this.permitAllResources = securityMatcher.getPermitAllResources();
+        this.hasAuthenticatedResources = securityMatcher.getHasAuthenticatedResources();
         this.permitAllAttributes = createPermitAllAttributes(permitAllResources);
     }
 
@@ -80,7 +78,7 @@ public abstract class AbstractSecurityMatcherConfigurer {
     }
 
     public boolean isStrictMode() {
-        return authorizationProperties.getStrict();
+        return strictMode;
     }
 
     protected List<String> getStaticResources() {

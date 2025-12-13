@@ -28,12 +28,12 @@ package org.dromara.dante.rest.servlet.identity.controller;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.dromara.dante.core.constant.SymbolConstants;
-import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.core.domain.view.vue.Option;
 import org.dromara.dante.logic.identity.entity.OAuth2Application;
 import org.dromara.dante.logic.identity.entity.OAuth2Scope;
 import org.dromara.dante.logic.identity.service.OAuth2ApplicationService;
 import org.dromara.dante.logic.identity.service.OAuth2ScopeService;
+import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
 import org.dromara.dante.spring.context.ServiceContextHolder;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -82,8 +82,9 @@ public class OAuth2ConsentController {
      * @param state     state参数
      * @return Consent页面
      */
-    @GetMapping(SystemConstants.OAUTH2_AUTHORIZATION_CONSENT_URI)
-    public String consent(Principal principal, Model model,
+    @GetMapping(OAuth2Constants.ANNOTATION_AUTHORIZATION_CONSENT_URI)
+    public String consent(
+            Principal principal, Model model,
                           @RequestParam(OAuth2ParameterNames.CLIENT_ID) String clientId,
                           @RequestParam(OAuth2ParameterNames.SCOPE) String scope,
                           @RequestParam(OAuth2ParameterNames.STATE) String state,

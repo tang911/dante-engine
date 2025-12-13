@@ -28,6 +28,7 @@ package org.dromara.dante.oauth2.commons.properties;
 import com.google.common.base.MoreObjects;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
 import org.dromara.dante.spring.enums.Certificate;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -46,6 +47,10 @@ import java.time.Duration;
 @ConfigurationProperties(prefix = OAuth2Constants.PROPERTY_OAUTH2_AUTHENTICATION)
 public class OAuth2AuthenticationProperties {
 
+    /**
+     * 授权确认页面地址
+     */
+    private String authorizationConsentUri = SystemConstants.OAUTH2_AUTHORIZATION_CONSENT_URI;
     /**
      * 开启登录失败限制
      */
@@ -67,6 +72,14 @@ public class OAuth2AuthenticationProperties {
     private Jwk jwk = new Jwk();
 
     private FormLogin formLogin = new FormLogin();
+
+    public String getAuthorizationConsentUri() {
+        return authorizationConsentUri;
+    }
+
+    public void setAuthorizationConsentUri(String authorizationConsentUri) {
+        this.authorizationConsentUri = authorizationConsentUri;
+    }
 
     public SignInEndpointLimited getSignInEndpointLimited() {
         return signInEndpointLimited;

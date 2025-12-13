@@ -99,6 +99,9 @@ public interface SystemConstants {
     String OAUTH2_DEVICE_VERIFICATION_SUCCESS_URI = "/device_activated";
     String OAUTH2_DEVICE_VERIFICATION_FAILURE_URI = "/device_activation_failure";
 
+    String MATCHER_STATIC = "/static/**";
+    String MATCHER_WEBJARS = "/webjars/**";
+
     String KEY__USER_PRINCIPAL = "USER_PRINCIPAL";
 
     /**

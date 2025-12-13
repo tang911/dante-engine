@@ -26,10 +26,14 @@
 package org.dromara.dante.rest.servlet.identity.config;
 
 import jakarta.annotation.PostConstruct;
+import org.dromara.dante.core.function.SecurityMatcherBuilderCustomizer;
 import org.dromara.dante.logic.identity.config.LogicIdentityConfiguration;
+import org.dromara.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
+import org.dromara.dante.rest.servlet.identity.customizer.IdentitySecurityMatcherBuilderCustomizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -52,5 +56,12 @@ public class RestServletIdentityConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.debug("[Herodotus] |- Module [Rest Servlet Identity] Configure.");
+    }
+
+    @Bean
+    public SecurityMatcherBuilderCustomizer identitySecurityMatcherBuilderCustomizer(OAuth2AuthenticationProperties authenticationProperties) {
+        IdentitySecurityMatcherBuilderCustomizer customizer = new IdentitySecurityMatcherBuilderCustomizer(authenticationProperties);
+        log.debug("[Herodotus] |- Strategy [Identity Security Matcher Builder Customizer] Configure.");
+        return customizer;
     }
 }

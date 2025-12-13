@@ -31,11 +31,13 @@ import org.dromara.dante.oauth2.authorization.autoconfigure.listener.RemoteAttri
 import org.dromara.dante.oauth2.authorization.autoconfigure.strategy.DefaultRestMappingScanEventManager;
 import org.dromara.dante.oauth2.authorization.config.OAuth2ServletAuthorizationConfiguration;
 import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
+import org.dromara.dante.oauth2.commons.properties.OAuth2Properties;
 import org.dromara.dante.security.exception.SecurityGlobalExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.bus.ServiceMatcher;
 import org.springframework.cloud.bus.jackson.RemoteApplicationEventScan;
 import org.springframework.context.annotation.Bean;
@@ -53,6 +55,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @date : 2023/10/28 14:22
  */
 @AutoConfiguration
+@EnableConfigurationProperties({OAuth2Properties.class})
 @EnableAsync
 @EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 @Import({
