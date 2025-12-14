@@ -26,12 +26,9 @@
 package org.dromara.dante.reactive.container.autoconfigure;
 
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.core.function.SecurityMatcherBuilderCustomizer;
-import org.dromara.dante.reactive.container.autoconfigure.customizer.ContainerSecurityMatcherBuilderCustomizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.context.annotation.Bean;
 
 /**
  * <p>Description: Reactive 容器基础配置 </p>
@@ -47,12 +44,5 @@ public class ReactiveContainerAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.info("[Herodotus] |- Starter [Reactive Container] Configure.");
-    }
-
-    @Bean
-    public SecurityMatcherBuilderCustomizer containerSecurityMatcherBuilderCustomizer() {
-        ContainerSecurityMatcherBuilderCustomizer customizer = new ContainerSecurityMatcherBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Container Security Matcher Builder Customizer] Configure.");
-        return customizer;
     }
 }

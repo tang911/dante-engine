@@ -47,8 +47,7 @@ public class IdentitySecurityMatcherBuilderCustomizer implements SecurityMatcher
     public void customize(SecurityMatcher.Builder builder) {
         // Identity 模块中包含 Webjars 和 Static 资源
         builder.staticResources(List.of(
-                        SystemConstants.MATCHER_WEBJARS,
-                        SystemConstants.MATCHER_STATIC))
+                        SystemConstants.MATCHER_WEBJARS))
                 .permitAll(List.of(
                         "/open/**",
                         "/oauth2/sign-out",

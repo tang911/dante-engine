@@ -26,11 +26,8 @@
 package org.dromara.dante.servlet.container.autoconfigure;
 
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.core.function.SecurityMatcherBuilderCustomizer;
-import org.dromara.dante.servlet.container.autoconfigure.customizer.ContainerSecurityMatcherBuilderCustomizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 
 /**
  * <p>Description: Web 自动配置 </p>
@@ -45,12 +42,5 @@ public class ServletContainerAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.info("[Herodotus] |- Starter [Servlet Container] Configure.");
-    }
-
-    @Bean
-    public SecurityMatcherBuilderCustomizer containerSecurityMatcherBuilderCustomizer() {
-        ContainerSecurityMatcherBuilderCustomizer customizer = new ContainerSecurityMatcherBuilderCustomizer();
-        log.debug("[Herodotus] |- Strategy [Container Security Matcher Builder Customizer] Configure.");
-        return customizer;
     }
 }
