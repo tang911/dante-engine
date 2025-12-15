@@ -26,7 +26,7 @@
 package org.dromara.dante.security.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
@@ -78,14 +78,12 @@ public class HerodotusSecurityAttribute implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusSecurityAttribute that = (HerodotusSecurityAttribute) o;
-        return Objects.equal(attribute, that.attribute);
+        return Objects.equals(attribute, that.attribute);
     }
 
     @Override

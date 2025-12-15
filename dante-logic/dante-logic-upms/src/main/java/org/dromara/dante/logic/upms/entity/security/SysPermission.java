@@ -26,7 +26,7 @@
 package org.dromara.dante.logic.upms.entity.security;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.dromara.dante.data.jpa.entity.AbstractSysEntity;
@@ -87,14 +87,12 @@ public class SysPermission extends AbstractSysEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SysPermission that = (SysPermission) o;
-        return Objects.equal(permissionId, that.permissionId);
+        return Objects.equals(permissionId, that.permissionId);
     }
 
     @Override

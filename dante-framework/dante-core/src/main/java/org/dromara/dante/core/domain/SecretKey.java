@@ -26,7 +26,7 @@
 package org.dromara.dante.core.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -123,19 +123,17 @@ public class SecretKey implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SecretKey secretKey = (SecretKey) o;
-        return Objects.equal(identity, secretKey.identity) && Objects.equal(timestamp, secretKey.timestamp);
+        return Objects.equals(identity, secretKey.identity) && Objects.equals(timestamp, secretKey.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(identity, timestamp);
+        return Objects.hash(identity, timestamp);
     }
 
     @Override

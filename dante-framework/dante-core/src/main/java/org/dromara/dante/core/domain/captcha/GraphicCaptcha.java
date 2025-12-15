@@ -26,7 +26,7 @@
 package org.dromara.dante.core.domain.captcha;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 /**
  * <p>Description: 图形验证码 </p>
@@ -54,14 +54,12 @@ public class GraphicCaptcha extends Captcha {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         GraphicCaptcha that = (GraphicCaptcha) o;
-        return Objects.equal(graphicImageBase64, that.graphicImageBase64);
+        return Objects.equals(graphicImageBase64, that.graphicImageBase64);
     }
 
     @Override

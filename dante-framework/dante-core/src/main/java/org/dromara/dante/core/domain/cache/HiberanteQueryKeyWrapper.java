@@ -25,7 +25,7 @@
 
 package org.dromara.dante.core.domain.cache;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 import java.io.Serializable;
 
@@ -55,7 +55,7 @@ public class HiberanteQueryKeyWrapper implements Serializable {
             return false;
         }
         HiberanteQueryKeyWrapper cacheKey = (HiberanteQueryKeyWrapper) o;
-        return Objects.equal(key, cacheKey.key);
+        return Objects.equals(key, cacheKey.key);
     }
 
     @Override

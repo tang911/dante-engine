@@ -161,9 +161,7 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }

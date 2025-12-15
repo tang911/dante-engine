@@ -26,7 +26,7 @@
 package org.dromara.dante.message.servlet.websocket.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.dromara.dante.security.domain.UserPrincipal;
 
 import java.security.Principal;
@@ -117,14 +117,12 @@ public class WebSocketPrincipal implements Principal {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         WebSocketPrincipal that = (WebSocketPrincipal) o;
-        return Objects.equal(userId, that.userId);
+        return Objects.equals(userId, that.userId);
     }
 
     @Override

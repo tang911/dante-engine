@@ -26,7 +26,7 @@
 package org.dromara.dante.message.core.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.dromara.dante.security.domain.AbstractRest;
 
 /**
@@ -92,14 +92,12 @@ public class RestMapping extends AbstractRest {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         RestMapping that = (RestMapping) o;
-        return Objects.equal(mappingId, that.mappingId);
+        return Objects.equals(mappingId, that.mappingId);
     }
 
     @Override

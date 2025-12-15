@@ -26,7 +26,7 @@
 package org.dromara.dante.security.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 /**
  * <p>Description: Security Metadata 传输数据实体 </p>
@@ -111,14 +111,12 @@ public class AttributeTransmitter extends AbstractRest {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         AttributeTransmitter that = (AttributeTransmitter) o;
-        return Objects.equal(attributeId, that.attributeId);
+        return Objects.equals(attributeId, that.attributeId);
     }
 
     @Override

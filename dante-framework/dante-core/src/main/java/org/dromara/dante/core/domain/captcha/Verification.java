@@ -26,7 +26,7 @@
 package org.dromara.dante.core.domain.captcha;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 import java.util.List;
 
@@ -80,14 +80,12 @@ public class Verification extends Captcha {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Verification that = (Verification) o;
-        return Objects.equal(characters, that.characters);
+        return Objects.equals(characters, that.characters);
     }
 
     @Override

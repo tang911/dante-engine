@@ -26,7 +26,7 @@
 package org.dromara.dante.security.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.apache.commons.collections4.CollectionUtils;
 import org.dromara.dante.security.jackson.HerodotusUserDeserializer;
 import org.springframework.security.core.CredentialsContainer;
@@ -197,14 +197,12 @@ public class HerodotusUser implements UserDetails, CredentialsContainer {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusUser that = (HerodotusUser) o;
-        return Objects.equal(userId, that.userId) && Objects.equal(username, that.username);
+        return Objects.equals(userId, that.userId) && Objects.equals(username, that.username);
     }
 
     /**
@@ -212,7 +210,7 @@ public class HerodotusUser implements UserDetails, CredentialsContainer {
      */
     @Override
     public int hashCode() {
-        return Objects.hashCode(userId, username);
+        return Objects.hash(userId, username);
     }
 
     @Override

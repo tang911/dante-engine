@@ -26,7 +26,7 @@
 package org.dromara.dante.security.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
@@ -119,7 +119,7 @@ public final class HerodotusRequest implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(pattern, httpMethod, version);
+        return Objects.hash(pattern, httpMethod, version);
     }
 
     @Override

@@ -26,7 +26,7 @@
 package org.dromara.dante.oauth2.persistence.sas.jpa.entity;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import jakarta.persistence.*;
 import org.dromara.dante.core.domain.BaseEntity;
 import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
@@ -85,19 +85,17 @@ public class HerodotusAuthorizationConsent implements BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusAuthorizationConsent that = (HerodotusAuthorizationConsent) o;
-        return Objects.equal(registeredClientId, that.registeredClientId) && Objects.equal(principalName, that.principalName);
+        return Objects.equals(registeredClientId, that.registeredClientId) && Objects.equals(principalName, that.principalName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(registeredClientId, principalName);
+        return Objects.hash(registeredClientId, principalName);
     }
 
     @Override
