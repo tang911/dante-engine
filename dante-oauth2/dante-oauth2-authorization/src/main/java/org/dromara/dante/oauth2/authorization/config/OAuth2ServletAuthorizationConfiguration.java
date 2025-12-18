@@ -26,19 +26,24 @@
 package org.dromara.dante.oauth2.authorization.config;
 
 import jakarta.annotation.PostConstruct;
+import org.dromara.dante.core.builder.SecurityMatcher;
+import org.dromara.dante.core.function.SecurityMatcherBuilderCustomizer;
+import org.dromara.dante.oauth2.authorization.customizer.OAuth2AuthorizationSecurityMatcherBuilderCustomizer;
 import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
 import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeStorage;
+import org.dromara.dante.oauth2.authorization.properties.OAuth2AuthorizationProperties;
 import org.dromara.dante.oauth2.authorization.servlet.OAuth2SessionManagementConfigurerCustomer;
 import org.dromara.dante.oauth2.authorization.servlet.ServletOAuth2AuthorizationConfigurerManager;
 import org.dromara.dante.oauth2.authorization.servlet.ServletOAuth2ResourceMatcherConfigurer;
 import org.dromara.dante.oauth2.authorization.servlet.ServletSecurityAuthorizationManager;
-import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
-import org.dromara.dante.spring.condition.ConditionalOnServletApplication;
+import org.dromara.dante.oauth2.commons.properties.OAuth2Properties;
 import org.dromara.dante.web.servlet.template.ThymeleafTemplateHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -55,7 +60,8 @@ import org.springframework.web.servlet.resource.ResourceUrlProvider;
  * @date : 2022/1/23 15:42
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnServletApplication
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+@EnableConfigurationProperties({OAuth2AuthorizationProperties.class})
 @EnableMethodSecurity(proxyTargetClass = true, securedEnabled = true, jsr250Enabled = true)
 @Import({
         OAuth2ServletSessionConfiguration.class,
@@ -67,6 +73,13 @@ public class OAuth2ServletAuthorizationConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.debug("[Herodotus] |- Module [OAuth2 Servlet Authorization] Configure.");
+    }
+
+    @Bean
+    public SecurityMatcherBuilderCustomizer oauth2AuthorizationSecurityMatcherBuilderCustomizer(OAuth2AuthorizationProperties authorizationProperties) {
+        OAuth2AuthorizationSecurityMatcherBuilderCustomizer customizer = new OAuth2AuthorizationSecurityMatcherBuilderCustomizer(authorizationProperties);
+        log.debug("[Herodotus] |- Strategy [OAuth2 Authorization Security Matcher Builder Customizer] Configure.");
+        return customizer;
     }
 
     @Bean
@@ -93,8 +106,8 @@ public class OAuth2ServletAuthorizationConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public ServletOAuth2ResourceMatcherConfigurer servletSecurityMatcherConfigurer(OAuth2AuthorizationProperties authorizationProperties, ResourceUrlProvider resourceUrlProvider) {
-        ServletOAuth2ResourceMatcherConfigurer configurer = new ServletOAuth2ResourceMatcherConfigurer(authorizationProperties, resourceUrlProvider);
+    public ServletOAuth2ResourceMatcherConfigurer servletSecurityMatcherConfigurer(OAuth2AuthorizationProperties authorizationProperties, ResourceUrlProvider resourceUrlProvider, SecurityMatcher securityMatcher) {
+        ServletOAuth2ResourceMatcherConfigurer configurer = new ServletOAuth2ResourceMatcherConfigurer(authorizationProperties, resourceUrlProvider, securityMatcher);
         log.trace("[Herodotus] |- Bean [Servlet Security Matcher Configurer] Configure.");
         return configurer;
     }
@@ -103,7 +116,7 @@ public class OAuth2ServletAuthorizationConfiguration {
     @ConditionalOnMissingBean
     public ServletOAuth2AuthorizationConfigurerManager servletOAuth2AuthorizationFacadeConfigurer(
             ThymeleafTemplateHandler thymeleafTemplateHandler,
-            OAuth2AuthorizationProperties oauth2AuthorizationProperties,
+            OAuth2Properties oauth2Properties,
             JwtDecoder jwtDecoder,
             OpaqueTokenIntrospector opaqueTokenIntrospector,
             OAuth2SessionManagementConfigurerCustomer sessionManagementConfigurerCustomer,
@@ -111,7 +124,7 @@ public class OAuth2ServletAuthorizationConfiguration {
             ServletSecurityAuthorizationManager servletSecurityAuthorizationManager) {
         ServletOAuth2AuthorizationConfigurerManager configurer = new ServletOAuth2AuthorizationConfigurerManager(
                 thymeleafTemplateHandler,
-                oauth2AuthorizationProperties,
+                oauth2Properties,
                 jwtDecoder,
                 opaqueTokenIntrospector,
                 sessionManagementConfigurerCustomer,

@@ -37,7 +37,7 @@
 
     <groupId>org.dromara.dante</groupId>
     <artifactId>dante-bom</artifactId>
-    <version>4.0.0.0-M4</version>
+    <version>4.0.0.0-M5</version>
     <name>Dante Engine Bom</name>
     <packaging>pom</packaging>
 
@@ -88,7 +88,7 @@
         <maven-archetype-plugin.version>3.4.1</maven-archetype-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 
-        <alipay-sdk-java.version>4.40.572.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.40.576.ALL</alipay-sdk-java.version>
         <animated-gif-lib.version>1.4</animated-gif-lib.version>
         <antisamy.version>1.7.8</antisamy.version>
         <bcpkix-jdk18on.version>1.83</bcpkix-jdk18on.version>
@@ -101,9 +101,9 @@
         <fastjson2.version>2.0.60</fastjson2.version>
         <guava.version>33.5.0-jre</guava.version>
         <hutool.version>7.0.0-M3</hutool.version>
-        <hypersistence-utils-hibernate-71.version>3.13.2</hypersistence-utils-hibernate-71.version>
+        <hypersistence-utils-hibernate-71.version>3.14.1</hypersistence-utils-hibernate-71.version>
         <influxdb-client.version>7.4.0</influxdb-client.version>
-        <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
+        <jasypt-spring-boot-starter.version>4.0.3</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.8</jetcache.version>
         <justauth.verison>1.18.2</justauth.verison>
         <logstash-logback-encoder.version>9.0</logstash-logback-encoder.version>
@@ -114,11 +114,11 @@
         <opengauss-jdbc.version>6.0.2-og</opengauss-jdbc.version>
         <org.eclipse.paho.version>1.2.5</org.eclipse.paho.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <redisson.version>3.52.0</redisson.version>
+        <redisson.version>4.0.0</redisson.version>
         <skywalking.version>9.5.0</skywalking.version>
         <sms4j-spring-boot-starter.version>3.3.5</sms4j-spring-boot-starter.version>
-        <software.amazon.awssdk.version>2.40.3</software.amazon.awssdk.version>
-        <software.amazon.awssdk.crt.version>0.40.3</software.amazon.awssdk.crt.version>
+        <software.amazon.awssdk.version>2.40.11</software.amazon.awssdk.version>
+        <software.amazon.awssdk.crt.version>0.41.0</software.amazon.awssdk.crt.version>
         <springdoc.version>3.0.0</springdoc.version>
         <spring-boot-dependencies.version>4.0.0</spring-boot-dependencies.version>
         <spring-boot-admin-dependencies.version>3.5.6</spring-boot-admin-dependencies.version>
@@ -126,7 +126,7 @@
         <spring-cloud-alibaba-dependencies.version>2025.0.0.0</spring-cloud-alibaba-dependencies.version>
         <spring-cloud-tencent-dependencies.version>2.1.0.2-2024.0.2</spring-cloud-tencent-dependencies.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <weixin-java.version>4.7.9-20251205.162836</weixin-java.version>
+        <weixin-java.version>4.7.9-20251215.153044</weixin-java.version>
         <zxing.version>3.5.4</zxing.version>
 
         <!--Webjars 主要用于内置基于 thymeleaf 的自定义页面-->
@@ -135,8 +135,8 @@
         <jquery.version>3.7.1</jquery.version>
         <mdi__font.version>7.4.47</mdi__font.version>
         <quasar.version>2.18.6</quasar.version>
-        <sm-crypto-v2.version>1.15.0</sm-crypto-v2.version>
-        <sweetalert2.verison>11.26.4</sweetalert2.verison>
+        <sm-crypto-v2.version>1.15.1</sm-crypto-v2.version>
+        <sweetalert2.verison>11.26.10</sweetalert2.verison>
         <tabler.version>1.4.0</tabler.version>
         <vue.version>3.5.25</vue.version>
 
@@ -827,23 +827,6 @@
     </dependencyManagement>
 
     <build>
-        <resources>
-            <!-- 先指定 src/main/resources下所有文件及文件夹为资源文件 -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.archetype</groupId>
-                <artifactId>archetype-packaging</artifactId>
-                <version>${archetype-packaging.verison}</version>
-            </extension>
-        </extensions>
         <pluginManagement>
             <plugins>
                 <plugin>

@@ -28,7 +28,7 @@ package org.dromara.dante.core.function;
 import org.dromara.dante.core.builder.ErrorCodeMapperBuilder;
 
 /**
- * <p>Description: ErrorCodeMapperBuilder 回调接口</p>
+ * <p>Description: ErrorCodeMapperBuilder 自定义器</p>
  * <p>
  * 实现了该接口的Bean，可以在自动配置阶段，通过ErrorCodeMapperBuilder进一步扩展错误码
  *

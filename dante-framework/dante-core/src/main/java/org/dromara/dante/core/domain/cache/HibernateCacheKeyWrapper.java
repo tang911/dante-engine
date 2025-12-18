@@ -26,7 +26,7 @@
 package org.dromara.dante.core.domain.cache;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 import java.io.Serializable;
 
@@ -57,7 +57,7 @@ public class HibernateCacheKeyWrapper implements Serializable {
             return false;
         }
         HibernateCacheKeyWrapper that = (HibernateCacheKeyWrapper) o;
-        return Objects.equal(key, that.key);
+        return Objects.equals(key, that.key);
     }
 
     @Override

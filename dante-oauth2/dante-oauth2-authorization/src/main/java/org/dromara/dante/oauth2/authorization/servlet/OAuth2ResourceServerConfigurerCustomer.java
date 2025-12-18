@@ -25,8 +25,6 @@
 
 package org.dromara.dante.oauth2.authorization.servlet;
 
-import org.dromara.dante.security.condition.TokenFormat;
-import org.dromara.dante.security.properties.OAuth2AuthorizationProperties;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
@@ -43,22 +41,18 @@ import org.springframework.security.oauth2.server.resource.web.DefaultBearerToke
 public class OAuth2ResourceServerConfigurerCustomer implements Customizer<OAuth2ResourceServerConfigurer<HttpSecurity>> {
 
     private final JwtDecoder jwtDecoder;
-    private final OAuth2AuthorizationProperties authorizationProperties;
     private final OpaqueTokenIntrospector opaqueTokenIntrospector;
+    private final boolean isRemoteValidate;
 
-    public OAuth2ResourceServerConfigurerCustomer(OAuth2AuthorizationProperties authorizationProperties, JwtDecoder jwtDecoder, OpaqueTokenIntrospector opaqueTokenIntrospector) {
+    public OAuth2ResourceServerConfigurerCustomer(boolean isRemoteValidate, JwtDecoder jwtDecoder, OpaqueTokenIntrospector opaqueTokenIntrospector) {
         this.jwtDecoder = jwtDecoder;
-        this.authorizationProperties = authorizationProperties;
+        this.isRemoteValidate = isRemoteValidate;
         this.opaqueTokenIntrospector = opaqueTokenIntrospector;
-    }
-
-    private boolean isRemoteValidate() {
-        return this.authorizationProperties.getTokenFormat() == TokenFormat.OPAQUE;
     }
 
     @Override
     public void customize(OAuth2ResourceServerConfigurer<HttpSecurity> configurer) {
-        if (isRemoteValidate()) {
+        if (isRemoteValidate) {
             configurer
                     .opaqueToken(opaque -> opaque.introspector(opaqueTokenIntrospector));
         } else {

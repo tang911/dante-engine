@@ -23,10 +23,9 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.security.properties;
+package org.dromara.dante.oauth2.authorization.properties;
 
 import org.dromara.dante.core.constant.BaseConstants;
-import org.dromara.dante.security.condition.TokenFormat;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
@@ -43,34 +42,21 @@ import java.util.List;
 public class OAuth2AuthorizationProperties {
 
     /**
-     * Token 校验是采用远程方式还是本地方式。
-     */
-    private TokenFormat tokenFormat = TokenFormat.OPAQUE;
-
-    /**
      * 是否使用严格模式。严格模式一定要求有权限，非严格模式没有权限管控的接口，只要认证通过也可以使用。
      */
-    private Boolean strict = true;
+    private Boolean strictMode = true;
 
     /**
      * 指定 Request Matcher 静态安全规则
      */
     private Matcher matcher = new Matcher();
 
-    public TokenFormat getTokenFormat() {
-        return tokenFormat;
+    public Boolean getStrictMode() {
+        return strictMode;
     }
 
-    public void setTokenFormat(TokenFormat tokenFormat) {
-        this.tokenFormat = tokenFormat;
-    }
-
-    public Boolean getStrict() {
-        return strict;
-    }
-
-    public void setStrict(Boolean strict) {
-        this.strict = strict;
+    public void setStrictMode(Boolean strictMode) {
+        this.strictMode = strictMode;
     }
 
     public Matcher getMatcher() {

@@ -28,7 +28,7 @@ package org.dromara.dante.core.function;
 import org.dromara.dante.core.builder.EnumDictionaryBuilder;
 
 /**
- * <p>Description: EnumDictionaryBuilder 回调接口 </p>
+ * <p>Description: EnumDictionaryBuilder 自定义器 </p>
  *
  * @author : gengwei.zheng
  * @date : 2024/8/23 15:48

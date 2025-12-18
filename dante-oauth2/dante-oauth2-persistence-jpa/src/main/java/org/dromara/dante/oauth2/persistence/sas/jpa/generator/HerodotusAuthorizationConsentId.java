@@ -26,9 +26,9 @@
 package org.dromara.dante.oauth2.persistence.sas.jpa.generator;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * <p>Description: OAuth2AuthorizationConsent 联合主键 </p>
@@ -79,19 +79,16 @@ public class HerodotusAuthorizationConsentId implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusAuthorizationConsentId that = (HerodotusAuthorizationConsentId) o;
-        return Objects.equal(registeredClientId, that.registeredClientId) && Objects.equal(principalName, that.principalName);
+        return Objects.equals(registeredClientId, that.registeredClientId) && Objects.equals(principalName, that.principalName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(registeredClientId, principalName);
+        return Objects.hash(registeredClientId, principalName);
     }
 
     @Override

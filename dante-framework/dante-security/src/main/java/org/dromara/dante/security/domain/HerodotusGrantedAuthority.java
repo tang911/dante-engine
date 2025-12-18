@@ -26,7 +26,7 @@
 package org.dromara.dante.security.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
@@ -57,14 +57,12 @@ public class HerodotusGrantedAuthority implements GrantedAuthority {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusGrantedAuthority that = (HerodotusGrantedAuthority) o;
-        return Objects.equal(authority, that.authority);
+        return Objects.equals(authority, that.authority);
     }
 
     @Override

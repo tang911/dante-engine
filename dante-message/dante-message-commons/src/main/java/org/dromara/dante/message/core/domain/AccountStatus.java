@@ -26,7 +26,7 @@
 package org.dromara.dante.message.core.domain;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.dromara.dante.core.domain.BaseModel;
 
 /**
@@ -68,19 +68,17 @@ public class AccountStatus implements BaseModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         AccountStatus that = (AccountStatus) o;
-        return Objects.equal(userId, that.userId) && Objects.equal(status, that.status);
+        return Objects.equals(userId, that.userId) && Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(userId, status);
+        return Objects.hash(userId, status);
     }
 
     @Override

@@ -26,7 +26,7 @@
 package org.dromara.dante.core.domain;
 
 import cn.hutool.v7.core.lang.Assert;
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 import java.io.Serializable;
 
@@ -94,14 +94,12 @@ public non-sealed class Feedback implements Serializable, BaseDomain {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Feedback feedback = (Feedback) o;
-        return Objects.equal(message, feedback.message);
+        return Objects.equals(message, feedback.message);
     }
 
     @Override

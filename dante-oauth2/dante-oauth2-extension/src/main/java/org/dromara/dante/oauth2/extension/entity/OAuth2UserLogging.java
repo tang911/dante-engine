@@ -26,7 +26,7 @@
 package org.dromara.dante.oauth2.extension.entity;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import jakarta.persistence.*;
 import org.dromara.dante.data.jpa.entity.AbstractAuditEntity;
 import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
@@ -214,14 +214,12 @@ public class OAuth2UserLogging extends AbstractAuditEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         OAuth2UserLogging that = (OAuth2UserLogging) o;
-        return Objects.equal(loggingId, that.loggingId);
+        return Objects.equals(loggingId, that.loggingId);
     }
 
     @Override

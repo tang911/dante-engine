@@ -27,7 +27,7 @@ package org.dromara.dante.logic.upms.entity.security;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.dromara.dante.data.commons.enums.ApplicationType;
@@ -262,14 +262,12 @@ public class SysElement extends AbstractSysEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SysElement sysMenu = (SysElement) o;
-        return Objects.equal(elementId, sysMenu.elementId);
+        return Objects.equals(elementId, sysMenu.elementId);
     }
 
     @Override

@@ -26,7 +26,7 @@
 package org.dromara.dante.logic.upms.entity.security;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.dromara.dante.data.jpa.entity.AbstractSysEntity;
@@ -180,14 +180,12 @@ public class SysAttribute extends AbstractSysEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SysAttribute that = (SysAttribute) o;
-        return Objects.equal(attributeId, that.attributeId);
+        return Objects.equals(attributeId, that.attributeId);
     }
 
     @Override

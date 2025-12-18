@@ -25,7 +25,7 @@
 
 package org.dromara.dante.facility.alibaba.autoconfigure.sentinel.enhance;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 import org.dromara.dante.core.constant.SymbolConstants;
 import org.dromara.dante.core.domain.Result;
 import org.dromara.dante.core.exception.GlobalExceptionHandler;
@@ -69,14 +69,12 @@ public class HerodotusFeignFallback<T> implements MethodInterceptor {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         HerodotusFeignFallback<?> that = (HerodotusFeignFallback<?>) o;
-        return Objects.equal(targetType, that.targetType);
+        return Objects.equals(targetType, that.targetType);
     }
 
     @Override

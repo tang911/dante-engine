@@ -36,6 +36,7 @@ import org.apache.commons.lang3.Strings;
 import org.dromara.dante.core.domain.SecretKey;
 import org.dromara.dante.core.enums.Protocol;
 import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
 import org.dromara.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;
 import org.dromara.dante.web.servlet.utils.SessionUtils;
 import org.springframework.boot.session.autoconfigure.SessionProperties;
@@ -71,7 +72,7 @@ public class OAuth2SignInController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = OAuth2Constants.ANNOTATION_FORMLOGIN_LOGINPAGEURL, method = RequestMethod.GET)
     public ModelAndView login(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView("login");

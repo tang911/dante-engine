@@ -28,7 +28,7 @@ package org.dromara.dante.logic.upms.entity.hr;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import java.util.Objects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.dromara.dante.data.jpa.entity.AbstractSysEntity;
@@ -198,14 +198,12 @@ public class SysDepartment extends AbstractSysEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SysDepartment that = (SysDepartment) o;
-        return Objects.equal(departmentId, that.departmentId);
+        return Objects.equals(departmentId, that.departmentId);
     }
 
     @Override

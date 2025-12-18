@@ -12,7 +12,7 @@
     <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-3.1.1-brightgreen.svg?logo=alibabadotcom" alt="Nacos 3.1.1"></a>
 </p>
 <p align="center">
-    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-4.0.0.0-M4-red.svg?logo=spring" alt="Version 4.0.0.0-M4"></a>
+    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-4.0.0.0-M5-red.svg?logo=spring" alt="Version 4.0.0.0-M5"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-25%2B-green.svg?logo=openjdk" alt="Java 25"></a>
     <a href="./LICENSE"><img src="https://shields.io/badge/License-Apache--2.0-blue.svg?logo=apache" alt="License Apache 2.0"></a>
     <a href="https://blog.csdn.net/Pointer_v" target="_blank"><img src="https://shields.io/badge/Author-%E7%A0%81%E5%8C%A0%E5%90%9B-orange" alt="码匠君"></a>
@@ -98,7 +98,7 @@
 
 ### 3. 重要说明
 
-**因频繁出现修改包名、删除作者版权信息、二次开源的行为，为保护作者权益，Dante Engine 子项目需登记申请，等审批后开放源码，[【查看详情或登记】](https://gitee.com/dromara/dante-cloud/issues/ICTBWZ)
+**因频繁出现修改包名、删除作者版权信息、二次开源的行为，为保护作者及使用者权益，Dante Engine 子项目需登记申请，等审批后开放源码，** [【查看详情或登记】](https://gitee.com/dromara/dante-cloud/issues/ICTBWZ)
 
 ## 项目特点
 
