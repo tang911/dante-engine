@@ -37,7 +37,7 @@
 
     <groupId>org.dromara.dante</groupId>
     <artifactId>dante-bom</artifactId>
-    <version>4.0.0.0-M4</version>
+    <version>4.0.0.0-M5</version>
     <name>Dante Engine Bom</name>
     <packaging>pom</packaging>
 
@@ -101,9 +101,9 @@
         <fastjson2.version>2.0.60</fastjson2.version>
         <guava.version>33.5.0-jre</guava.version>
         <hutool.version>7.0.0-M3</hutool.version>
-        <hypersistence-utils-hibernate-71.version>3.13.3</hypersistence-utils-hibernate-71.version>
+        <hypersistence-utils-hibernate-71.version>3.14.1</hypersistence-utils-hibernate-71.version>
         <influxdb-client.version>7.4.0</influxdb-client.version>
-        <jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
+        <jasypt-spring-boot-starter.version>4.0.3</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.8</jetcache.version>
         <justauth.verison>1.18.2</justauth.verison>
         <logstash-logback-encoder.version>9.0</logstash-logback-encoder.version>
@@ -117,7 +117,7 @@
         <redisson.version>4.0.0</redisson.version>
         <skywalking.version>9.5.0</skywalking.version>
         <sms4j-spring-boot-starter.version>3.3.5</sms4j-spring-boot-starter.version>
-        <software.amazon.awssdk.version>2.40.10</software.amazon.awssdk.version>
+        <software.amazon.awssdk.version>2.40.11</software.amazon.awssdk.version>
         <software.amazon.awssdk.crt.version>0.41.0</software.amazon.awssdk.crt.version>
         <springdoc.version>3.0.0</springdoc.version>
         <spring-boot-dependencies.version>4.0.0</spring-boot-dependencies.version>
