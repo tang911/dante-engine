@@ -53,10 +53,6 @@ public class AccessHandlerNotFoundException extends PlatformRuntimeException {
         super(cause);
     }
 
-    public AccessHandlerNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return AccessErrorCodes.ACCESS_HANDLER_NOT_FOUND;

@@ -50,8 +50,4 @@ public class StampMismatchException extends PlatformException {
     public StampMismatchException(Throwable cause) {
         super(cause);
     }
-
-    protected StampMismatchException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

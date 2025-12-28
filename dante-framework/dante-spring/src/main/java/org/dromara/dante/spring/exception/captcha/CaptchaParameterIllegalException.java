@@ -53,10 +53,6 @@ public class CaptchaParameterIllegalException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected CaptchaParameterIllegalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.CAPTCHA_PARAMETER_ILLEGAL;

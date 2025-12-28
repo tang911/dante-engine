@@ -57,11 +57,6 @@ public class FeignRemoteCallExceptionWrapper extends PlatformRuntimeException {
         this.result = result;
     }
 
-    public FeignRemoteCallExceptionWrapper(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, Result<String> result) {
-        super(message, cause, enableSuppression, writableStackTrace);
-        this.result = result;
-    }
-
     @Override
     public Result<String> getResult() {
         return result;

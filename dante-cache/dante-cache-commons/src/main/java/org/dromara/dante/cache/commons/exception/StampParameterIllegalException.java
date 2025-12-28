@@ -36,6 +36,7 @@ import org.dromara.dante.core.exception.PlatformException;
 public class StampParameterIllegalException extends PlatformException {
 
     public StampParameterIllegalException() {
+        super();
     }
 
     public StampParameterIllegalException(String message) {
@@ -48,9 +49,5 @@ public class StampParameterIllegalException extends PlatformException {
 
     public StampParameterIllegalException(Throwable cause) {
         super(cause);
-    }
-
-    public StampParameterIllegalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

@@ -51,10 +51,6 @@ public class RepeatSubmissionException extends IllegalOperationException {
         super(cause);
     }
 
-    public RepeatSubmissionException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return WebErrorCodes.REPEAT_SUBMISSION;

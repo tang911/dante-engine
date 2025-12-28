@@ -53,10 +53,6 @@ public class CaptchaHasExpiredException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected CaptchaHasExpiredException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.CAPTCHA_HAS_EXPIRED;

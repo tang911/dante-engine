@@ -50,8 +50,4 @@ public class MaximumLimitExceededException extends PlatformException {
     public MaximumLimitExceededException(Throwable cause) {
         super(cause);
     }
-
-    protected MaximumLimitExceededException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

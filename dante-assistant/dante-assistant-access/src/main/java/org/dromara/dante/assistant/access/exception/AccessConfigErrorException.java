@@ -53,10 +53,6 @@ public class AccessConfigErrorException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected AccessConfigErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return AccessErrorCodes.ACCESS_CONFIG_ERROR;

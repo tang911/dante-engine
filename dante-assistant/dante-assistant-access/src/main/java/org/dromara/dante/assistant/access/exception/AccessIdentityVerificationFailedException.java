@@ -53,10 +53,6 @@ public class AccessIdentityVerificationFailedException extends PlatformRuntimeEx
         super(cause);
     }
 
-    public AccessIdentityVerificationFailedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return AccessErrorCodes.ACCESS_IDENTITY_VERIFICATION_FAILED;

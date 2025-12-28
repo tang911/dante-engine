@@ -52,10 +52,6 @@ public class PlatformRuntimeException extends AbstractRuntimeException {
         super(cause);
     }
 
-    protected PlatformRuntimeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.INTERNAL_SERVER_ERROR;

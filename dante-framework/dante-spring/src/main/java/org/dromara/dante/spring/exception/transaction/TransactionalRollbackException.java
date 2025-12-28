@@ -53,10 +53,6 @@ public class TransactionalRollbackException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected TransactionalRollbackException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.TRANSACTION_ROLLBACK;

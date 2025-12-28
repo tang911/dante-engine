@@ -53,10 +53,6 @@ public class IllegalChannelException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected IllegalChannelException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return MessageErrorCodes.ILLEGAL_CHANNEL;

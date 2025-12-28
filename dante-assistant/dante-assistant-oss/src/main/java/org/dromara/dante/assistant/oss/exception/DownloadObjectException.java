@@ -53,10 +53,6 @@ public class DownloadObjectException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected DownloadObjectException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return OssErrorCodes.DOWNLOAD_OBJECT_EXCEPTION;

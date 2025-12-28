@@ -52,10 +52,6 @@ public class AccessPreProcessFailedException extends PlatformRuntimeException {
         super(cause);
     }
 
-    public AccessPreProcessFailedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return AccessErrorCodes.ACCESS_PRE_PROCESS_FAILED_EXCEPTION;
