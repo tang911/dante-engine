@@ -53,10 +53,6 @@ public class UrlFormatIncorrectException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected UrlFormatIncorrectException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.URL_FORMAT_INCORRECT_EXCEPTION;

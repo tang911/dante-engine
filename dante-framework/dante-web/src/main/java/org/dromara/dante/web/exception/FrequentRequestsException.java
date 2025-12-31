@@ -51,10 +51,6 @@ public class FrequentRequestsException extends IllegalOperationException {
         super(cause);
     }
 
-    public FrequentRequestsException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return WebErrorCodes.FREQUENT_REQUESTS;

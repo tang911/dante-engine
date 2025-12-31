@@ -53,10 +53,6 @@ public class CaptchaHandlerNotExistException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected CaptchaHandlerNotExistException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.CAPTCHA_HANDLER_NOT_EXIST;

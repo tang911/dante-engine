@@ -53,10 +53,6 @@ public class FeignDecodeIOException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected FeignDecodeIOException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.FEIGN_DECODER_IO_EXCEPTION;

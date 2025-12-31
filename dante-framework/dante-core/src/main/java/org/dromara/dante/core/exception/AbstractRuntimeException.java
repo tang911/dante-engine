@@ -51,10 +51,6 @@ public abstract class AbstractRuntimeException extends RuntimeException implemen
         super(cause);
     }
 
-    protected AbstractRuntimeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Result<String> getResult() {
         Result<String> result = Result.failure(getFeedback());

@@ -53,10 +53,6 @@ public class PrincipalNotFoundException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected PrincipalNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return MessageErrorCodes.PRINCIPAL_NOT_FOUND;

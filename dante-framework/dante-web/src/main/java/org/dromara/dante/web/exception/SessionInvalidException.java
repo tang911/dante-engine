@@ -53,10 +53,6 @@ public class SessionInvalidException extends PlatformRuntimeException {
         super(cause);
     }
 
-    public SessionInvalidException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return WebErrorCodes.SESSION_INVALID;

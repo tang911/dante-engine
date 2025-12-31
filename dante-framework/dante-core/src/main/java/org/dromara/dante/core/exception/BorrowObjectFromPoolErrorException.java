@@ -52,10 +52,6 @@ public class BorrowObjectFromPoolErrorException extends PlatformRuntimeException
         super(cause);
     }
 
-    protected BorrowObjectFromPoolErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.BORROW_OBJECT_FROM_POOL_ERROR_EXCEPTION;

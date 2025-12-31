@@ -53,10 +53,6 @@ public class UploadObjectException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected UploadObjectException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return OssErrorCodes.UPLOAD_OBJECT_EXCEPTION;

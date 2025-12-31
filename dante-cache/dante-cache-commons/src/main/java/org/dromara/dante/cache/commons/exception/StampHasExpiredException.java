@@ -50,8 +50,4 @@ public class StampHasExpiredException extends PlatformException {
     public StampHasExpiredException(Throwable cause) {
         super(cause);
     }
-
-    protected StampHasExpiredException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

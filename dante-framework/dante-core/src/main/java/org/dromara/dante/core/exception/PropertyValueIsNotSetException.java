@@ -52,10 +52,6 @@ public class PropertyValueIsNotSetException extends PlatformRuntimeException {
         super(cause);
     }
 
-    protected PropertyValueIsNotSetException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.PROPERTY_VALUE_IS_NOT_SET_EXCEPTION;

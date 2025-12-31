@@ -53,10 +53,6 @@ public class DiscoveredUnrecordedErrorException extends PlatformRuntimeException
         super(cause);
     }
 
-    protected DiscoveredUnrecordedErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
-
     @Override
     public Feedback getFeedback() {
         return ErrorCodes.DISCOVERED_UNRECORDED_ERROR_EXCEPTION;
