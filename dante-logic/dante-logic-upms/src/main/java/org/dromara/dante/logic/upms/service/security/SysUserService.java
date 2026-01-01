@@ -40,7 +40,7 @@ import org.dromara.dante.logic.upms.entity.security.SysUser;
 import org.dromara.dante.logic.upms.repository.security.SysUserRepository;
 import org.dromara.dante.security.domain.HerodotusUser;
 import org.dromara.dante.security.enums.AccountCategory;
-import org.dromara.dante.security.utils.SpringSecurityUtils;
+import org.dromara.dante.security.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.converter.Converter;
@@ -86,7 +86,7 @@ public class SysUserService extends AbstractJpaService<SysUser, String> {
 
     public SysUser changePassword(String userId, String password) {
         SysUser sysUser = findByUserId(userId);
-        sysUser.setPassword(SpringSecurityUtils.encrypt(password));
+        sysUser.setPassword(SecurityUtils.encrypt(password));
         return saveAndFlush(sysUser);
     }
 
@@ -156,7 +156,7 @@ public class SysUserService extends AbstractJpaService<SysUser, String> {
 
         String phoneNumber = socialUserDetails.getPhoneNumber();
         if (StringUtils.isNotBlank(phoneNumber)) {
-            sysUser.setPhoneNumber(SpringSecurityUtils.encrypt(phoneNumber));
+            sysUser.setPhoneNumber(SecurityUtils.encrypt(phoneNumber));
         }
 
         String avatar = socialUserDetails.getAvatar();
@@ -164,7 +164,7 @@ public class SysUserService extends AbstractJpaService<SysUser, String> {
             sysUser.setAvatar(avatar);
         }
 
-        sysUser.setPassword(SpringSecurityUtils.encrypt("herodotus-cloud"));
+        sysUser.setPassword(SecurityUtils.encrypt("herodotus-cloud"));
 
         return register(sysUser, AccountCategory.getAccountType(socialUserDetails.getSource()));
     }

@@ -43,7 +43,7 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2025/10/19 15:17
  */
-public class SpringSecurityUtils {
+public class SecurityUtils {
 
     public static final String PREFIX_ROLE = "ROLE_";
 
