@@ -36,7 +36,7 @@ import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.core.jackson.JacksonUtils;
 import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.security.domain.UserPrincipal;
-import org.dromara.dante.security.utils.SecurityUtils;
+import org.dromara.dante.security.utils.SpringSecurityUtils;
 import org.dromara.dante.web.servlet.utils.SessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,7 +100,7 @@ public class OAuth2AccessTokenResponseHandler implements AuthenticationSuccessHa
         }
 
         String sessionId = SessionUtils.analyseSessionId(request);
-        UserPrincipal userPrincipal = SecurityUtils.getUserPrincipal(accessTokenAuthentication);
+        UserPrincipal userPrincipal = SpringSecurityUtils.getUserPrincipal(accessTokenAuthentication);
 
         // 如果包含 ID_TOKEN，那么前端直接解析 ID_TOKEN，从中获取用户基本信息
         if (isOidcUserInfoPattern(additionalParameters)) {

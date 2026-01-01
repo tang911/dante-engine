@@ -31,7 +31,7 @@ import com.google.common.net.HttpHeaders;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ObjectUtils;
 import org.dromara.dante.oauth2.extension.entity.OAuth2UserLogging;
-import org.dromara.dante.security.utils.SecurityUtils;
+import org.dromara.dante.security.utils.SpringSecurityUtils;
 import org.dromara.dante.web.servlet.utils.HeaderUtils;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
@@ -50,7 +50,7 @@ public class RequestToUserLoggingConverter implements Converter<HttpServletReque
     private final String operation;
 
     public RequestToUserLoggingConverter(OAuth2AccessTokenAuthenticationToken token) {
-        this(SecurityUtils.getUsername(token), token.getRegisteredClient().getId(), "登录系统");
+        this(SpringSecurityUtils.getUsername(token), token.getRegisteredClient().getId(), "登录系统");
     }
 
     public RequestToUserLoggingConverter(OAuth2Authorization authorization) {

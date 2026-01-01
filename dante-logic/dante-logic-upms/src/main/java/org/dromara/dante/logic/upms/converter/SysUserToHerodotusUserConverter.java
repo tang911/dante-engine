@@ -33,7 +33,7 @@ import org.dromara.dante.logic.upms.entity.security.SysRole;
 import org.dromara.dante.logic.upms.entity.security.SysUser;
 import org.dromara.dante.security.domain.HerodotusGrantedAuthority;
 import org.dromara.dante.security.domain.HerodotusUser;
-import org.dromara.dante.security.utils.SecurityUtils;
+import org.dromara.dante.security.utils.SpringSecurityUtils;
 import org.springframework.core.convert.converter.Converter;
 
 import java.time.LocalDateTime;
@@ -55,7 +55,7 @@ public class SysUserToHerodotusUserConverter implements Converter<SysUser, Herod
         Set<String> roles = new HashSet<>();
         for (SysRole sysRole : sysUser.getRoles()) {
             roles.add(sysRole.getRoleCode());
-            authorities.add(new HerodotusGrantedAuthority(SecurityUtils.wellFormRolePrefix(sysRole.getRoleCode())));
+            authorities.add(new HerodotusGrantedAuthority(SpringSecurityUtils.wellFormRolePrefix(sysRole.getRoleCode())));
             Set<SysPermission> sysPermissions = sysRole.getPermissions();
             if (CollectionUtils.isNotEmpty(sysPermissions)) {
                 sysPermissions.forEach(sysAuthority -> authorities.add(new HerodotusGrantedAuthority((sysAuthority.getPermissionCode()))));
