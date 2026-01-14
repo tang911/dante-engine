@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-logic</artifactId>
-    <name>dante-logic</name>
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 

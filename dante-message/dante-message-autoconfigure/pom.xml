@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-message-autoconfigure</artifactId>
-    <name>dante-message-autoconfigure</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库消息自动配置模块</description>
 

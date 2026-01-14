@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-core</artifactId>
-    <name>dante-core</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库框架核心通用代码模块</description>
 

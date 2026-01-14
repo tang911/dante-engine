@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-starter</artifactId>
-    <name>dante-starter</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库Starter模块分组</description>
 

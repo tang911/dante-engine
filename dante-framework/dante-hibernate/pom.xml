@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-hibernate</artifactId>
-    <name>dante-hibernate</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库框架Hibernate相关基础模块</description>
 

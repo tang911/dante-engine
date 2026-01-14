@@ -38,7 +38,7 @@
     </parent>
 
     <artifactId>dante-engine</artifactId>
-    <name>dante-engine</name>
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 

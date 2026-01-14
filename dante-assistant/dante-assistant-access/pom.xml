@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-assistant-access</artifactId>
-    <name>dante-assistant-access</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库第三方登录接入辅助功能模块</description>
 

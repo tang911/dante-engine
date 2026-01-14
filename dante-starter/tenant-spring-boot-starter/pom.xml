@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>tenant-spring-boot-starter</artifactId>
-    <name>tenant-spring-boot-starter</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务组件库基于 JPA 的多租户自动配置 Starter</description>
 

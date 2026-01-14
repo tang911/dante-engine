@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-rest-oss</artifactId>
-    <name>dante-rest-oss</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库对象存储功能 REST 接口模块</description>
 

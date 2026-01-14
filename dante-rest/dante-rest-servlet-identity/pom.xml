@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-rest-servlet-identity</artifactId>
-    <name>dante-rest-servlet-identity</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库身份认证功能 Servlet 环境 REST 接口模块</description>
 

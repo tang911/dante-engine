@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-data-mongodb</artifactId>
-    <name>dante-data-mongodb</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库以 Mongodb 作为数据访问层的通用代码模块</description>
 

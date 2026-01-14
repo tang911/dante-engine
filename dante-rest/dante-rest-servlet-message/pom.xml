@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-rest-servlet-message</artifactId>
-    <name>dante-rest-servlet-message</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库消息功能 Servlet 环境 REST 接口模块</description>
 

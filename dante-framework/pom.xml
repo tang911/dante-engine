@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-framework</artifactId>
-    <name>dante-framework</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库框架核心模块分组</description>
 

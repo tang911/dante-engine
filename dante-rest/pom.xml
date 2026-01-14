@@ -36,7 +36,7 @@
     </parent>
 
     <artifactId>dante-rest</artifactId>
-    <name>dante-rest</name>
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 

@@ -36,7 +36,7 @@
     </parent>
 
     <artifactId>dante-message</artifactId>
-    <name>dante-message</name>
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 

@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-data-jpa</artifactId>
-    <name>dante-data-jpa</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座组件库以 JPA 作为数据访问层的通用代码模块</description>
 

@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-assistant-captcha</artifactId>
-    <name>dante-assistant-captcha</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座件库验证码辅助功能模块</description>
 

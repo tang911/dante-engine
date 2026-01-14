@@ -35,7 +35,7 @@
     </parent>
 
     <artifactId>dante-assistant-oss</artifactId>
-    <name>dante-assistant-oss</name>
+    <name>${project.artifactId}</name>
 
     <description>Dante Cloud 云原生微服务基座件组件库AWS SDK V2 对象存储辅助功能模块</description>
 
