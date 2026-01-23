@@ -101,7 +101,7 @@
         <guava.version>33.5.0-jre</guava.version>
         <hutool.version>7.0.0-M4</hutool.version>
         <hypersistence-utils-hibernate-71.version>3.14.1</hypersistence-utils-hibernate-71.version>
-        <influxdb-client.version>7.4.0</influxdb-client.version>
+        <influxdb-client.version>7.5.0</influxdb-client.version>
         <jasypt-spring-boot-starter.version>4.0.3</jasypt-spring-boot-starter.version>
         <jetcache.version>2.7.8</jetcache.version>
         <justauth.verison>1.18.2</justauth.verison>
