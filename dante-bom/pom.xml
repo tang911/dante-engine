@@ -152,10 +152,8 @@
         <objenesis.version>3.4</objenesis.version>
         <!--sms4j 依赖 hutool 5，但更新频率低，在此进行统一升级和版本控制-->
         <hutool5.version>5.8.43</hutool5.version>
-        <httpclient.version>4.5.14</httpclient.version>
         <kryo.version>5.6.2</kryo.version>
         <okio.version>3.16.4</okio.version>
-        <snappy-java.version>1.1.10.8</snappy-java.version>
         <!--fix CVE-2024-51504 -->
         <zookeeper.verison>3.9.4</zookeeper.verison>
     </properties>
@@ -755,11 +753,6 @@
                 <version>${dom4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
                 <version>${hutool5.version}</version>
@@ -812,11 +805,6 @@
                 <groupId>org.objenesis</groupId>
                 <artifactId>objenesis</artifactId>
                 <version>${objenesis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.xerial.snappy</groupId>
-                <artifactId>snappy-java</artifactId>
-                <version>${snappy-java.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
