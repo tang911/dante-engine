@@ -56,7 +56,7 @@ public class SysDefaultRole extends AbstractSysEntity {
     private String defaultId;
 
     @Schema(name = "场景")
-    @Column(name = "scene", unique = true)
+    @Column(name = "scene", unique = true, length = 50)
     @Enumerated(EnumType.STRING)
     private AccountCategory scene = AccountCategory.INSTITUTION;
 
