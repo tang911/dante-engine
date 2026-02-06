@@ -36,7 +36,7 @@
     </parent>
 
     <artifactId>dante-oauth2</artifactId>
-    <name>engine-oauth2</name>
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
