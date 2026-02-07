@@ -197,6 +197,8 @@ public interface ErrorCodes {
     InternalServerErrorFeedback TYPE_MISMATCH_EXCEPTION = new InternalServerErrorFeedback("类型不匹配");
     InternalServerErrorFeedback BORROW_OBJECT_FROM_POOL_ERROR_EXCEPTION = new InternalServerErrorFeedback("从对象池中获取对象错误");
     InternalServerErrorFeedback OPENAPI_INVOKING_FAILED = new InternalServerErrorFeedback("OPEN API 调用失败，请检查API调用方式及参数是否正确");
+    InternalServerErrorFeedback UPLOAD_OBJECT_EXCEPTION = new InternalServerErrorFeedback("上传文件出现错误");
+    InternalServerErrorFeedback DOWNLOAD_OBJECT_EXCEPTION = new InternalServerErrorFeedback("下载文件出现错误");
 
     /**
      * 501. Not Implemented	服务器不支持请求的功能，无法完成请求

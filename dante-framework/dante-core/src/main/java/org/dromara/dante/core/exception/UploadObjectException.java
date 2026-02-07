@@ -23,30 +23,37 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.converter.argument;
+package org.dromara.dante.core.exception;
 
-import org.dromara.dante.assistant.oss.entity.argument.DeleteObjectArgument;
-import org.springframework.core.convert.converter.Converter;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import org.dromara.dante.core.constant.ErrorCodes;
+import org.dromara.dante.core.domain.Feedback;
 
 /**
- * <p>Description: DeleteObjectArgument 转 DeleteObjectRequest 转换器 </p>
+ * <p>Description: 上传文件异常 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/25 17:25
+ * @date : 2025/1/22 15:13
  */
-public class ArgumentToDeleteObjectRequestConverter implements Converter<DeleteObjectArgument, DeleteObjectRequest> {
-    @Override
-    public DeleteObjectRequest convert(DeleteObjectArgument source) {
+public class UploadObjectException extends PlatformRuntimeException {
 
-        return DeleteObjectRequest.builder()
-                .bucket(source.getBucketName())
-                .key(source.getObjectName())
-                .mfa(source.getMfa())
-                .versionId(source.getVersionId())
-                .requestPayer(source.getRequestPayer())
-                .bypassGovernanceRetention(source.getBypassGovernanceRetention())
-                .expectedBucketOwner(source.getExpectedBucketOwner())
-                .build();
+    public UploadObjectException() {
+        super();
+    }
+
+    public UploadObjectException(String message) {
+        super(message);
+    }
+
+    public UploadObjectException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public UploadObjectException(Throwable cause) {
+        super(cause);
+    }
+
+    @Override
+    public Feedback getFeedback() {
+        return ErrorCodes.UPLOAD_OBJECT_EXCEPTION;
     }
 }
