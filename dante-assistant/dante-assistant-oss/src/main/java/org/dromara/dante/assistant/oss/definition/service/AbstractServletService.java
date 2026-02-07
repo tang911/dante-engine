@@ -1,29 +1,25 @@
 /*
- * Copyright 2020-2030 码匠君<herodotus@aliyun.com>
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Dante Engine licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2020-2030 郑庚伟 ZHENGGENGWEI (码匠君), <herodotus@aliyun.com> Licensed under the AGPL License
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ * This file is part of Herodotus Stirrup.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Herodotus Stirrup is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * Dante Engine 是 Dante Cloud 系统核心组件库，采用 APACHE LICENSE 2.0 开源协议，您在使用过程中，需要注意以下几点：
+ * Herodotus Stirrup is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
  *
- * 1. 请不要删除和修改根目录下的LICENSE文件。
- * 2. 请不要删除和修改 Dante Engine 源码头部的版权声明。
- * 3. 请保留源码和相关描述文件的项目出处，作者声明等。
- * 4. 分发源码时候，请注明软件出处 <https://gitee.com/dromara/dante-cloud>
- * 5. 在修改包名，模块名称，项目代码等时，请注明软件出处 <https://gitee.com/dromara/dante-cloud>
- * 6. 若您的项目无法满足以上几点，可申请商业授权
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.herodotus.cn>.
  */
 
-package org.dromara.dante.assistant.oss.definition.service;
+package cn.herodotus.stirrup.assistant.oss.definition.service;
 
 import org.springframework.core.convert.converter.Converter;
 
@@ -37,7 +33,6 @@ import java.util.function.Function;
  * @date : 2024/7/22 18:04
  */
 public abstract class AbstractServletService {
-
     /**
      * 响应式对象存储操作通用处理方法
      *
@@ -54,5 +49,21 @@ public abstract class AbstractServletService {
     protected <ArgumentA, RequestR, ResponseR, ResultR> ResultR process(ArgumentA argument, Converter<ArgumentA, RequestR> toRequest, Converter<ResponseR, ResultR> toResult, Function<RequestR, CompletableFuture<ResponseR>> handler) {
         CompletableFuture<ResponseR> future = handler.apply(toRequest.convert(argument));
         return toResult.convert(future.join());
+    }
+
+    /**
+     * 响应式对象存储操作通用处理方法
+     *
+     * @param argument    实际应用请求参数
+     * @param toRequest   实际应用请求参数转换为AWS SDK V2 XXXRequest 实体转换器
+     * @param handler     AWS SDK V2 操作API
+     * @param <ArgumentA> 实际应用请求参数类型
+     * @param <RequestR>  AWS SDK V2 XXXRequest 实体类型
+     * @param <ResultR>   实际应用响应结果类型
+     * @return 阻塞式对象存储操作返回数据
+     */
+    protected <ArgumentA, RequestR, ResultR> ResultR process(ArgumentA argument, Converter<ArgumentA, RequestR> toRequest, Function<RequestR, CompletableFuture<ResultR>> handler) {
+        CompletableFuture<ResultR> future = handler.apply(toRequest.convert(argument));
+        return future.join();
     }
 }
