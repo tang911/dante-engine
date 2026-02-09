@@ -23,56 +23,34 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.argument;
+package org.dromara.dante.assistant.oss.definition.argument;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionIdArgument;
-import org.dromara.dante.assistant.oss.enums.ObjectRetentionMode;
-import org.dromara.dante.core.constant.SystemConstants;
-
-import java.time.LocalDate;
 
 /**
- * <p>Description: 变更对象保留设置请求参数实体 </p>
+ * <p>Description: 存储桶共性参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:15
+ * @date : 2024/7/22 23:00
  */
-@Schema(name = "变更对象保留设置请求参数实体", title = "变更对象保留设置请求参数实体")
-public class PutObjectRetentionArgument extends AbstractObjectVersionIdArgument {
+public abstract class AbstractBucketExpectedBucketOwnerArgument extends AbstractBucketArgument {
 
-    @Schema(name = "对象保留模式")
-    private ObjectRetentionMode retentionMode;
+    @Schema(name = "预期存储桶所有者")
+    private String expectedBucketOwner;
 
-    @Schema(name = "对象保留到期日期")
-    @NotNull(message = "对象保存到期日期不能为空")
-    @JsonFormat(pattern = SystemConstants.DATE_FORMAT)
-    private LocalDate retainUntilDate;
-
-    public ObjectRetentionMode getRetentionMode() {
-        return retentionMode;
+    public String getExpectedBucketOwner() {
+        return expectedBucketOwner;
     }
 
-    public void setRetentionMode(ObjectRetentionMode retentionMode) {
-        this.retentionMode = retentionMode;
-    }
-
-    public LocalDate getRetainUntilDate() {
-        return retainUntilDate;
-    }
-
-    public void setRetainUntilDate(LocalDate retainUntilDate) {
-        this.retainUntilDate = retainUntilDate;
+    public void setExpectedBucketOwner(String expectedBucketOwner) {
+        this.expectedBucketOwner = expectedBucketOwner;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("retentionMode", retentionMode)
-                .add("retainUntilDate", retainUntilDate)
+                .add("expectedBucketOwner", expectedBucketOwner)
                 .addValue(super.toString())
                 .toString();
     }

@@ -25,8 +25,10 @@
 
 package org.dromara.dante.assistant.oss.entity.argument;
 
+import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.dromara.dante.assistant.oss.definition.argument.AbstractBucketArgument;
+import org.dromara.dante.assistant.oss.entity.domain.GrantDomain;
 
 /**
  * <p>Description: 创建存储桶请求参数实体 </p>
@@ -37,68 +39,19 @@ import org.dromara.dante.assistant.oss.definition.argument.AbstractBucketArgumen
 @Schema(name = "创建存储桶请求参数实体", title = "创建存储桶请求参数实体")
 public class CreateBucketArgument extends AbstractBucketArgument {
 
-    private String acl;
-
-    private String grantFullControl;
-
-    private String grantRead;
-
-    private String grantReadACP;
-
-    private String grantWrite;
-
-    private String grantWriteACP;
+    @Schema(name = "存储桶 Grant 相关信息")
+    private GrantDomain grantDetails = new GrantDomain();
 
     private Boolean objectLockEnabledForBucket;
 
     private String objectOwnership;
 
-    public String getAcl() {
-        return acl;
+    public GrantDomain getGrantDetails() {
+        return grantDetails;
     }
 
-    public void setAcl(String acl) {
-        this.acl = acl;
-    }
-
-    public String getGrantFullControl() {
-        return grantFullControl;
-    }
-
-    public void setGrantFullControl(String grantFullControl) {
-        this.grantFullControl = grantFullControl;
-    }
-
-    public String getGrantRead() {
-        return grantRead;
-    }
-
-    public void setGrantRead(String grantRead) {
-        this.grantRead = grantRead;
-    }
-
-    public String getGrantReadACP() {
-        return grantReadACP;
-    }
-
-    public void setGrantReadACP(String grantReadACP) {
-        this.grantReadACP = grantReadACP;
-    }
-
-    public String getGrantWrite() {
-        return grantWrite;
-    }
-
-    public void setGrantWrite(String grantWrite) {
-        this.grantWrite = grantWrite;
-    }
-
-    public String getGrantWriteACP() {
-        return grantWriteACP;
-    }
-
-    public void setGrantWriteACP(String grantWriteACP) {
-        this.grantWriteACP = grantWriteACP;
+    public void setGrantDetails(GrantDomain grantDetails) {
+        this.grantDetails = grantDetails;
     }
 
     public Boolean getObjectLockEnabledForBucket() {
@@ -115,5 +68,15 @@ public class CreateBucketArgument extends AbstractBucketArgument {
 
     public void setObjectOwnership(String objectOwnership) {
         this.objectOwnership = objectOwnership;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("grantDetails", grantDetails)
+                .add("objectLockEnabledForBucket", objectLockEnabledForBucket)
+                .add("objectOwnership", objectOwnership)
+                .addValue(super.toString())
+                .toString();
     }
 }

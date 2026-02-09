@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionArgument;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionIdArgument;
 
 /**
  * <p>Description: 获取对象属性请求参数实体 </p>
@@ -36,7 +36,7 @@ import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersion
  * @date : 2026/2/6 22:29
  */
 @Schema(name = "获取对象属性请求参数实体", title = "获取对象属性请求参数实体")
-public class GetObjectAttributesArgument extends AbstractObjectVersionArgument {
+public class GetObjectAttributesArgument extends AbstractObjectVersionIdArgument {
 
     @Schema(name = "分片最大数量")
     private Integer maxParts;

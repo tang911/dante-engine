@@ -27,8 +27,8 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractExpectedBucketOwnerArgument;
-import org.dromara.dante.assistant.oss.enums.BucketPolicy;
+import jakarta.validation.constraints.NotNull;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractBucketContentMd5Argument;
 
 /**
  * <p>Description: 设置存储桶策略请求参数实体 </p>
@@ -37,42 +37,21 @@ import org.dromara.dante.assistant.oss.enums.BucketPolicy;
  * @date : 2026/2/5 17:24
  */
 @Schema(name = "设置存储桶策略请求参数实体", title = "设置存储桶策略请求参数实体")
-public class PutBucketPolicyArgument extends AbstractExpectedBucketOwnerArgument {
+public class PutBucketPolicyArgument extends AbstractBucketContentMd5Argument {
 
-    @Schema(name = "存储桶权限")
-    private BucketPolicy bucketPolicy = BucketPolicy.PRIVATE;
-
-    @Schema(name = "请求体的MD5哈希值", description = "该值会自动计算可以不用设置")
-    private String contentMD5;
-
-    @Schema(name = "请求校验算法", description = "该值会自动计算可以不用设置")
-    private String checksumAlgorithm;
+    @Schema(name = "是否为公开权限")
+    @NotNull(message = "是否为公开权限值不能为空")
+    private Boolean doesPublic;
 
     @Schema(name = "是否删除用户自己的存储桶策略")
     private Boolean confirmRemoveSelfBucketAccess;
 
-    public BucketPolicy getBucketPolicy() {
-        return bucketPolicy;
+    public Boolean getDoesPublic() {
+        return doesPublic;
     }
 
-    public void setBucketPolicy(BucketPolicy bucketPolicy) {
-        this.bucketPolicy = bucketPolicy;
-    }
-
-    public String getContentMD5() {
-        return contentMD5;
-    }
-
-    public void setContentMD5(String contentMD5) {
-        this.contentMD5 = contentMD5;
-    }
-
-    public String getChecksumAlgorithm() {
-        return checksumAlgorithm;
-    }
-
-    public void setChecksumAlgorithm(String checksumAlgorithm) {
-        this.checksumAlgorithm = checksumAlgorithm;
+    public void setDoesPublic(Boolean doesPublic) {
+        this.doesPublic = doesPublic;
     }
 
     public Boolean getConfirmRemoveSelfBucketAccess() {
@@ -86,10 +65,9 @@ public class PutBucketPolicyArgument extends AbstractExpectedBucketOwnerArgument
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("bucketPolicy", bucketPolicy)
-                .add("contentMD5", contentMD5)
-                .add("checksumAlgorithm", checksumAlgorithm)
+                .add("doesPublic", doesPublic)
                 .add("confirmRemoveSelfBucketAccess", confirmRemoveSelfBucketAccess)
+                .addValue(super.toString())
                 .toString();
     }
 }

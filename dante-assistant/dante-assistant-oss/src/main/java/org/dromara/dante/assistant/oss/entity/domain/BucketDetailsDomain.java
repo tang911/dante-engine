@@ -26,8 +26,8 @@
 package org.dromara.dante.assistant.oss.entity.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.dromara.dante.assistant.oss.definition.domain.OssDomain;
-import org.dromara.dante.assistant.oss.enums.BucketPolicy;
 import org.dromara.dante.assistant.oss.enums.BucketVersioning;
 
 import java.time.LocalDateTime;
@@ -40,20 +40,27 @@ import java.time.LocalDateTime;
  * @author : gengwei.zheng
  * @date : 2026/2/5 22:19
  */
+@Schema(name = "存储桶详情域实体")
 public class BucketDetailsDomain implements OssDomain {
 
+    @Schema(name = "存储桶名称")
     private String bucketName;
 
+    @Schema(name = "创建时间")
     private LocalDateTime creationDate;
     /**
      * BucketRegion表示存储桶所在的亚马逊网络服务（AWS）区域。如果请求中至少包含一个有效参数，则该参数将包含在响应中。
      */
+    @Schema(name = "所在区域")
     private String bucketRegion;
 
-    private BucketPolicy policy;
+    @Schema(name = "是否为公开权限")
+    private Boolean doesPublic;
 
+    @Schema(name = "版本状态")
     private BucketVersioning versioning;
 
+    @Schema(name = "是否开启对象锁定", description = "创建存储桶时开启对象锁定会自动开启对象版本管理")
     private Boolean objectLockEnabled;
 
     public String getBucketName() {
@@ -80,12 +87,12 @@ public class BucketDetailsDomain implements OssDomain {
         this.bucketRegion = bucketRegion;
     }
 
-    public BucketPolicy getPolicy() {
-        return policy;
+    public Boolean getDoesPublic() {
+        return doesPublic;
     }
 
-    public void setPolicy(BucketPolicy policy) {
-        this.policy = policy;
+    public void setDoesPublic(Boolean doesPublic) {
+        this.doesPublic = doesPublic;
     }
 
     public BucketVersioning getVersioning() {
@@ -110,7 +117,7 @@ public class BucketDetailsDomain implements OssDomain {
                 .add("bucketName", bucketName)
                 .add("creationDate", creationDate)
                 .add("bucketRegion", bucketRegion)
-                .add("policy", policy)
+                .add("doesPublic", doesPublic)
                 .add("versioning", versioning)
                 .toString();
     }

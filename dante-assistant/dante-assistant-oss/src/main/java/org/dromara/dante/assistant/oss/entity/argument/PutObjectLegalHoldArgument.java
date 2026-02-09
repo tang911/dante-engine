@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionArgument;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionIdArgument;
 
 /**
  * <p>Description: 设置对象留存请求参数实体 </p>
@@ -36,7 +36,7 @@ import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersion
  * @date : 2026/2/6 23:14
  */
 @Schema(name = "设置对象留存请求参数实体", title = "设置对象留存请求参数实体")
-public class PutObjectLegalHoldArgument extends AbstractObjectVersionArgument {
+public class PutObjectLegalHoldArgument extends AbstractObjectVersionIdArgument {
 
     @Schema(name = "是否开启对象留存")
     private Boolean legalHoldEnabled = Boolean.FALSE;

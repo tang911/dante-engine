@@ -34,7 +34,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author : gengwei.zheng
  * @date : 2024/7/22 23:26
  */
-public class AbstractObjectRequestPayerArgument extends AbstractExpectedBucketOwnerArgument {
+public class AbstractObjectRequestPayerArgument extends AbstractBucketExpectedBucketOwnerArgument {
 
     @Schema(name = "需要支付")
     private String requestPayer;

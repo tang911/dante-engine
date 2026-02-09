@@ -23,35 +23,24 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.definition.argument;
+package org.dromara.dante.assistant.oss.customizer;
 
-import com.google.common.base.MoreObjects;
-import io.swagger.v3.oas.annotations.media.Schema;
+import org.dromara.dante.assistant.oss.enums.BucketVersioning;
+import org.dromara.dante.assistant.oss.enums.ObjectRetentionMode;
+import org.dromara.dante.core.builder.EnumDictionaryBuilder;
+import org.dromara.dante.core.function.EnumDictionaryBuilderCustomizer;
 
 /**
- * <p>Description: 对象版本抽象定义 </p>
+ * <p>Description: Assistant OSS 枚举数据字典定义器 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 23:40
+ * @date : 2025/1/10 22:53
  */
-public abstract class AbstractObjectVersionArgument extends AbstractObjectArgument {
-
-    @Schema(name = "版本 ID")
-    private String versionId;
-
-    public String getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
+public class OssEnumDictionaryBuilderCustomizer implements EnumDictionaryBuilderCustomizer {
 
     @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("versionId", versionId)
-                .addValue(super.toString())
-                .toString();
+    public void customize(EnumDictionaryBuilder builder) {
+        builder.append(BucketVersioning.getDictionaries());
+        builder.append(ObjectRetentionMode.getDictionaries());
     }
 }

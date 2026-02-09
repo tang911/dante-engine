@@ -23,56 +23,34 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.argument;
+package org.dromara.dante.assistant.oss.definition.argument;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectVersionIdArgument;
-import org.dromara.dante.assistant.oss.enums.ObjectRetentionMode;
-import org.dromara.dante.core.constant.SystemConstants;
-
-import java.time.LocalDate;
 
 /**
- * <p>Description: 变更对象保留设置请求参数实体 </p>
+ * <p>Description: 对象存储Bucket签名算法通用参数抽象定义 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:15
+ * @date : 2026/2/9 10:15
  */
-@Schema(name = "变更对象保留设置请求参数实体", title = "变更对象保留设置请求参数实体")
-public class PutObjectRetentionArgument extends AbstractObjectVersionIdArgument {
+public abstract class AbstractBucketChecksumAlgorithmArgument extends AbstractBucketExpectedBucketOwnerArgument {
 
-    @Schema(name = "对象保留模式")
-    private ObjectRetentionMode retentionMode;
+    @Schema(name = "签名算法")
+    private String checksumAlgorithm;
 
-    @Schema(name = "对象保留到期日期")
-    @NotNull(message = "对象保存到期日期不能为空")
-    @JsonFormat(pattern = SystemConstants.DATE_FORMAT)
-    private LocalDate retainUntilDate;
-
-    public ObjectRetentionMode getRetentionMode() {
-        return retentionMode;
+    public String getChecksumAlgorithm() {
+        return checksumAlgorithm;
     }
 
-    public void setRetentionMode(ObjectRetentionMode retentionMode) {
-        this.retentionMode = retentionMode;
-    }
-
-    public LocalDate getRetainUntilDate() {
-        return retainUntilDate;
-    }
-
-    public void setRetainUntilDate(LocalDate retainUntilDate) {
-        this.retainUntilDate = retainUntilDate;
+    public void setChecksumAlgorithm(String checksumAlgorithm) {
+        this.checksumAlgorithm = checksumAlgorithm;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("retentionMode", retentionMode)
-                .add("retainUntilDate", retainUntilDate)
+                .add("checksumAlgorithm", checksumAlgorithm)
                 .addValue(super.toString())
                 .toString();
     }

@@ -29,28 +29,28 @@ import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * <p>Description: 存储桶共性参数 </p>
+ * <p>Description: 对象存储Bucket内容MD5通用参数抽象定义 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 23:00
+ * @date : 2026/2/9 10:24
  */
-public abstract class AbstractExpectedBucketOwnerArgument extends AbstractBucketArgument {
+public abstract class AbstractBucketContentMd5Argument extends AbstractBucketChecksumAlgorithmArgument {
 
-    @Schema(name = "预期存储桶所有者")
-    private String expectedBucketOwner;
+    @Schema(name = "内容 MD5 值")
+    private String contentMD5;
 
-    public String getExpectedBucketOwner() {
-        return expectedBucketOwner;
+    public String getContentMD5() {
+        return contentMD5;
     }
 
-    public void setExpectedBucketOwner(String expectedBucketOwner) {
-        this.expectedBucketOwner = expectedBucketOwner;
+    public void setContentMD5(String contentMD5) {
+        this.contentMD5 = contentMD5;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("expectedBucketOwner", expectedBucketOwner)
+                .add("contentMD5", contentMD5)
                 .addValue(super.toString())
                 .toString();
     }

@@ -25,18 +25,12 @@
 
 package org.dromara.dante.assistant.oss.converter.argument;
 
-import com.google.common.collect.Lists;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.assistant.oss.entity.argument.PutBucketPolicyArgument;
-import org.dromara.dante.assistant.oss.entity.domain.PolicyDomain;
-import org.dromara.dante.assistant.oss.entity.domain.StatementDomain;
-import org.dromara.dante.assistant.oss.enums.BucketPolicy;
-import org.dromara.dante.core.jackson.JacksonUtils;
+import org.dromara.dante.assistant.oss.utils.OssUtils;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.PutBucketPolicyRequest;
-
-import java.util.List;
 
 /**
  * <p>Description: {@link PutBucketPolicyArgument} 转 {@link PutBucketPolicyRequest} 转换器 </p>
@@ -45,10 +39,6 @@ import java.util.List;
  * @date : 2026/2/5 17:42
  */
 public class ArgumentToPutBucketPolicyRequestConverter implements Converter<PutBucketPolicyArgument, PutBucketPolicyRequest> {
-
-    private static final String DEFAULT_RESOURCE_PREFIX = "arn:aws:s3:::";
-    private static final List<String> DEFAULT_ACTION_FOR_BUCKET = Lists.newArrayList("s3:GetBucketLocation", "s3:ListBucket", "s3:ListBucketMultipartUploads");
-    private static final List<String> DEFAULT_ACTION_FOR_OBJECT = Lists.newArrayList("s3:DeleteObject", "s3:GetObject", "s3:ListMultipartUploadParts", "s3:PutObject", "s3:AbortMultipartUpload");
 
     @Override
     public PutBucketPolicyRequest convert(PutBucketPolicyArgument source) {
@@ -65,36 +55,8 @@ public class ArgumentToPutBucketPolicyRequestConverter implements Converter<PutB
             builder.confirmRemoveSelfBucketAccess(source.getConfirmRemoveSelfBucketAccess());
         }
 
-        builder.policy(getPolicy(source.getBucketName(), source.getBucketPolicy()));
+        builder.policy(OssUtils.getBucketPolicyJson(source.getBucketName(), source.getDoesPublic()));
 
         return builder.build();
-    }
-
-    private String getPolicy(String bucketName, BucketPolicy bucketPolicy) {
-        PolicyDomain policyDomain = bucketPolicy == BucketPolicy.PRIVATE ? getPrivatePolicy(bucketName) : getPublicPolicy();
-        return JacksonUtils.toJson(policyDomain);
-    }
-
-    private PolicyDomain getPublicPolicy() {
-        return new PolicyDomain();
-    }
-
-    private PolicyDomain getPrivatePolicy(String bucketName) {
-        StatementDomain bucketStatement = new StatementDomain();
-        bucketStatement.setActions(DEFAULT_ACTION_FOR_BUCKET);
-        bucketStatement.setResources(getDefaultResource(bucketName, true));
-
-        StatementDomain objectStatement = new StatementDomain();
-        objectStatement.setActions(DEFAULT_ACTION_FOR_OBJECT);
-        objectStatement.setResources(getDefaultResource(bucketName, false));
-
-        PolicyDomain policy = new PolicyDomain();
-        policy.setStatements(Lists.newArrayList(bucketStatement, objectStatement));
-        return policy;
-    }
-
-    private List<String> getDefaultResource(String bucketName, boolean isForBucket) {
-        String suffix = isForBucket ? "" : "/*";
-        return Lists.newArrayList(DEFAULT_RESOURCE_PREFIX + bucketName + suffix);
     }
 }

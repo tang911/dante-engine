@@ -33,9 +33,9 @@ import org.dromara.dante.assistant.oss.definition.service.AbstractS3AsyncClientS
 import org.dromara.dante.assistant.oss.entity.domain.BucketDetailsDomain;
 import org.dromara.dante.assistant.oss.entity.result.GetObjectAttributesResult;
 import org.dromara.dante.assistant.oss.entity.result.ListBucketDetailsResult;
-import org.dromara.dante.assistant.oss.enums.BucketPolicy;
 import org.dromara.dante.assistant.oss.enums.BucketVersioning;
 import org.dromara.dante.assistant.oss.pool.S3AsyncClientObjectPool;
+import org.dromara.dante.assistant.oss.utils.OssUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.converter.Converter;
@@ -75,27 +75,14 @@ public class S3AsyncClientCompositeService extends AbstractS3AsyncClientService 
      */
     private CompletableFuture<BucketDetailsDomain> getBucketDetails(S3AsyncClient client, Bucket bucket) {
         // 使用同一个客户端并行获取策略和版本信息
-        CompletableFuture<GetBucketPolicyStatusResponse> policyStatusFuture = client.getBucketPolicyStatus(b -> b.bucket(bucket.name())).exceptionally(e -> {
-            // 可能没有policy的情况
-            log.warn("[Herodotus] |- S3 getBucketPolicyStatus for [{}] catch error.", bucket.name(), e);
-            return null;
-        });
-        CompletableFuture<GetBucketVersioningResponse> versioningFuture = client.getBucketVersioning(b -> b.bucket(bucket.name())).exceptionally(e -> {
-            // 可能没有 version 的情况
-            log.warn("[Herodotus] |- S3 getBucketVersioning for [{}] catch error.", bucket.name(), e);
-            return null;
-        });
-        CompletableFuture<GetObjectLockConfigurationResponse> objectLockFuture = client.getObjectLockConfiguration(b -> b.bucket(bucket.name())).exceptionally(e -> {
-            // 可能没有 objectLock 的情况
-            log.warn("[Herodotus] |- S3 getObjectLockConfiguration for [{}] catch error.", bucket.name(), e);
-            return null;
-        });
+        CompletableFuture<GetBucketPolicyResponse> policyFuture = client.getBucketPolicy(b -> b.bucket(bucket.name())).exceptionally(e -> null);
+        CompletableFuture<GetBucketVersioningResponse> versioningFuture = client.getBucketVersioning(b -> b.bucket(bucket.name())).exceptionally(e -> null);
+        CompletableFuture<GetObjectLockConfigurationResponse> objectLockFuture = client.getObjectLockConfiguration(b -> b.bucket(bucket.name())).exceptionally(e -> null);
 
-
-        return CompletableFuture.allOf(policyStatusFuture, versioningFuture, objectLockFuture)
+        return CompletableFuture.allOf(policyFuture, versioningFuture, objectLockFuture)
                 .thenApply(v -> {
 
-                    GetBucketPolicyStatusResponse policyStatusResponse = policyStatusFuture.join();
+                    GetBucketPolicyResponse policyResponse = policyFuture.join();
                     GetBucketVersioningResponse versioningResponse = versioningFuture.join();
                     GetObjectLockConfigurationResponse objectLockResponse = objectLockFuture.join();
 
@@ -103,16 +90,13 @@ public class S3AsyncClientCompositeService extends AbstractS3AsyncClientService 
                     details.setCreationDate(DateUtil.toLocalDateTime(bucket.creationDate()));
                     details.setBucketName(bucket.name());
                     details.setBucketRegion(bucket.bucketRegion());
-
-                    if (ObjectUtils.isNotEmpty(policyStatusResponse) && ObjectUtils.isNotEmpty(policyStatusResponse.policyStatus())) {
-                        details.setPolicy(policyStatusResponse.policyStatus().isPublic() ? BucketPolicy.PUBLIC : BucketPolicy.PRIVATE);
-                    }
+                    details.setDoesPublic(OssUtils.isBucketPublic(policyResponse));
 
                     if (ObjectUtils.isNotEmpty(versioningResponse) && ObjectUtils.isNotEmpty(versioningResponse.status())) {
                         details.setVersioning(BucketVersioning.get(versioningResponse.status().name()));
                     }
 
-                    details.setObjectLockEnabled(ObjectUtils.isNotEmpty(objectLockResponse.objectLockConfiguration()));
+                    details.setObjectLockEnabled(ObjectUtils.isNotEmpty(objectLockResponse) && ObjectUtils.isNotEmpty(objectLockResponse.objectLockConfiguration()));
 
                     return details;
                 });
