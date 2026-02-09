@@ -23,40 +23,30 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.core.constant;
+package org.dromara.dante.assistant.oss.constant;
+
+import org.dromara.dante.core.feedback.BadRequestFeedback;
+import org.dromara.dante.core.feedback.ConflictFeedback;
+import org.dromara.dante.core.feedback.ForbiddenFeedback;
+import org.dromara.dante.core.feedback.NotFoundFeedback;
 
 /**
- * <p>Description: 常用正则表达式 </p>
+ * <p>Description: 对象存储模块错误代码 </p>
  *
  * @author : gengwei.zheng
- * @date : 2021/10/12 10:43
+ * @date : 2026/2/9 20:49
  */
-public interface RegexPool extends cn.hutool.v7.core.regex.RegexPool {
+public interface OssErrorCode {
 
-    /**
-     * 匹配大括号以及其中的内容，
-     * <p>
-     * 示例： "ab{gnfnm}ah{hell}o"，匹配结果：{gnfnm}、{hell}
-     */
-    String BRACES_AND_CONTENT = "\\{([^}])*\\}";
+    BadRequestFeedback INVALID_REQUEST_EXCEPTION = new BadRequestFeedback("无效的 OSS 请求");
 
-    /**
-     * 匹配所有字符
-     * <p>
-     * 示例：String cat = "abc", cat.split((?!^)) 匹配结果： array["a", "b", "c"]
-     */
-    String ALL_CHARACTERS = "(?!^)";
+    ForbiddenFeedback ACCESS_DENIED_EXCEPTION = new ForbiddenFeedback("您没有权限，拒绝访问当前 OSS");
 
-    /**
-     * 单引号字符串等式
-     * <p>
-     * 示例：pattern='/open/**'  匹配结果：pattern 和 /open/**
-     */
-    String SINGLE_QUOTE_STRING_EQUATION = "(\\w+)\\s*=\\s*'(.*?)'";
+    ConflictFeedback BUCKET_ALREADY_EXISTS_EXCEPTION = new ConflictFeedback("OSS 存储桶已存在");
+    ConflictFeedback BUCKET_ALREADY_OWNED_BY_YOU_EXCEPTION = new ConflictFeedback("该 OSS 账户下已存在同名存储桶");
+    ConflictFeedback INVALID_OBJECT_STATE_EXCEPTION = new ConflictFeedback("无效的 OSS 对象状态");
 
-    /**
-     * Bucket DNS 兼容
-     */
-    String DNS_COMPATIBLE = "^[a-z0-9][a-z0-9\\.\\-]{1,61}[a-z0-9]$";
-
+    NotFoundFeedback NO_SUCH_BUCKET_EXCEPTION = new NotFoundFeedback("OSS 中没有该存储桶");
+    NotFoundFeedback NO_SUCH_KEY_EXCEPTION = new NotFoundFeedback("OSS 中没有该对象");
+    NotFoundFeedback NO_SUCH_UPLOAD_EXCEPTION = new NotFoundFeedback("OSS 中没有该上传");
 }

@@ -42,7 +42,7 @@ public class CreateBucketArgument extends AbstractBucketArgument {
     @Schema(name = "存储桶 Grant 相关信息")
     private GrantDomain grantDetails = new GrantDomain();
 
-    private Boolean objectLockEnabledForBucket;
+    private Boolean objectLockEnabled;
 
     private String objectOwnership;
 
@@ -54,12 +54,12 @@ public class CreateBucketArgument extends AbstractBucketArgument {
         this.grantDetails = grantDetails;
     }
 
-    public Boolean getObjectLockEnabledForBucket() {
-        return objectLockEnabledForBucket;
+    public Boolean getObjectLockEnabled() {
+        return objectLockEnabled;
     }
 
-    public void setObjectLockEnabledForBucket(Boolean objectLockEnabledForBucket) {
-        this.objectLockEnabledForBucket = objectLockEnabledForBucket;
+    public void setObjectLockEnabled(Boolean objectLockEnabled) {
+        this.objectLockEnabled = objectLockEnabled;
     }
 
     public String getObjectOwnership() {
@@ -74,7 +74,7 @@ public class CreateBucketArgument extends AbstractBucketArgument {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("grantDetails", grantDetails)
-                .add("objectLockEnabledForBucket", objectLockEnabledForBucket)
+                .add("objectLockEnabledForBucket", objectLockEnabled)
                 .add("objectOwnership", objectOwnership)
                 .addValue(super.toString())
                 .toString();

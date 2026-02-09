@@ -114,6 +114,10 @@ public interface ErrorCodes {
      */
     NoContentFeedback NO_CONTENT = new NoContentFeedback("无内容");
     /**
+     * 400.** 客户端请求的语法错误，服务器无法理解
+     */
+    BadRequestFeedback BAD_REQUEST = new BadRequestFeedback("客户端请求的语法错误");
+    /**
      * 401.** 未经授权 Unauthorized	请求要求用户的身份认证
      */
     UnauthorizedFeedback UNAUTHORIZED = new UnauthorizedFeedback("未经授权");
@@ -166,6 +170,11 @@ public interface ErrorCodes {
     NotAcceptableFeedback CAPTCHA_IS_EMPTY = new NotAcceptableFeedback("验证码不能为空");
     NotAcceptableFeedback CAPTCHA_MISMATCH = new NotAcceptableFeedback("验证码不匹配");
     NotAcceptableFeedback CAPTCHA_PARAMETER_ILLEGAL = new NotAcceptableFeedback("验证码参数格式错误");
+
+    /**
+     * 409.** 服务器处理请求时发生了冲突，与409对应
+     */
+    ConflictFeedback CONFLICT = new ConflictFeedback("服务器处理请求时发生了冲突");
 
     /**
      * 412.* 未经授权 Precondition Failed 客户端请求信息的先决条件错误

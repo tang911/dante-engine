@@ -54,7 +54,7 @@ public class ArgumentToCreateBucketRequestConverter implements Converter<CreateB
             builder.grantWriteACP(grantDomain.getGrantWriteACP());
         }
 
-        builder.objectLockEnabledForBucket(source.getObjectLockEnabledForBucket());
+        builder.objectLockEnabledForBucket(source.getObjectLockEnabled());
         builder.objectOwnership(source.getObjectOwnership());
 
         return builder.build();

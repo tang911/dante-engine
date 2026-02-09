@@ -32,6 +32,7 @@ import org.dromara.dante.assistant.oss.pool.S3AsyncClientObjectPool;
 import org.dromara.dante.assistant.oss.pool.S3PresignerObjectPool;
 import org.dromara.dante.assistant.oss.properties.OssProperties;
 import org.dromara.dante.core.function.EnumDictionaryBuilderCustomizer;
+import org.dromara.dante.core.function.ErrorCodeMapperBuilderCustomizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -69,6 +70,13 @@ public class AssistantOssConfiguration {
     public EnumDictionaryBuilderCustomizer ossEnumDictionaryBuilder() {
         OssEnumDictionaryBuilderCustomizer customizer = new OssEnumDictionaryBuilderCustomizer();
         log.debug("[Herodotus] |- Strategy [OSS EnumDictionary Builder Customizer] Configure.");
+        return customizer;
+    }
+
+    @Bean
+    public ErrorCodeMapperBuilderCustomizer ossErrorCodeMapperBuilderCustomizer() {
+        OssErrorCodeMapperBuilderCustomizer customizer = new OssErrorCodeMapperBuilderCustomizer();
+        log.debug("[Herodotus] |- Strategy [Oss ErrorCodeMapper Builder Customizer] Configure.");
         return customizer;
     }
 
