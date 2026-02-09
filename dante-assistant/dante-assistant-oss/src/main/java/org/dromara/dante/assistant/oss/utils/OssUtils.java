@@ -33,11 +33,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
 import org.dromara.dante.assistant.oss.entity.domain.PolicyDomain;
 import org.dromara.dante.assistant.oss.entity.domain.StatementDomain;
+import org.dromara.dante.assistant.oss.exception.*;
 import org.dromara.dante.core.constant.SymbolConstants;
 import org.dromara.dante.core.jackson.JacksonUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.s3.S3AsyncClient;
-import software.amazon.awssdk.services.s3.model.DeleteBucketPolicyRequest;
-import software.amazon.awssdk.services.s3.model.GetBucketPolicyResponse;
+import software.amazon.awssdk.services.s3.model.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,9 +52,41 @@ import java.util.Optional;
  */
 public class OssUtils {
 
+    private static final Logger log = LoggerFactory.getLogger(OssUtils.class);
+
     private static final String DEFAULT_RESOURCE_PREFIX = "arn:aws:s3:::";
     private static final List<String> DEFAULT_ACTION_FOR_BUCKET = Lists.newArrayList("s3:GetBucketLocation", "s3:ListBucket", "s3:ListBucketMultipartUploads");
     private static final List<String> DEFAULT_ACTION_FOR_OBJECT = Lists.newArrayList("s3:DeleteObject", "s3:GetObject", "s3:ListMultipartUploadParts", "s3:PutObject", "s3:AbortMultipartUpload");
+
+    public static RuntimeException convertException(Throwable throwable) {
+        Throwable cause = throwable.getCause();
+
+        log.error("[Herodotus] |- AWS s3 error: {}", cause.getMessage(), cause);
+
+        if (cause instanceof S3Exception s3Exception) {
+            return switch (s3Exception) {
+                case AccessDeniedException accessDeniedException ->
+                        new OssAccessDeniedException(accessDeniedException.getMessage(), accessDeniedException);
+                case BucketAlreadyOwnedByYouException bucketAlreadyOwnedByYouException ->
+                        new OssBucketAlreadyOwnedByYouException(bucketAlreadyOwnedByYouException.getMessage(), bucketAlreadyOwnedByYouException);
+                case BucketAlreadyExistsException bucketAlreadyExistsException ->
+                        new OssBucketAlreadyExistsException(bucketAlreadyExistsException.getMessage(), bucketAlreadyExistsException);
+                case InvalidObjectStateException invalidObjectStateException ->
+                        new OssInvalidObjectStateException(invalidObjectStateException.getMessage(), invalidObjectStateException);
+                case InvalidRequestException invalidRequestException ->
+                        new OssInvalidRequestException(invalidRequestException.getMessage(), invalidRequestException);
+                case NoSuchBucketException noSuchBucketException ->
+                        new OssNoSuchBucketException(noSuchBucketException.getMessage(), noSuchBucketException);
+                case NoSuchKeyException noSuchKeyException ->
+                        new OssNoSuchKeyException(noSuchKeyException.getMessage(), noSuchKeyException);
+                case NoSuchUploadException noSuchUploadException ->
+                        new OssNoSuchUploadException(noSuchUploadException.getMessage(), noSuchUploadException);
+                default -> new RuntimeException(cause);
+            };
+        }
+
+        return new RuntimeException(cause);
+    }
 
     public static String unwrapETag(String source) {
 

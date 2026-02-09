@@ -25,9 +25,11 @@
 
 package org.dromara.dante.assistant.oss.definition.service;
 
+import org.dromara.dante.assistant.oss.utils.OssUtils;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 import java.util.function.Function;
 
 /**
@@ -52,7 +54,11 @@ public abstract class AbstractServletService {
      */
     protected <ArgumentA, RequestR, ResponseR, ResultR> ResultR process(ArgumentA argument, Converter<ArgumentA, RequestR> toRequest, Converter<ResponseR, ResultR> toResult, Function<RequestR, CompletableFuture<ResponseR>> handler) {
         CompletableFuture<ResponseR> future = handler.apply(toRequest.convert(argument));
-        return toResult.convert(future.join());
+        try {
+            return toResult.convert(future.join());
+        } catch (CompletionException e) {
+            throw OssUtils.convertException(e);
+        }
     }
 
     /**
@@ -68,6 +74,10 @@ public abstract class AbstractServletService {
      */
     protected <ArgumentA, RequestR, ResultR> ResultR process(ArgumentA argument, Converter<ArgumentA, RequestR> toRequest, Function<RequestR, CompletableFuture<ResultR>> handler) {
         CompletableFuture<ResultR> future = handler.apply(toRequest.convert(argument));
-        return future.join();
+        try {
+            return future.join();
+        } catch (CompletionException e) {
+            throw OssUtils.convertException(e);
+        }
     }
 }

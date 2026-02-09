@@ -315,10 +315,12 @@ public class ErrorCodeMapperBuilder {
 
     public ErrorCodeMapper build() {
         ErrorCodeMapper errorCodeMapper = ErrorCodeMapper.getInstance();
+        errorCodeMapper.append(badRequestConfigs);
         errorCodeMapper.append(unauthorizedConfigs);
         errorCodeMapper.append(forbiddenConfigs);
         errorCodeMapper.append(methodNotAllowedConfigs);
         errorCodeMapper.append(notAcceptableConfigs);
+        errorCodeMapper.append(conflictConfigs);
         errorCodeMapper.append(preconditionFailedConfigs);
         errorCodeMapper.append(unsupportedMediaTypeConfigs);
         errorCodeMapper.append(internalServerErrorConfigs);

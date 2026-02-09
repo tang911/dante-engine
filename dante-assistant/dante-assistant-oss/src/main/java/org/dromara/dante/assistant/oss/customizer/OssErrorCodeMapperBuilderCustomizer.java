@@ -44,7 +44,7 @@ public class OssErrorCodeMapperBuilderCustomizer implements ErrorCodeMapperBuild
         builder.badRequest(OssErrorCode.INVALID_REQUEST_EXCEPTION)
                 .forbidden(OssErrorCode.ACCESS_DENIED_EXCEPTION)
                 .conflict(OssErrorCode.BUCKET_ALREADY_EXISTS_EXCEPTION,
-                        OssErrorCode.BUCKET_ALREADY_EXISTS_EXCEPTION,
+                        OssErrorCode.BUCKET_ALREADY_OWNED_BY_YOU_EXCEPTION,
                         OssErrorCode.INVALID_OBJECT_STATE_EXCEPTION)
                 .notFound(OssErrorCode.NO_SUCH_BUCKET_EXCEPTION,
                         OssErrorCode.NO_SUCH_KEY_EXCEPTION,
