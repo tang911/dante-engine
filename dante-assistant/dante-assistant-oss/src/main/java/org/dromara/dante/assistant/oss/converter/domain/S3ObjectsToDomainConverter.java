@@ -68,7 +68,7 @@ public class S3ObjectsToDomainConverter implements ListConverter<S3Object, Objec
         target.setRestoreStatus(ObjectUtils.isNotEmpty(source.restoreStatus()) ? toRestoreStatusResult.convert(source.restoreStatus()) : null);
         target.setSize(source.size());
         target.setStorageClass(source.storageClassAsString());
-        target.setDir(StringUtils.isNotBlank(this.delimiter) && Strings.CS.contains(source.key(), this.delimiter));
+        target.setDir(StringUtils.isNotBlank(this.delimiter) && Strings.CS.endsWith(source.key(), this.delimiter));
         return target;
     }
 }
