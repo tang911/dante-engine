@@ -44,7 +44,7 @@ public class ResponseToPutObjectResultConverter implements ResponseConverter<Put
     public void prepare(PutObjectResponse source, PutObjectResult target) {
 
         target.setExpiration(source.expiration());
-        target.setETag(OssUtils.unwrapETag(source.eTag()));
+        target.setEtag(OssUtils.unwrapETag(source.eTag()));
         target.setVersionId(source.versionId());
 
         ChecksumDomain checksum = new ChecksumDomain();

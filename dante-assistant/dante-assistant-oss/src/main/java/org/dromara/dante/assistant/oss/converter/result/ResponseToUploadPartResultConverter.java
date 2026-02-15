@@ -45,7 +45,7 @@ public class ResponseToUploadPartResultConverter implements ResponseConverter<Up
     @Override
     public void prepare(UploadPartResponse source, UploadPartResult target) {
 
-        target.setETag(source.eTag());
+        target.setEtag(source.eTag());
         target.setServerSideEncryption(source.serverSideEncryptionAsString());
         target.setBucketKeyEnabled(source.bucketKeyEnabled());
         target.setRequestCharged(source.requestChargedAsString());

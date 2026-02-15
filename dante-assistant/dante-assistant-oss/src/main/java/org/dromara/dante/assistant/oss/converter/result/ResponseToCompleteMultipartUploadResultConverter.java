@@ -50,7 +50,7 @@ public class ResponseToCompleteMultipartUploadResultConverter implements Respons
         target.setBucketName(source.bucket());
         target.setObjectName(source.key());
         target.setExpiration(source.expiration());
-        target.setETag(OssUtils.unwrapETag(source.eTag()));
+        target.setEtag(OssUtils.unwrapETag(source.eTag()));
         target.setVersionId(source.versionId());
         target.setServerSideEncryption(source.serverSideEncryptionAsString());
         target.setBucketKeyEnabled(source.bucketKeyEnabled());

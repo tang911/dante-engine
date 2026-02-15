@@ -55,7 +55,7 @@ public class ResponseToHeadObjectResultConverter implements ResponseConverter<He
 
         target.setAcceptRanges(source.acceptRanges());
         target.setArchiveStatus(source.archiveStatusAsString());
-        target.setETag(OssUtils.unwrapETag(source.eTag()));
+        target.setEtag(OssUtils.unwrapETag(source.eTag()));
         target.setExpiration(source.expiration());
         target.setExpiresString(source.expiresString());
         target.setLastModified(DateUtil.toLocalDateTime(source.lastModified()));

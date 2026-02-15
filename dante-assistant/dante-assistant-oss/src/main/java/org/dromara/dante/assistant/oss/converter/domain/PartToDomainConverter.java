@@ -54,7 +54,7 @@ public class PartToDomainConverter implements ListConverter<Part, PartDomain> {
         domain.setChecksumSHA256(source.checksumSHA256());
 
         target.setChecksum(domain);
-        target.setETag(OssUtils.unwrapETag(source.eTag()));
+        target.setEtag(OssUtils.unwrapETag(source.eTag()));
         target.setPartNumber(source.partNumber());
 
         return target;
