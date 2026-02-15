@@ -27,76 +27,75 @@ package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
 import org.dromara.dante.assistant.oss.definition.result.AbstractObjectListResult;
-import org.dromara.dante.assistant.oss.entity.domain.ObjectDomain;
+import org.dromara.dante.assistant.oss.entity.domain.ObjectVersionDomain;
 
 import java.util.List;
 
 /**
- * <p>Description: 对象列表响应结果对象实体 </p>
+ * <p>Description: 对象版本列表响应结果对象实体 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/23 23:48
+ * @date : 2026/2/15 12:10
  */
-public class ListObjectsV2Result extends AbstractObjectListResult {
+public class ListObjectVersionsResult extends AbstractObjectListResult {
 
-    private List<ObjectDomain> contents;
+    private String keyMarker;
 
-    private Integer keyCount;
+    private String versionIdMarker;
 
-    private String continuationToken;
+    private String nextKeyMarker;
 
-    private String nextContinuationToken;
+    private String nextVersionIdMarker;
 
-    private String startAfter;
+    private List<ObjectVersionDomain> versions;
 
-    public List<ObjectDomain> getContents() {
-        return contents;
+    public String getKeyMarker() {
+        return keyMarker;
     }
 
-    public void setContents(List<ObjectDomain> contents) {
-        this.contents = contents;
+    public void setKeyMarker(String keyMarker) {
+        this.keyMarker = keyMarker;
     }
 
-    public Integer getKeyCount() {
-        return keyCount;
+    public String getVersionIdMarker() {
+        return versionIdMarker;
     }
 
-    public void setKeyCount(Integer keyCount) {
-        this.keyCount = keyCount;
+    public void setVersionIdMarker(String versionIdMarker) {
+        this.versionIdMarker = versionIdMarker;
     }
 
-    public String getContinuationToken() {
-        return continuationToken;
+    public String getNextKeyMarker() {
+        return nextKeyMarker;
     }
 
-    public void setContinuationToken(String continuationToken) {
-        this.continuationToken = continuationToken;
+    public void setNextKeyMarker(String nextKeyMarker) {
+        this.nextKeyMarker = nextKeyMarker;
     }
 
-    public String getNextContinuationToken() {
-        return nextContinuationToken;
+    public String getNextVersionIdMarker() {
+        return nextVersionIdMarker;
     }
 
-    public void setNextContinuationToken(String nextContinuationToken) {
-        this.nextContinuationToken = nextContinuationToken;
+    public void setNextVersionIdMarker(String nextVersionIdMarker) {
+        this.nextVersionIdMarker = nextVersionIdMarker;
     }
 
-    public String getStartAfter() {
-        return startAfter;
+    public List<ObjectVersionDomain> getVersions() {
+        return versions;
     }
 
-    public void setStartAfter(String startAfter) {
-        this.startAfter = startAfter;
+    public void setVersions(List<ObjectVersionDomain> versions) {
+        this.versions = versions;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("contents", contents)
-                .add("keyCount", keyCount)
-                .add("continuationToken", continuationToken)
-                .add("nextContinuationToken", nextContinuationToken)
-                .add("startAfter", startAfter)
+                .add("keyMarker", keyMarker)
+                .add("versionIdMarker", versionIdMarker)
+                .add("nextKeyMarker", nextKeyMarker)
+                .add("nextVersionIdMarker", nextVersionIdMarker)
                 .addValue(super.toString())
                 .toString();
     }

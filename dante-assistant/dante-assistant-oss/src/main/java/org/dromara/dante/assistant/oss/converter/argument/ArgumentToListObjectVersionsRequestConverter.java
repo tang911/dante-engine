@@ -23,17 +23,29 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.result;
+package org.dromara.dante.assistant.oss.converter.argument;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
+import org.dromara.dante.assistant.oss.entity.argument.ListObjectVersionsArgument;
+import org.springframework.core.convert.converter.Converter;
+import software.amazon.awssdk.services.s3.model.ListObjectVersionsRequest;
 
 /**
- * <p>Description: 设置对象保留响应返回实体 </p>
+ * <p>Description: {@link ListObjectVersionsArgument} 转 {@link ListObjectVersionsRequest} </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:27
+ * @date : 2026/2/15 16:00
  */
-@Schema(name = "设置对象保留响应返回实体", title = "设置对象保留响应返回实体")
-public class PutObjectRetentionResult extends AbstractObjectRequestChargedResult {
+public class ArgumentToListObjectVersionsRequestConverter implements Converter<ListObjectVersionsArgument, ListObjectVersionsRequest> {
+    @Override
+    public ListObjectVersionsRequest convert(ListObjectVersionsArgument source) {
+        return ListObjectVersionsRequest.builder()
+                .bucket(source.getBucketName())
+                .delimiter(source.getDelimiter())
+                .encodingType(source.getEncodingType())
+                .maxKeys(source.getMaxKeys())
+                .prefix(source.getPrefix())
+                .keyMarker(source.getKeyMarker())
+                .versionIdMarker(source.getVersionIdMarker())
+                .build();
+    }
 }

@@ -25,34 +25,38 @@
 
 package org.dromara.dante.assistant.oss.converter.domain;
 
+import cn.hutool.v7.core.date.DateUtil;
 import org.apache.commons.lang3.ObjectUtils;
-import org.dromara.dante.assistant.oss.entity.domain.CompletedPartDomain;
-import org.dromara.dante.assistant.oss.utils.OssUtils;
+import org.dromara.dante.assistant.oss.entity.domain.ObjectVersionDomain;
+import org.dromara.dante.assistant.oss.entity.domain.OwnerDomain;
 import org.dromara.dante.spring.founction.ListConverter;
-import software.amazon.awssdk.services.s3.model.CompletedPart;
+import org.springframework.core.convert.converter.Converter;
+import software.amazon.awssdk.services.s3.model.DeleteMarkerEntry;
+import software.amazon.awssdk.services.s3.model.Owner;
 
 /**
- * <p>Description: CompletedPartDomain 转 CompletedPart 转换器 </p>
+ * <p>Description: {@link DeleteMarkerEntry} 转 {@link ObjectVersionDomain} 转换器  </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/26 17:03
+ * @date : 2026/2/15 12:41
  */
-public class DomainToCompletedPartConverter implements ListConverter<CompletedPartDomain, CompletedPart> {
+public class DeleteMarkerEntryToConverter implements ListConverter<DeleteMarkerEntry, ObjectVersionDomain> {
+
+    private final Converter<Owner, OwnerDomain> toOwnerResult;
+
+    public DeleteMarkerEntryToConverter() {
+        this.toOwnerResult = new OwnerToDomainConverter();
+    }
 
     @Override
-    public CompletedPart from(CompletedPartDomain source) {
-
-        CompletedPart.Builder builder = CompletedPart.builder();
-        builder.eTag(OssUtils.unwrapETag(source.getEtag()));
-        builder.partNumber(source.getPartNumber());
-
-        if (ObjectUtils.isNotEmpty(source.getChecksum())) {
-            builder.checksumCRC32(source.getChecksum().getChecksumCRC32());
-            builder.checksumCRC32C(source.getChecksum().getChecksumCRC32C());
-            builder.checksumSHA1(source.getChecksum().getChecksumSHA1());
-            builder.checksumSHA256(source.getChecksum().getChecksumSHA256());
-        }
-
-        return builder.build();
+    public ObjectVersionDomain from(DeleteMarkerEntry source) {
+        ObjectVersionDomain target = new ObjectVersionDomain();
+        target.setObjectName(source.key());
+        target.setLastModified(DateUtil.toLocalDateTime(source.lastModified()));
+        target.setOwner(ObjectUtils.isNotEmpty(source.owner()) ? toOwnerResult.convert(source.owner()) : null);
+        target.setVersionId(source.versionId());
+        target.setLatest(source.isLatest());
+        target.setDeleteMarker(true);
+        return target;
     }
 }

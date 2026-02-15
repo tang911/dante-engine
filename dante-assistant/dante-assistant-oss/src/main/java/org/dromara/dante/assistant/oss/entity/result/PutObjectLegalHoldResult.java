@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.result;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
 
 /**
  * <p>Description: 设置对象留存响应返回实体 </p>
@@ -35,5 +35,5 @@ import org.dromara.dante.assistant.oss.definition.result.AbstractObjectResult;
  * @date : 2026/2/6 23:27
  */
 @Schema(name = "设置对象留存响应返回实体", title = "设置对象留存响应返回实体")
-public class PutObjectLegalHoldResult extends AbstractObjectResult {
+public class PutObjectLegalHoldResult extends AbstractObjectRequestChargedResult {
 }

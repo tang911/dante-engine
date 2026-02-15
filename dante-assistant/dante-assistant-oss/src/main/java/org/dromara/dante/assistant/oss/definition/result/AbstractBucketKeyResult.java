@@ -33,7 +33,7 @@ import com.google.common.base.MoreObjects;
  * @author : gengwei.zheng
  * @date : 2024/7/25 16:33
  */
-public abstract class AbstractBucketKeyResult extends AbstractRequestChargedResult {
+public abstract class AbstractBucketKeyResult extends AbstractObjectRequestChargedResult {
 
     private Boolean bucketKeyEnabled;
 

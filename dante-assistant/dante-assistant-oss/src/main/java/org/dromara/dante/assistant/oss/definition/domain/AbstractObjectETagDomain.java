@@ -23,17 +23,34 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.result;
+package org.dromara.dante.assistant.oss.definition.domain;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
 
 /**
- * <p>Description: 设置对象保留响应返回实体 </p>
+ * <p>Description: 对象 ETag 通用响应参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:27
+ * @date : 2026/2/15 12:20
  */
-@Schema(name = "设置对象保留响应返回实体", title = "设置对象保留响应返回实体")
-public class PutObjectRetentionResult extends AbstractObjectRequestChargedResult {
+public abstract class AbstractObjectETagDomain implements OssDomain {
+
+    @JsonProperty(value = "eTag")
+    private String etag;
+
+    public String getEtag() {
+        return etag;
+    }
+
+    public void setEtag(String etag) {
+        this.etag = etag;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("etag", etag)
+                .toString();
+    }
 }

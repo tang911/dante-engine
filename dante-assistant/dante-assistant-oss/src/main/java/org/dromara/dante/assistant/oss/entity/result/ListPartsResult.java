@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractUploadResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectNameResult;
 import org.dromara.dante.assistant.oss.entity.domain.OwnerDomain;
 import org.dromara.dante.assistant.oss.entity.domain.PartDomain;
 
@@ -41,7 +41,7 @@ import java.util.List;
  * @date : 2024/7/24 0:02
  */
 @Schema(name = "分片上传列表响应结果对象实体", title = "分片上传列表响应结果对象实体")
-public class ListPartsResult extends AbstractUploadResult {
+public class ListPartsResult extends AbstractObjectNameResult {
 
     private LocalDateTime abortDate;
 

@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.domain;
 
 import com.google.common.base.MoreObjects;
-import org.dromara.dante.assistant.oss.definition.domain.OssDomain;
+import org.dromara.dante.assistant.oss.definition.domain.AbstractObjectETagDomain;
 
 /**
  * <p>Description: CompletedPart </p>
@@ -34,9 +34,7 @@ import org.dromara.dante.assistant.oss.definition.domain.OssDomain;
  * @author : gengwei.zheng
  * @date : 2024/7/23 11:13
  */
-public class CompletedPartDomain implements OssDomain {
-
-    private String eTag;
+public class CompletedPartDomain extends AbstractObjectETagDomain {
 
     private ChecksumDomain checksum = new ChecksumDomain();
 
@@ -50,13 +48,6 @@ public class CompletedPartDomain implements OssDomain {
         this.checksum = checksum;
     }
 
-    public String getETag() {
-        return eTag;
-    }
-
-    public void setETag(String eTag) {
-        this.eTag = eTag;
-    }
 
     public Integer getPartNumber() {
         return partNumber;
@@ -70,8 +61,8 @@ public class CompletedPartDomain implements OssDomain {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("checksum", checksum)
-                .add("eTag", eTag)
                 .add("partNumber", partNumber)
+                .addValue(super.toString())
                 .toString();
     }
 }

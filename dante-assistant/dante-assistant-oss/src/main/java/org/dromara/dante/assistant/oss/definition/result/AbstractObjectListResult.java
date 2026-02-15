@@ -23,34 +23,76 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.definition.argument;
+package org.dromara.dante.assistant.oss.definition.result;
 
 import com.google.common.base.MoreObjects;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * <p>Description: 对象版本抽象定义 </p>
+ * <p>Description: 对象列表相关通用响应参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 23:40
+ * @date : 2026/2/14 18:30
  */
-public abstract class AbstractObjectVersionIdArgument extends AbstractObjectNameArgument {
+public abstract class AbstractObjectListResult extends AbstractBucketNameResult {
 
-    @Schema(name = "版本 ID")
-    private String versionId;
+    private Boolean isTruncated;
 
-    public String getVersionId() {
-        return versionId;
+    private String prefix;
+
+    private String delimiter;
+
+    private Integer maxKeys;
+
+    private String encodingType;
+
+    public Boolean getTruncated() {
+        return isTruncated;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    public void setTruncated(Boolean truncated) {
+        isTruncated = truncated;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getDelimiter() {
+        return delimiter;
+    }
+
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    public Integer getMaxKeys() {
+        return maxKeys;
+    }
+
+    public void setMaxKeys(Integer maxKeys) {
+        this.maxKeys = maxKeys;
+    }
+
+    public String getEncodingType() {
+        return encodingType;
+    }
+
+    public void setEncodingType(String encodingType) {
+        this.encodingType = encodingType;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("versionId", versionId)
+                .add("isTruncated", isTruncated)
+                .add("prefix", prefix)
+                .add("delimiter", delimiter)
+                .add("maxKeys", maxKeys)
+                .add("encodingType", encodingType)
                 .addValue(super.toString())
                 .toString();
     }

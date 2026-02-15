@@ -23,17 +23,33 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.result;
+package org.dromara.dante.assistant.oss.definition.result;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
+import com.google.common.base.MoreObjects;
 
 /**
- * <p>Description: 设置对象保留响应返回实体 </p>
+ * <p>Description: 对象 VersionId 通用响应参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:27
+ * @date : 2026/2/15 11:48
  */
-@Schema(name = "设置对象保留响应返回实体", title = "设置对象保留响应返回实体")
-public class PutObjectRetentionResult extends AbstractObjectRequestChargedResult {
+public abstract class AbstractObjectVersionIdResult extends AbstractObjectETagResult {
+
+    private String versionId;
+
+    public String getVersionId() {
+        return versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("versionId", versionId)
+                .addValue(super.toString())
+                .toString();
+    }
 }

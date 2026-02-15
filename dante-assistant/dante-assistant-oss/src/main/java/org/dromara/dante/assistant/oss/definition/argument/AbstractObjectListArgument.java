@@ -27,32 +27,67 @@ package org.dromara.dante.assistant.oss.definition.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
+import org.dromara.dante.core.constant.SymbolConstants;
 
 /**
- * <p>Description: 对象存储对象抽象定义 </p>
+ * <p>Description: 对象列表相关通用请求参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/22 23:34
+ * @date : 2026/2/14 18:13
  */
-public abstract class AbstractObjectArgument extends AbstractObjectRequestPayerArgument {
+public abstract class AbstractObjectListArgument extends AbstractObjectRequestPayerArgument {
 
-    @NotBlank(message = "对象名称不能为空")
-    @Schema(name = "对象名称", requiredMode = Schema.RequiredMode.REQUIRED)
-    private String objectName;
+    @Schema(name = "对象分隔符", description = "默认值 '/'")
+    private String delimiter = SymbolConstants.FORWARD_SLASH;
 
-    public String getObjectName() {
-        return objectName;
+    @Schema(name = "对象编码")
+    private String encodingType;
+
+    @Schema(name = "查询返回最大数量", description = "默认值：1000")
+    private Integer maxKeys;
+
+    @Schema(name = "查询条件")
+    private String prefix;
+
+    public String getDelimiter() {
+        return delimiter;
     }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    public String getEncodingType() {
+        return encodingType;
+    }
+
+    public void setEncodingType(String encodingType) {
+        this.encodingType = encodingType;
+    }
+
+    public Integer getMaxKeys() {
+        return maxKeys;
+    }
+
+    public void setMaxKeys(Integer maxKeys) {
+        this.maxKeys = maxKeys;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("objectName", objectName)
+                .add("delimiter", delimiter)
+                .add("encodingType", encodingType)
+                .add("maxKeys", maxKeys)
+                .add("prefix", prefix)
                 .addValue(super.toString())
                 .toString();
     }

@@ -92,4 +92,8 @@ public class ServletObjectService extends AbstractServletService {
     public PutObjectRetentionResult putObjectRetention(PutObjectRetentionArgument argument) {
         return process(argument, new ArgumentToPutObjectRetentionRequestConverter(), new ResponseToPutObjectRetentionResultConverter(), objectService::putObjectRetention);
     }
+
+    public ListObjectVersionsResult listObjectVersions(ListObjectVersionsArgument argument) {
+        return process(argument, new ArgumentToListObjectVersionsRequestConverter(), new ResponseToListObjectVersionsConverter(), objectService::listObjectVersions);
+    }
 }

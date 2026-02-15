@@ -23,17 +23,35 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.result;
+package org.dromara.dante.assistant.oss.definition.result;
 
+import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
 
 /**
- * <p>Description: 设置对象保留响应返回实体 </p>
+ * <p>Description: 存储桶名称通用属性响应结果抽象定义 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:27
+ * @date : 2026/2/14 19:01
  */
-@Schema(name = "设置对象保留响应返回实体", title = "设置对象保留响应返回实体")
-public class PutObjectRetentionResult extends AbstractObjectRequestChargedResult {
+public abstract class AbstractBucketNameResult extends AbstractObjectRequestChargedResult {
+
+    @Schema(name = "存储桶名称")
+    private String bucketName;
+
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("bucketName", bucketName)
+                .addValue(super.toString())
+                .toString();
+    }
 }

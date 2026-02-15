@@ -27,48 +27,46 @@ package org.dromara.dante.assistant.oss.converter.domain;
 
 import cn.hutool.v7.core.date.DateUtil;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Strings;
-import org.dromara.dante.assistant.oss.entity.domain.ObjectDomain;
+import org.dromara.dante.assistant.oss.entity.domain.ObjectVersionDomain;
 import org.dromara.dante.assistant.oss.entity.domain.OwnerDomain;
 import org.dromara.dante.assistant.oss.entity.domain.RestoreStatusDomain;
 import org.dromara.dante.assistant.oss.utils.OssUtils;
 import org.dromara.dante.spring.founction.ListConverter;
 import org.springframework.core.convert.converter.Converter;
+import software.amazon.awssdk.services.s3.model.ObjectVersion;
 import software.amazon.awssdk.services.s3.model.Owner;
 import software.amazon.awssdk.services.s3.model.RestoreStatus;
-import software.amazon.awssdk.services.s3.model.S3Object;
 
 /**
- * <p>Description: {@link S3Object} 转 {@link ObjectDomain} 转换器 </p>
+ * <p>Description: {@link ObjectVersion} 转 {@link ObjectVersionDomain} 转换器  </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/15 15:38
+ * @date : 2026/2/15 12:40
  */
-public class S3ObjectsToDomainConverter implements ListConverter<S3Object, ObjectDomain> {
+public class ObjectVersionToDomainConverter implements ListConverter<ObjectVersion, ObjectVersionDomain> {
 
     private final Converter<Owner, OwnerDomain> toOwnerResult;
     private final Converter<RestoreStatus, RestoreStatusDomain> toRestoreStatusResult;
-    private final String delimiter;
 
-    public S3ObjectsToDomainConverter(String delimiter) {
-        this.delimiter = delimiter;
+    public ObjectVersionToDomainConverter() {
         this.toOwnerResult = new OwnerToDomainConverter();
         this.toRestoreStatusResult = new RestoreStatusToDomainConverter();
     }
 
     @Override
-    public ObjectDomain from(S3Object source) {
-        ObjectDomain target = new ObjectDomain();
-        target.setChecksumAlgorithm(source.checksumAlgorithmAsStrings());
-        target.setEtag(OssUtils.unwrapETag(source.eTag()));
+    public ObjectVersionDomain from(ObjectVersion source) {
+        ObjectVersionDomain target = new ObjectVersionDomain();
         target.setObjectName(source.key());
+        target.setEtag(OssUtils.unwrapETag(source.eTag()));
         target.setLastModified(DateUtil.toLocalDateTime(source.lastModified()));
+        target.setChecksumAlgorithm(source.checksumAlgorithmAsStrings());
+        target.setChecksumType(source.checksumTypeAsString());
         target.setOwner(ObjectUtils.isNotEmpty(source.owner()) ? toOwnerResult.convert(source.owner()) : null);
         target.setRestoreStatus(ObjectUtils.isNotEmpty(source.restoreStatus()) ? toRestoreStatusResult.convert(source.restoreStatus()) : null);
         target.setSize(source.size());
         target.setStorageClass(source.storageClassAsString());
-        target.setDir(StringUtils.isNotBlank(this.delimiter) && Strings.CS.endsWith(source.key(), this.delimiter));
+        target.setVersionId(source.versionId());
+        target.setLatest(source.isLatest());
         return target;
     }
 }

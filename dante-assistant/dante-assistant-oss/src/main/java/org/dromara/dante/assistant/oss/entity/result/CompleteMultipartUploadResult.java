@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractUploadResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectVersionIdResult;
 import org.dromara.dante.assistant.oss.entity.domain.ChecksumDomain;
 
 /**
@@ -37,19 +37,19 @@ import org.dromara.dante.assistant.oss.entity.domain.ChecksumDomain;
  * @date : 2024/7/24 0:00
  */
 @Schema(name = "完成分片上传响应结果对象实体", title = "完成分片上传响应结果对象实体")
-public class CompleteMultipartUploadResult extends AbstractUploadResult {
+public class CompleteMultipartUploadResult extends AbstractObjectVersionIdResult {
+
+    private String bucketName;
+
+    private String objectName;
 
     private String location;
 
     private String expiration;
 
-    private String eTag;
-
     private ChecksumDomain checksum = new ChecksumDomain();
 
     private String serverSideEncryption;
-
-    private String versionId;
 
     public ChecksumDomain getChecksum() {
         return checksum;
@@ -59,20 +59,20 @@ public class CompleteMultipartUploadResult extends AbstractUploadResult {
         this.checksum = checksum;
     }
 
-    public String getETag() {
-        return eTag;
+    public String getBucketName() {
+        return bucketName;
     }
 
-    public void setETag(String eTag) {
-        this.eTag = eTag;
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
     }
 
-    public String getExpiration() {
-        return expiration;
+    public String getObjectName() {
+        return objectName;
     }
 
-    public void setExpiration(String expiration) {
-        this.expiration = expiration;
+    public void setObjectName(String objectName) {
+        this.objectName = objectName;
     }
 
     public String getLocation() {
@@ -83,6 +83,14 @@ public class CompleteMultipartUploadResult extends AbstractUploadResult {
         this.location = location;
     }
 
+    public String getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(String expiration) {
+        this.expiration = expiration;
+    }
+
     public String getServerSideEncryption() {
         return serverSideEncryption;
     }
@@ -91,23 +99,16 @@ public class CompleteMultipartUploadResult extends AbstractUploadResult {
         this.serverSideEncryption = serverSideEncryption;
     }
 
-    public String getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("checksum", checksum)
+                .add("bucketName", bucketName)
+                .add("objectName", objectName)
                 .add("location", location)
                 .add("expiration", expiration)
-                .add("eTag", eTag)
+                .add("checksum", checksum)
                 .add("serverSideEncryption", serverSideEncryption)
-                .add("versionId", versionId)
+                .addValue(super.toString())
                 .toString();
     }
 }

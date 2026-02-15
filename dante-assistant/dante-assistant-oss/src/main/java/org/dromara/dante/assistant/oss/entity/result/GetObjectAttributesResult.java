@@ -49,10 +49,10 @@ public class GetObjectAttributesResult extends AbstractResult {
     private String objectName;
 
     @Schema(name = "文件锁定是否开启")
-    private Boolean lockEnabled;
+    private Boolean lockEnabled = Boolean.FALSE;
 
     @Schema(name = "文件留存是否开启")
-    private Boolean lockLegalHold;
+    private Boolean lockLegalHold = Boolean.FALSE;
 
     @Schema(name = "保留至什么日期")
     private LocalDateTime retainUntilDate;

@@ -23,33 +23,56 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.definition.result;
+package org.dromara.dante.assistant.oss.entity.domain;
+
+import com.google.common.base.MoreObjects;
+import org.dromara.dante.assistant.oss.definition.domain.AbstractObjectDomain;
 
 /**
- * <p>Description: 通用响应返回参数 </p>
+ * <p>Description: 对象版本域对象 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/24 0:13
+ * @date : 2026/2/15 12:27
  */
-public abstract class AbstractRequestChargedResult extends AbstractResult {
+public class ObjectVersionDomain extends AbstractObjectDomain {
 
-    private String requestCharged;
+    private String versionId;
 
-    private Boolean bucketKeyEnabled;
+    private Boolean isLatest;
 
-    public String getRequestCharged() {
-        return requestCharged;
+    private Boolean deleteMarker = Boolean.FALSE;
+
+    public String getVersionId() {
+        return versionId;
     }
 
-    public void setRequestCharged(String requestCharged) {
-        this.requestCharged = requestCharged;
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
-    public Boolean getBucketKeyEnabled() {
-        return bucketKeyEnabled;
+    public Boolean getLatest() {
+        return isLatest;
     }
 
-    public void setBucketKeyEnabled(Boolean bucketKeyEnabled) {
-        this.bucketKeyEnabled = bucketKeyEnabled;
+    public void setLatest(Boolean latest) {
+        isLatest = latest;
+    }
+
+    public Boolean getDeleteMarker() {
+        return deleteMarker;
+    }
+
+    public void setDeleteMarker(Boolean deleteMarker) {
+        this.deleteMarker = deleteMarker;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("versionId", versionId)
+                .add("isLatest", isLatest)
+                .add("deleteMarker", deleteMarker)
+                .addValue(super.toString())
+                .toString();
     }
 }

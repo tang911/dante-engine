@@ -284,4 +284,22 @@ public class ServletObjectController implements Controller {
         PutObjectRetentionResult result = servletObjectService.putObjectRetention(argument);
         return result(result);
     }
+
+    @AccessLimited
+    @Operation(summary = "获取某个对象的版本信息", description = "需要存储桶开启对象锁定以及版本控制",
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+            responses = {
+                    @ApiResponse(description = "所有Buckets", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Result.class))),
+                    @ApiResponse(responseCode = "200", description = "查询成功，查到数据"),
+                    @ApiResponse(responseCode = "500", description = "查询失败"),
+                    @ApiResponse(responseCode = "503", description = "Server无法访问或未启动")
+            })
+    @Parameters({
+            @Parameter(name = "argument", description = "对象版本列表请求参数实体", schema = @Schema(implementation = ListObjectVersionsArgument.class))
+    })
+    @GetMapping("/versions")
+    public Result<ListObjectVersionsResult> listVersions(ListObjectVersionsArgument argument) {
+        ListObjectVersionsResult results = servletObjectService.listObjectVersions(argument);
+        return result(results);
+    }
 }

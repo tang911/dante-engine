@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectArgument;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectNameArgument;
 import org.dromara.dante.assistant.oss.entity.domain.ChecksumDomain;
 import org.dromara.dante.assistant.oss.entity.domain.PutObjectDomain;
 
@@ -38,7 +38,7 @@ import org.dromara.dante.assistant.oss.entity.domain.PutObjectDomain;
  * @date : 2024/7/22 23:51
  */
 @Schema(name = "上传对象请求参数实体", title = "上传对象请求参数实体")
-public class PutObjectArgument extends AbstractObjectArgument {
+public class PutObjectArgument extends AbstractObjectNameArgument {
 
     private String acl;
 

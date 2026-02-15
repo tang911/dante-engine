@@ -25,8 +25,9 @@
 
 package org.dromara.dante.assistant.oss.entity.result;
 
+import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
 
 /**
  * <p>Description: 删除对象响应返回实体 </p>
@@ -35,5 +36,34 @@ import org.dromara.dante.assistant.oss.definition.result.AbstractObjectResult;
  * @date : 2024/7/23 23:42
  */
 @Schema(name = "删除对象响应返回实体", title = "删除对象响应返回实体")
-public class DeleteObjectResult extends AbstractObjectResult {
+public class DeleteObjectResult extends AbstractObjectRequestChargedResult {
+
+    private Boolean deleteMarker;
+
+    private String versionId;
+
+    public Boolean getDeleteMarker() {
+        return deleteMarker;
+    }
+
+    public void setDeleteMarker(Boolean deleteMarker) {
+        this.deleteMarker = deleteMarker;
+    }
+
+    public String getVersionId() {
+        return versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("deleteMarker", deleteMarker)
+                .add("versionId", versionId)
+                .addValue(super.toString())
+                .toString();
+    }
 }

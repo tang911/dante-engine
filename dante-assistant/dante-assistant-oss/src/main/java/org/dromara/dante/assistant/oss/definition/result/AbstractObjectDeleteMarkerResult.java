@@ -23,17 +23,33 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.assistant.oss.entity.result;
+package org.dromara.dante.assistant.oss.definition.result;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
+import com.google.common.base.MoreObjects;
 
 /**
- * <p>Description: 设置对象保留响应返回实体 </p>
+ * <p>Description: 对象操作基础请求参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2026/2/6 23:27
+ * @date : 2024/7/23 23:39
  */
-@Schema(name = "设置对象保留响应返回实体", title = "设置对象保留响应返回实体")
-public class PutObjectRetentionResult extends AbstractObjectRequestChargedResult {
+public abstract class AbstractObjectDeleteMarkerResult extends AbstractObjectVersionIdResult {
+
+    private Boolean deleteMarker;
+
+    public Boolean getDeleteMarker() {
+        return deleteMarker;
+    }
+
+    public void setDeleteMarker(Boolean deleteMarker) {
+        this.deleteMarker = deleteMarker;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("deleteMarker", deleteMarker)
+                .addValue(super.toString())
+                .toString();
+    }
 }

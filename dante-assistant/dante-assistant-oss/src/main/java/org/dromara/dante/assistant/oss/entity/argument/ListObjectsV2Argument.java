@@ -27,8 +27,7 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectRequestPayerArgument;
-import org.dromara.dante.core.constant.SymbolConstants;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectListArgument;
 
 /**
  * <p>Description: 存储桶列表V2请求参数实体 </p>
@@ -37,15 +36,7 @@ import org.dromara.dante.core.constant.SymbolConstants;
  * @date : 2024/7/22 23:23
  */
 @Schema(name = "存储桶列表V2请求参数实体", title = "存储桶列表V2请求参数实体")
-public class ListObjectsV2Argument extends AbstractObjectRequestPayerArgument {
-
-    private String delimiter = SymbolConstants.FORWARD_SLASH;
-
-    private String encodingType;
-
-    private Integer maxKeys;
-
-    private String prefix;
+public class ListObjectsV2Argument extends AbstractObjectListArgument {
 
     private String continuationToken;
 
@@ -61,22 +52,6 @@ public class ListObjectsV2Argument extends AbstractObjectRequestPayerArgument {
         this.continuationToken = continuationToken;
     }
 
-    public String getDelimiter() {
-        return delimiter;
-    }
-
-    public void setDelimiter(String delimiter) {
-        this.delimiter = delimiter;
-    }
-
-    public String getEncodingType() {
-        return encodingType;
-    }
-
-    public void setEncodingType(String encodingType) {
-        this.encodingType = encodingType;
-    }
-
     public Boolean getFetchOwner() {
         return fetchOwner;
     }
@@ -84,23 +59,6 @@ public class ListObjectsV2Argument extends AbstractObjectRequestPayerArgument {
     public void setFetchOwner(Boolean fetchOwner) {
         this.fetchOwner = fetchOwner;
     }
-
-    public Integer getMaxKeys() {
-        return maxKeys;
-    }
-
-    public void setMaxKeys(Integer maxKeys) {
-        this.maxKeys = maxKeys;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
 
     public String getStartAfter() {
         return startAfter;
@@ -114,12 +72,9 @@ public class ListObjectsV2Argument extends AbstractObjectRequestPayerArgument {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("continuationToken", continuationToken)
-                .add("delimiter", delimiter)
-                .add("encodingType", encodingType)
-                .add("maxKeys", maxKeys)
-                .add("prefix", prefix)
                 .add("fetchOwner", fetchOwner)
                 .add("startAfter", startAfter)
+                .addValue(super.toString())
                 .toString();
     }
 }
