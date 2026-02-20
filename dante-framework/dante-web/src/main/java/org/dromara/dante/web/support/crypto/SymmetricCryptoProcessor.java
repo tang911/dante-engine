@@ -23,53 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.core.support.crypto;
-
-import org.dromara.dante.core.domain.SecretKey;
-
-import java.time.Duration;
+package org.dromara.dante.web.support.crypto;
 
 /**
- * <p>Description: 数字信封处理器 </p>
+ * <p>Description: 对称加密算法 </p>
  *
  * @author : gengwei.zheng
- * @date : 2025/11/29 21:54
+ * @date : 2022/5/1 15:05
  */
-public interface DigitalEnvelopeProcessor {
+public interface SymmetricCryptoProcessor {
 
     /**
-     * 数字信封加密
+     * 创建 SM4 Key。可以为 16 进制串或字节数组，要求为 128 比特
      *
-     * @param identity 身份标识
-     * @param content  待加密内容
-     * @return 加密后内容
+     * @return SM4 Key
      */
-    String encrypt(String identity, String content);
+    String createKey();
 
     /**
-     * 数字信封解密
+     * 用私钥解密
      *
-     * @param identity 身份标识
-     * @param content  待解密内容
-     * @return 解密后内容
+     * @param key  对称算法 秘钥
+     * @param data 待解密数据
+     * @return 解密后的数据
      */
-    String decrypt(String identity, String content);
+    String decrypt(String data, String key);
 
     /**
-     * 根据SessionId创建SecretKey {@link SecretKey}。如果前端有可以唯一确定的SessionId，并且使用该值，则用该值创建SecretKey。否则就由后端动态生成一个SessionId。
+     * 用公钥加密
      *
-     * @param identity                   SessionId，可以为空。
-     * @param accessTokenValiditySeconds Session过期时间，单位秒
-     * @return {@link SecretKey}
+     * @param key  对称算法 秘钥
+     * @param data 待加密数据
+     * @return 加密后的数据
      */
-    SecretKey createSecretKey(String identity, Duration accessTokenValiditySeconds);
-
-    /**
-     * 前端获取后端生成 AES Key
-     *
-     * @param identity     Session ID
-     * @param confidential 前端和后端加解密结果都
-     * @return 前端 PublicKey 加密后的 AES KEY
-     */
-    String exchange(String identity, String confidential);
+    String encrypt(String data, String key);
 }

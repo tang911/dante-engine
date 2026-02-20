@@ -27,7 +27,7 @@ package org.dromara.dante.webmvc.autoconfigure;
 
 import com.google.common.collect.Lists;
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.autoconfigure.crypto.CryptoAutoConfiguration;
+import org.dromara.dante.web.autoconfigure.envelope.DigitalEnvelopeAutoConfiguration;
 import org.dromara.dante.webmvc.autoconfigure.config.HttpCryptoConfiguration;
 import org.dromara.dante.webmvc.autoconfigure.crypto.DecryptRequestParamMapResolver;
 import org.dromara.dante.webmvc.autoconfigure.crypto.DecryptRequestParamResolver;
@@ -48,7 +48,7 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2022/5/31 9:48
  */
-@AutoConfiguration(after = CryptoAutoConfiguration.class)
+@AutoConfiguration(after = DigitalEnvelopeAutoConfiguration.class)
 @Import({
         HttpCryptoConfiguration.class
 })

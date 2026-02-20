@@ -23,41 +23,28 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.core.support.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
-import org.dromara.dante.core.domain.SecretKey;
+import org.springframework.context.annotation.Conditional;
+
+import java.lang.annotation.*;
 
 /**
- * <p>Description: 非对称加密 </p>
+ * <p>Description: {@link Conditional @Conditional} 当指定的前后端加密算法属性配置时条件匹配</p>
  *
  * @author : gengwei.zheng
- * @date : 2022/5/1 15:06
+ * @date : 2024/12/9 22:42
  */
-public interface AsymmetricCryptoProcessor {
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Conditional(OnCryptoStrategyCondition.class)
+@interface ConditionalOnCryptoStrategy {
 
     /**
-     * 创建非对称算法，公钥私钥对。
+     * {@link CryptoStrategy} 属性必须配置.
      *
-     * @return 非对称算法，公钥私钥对
+     * @return 预期的算法
      */
-    SecretKey createSecretKey();
-
-
-    /**
-     * 用私钥解密
-     *
-     * @param privateKey 非对称算法 KeyPair 私钥
-     * @param content    待解密数据
-     * @return 解密后的数据
-     */
-    String decrypt(String content, String privateKey);
-
-    /**
-     * 用公钥加密
-     *
-     * @param publicKey 非对称算法 KeyPair 公钥
-     * @param content   待加密数据
-     * @return 加密后的数据
-     */
-    String encrypt(String content, String publicKey);
+    CryptoStrategy value();
 }

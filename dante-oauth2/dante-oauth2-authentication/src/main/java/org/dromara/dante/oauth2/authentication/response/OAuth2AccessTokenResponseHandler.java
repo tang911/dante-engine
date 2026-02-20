@@ -34,7 +34,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.core.jackson.JacksonUtils;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.security.domain.UserPrincipal;
 import org.dromara.dante.security.utils.SecurityUtils;
 import org.dromara.dante.web.servlet.utils.SessionUtils;

@@ -25,7 +25,7 @@
 
 package org.dromara.dante.oauth2.authentication.configurer;
 
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.oauth2.authentication.provider.OAuth2FormLoginAuthenticationProvider;
 import org.dromara.dante.oauth2.authentication.response.OAuth2FormLoginAuthenticationFailureHandler;
 import org.dromara.dante.oauth2.commons.properties.OAuth2AuthenticationProperties;

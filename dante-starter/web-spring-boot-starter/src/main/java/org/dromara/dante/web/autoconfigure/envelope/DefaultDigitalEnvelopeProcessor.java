@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.web.autoconfigure.secure;
+package org.dromara.dante.web.autoconfigure.envelope;
 
 import cn.hutool.v7.core.data.id.IdUtil;
 import org.apache.commons.lang3.ObjectUtils;
@@ -31,9 +31,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.cache.commons.exception.StampHasExpiredException;
 import org.dromara.dante.cache.jetcache.stamp.AbstractStampManager;
 import org.dromara.dante.core.domain.SecretKey;
-import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import org.dromara.dante.core.support.crypto.SymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.SymmetricCryptoProcessor;
 import org.dromara.dante.web.constant.WebConstants;
 import org.dromara.dante.web.exception.SessionInvalidException;
 import org.slf4j.Logger;

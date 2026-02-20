@@ -23,38 +23,23 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.core.support.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
+
+import org.dromara.dante.spring.condition.AbstractEnumSpringBootCondition;
+import org.springframework.context.annotation.Condition;
+
+import java.lang.annotation.Annotation;
 
 /**
- * <p>Description: 对称加密算法 </p>
+ * <p>Description: {@link Condition} 用于检查所需的 {@link CryptoStrategy}. </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/5/1 15:05
+ * @date : 2024/12/9 22:40
  */
-public interface SymmetricCryptoProcessor {
+class OnCryptoStrategyCondition extends AbstractEnumSpringBootCondition<CryptoStrategy> {
 
-    /**
-     * 创建 SM4 Key。可以为 16 进制串或字节数组，要求为 128 比特
-     *
-     * @return SM4 Key
-     */
-    String createKey();
-
-    /**
-     * 用私钥解密
-     *
-     * @param key  对称算法 秘钥
-     * @param data 待解密数据
-     * @return 解密后的数据
-     */
-    String decrypt(String data, String key);
-
-    /**
-     * 用公钥加密
-     *
-     * @param key  对称算法 秘钥
-     * @param data 待加密数据
-     * @return 加密后的数据
-     */
-    String encrypt(String data, String key);
+    @Override
+    protected Class<? extends Annotation> getAnnotationClass() {
+        return ConditionalOnCryptoStrategy.class;
+    }
 }

@@ -26,7 +26,7 @@
 package org.dromara.dante.oauth2.authentication.config;
 
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.oauth2.authentication.configurer.OAuth2AuthenticationConfigurerManager;
 import org.dromara.dante.oauth2.authentication.customizer.HerodotusJwtTokenCustomizer;
 import org.dromara.dante.oauth2.authentication.customizer.HerodotusOpaqueTokenCustomizer;

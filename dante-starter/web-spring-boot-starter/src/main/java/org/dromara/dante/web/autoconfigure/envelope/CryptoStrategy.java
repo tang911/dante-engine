@@ -23,23 +23,47 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.autoconfigure.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
-import org.dromara.dante.spring.condition.AbstractEnumSpringBootCondition;
-import org.springframework.context.annotation.Condition;
-
-import java.lang.annotation.Annotation;
+import org.dromara.dante.core.constant.BaseConstants;
+import org.dromara.dante.spring.condition.ConditionEnum;
+import org.springframework.core.env.Environment;
 
 /**
- * <p>Description: {@link Condition} 用于检查所需的 {@link CryptoStrategy}. </p>
+ * <p>Description: 加密算法策略 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/12/9 22:40
+ * @date : 2022/5/3 22:47
  */
-class OnCryptoStrategyCondition extends AbstractEnumSpringBootCondition<CryptoStrategy> {
+public enum CryptoStrategy implements ConditionEnum {
 
-    @Override
-    protected Class<? extends Annotation> getAnnotationClass() {
-        return ConditionalOnCryptoStrategy.class;
-    }
+    /**
+     * 传统加密算法，RSA AES 等
+     */
+    STANDARD {
+        @Override
+        public boolean isActive(Environment environment) {
+            return isActive(environment, BaseConstants.ITEM_DIGITAL_ENVELOPE_CRYPTO_STRATEGY);
+        }
+
+        @Override
+        public String getConstant() {
+            return name();
+        }
+    },
+
+    /**
+     * 国密加密算法
+     */
+    SM {
+        @Override
+        public boolean isActive(Environment environment) {
+            return !STANDARD.isActive(environment);
+        }
+
+        @Override
+        public String getConstant() {
+            return name();
+        }
+    };
 }

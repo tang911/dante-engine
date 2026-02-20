@@ -27,7 +27,7 @@ package org.dromara.dante.oauth2.authentication.provider;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.dromara.dante.core.constant.SystemConstants;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.oauth2.authentication.customizer.HerodotusGrantType;
 import org.dromara.dante.oauth2.authentication.utils.OAuth2EndpointUtils;
 import org.springframework.security.core.Authentication;

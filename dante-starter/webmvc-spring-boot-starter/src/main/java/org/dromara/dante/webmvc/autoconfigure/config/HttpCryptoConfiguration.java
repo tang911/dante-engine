@@ -26,10 +26,10 @@
 package org.dromara.dante.webmvc.autoconfigure.config;
 
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
-import org.dromara.dante.core.support.crypto.SymmetricCryptoProcessor;
-import org.dromara.dante.web.autoconfigure.secure.DefaultDigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.SymmetricCryptoProcessor;
+import org.dromara.dante.web.autoconfigure.envelope.DefaultDigitalEnvelopeProcessor;
 import org.dromara.dante.webmvc.autoconfigure.crypto.DecryptRequestBodyAdvice;
 import org.dromara.dante.webmvc.autoconfigure.crypto.DecryptRequestParamMapResolver;
 import org.dromara.dante.webmvc.autoconfigure.crypto.DecryptRequestParamResolver;

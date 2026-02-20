@@ -23,46 +23,53 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.spring.support.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
-import cn.hutool.v7.core.codec.binary.Base64;
-import cn.hutool.v7.core.text.StrUtil;
-import cn.hutool.v7.core.util.ByteUtil;
-import cn.hutool.v7.core.util.RandomUtil;
-import cn.hutool.v7.crypto.SecureUtil;
-import cn.hutool.v7.crypto.symmetric.AES;
-import org.dromara.dante.core.support.crypto.SymmetricCryptoProcessor;
+import cn.hutool.v7.core.codec.binary.HexUtil;
+import cn.hutool.v7.crypto.bc.SmUtil;
+import cn.hutool.v7.crypto.symmetric.SM4;
+import org.dromara.dante.web.support.crypto.SymmetricCryptoProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.crypto.SecretKey;
+
 /**
- * <p>Description: AES 加密算法处理器 </p>
+ * <p>Description: 国密对称算法 SM4 处理器 </p>
  *
  * @author : gengwei.zheng
  * @date : 2022/5/2 16:56
  */
-public class AESCryptoProcessor implements SymmetricCryptoProcessor {
+class SM4CryptoProcessor implements SymmetricCryptoProcessor {
 
-    private static final Logger log = LoggerFactory.getLogger(AESCryptoProcessor.class);
+    private static final Logger log = LoggerFactory.getLogger(SM4CryptoProcessor.class);
 
     @Override
     public String createKey() {
-        return RandomUtil.randomStringUpper(16);
+        SM4 sm4 = SmUtil.sm4();
+        SecretKey secretKey = sm4.getSecretKey();
+        byte[] encoded = secretKey.getEncoded();
+        String result = HexUtil.encodeStr(encoded);
+        log.trace("[Herodotus] |- SM4 crypto create hex key, value is : [{}]", result);
+        return result;
     }
 
     @Override
     public String decrypt(String data, String key) {
-        AES aes = SecureUtil.aes(ByteUtil.toUtf8Bytes(key));
-        byte[] result = aes.decrypt(Base64.decode(ByteUtil.toUtf8Bytes(data)));
-        log.trace("[Herodotus] |- AES crypto decrypt data, value is : [{}]", result);
-        return StrUtil.utf8Str(result);
+        // TODO: 2022-05-08 这里主要有一个诡异问题：大多数情况都没有问题，但是相关代码已放到 DecryptRequestBodyAdvice 里面就无法解密
+        SM4 sm4 = SmUtil.sm4(HexUtil.decode(key));
+        log.trace("[Herodotus] |- SM4 crypto decrypt data [{}] with key : [{}]", data, key);
+        String result = sm4.decryptStr(data);
+        log.trace("[Herodotus] |- SM4 crypto decrypt result is : [{}]", result);
+        return result;
     }
 
     @Override
     public String encrypt(String data, String key) {
-        AES aes = SecureUtil.aes(ByteUtil.toUtf8Bytes(key));
-        byte[] result = aes.encrypt(ByteUtil.toUtf8Bytes(data));
-        log.trace("[Herodotus] |- AES crypto encrypt data, value is : [{}]", result);
-        return StrUtil.utf8Str(result);
+        SM4 sm4 = SmUtil.sm4(HexUtil.decode(key));
+        log.trace("[Herodotus] |- SM4 crypto encrypt data [{}] with key : [{}]", data, key);
+        String result = sm4.encryptHex(data);
+        log.trace("[Herodotus] |- SM4 crypto encrypt result is : [{}]", result);
+        return result;
     }
 }

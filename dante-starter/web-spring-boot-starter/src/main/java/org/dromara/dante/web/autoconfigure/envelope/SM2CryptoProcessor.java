@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.spring.support.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
 import cn.hutool.v7.core.codec.binary.HexUtil;
 import cn.hutool.v7.core.text.StrUtil;
@@ -34,7 +34,7 @@ import cn.hutool.v7.crypto.bc.SmUtil;
 import org.bouncycastle.crypto.engines.SM2Engine;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 import org.dromara.dante.core.domain.SecretKey;
-import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.AsymmetricCryptoProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * @author : gengwei.zheng
  * @date : 2022/5/1 19:29
  */
-public class SM2CryptoProcessor implements AsymmetricCryptoProcessor {
+class SM2CryptoProcessor implements AsymmetricCryptoProcessor {
 
     private static final Logger log = LoggerFactory.getLogger(SM2CryptoProcessor.class);
 

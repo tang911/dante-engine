@@ -23,15 +23,11 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.autoconfigure.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
-import org.dromara.dante.core.support.crypto.SymmetricCryptoProcessor;
-import org.dromara.dante.spring.support.crypto.AESCryptoProcessor;
-import org.dromara.dante.spring.support.crypto.RSACryptoProcessor;
-import org.dromara.dante.spring.support.crypto.SM2CryptoProcessor;
-import org.dromara.dante.spring.support.crypto.SM4CryptoProcessor;
+import org.dromara.dante.web.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.SymmetricCryptoProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -41,20 +37,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * <p>Description: 非对称算法配置 </p>
+ * <p>Description: 数字信封自动配置 </p>
  *
  * @author : gengwei.zheng
  * @date : 2022/5/2 15:26
  */
 @AutoConfiguration
-@EnableConfigurationProperties(CryptoProperties.class)
-public class CryptoAutoConfiguration {
+@EnableConfigurationProperties(DigitalEnvelopeProperties.class)
+public class DigitalEnvelopeAutoConfiguration {
 
-    private static final Logger log = LoggerFactory.getLogger(CryptoAutoConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(DigitalEnvelopeAutoConfiguration.class);
 
     @PostConstruct
     public void postConstruct() {
-        log.info("[Herodotus] |- Auto [Crypto] Configure.");
+        log.info("[Herodotus] |- Auto [Digital Envelope] Configure.");
     }
 
     @Configuration(proxyBeanMethods = false)
@@ -64,17 +60,17 @@ public class CryptoAutoConfiguration {
         @Bean
         @ConditionalOnMissingBean
         public AsymmetricCryptoProcessor asymmetricCryptoProcessor() {
-            SM2CryptoProcessor sm2CryptoProcessor = new SM2CryptoProcessor();
+            SM2CryptoProcessor processor = new SM2CryptoProcessor();
             log.trace("[Herodotus] |- Strategy [SM Asymmetric SM2 Crypto Processor] Configure.");
-            return sm2CryptoProcessor;
+            return processor;
         }
 
         @Bean
         @ConditionalOnMissingBean
         public SymmetricCryptoProcessor symmetricCryptoProcessor() {
-            SM4CryptoProcessor sm4CryptoProcessor = new SM4CryptoProcessor();
+            SM4CryptoProcessor processor = new SM4CryptoProcessor();
             log.trace("[Herodotus] |- Strategy [SM Symmetric SM4 Crypto Processor] Configure.");
-            return sm4CryptoProcessor;
+            return processor;
         }
     }
 
@@ -85,17 +81,17 @@ public class CryptoAutoConfiguration {
         @Bean
         @ConditionalOnMissingBean
         public AsymmetricCryptoProcessor asymmetricCryptoProcessor() {
-            RSACryptoProcessor rsaCryptoProcessor = new RSACryptoProcessor();
+            RSACryptoProcessor processor = new RSACryptoProcessor();
             log.trace("[Herodotus] |- Strategy [Standard Asymmetric RSA Crypto Processor] Configure.");
-            return rsaCryptoProcessor;
+            return processor;
         }
 
         @Bean
         @ConditionalOnMissingBean
         public SymmetricCryptoProcessor symmetricCryptoProcessor() {
-            AESCryptoProcessor aesCryptoProcessor = new AESCryptoProcessor();
+            AESCryptoProcessor processor = new AESCryptoProcessor();
             log.trace("[Herodotus] |- Strategy [Standard Symmetric AES Crypto Processor] Configure.");
-            return aesCryptoProcessor;
+            return processor;
         }
     }
 }

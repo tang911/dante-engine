@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.spring.support.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
 import cn.hutool.v7.core.codec.binary.Base64;
 import cn.hutool.v7.core.text.StrUtil;
@@ -35,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
 import org.dromara.dante.core.constant.SymbolConstants;
 import org.dromara.dante.core.domain.SecretKey;
-import org.dromara.dante.core.support.crypto.AsymmetricCryptoProcessor;
+import org.dromara.dante.web.support.crypto.AsymmetricCryptoProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +45,7 @@ import org.slf4j.LoggerFactory;
  * @author : gengwei.zheng
  * @date : 2022/5/1 19:31
  */
-public class RSACryptoProcessor implements AsymmetricCryptoProcessor {
+class RSACryptoProcessor implements AsymmetricCryptoProcessor {
 
     private static final Logger log = LoggerFactory.getLogger(RSACryptoProcessor.class);
 

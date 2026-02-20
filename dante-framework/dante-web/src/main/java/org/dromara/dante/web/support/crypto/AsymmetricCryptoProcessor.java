@@ -23,38 +23,41 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.autoconfigure.crypto;
+package org.dromara.dante.web.support.crypto;
 
-import com.google.common.base.MoreObjects;
-import org.dromara.dante.core.constant.BaseConstants;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.dromara.dante.core.domain.SecretKey;
 
 /**
- * <p>Description: 加密算法配置 </p>
+ * <p>Description: 非对称加密 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/5/1 21:13
+ * @date : 2022/5/1 15:06
  */
-@ConfigurationProperties(prefix = BaseConstants.PROPERTY_PREFIX_CRYPTO)
-public class CryptoProperties {
+public interface AsymmetricCryptoProcessor {
 
     /**
-     * 加密算法策略，默认：国密算法
+     * 创建非对称算法，公钥私钥对。
+     *
+     * @return 非对称算法，公钥私钥对
      */
-    private CryptoStrategy strategy = CryptoStrategy.SM;
+    SecretKey createSecretKey();
 
-    public CryptoStrategy getStrategy() {
-        return strategy;
-    }
 
-    public void setStrategy(CryptoStrategy strategy) {
-        this.strategy = strategy;
-    }
+    /**
+     * 用私钥解密
+     *
+     * @param privateKey 非对称算法 KeyPair 私钥
+     * @param content    待解密数据
+     * @return 解密后的数据
+     */
+    String decrypt(String content, String privateKey);
 
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("strategy", strategy)
-                .toString();
-    }
+    /**
+     * 用公钥加密
+     *
+     * @param publicKey 非对称算法 KeyPair 公钥
+     * @param content   待加密数据
+     * @return 加密后的数据
+     */
+    String encrypt(String content, String publicKey);
 }

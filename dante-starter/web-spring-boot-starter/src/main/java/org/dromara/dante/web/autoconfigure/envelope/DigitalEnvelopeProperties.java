@@ -23,28 +23,38 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.autoconfigure.crypto;
+package org.dromara.dante.web.autoconfigure.envelope;
 
-import org.springframework.context.annotation.Conditional;
-
-import java.lang.annotation.*;
+import com.google.common.base.MoreObjects;
+import org.dromara.dante.core.constant.BaseConstants;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * <p>Description: {@link Conditional @Conditional} 当指定的前后端加密算法属性配置时条件匹配</p>
+ * <p>Description: 加密算法配置 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/12/9 22:42
+ * @date : 2022/5/1 21:13
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Conditional(OnCryptoStrategyCondition.class)
-@interface ConditionalOnCryptoStrategy {
+@ConfigurationProperties(prefix = BaseConstants.PROPERTY_PREFIX_DIGITAL_ENVELOPE)
+public class DigitalEnvelopeProperties {
 
     /**
-     * {@link CryptoStrategy} 属性必须配置.
-     *
-     * @return 预期的算法
+     * 加密算法策略，默认：国密算法
      */
-    CryptoStrategy value();
+    private CryptoStrategy strategy = CryptoStrategy.SM;
+
+    public CryptoStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(CryptoStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("strategy", strategy)
+                .toString();
+    }
 }

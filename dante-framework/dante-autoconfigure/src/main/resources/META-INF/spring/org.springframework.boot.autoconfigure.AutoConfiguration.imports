@@ -25,7 +25,6 @@
 
 org.dromara.dante.autoconfigure.ApplicationAutoConfiguration
 org.dromara.dante.autoconfigure.context.ServletServiceContextAutoConfiguration
-org.dromara.dante.autoconfigure.crypto.CryptoAutoConfiguration
 org.dromara.dante.autoconfigure.enums.EnumDictionaryAutoConfiguration
 org.dromara.dante.autoconfigure.error.ErrorCodeAutoConfiguration
 org.dromara.dante.autoconfigure.jackson.JacksonAutoConfiguration
