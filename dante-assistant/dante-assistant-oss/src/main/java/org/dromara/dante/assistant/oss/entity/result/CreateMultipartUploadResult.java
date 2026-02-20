@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractUploadResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectNameResult;
 import org.dromara.dante.assistant.oss.entity.domain.SsekmsDomain;
 
 import java.time.LocalDateTime;
@@ -39,7 +39,7 @@ import java.time.LocalDateTime;
  * @date : 2024/7/23 23:59
  */
 @Schema(name = "创建分片上传响应结果对象实体", title = "创建分片上传响应结果对象实体")
-public class CreateMultipartUploadResult extends AbstractUploadResult {
+public class CreateMultipartUploadResult extends AbstractObjectNameResult {
 
     private LocalDateTime abortDate;
 
@@ -52,6 +52,8 @@ public class CreateMultipartUploadResult extends AbstractUploadResult {
     private SsekmsDomain ssekms = new SsekmsDomain();
 
     private String checksumAlgorithm;
+
+    private Boolean bucketKeyEnabled;
 
     public LocalDateTime getAbortDate() {
         return abortDate;
@@ -69,12 +71,12 @@ public class CreateMultipartUploadResult extends AbstractUploadResult {
         this.abortRuleId = abortRuleId;
     }
 
-    public String getChecksumAlgorithm() {
-        return checksumAlgorithm;
+    public String getUploadId() {
+        return uploadId;
     }
 
-    public void setChecksumAlgorithm(String checksumAlgorithm) {
-        this.checksumAlgorithm = checksumAlgorithm;
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
     }
 
     public String getServerSideEncryption() {
@@ -93,12 +95,20 @@ public class CreateMultipartUploadResult extends AbstractUploadResult {
         this.ssekms = ssekms;
     }
 
-    public String getUploadId() {
-        return uploadId;
+    public String getChecksumAlgorithm() {
+        return checksumAlgorithm;
     }
 
-    public void setUploadId(String uploadId) {
-        this.uploadId = uploadId;
+    public void setChecksumAlgorithm(String checksumAlgorithm) {
+        this.checksumAlgorithm = checksumAlgorithm;
+    }
+
+    public Boolean getBucketKeyEnabled() {
+        return bucketKeyEnabled;
+    }
+
+    public void setBucketKeyEnabled(Boolean bucketKeyEnabled) {
+        this.bucketKeyEnabled = bucketKeyEnabled;
     }
 
     @Override
@@ -110,6 +120,8 @@ public class CreateMultipartUploadResult extends AbstractUploadResult {
                 .add("serverSideEncryption", serverSideEncryption)
                 .add("ssekms", ssekms)
                 .add("checksumAlgorithm", checksumAlgorithm)
+                .add("bucketKeyEnabled", bucketKeyEnabled)
+                .addValue(super.toString())
                 .toString();
     }
 }

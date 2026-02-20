@@ -39,8 +39,6 @@ public class PutObjectResult extends UploadPartResult {
 
     private String expiration;
 
-    private String versionId;
-
     public String getExpiration() {
         return expiration;
     }
@@ -49,19 +47,10 @@ public class PutObjectResult extends UploadPartResult {
         this.expiration = expiration;
     }
 
-    public String getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("expiration", expiration)
-                .add("versionId", versionId)
                 .toString();
     }
 }

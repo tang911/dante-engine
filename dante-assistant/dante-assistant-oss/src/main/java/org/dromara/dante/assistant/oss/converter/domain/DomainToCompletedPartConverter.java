@@ -43,7 +43,7 @@ public class DomainToCompletedPartConverter implements ListConverter<CompletedPa
     public CompletedPart from(CompletedPartDomain source) {
 
         CompletedPart.Builder builder = CompletedPart.builder();
-        builder.eTag(OssUtils.unwrapETag(source.getETag()));
+        builder.eTag(OssUtils.unwrapETag(source.getEtag()));
         builder.partNumber(source.getPartNumber());
 
         if (ObjectUtils.isNotEmpty(source.getChecksum())) {

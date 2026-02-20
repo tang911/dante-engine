@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.argument;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectArgument;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectNameArgument;
 
 /**
  * <p>Description: 终止分片上传请求参数实体 </p>
@@ -36,7 +36,7 @@ import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectArgumen
  * @date : 2024/7/23 11:08
  */
 @Schema(name = "终止分片上传请求参数实体", title = "终止分片上传请求参数实体")
-public class AbortMultipartUploadArgument extends AbstractObjectArgument {
+public class AbortMultipartUploadArgument extends AbstractObjectNameArgument {
 
     @NotBlank(message = "分片上传ID不能为空")
     @Schema(name = "分片上传ID", requiredMode = Schema.RequiredMode.REQUIRED)

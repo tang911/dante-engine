@@ -50,15 +50,16 @@ public class ResponseToListObjectsV2ResultConverter implements ResponseConverter
     @Override
     public void prepare(ListObjectsV2Response source, ListObjectsV2Result target) {
         target.setBucketName(source.name());
-        target.setContents(getContents(source));
-        target.setContinuationToken(source.continuationToken());
         target.setDelimiter(source.delimiter());
         target.setEncodingType(source.encodingTypeAsString());
         target.setTruncated(source.isTruncated());
-        target.setKeyCount(source.keyCount());
         target.setMaxKeys(source.maxKeys());
-        target.setNextContinuationToken(source.nextContinuationToken());
         target.setPrefix(source.prefix());
+
+        target.setContents(getContents(source));
+        target.setContinuationToken(source.continuationToken());
+        target.setKeyCount(source.keyCount());
+        target.setNextContinuationToken(source.nextContinuationToken());
         target.setStartAfter(source.startAfter());
         ResponseConverter.super.prepare(source, target);
     }

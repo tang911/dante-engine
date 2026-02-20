@@ -25,9 +25,8 @@
 
 package org.dromara.dante.assistant.oss.entity.result;
 
-import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
 
 /**
  * <p>Description: 终止分片上传响应结果对象实体 </p>
@@ -36,22 +35,6 @@ import org.dromara.dante.assistant.oss.definition.result.AbstractResult;
  * @date : 2024/7/25 16:31
  */
 @Schema(name = "终止分片上传响应结果对象实体", title = "终止分片上传响应结果对象实体")
-public class AbortMultipartUploadResult extends AbstractResult {
+public class AbortMultipartUploadResult extends AbstractObjectRequestChargedResult {
 
-    private String requestCharged;
-
-    public String getRequestCharged() {
-        return requestCharged;
-    }
-
-    public void setRequestCharged(String requestCharged) {
-        this.requestCharged = requestCharged;
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("requestCharged", requestCharged)
-                .toString();
-    }
 }

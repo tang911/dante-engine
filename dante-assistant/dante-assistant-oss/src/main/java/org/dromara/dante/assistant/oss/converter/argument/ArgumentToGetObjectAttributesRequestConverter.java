@@ -28,6 +28,7 @@ package org.dromara.dante.assistant.oss.converter.argument;
 import org.dromara.dante.assistant.oss.entity.argument.GetObjectAttributesArgument;
 import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.GetObjectAttributesRequest;
+import software.amazon.awssdk.services.s3.model.ObjectAttributes;
 
 /**
  * <p>Description:  {@link GetObjectAttributesArgument} 转 {@link GetObjectAttributesRequest} 转换器 </p>
@@ -47,6 +48,7 @@ public class ArgumentToGetObjectAttributesRequestConverter implements Converter<
         builder.expectedBucketOwner(source.getExpectedBucketOwner());
         builder.maxParts(source.getMaxParts());
         builder.partNumberMarker(source.getPartNumberMarker());
+        builder.objectAttributes(ObjectAttributes.OBJECT_SIZE, ObjectAttributes.E_TAG, ObjectAttributes.CHECKSUM);
 
         return builder.build();
     }

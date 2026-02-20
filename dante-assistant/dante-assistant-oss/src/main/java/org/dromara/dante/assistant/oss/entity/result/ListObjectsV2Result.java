@@ -25,7 +25,8 @@
 
 package org.dromara.dante.assistant.oss.entity.result;
 
-import org.dromara.dante.assistant.oss.definition.result.AbstractResult;
+import com.google.common.base.MoreObjects;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectListResult;
 import org.dromara.dante.assistant.oss.entity.domain.ObjectDomain;
 
 import java.util.List;
@@ -36,21 +37,9 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2024/7/23 23:48
  */
-public class ListObjectsV2Result extends AbstractResult {
-
-    private Boolean isTruncated;
+public class ListObjectsV2Result extends AbstractObjectListResult {
 
     private List<ObjectDomain> contents;
-
-    private String bucketName;
-
-    private String prefix;
-
-    private String delimiter;
-
-    private Integer maxKeys;
-
-    private String encodingType;
 
     private Integer keyCount;
 
@@ -60,54 +49,12 @@ public class ListObjectsV2Result extends AbstractResult {
 
     private String startAfter;
 
-    private String requestCharged;
-
-    public String getBucketName() {
-        return bucketName;
-    }
-
-    public void setBucketName(String bucketName) {
-        this.bucketName = bucketName;
-    }
-
     public List<ObjectDomain> getContents() {
         return contents;
     }
 
     public void setContents(List<ObjectDomain> contents) {
         this.contents = contents;
-    }
-
-    public String getContinuationToken() {
-        return continuationToken;
-    }
-
-    public void setContinuationToken(String continuationToken) {
-        this.continuationToken = continuationToken;
-    }
-
-    public String getDelimiter() {
-        return delimiter;
-    }
-
-    public void setDelimiter(String delimiter) {
-        this.delimiter = delimiter;
-    }
-
-    public String getEncodingType() {
-        return encodingType;
-    }
-
-    public void setEncodingType(String encodingType) {
-        this.encodingType = encodingType;
-    }
-
-    public Boolean getTruncated() {
-        return isTruncated;
-    }
-
-    public void setTruncated(Boolean truncated) {
-        isTruncated = truncated;
     }
 
     public Integer getKeyCount() {
@@ -118,12 +65,12 @@ public class ListObjectsV2Result extends AbstractResult {
         this.keyCount = keyCount;
     }
 
-    public Integer getMaxKeys() {
-        return maxKeys;
+    public String getContinuationToken() {
+        return continuationToken;
     }
 
-    public void setMaxKeys(Integer maxKeys) {
-        this.maxKeys = maxKeys;
+    public void setContinuationToken(String continuationToken) {
+        this.continuationToken = continuationToken;
     }
 
     public String getNextContinuationToken() {
@@ -134,27 +81,23 @@ public class ListObjectsV2Result extends AbstractResult {
         this.nextContinuationToken = nextContinuationToken;
     }
 
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public String getRequestCharged() {
-        return requestCharged;
-    }
-
-    public void setRequestCharged(String requestCharged) {
-        this.requestCharged = requestCharged;
-    }
-
     public String getStartAfter() {
         return startAfter;
     }
 
     public void setStartAfter(String startAfter) {
         this.startAfter = startAfter;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("contents", contents)
+                .add("keyCount", keyCount)
+                .add("continuationToken", continuationToken)
+                .add("nextContinuationToken", nextContinuationToken)
+                .add("startAfter", startAfter)
+                .addValue(super.toString())
+                .toString();
     }
 }

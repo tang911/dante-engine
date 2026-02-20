@@ -26,10 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.domain;
 
 import com.google.common.base.MoreObjects;
-import org.dromara.dante.assistant.oss.definition.domain.OssDomain;
-
-import java.time.LocalDateTime;
-import java.util.List;
+import org.dromara.dante.assistant.oss.definition.domain.AbstractObjectDomain;
 
 /**
  * <p>Description: 对象域对象 </p>
@@ -37,41 +34,9 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2024/7/23 23:46
  */
-public class ObjectDomain implements OssDomain {
-
-    private String objectName;
-
-    private LocalDateTime lastModified;
-
-    private String eTag;
-
-    private List<String> checksumAlgorithm;
-
-    private Long size;
-
-    private String storageClass;
-
-    private OwnerDomain owner;
-
-    private RestoreStatusDomain restoreStatus;
+public class ObjectDomain extends AbstractObjectDomain {
 
     private Boolean isDir = Boolean.FALSE;
-
-    public List<String> getChecksumAlgorithm() {
-        return checksumAlgorithm;
-    }
-
-    public void setChecksumAlgorithm(List<String> checksumAlgorithm) {
-        this.checksumAlgorithm = checksumAlgorithm;
-    }
-
-    public String getETag() {
-        return eTag;
-    }
-
-    public void setETag(String eTag) {
-        this.eTag = eTag;
-    }
 
     public Boolean getDir() {
         return isDir;
@@ -81,65 +46,9 @@ public class ObjectDomain implements OssDomain {
         isDir = dir;
     }
 
-    public LocalDateTime getLastModified() {
-        return lastModified;
-    }
-
-    public void setLastModified(LocalDateTime lastModified) {
-        this.lastModified = lastModified;
-    }
-
-    public String getObjectName() {
-        return objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public OwnerDomain getOwner() {
-        return owner;
-    }
-
-    public void setOwner(OwnerDomain owner) {
-        this.owner = owner;
-    }
-
-    public RestoreStatusDomain getRestoreStatus() {
-        return restoreStatus;
-    }
-
-    public void setRestoreStatus(RestoreStatusDomain restoreStatus) {
-        this.restoreStatus = restoreStatus;
-    }
-
-    public Long getSize() {
-        return size;
-    }
-
-    public void setSize(Long size) {
-        this.size = size;
-    }
-
-    public String getStorageClass() {
-        return storageClass;
-    }
-
-    public void setStorageClass(String storageClass) {
-        this.storageClass = storageClass;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("checksumAlgorithm", checksumAlgorithm)
-                .add("objectName", objectName)
-                .add("lastModified", lastModified)
-                .add("eTag", eTag)
-                .add("size", size)
-                .add("storageClass", storageClass)
-                .add("owner", owner)
-                .add("restoreStatus", restoreStatus)
                 .add("isDir", isDir)
                 .toString();
     }

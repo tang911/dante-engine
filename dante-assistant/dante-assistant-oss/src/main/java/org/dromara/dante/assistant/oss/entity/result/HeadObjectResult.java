@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
-import org.dromara.dante.assistant.oss.definition.result.AbstractObjectResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectDeleteMarkerResult;
 import org.dromara.dante.assistant.oss.entity.domain.ChecksumDomain;
 import org.dromara.dante.assistant.oss.entity.domain.PutObjectDomain;
 
@@ -38,7 +38,7 @@ import java.time.LocalDateTime;
  * @author : gengwei.zheng
  * @date : 2024/7/23 23:35
  */
-public class HeadObjectResult extends AbstractObjectResult {
+public class HeadObjectResult extends AbstractObjectDeleteMarkerResult {
 
     private String acceptRanges;
 
@@ -49,8 +49,6 @@ public class HeadObjectResult extends AbstractObjectResult {
     private String archiveStatus;
 
     private LocalDateTime lastModified;
-
-    private String eTag;
 
     private Integer missingMeta;
 
@@ -86,14 +84,6 @@ public class HeadObjectResult extends AbstractObjectResult {
 
     public void setChecksum(ChecksumDomain checksum) {
         this.checksum = checksum;
-    }
-
-    public String getETag() {
-        return eTag;
-    }
-
-    public void setETag(String eTag) {
-        this.eTag = eTag;
     }
 
     public String getExpiration() {
@@ -168,7 +158,6 @@ public class HeadObjectResult extends AbstractObjectResult {
                 .add("restore", restore)
                 .add("archiveStatus", archiveStatus)
                 .add("lastModified", lastModified)
-                .add("eTag", eTag)
                 .add("missingMeta", missingMeta)
                 .add("replicationStatus", replicationStatus)
                 .add("partsCount", partsCount)

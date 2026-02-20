@@ -27,9 +27,9 @@ package org.dromara.dante.assistant.oss.converter.result;
 
 import cn.hutool.v7.core.date.DateUtil;
 import org.apache.commons.lang3.ObjectUtils;
+import org.dromara.dante.assistant.oss.definition.converter.ResponseConverter;
 import org.dromara.dante.assistant.oss.entity.result.GetObjectAttributesResult;
 import org.dromara.dante.assistant.oss.enums.ObjectRetentionMode;
-import org.springframework.core.convert.converter.Converter;
 import software.amazon.awssdk.services.s3.model.*;
 
 /**
@@ -38,7 +38,7 @@ import software.amazon.awssdk.services.s3.model.*;
  * @author : gengwei.zheng
  * @date : 2026/2/6 21:33
  */
-public class ResponseToGetObjectAttributesResultConverter implements Converter<GetObjectAttributesResponse, GetObjectAttributesResult> {
+public class ResponseToGetObjectAttributesResultConverter implements ResponseConverter<GetObjectAttributesResponse, GetObjectAttributesResult> {
 
     private final String bucketName;
     private final String objectName;
@@ -56,30 +56,34 @@ public class ResponseToGetObjectAttributesResultConverter implements Converter<G
 
 
     @Override
-    public GetObjectAttributesResult convert(GetObjectAttributesResponse source) {
+    public GetObjectAttributesResult getInstance(GetObjectAttributesResponse source) {
+        return new GetObjectAttributesResult();
+    }
 
-        GetObjectAttributesResult details = new GetObjectAttributesResult();
-        details.setBucketName(bucketName);
-        details.setObjectName(objectName);
-        details.setLockEnabled(ObjectUtils.isNotEmpty(this.objectLockResponse.objectLockConfiguration()));
+    @Override
+    public void prepare(GetObjectAttributesResponse source, GetObjectAttributesResult target) {
 
-        if (ObjectUtils.isNotEmpty(objectRetentionResponse.retention())) {
+        target.setBucketName(bucketName);
+        target.setObjectName(objectName);
+        target.setLockEnabled(ObjectUtils.isNotEmpty(objectLockResponse) && ObjectUtils.isNotEmpty(objectLockResponse.objectLockConfiguration()));
+
+        if (ObjectUtils.isNotEmpty(objectRetentionResponse) && ObjectUtils.isNotEmpty(objectRetentionResponse.retention())) {
             if (ObjectUtils.isNotEmpty(objectRetentionResponse.retention().mode())) {
-                details.setRetentionMode(ObjectRetentionMode.get(objectRetentionResponse.retention().mode().name()));
+                target.setRetentionMode(ObjectRetentionMode.get(objectRetentionResponse.retention().mode().name()));
             }
-            details.setRetainUntilDate(DateUtil.toLocalDateTime(objectRetentionResponse.retention().retainUntilDate()));
+            target.setRetainUntilDate(DateUtil.toLocalDateTime(objectRetentionResponse.retention().retainUntilDate()));
         }
 
-        if (ObjectUtils.isNotEmpty(objectLegalHoldResponse.legalHold()) && ObjectUtils.isNotEmpty(objectLegalHoldResponse.legalHold().status())) {
-            details.setLockLegalHold(objectLegalHoldResponse.legalHold().status() == ObjectLockLegalHoldStatus.ON);
+        if (ObjectUtils.isNotEmpty(objectLegalHoldResponse) && ObjectUtils.isNotEmpty(objectLegalHoldResponse.legalHold()) && ObjectUtils.isNotEmpty(objectLegalHoldResponse.legalHold().status())) {
+            target.setLockLegalHold(objectLegalHoldResponse.legalHold().status() == ObjectLockLegalHoldStatus.ON);
         }
 
-        details.setDeleteMarker(source.deleteMarker());
-        details.setLastModified(DateUtil.toLocalDateTime(source.lastModified()));
-        details.setVersionId(source.versionId());
-        details.setTag(source.eTag());
-        details.setSize(source.objectSize());
+        target.setDeleteMarker(source.deleteMarker());
+        target.setLastModified(DateUtil.toLocalDateTime(source.lastModified()));
+        target.setVersionId(source.versionId());
+        target.setTag(source.eTag());
+        target.setSize(source.objectSize());
 
-        return details;
+        ResponseConverter.super.prepare(source, target);
     }
 }

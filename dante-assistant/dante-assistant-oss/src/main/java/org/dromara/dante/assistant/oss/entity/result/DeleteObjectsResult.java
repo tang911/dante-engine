@@ -25,7 +25,8 @@
 
 package org.dromara.dante.assistant.oss.entity.result;
 
-import org.dromara.dante.assistant.oss.definition.result.AbstractResult;
+import com.google.common.base.MoreObjects;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectRequestChargedResult;
 import org.dromara.dante.assistant.oss.entity.domain.DeletedObjectDomain;
 import org.dromara.dante.assistant.oss.entity.domain.S3ErrorDomain;
 
@@ -37,11 +38,9 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2024/7/26 0:54
  */
-public class DeleteObjectsResult extends AbstractResult {
+public class DeleteObjectsResult extends AbstractObjectRequestChargedResult {
 
     private List<DeletedObjectDomain> deleted;
-
-    private String requestCharged;
 
     private List<S3ErrorDomain> errors;
 
@@ -61,11 +60,10 @@ public class DeleteObjectsResult extends AbstractResult {
         this.errors = errors;
     }
 
-    public String getRequestCharged() {
-        return requestCharged;
-    }
-
-    public void setRequestCharged(String requestCharged) {
-        this.requestCharged = requestCharged;
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .addValue(super.toString())
+                .toString();
     }
 }

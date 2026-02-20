@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
  * @author : gengwei.zheng
  * @date : 2024/7/22 23:47
  */
-public abstract class AbstractGetObjectArgument extends AbstractObjectVersionIdArgument {
+public abstract class AbstractObjectGetArgument extends AbstractObjectVersionIdArgument {
 
     private String ifMatch;
 

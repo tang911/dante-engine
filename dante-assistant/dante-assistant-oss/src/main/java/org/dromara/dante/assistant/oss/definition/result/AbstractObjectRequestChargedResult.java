@@ -25,27 +25,17 @@
 
 package org.dromara.dante.assistant.oss.definition.result;
 
+import com.google.common.base.MoreObjects;
+
 /**
- * <p>Description: 对象操作基础请求参数 </p>
+ * <p>Description: 通用响应返回参数 </p>
  *
  * @author : gengwei.zheng
- * @date : 2024/7/23 23:39
+ * @date : 2024/7/24 0:13
  */
-public abstract class AbstractObjectResult extends AbstractResult {
-
-    private Boolean deleteMarker;
-
-    private String versionId;
+public abstract class AbstractObjectRequestChargedResult extends AbstractResult {
 
     private String requestCharged;
-
-    public Boolean getDeleteMarker() {
-        return deleteMarker;
-    }
-
-    public void setDeleteMarker(Boolean deleteMarker) {
-        this.deleteMarker = deleteMarker;
-    }
 
     public String getRequestCharged() {
         return requestCharged;
@@ -55,11 +45,10 @@ public abstract class AbstractObjectResult extends AbstractResult {
         this.requestCharged = requestCharged;
     }
 
-    public String getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("requestCharged", requestCharged)
+                .toString();
     }
 }

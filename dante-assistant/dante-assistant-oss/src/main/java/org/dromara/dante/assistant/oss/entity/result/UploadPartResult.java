@@ -27,7 +27,7 @@ package org.dromara.dante.assistant.oss.entity.result;
 
 import com.google.common.base.MoreObjects;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.result.AbstractRequestChargedResult;
+import org.dromara.dante.assistant.oss.definition.result.AbstractObjectVersionIdResult;
 import org.dromara.dante.assistant.oss.entity.domain.ChecksumDomain;
 import org.dromara.dante.assistant.oss.entity.domain.SsekmsDomain;
 
@@ -38,31 +38,15 @@ import org.dromara.dante.assistant.oss.entity.domain.SsekmsDomain;
  * @date : 2024/7/24 0:05
  */
 @Schema(name = "上传分片响应结果对象实体", title = "上传分片响应结果对象实体")
-public class UploadPartResult extends AbstractRequestChargedResult {
+public class UploadPartResult extends AbstractObjectVersionIdResult {
 
     private String serverSideEncryption;
-
-    private String eTag;
 
     private ChecksumDomain checksum = new ChecksumDomain();
 
     private SsekmsDomain ssekms = new SsekmsDomain();
 
-    public ChecksumDomain getChecksum() {
-        return checksum;
-    }
-
-    public void setChecksum(ChecksumDomain checksum) {
-        this.checksum = checksum;
-    }
-
-    public String getETag() {
-        return eTag;
-    }
-
-    public void setETag(String eTag) {
-        this.eTag = eTag;
-    }
+    private Boolean bucketKeyEnabled;
 
     public String getServerSideEncryption() {
         return serverSideEncryption;
@@ -70,6 +54,14 @@ public class UploadPartResult extends AbstractRequestChargedResult {
 
     public void setServerSideEncryption(String serverSideEncryption) {
         this.serverSideEncryption = serverSideEncryption;
+    }
+
+    public ChecksumDomain getChecksum() {
+        return checksum;
+    }
+
+    public void setChecksum(ChecksumDomain checksum) {
+        this.checksum = checksum;
     }
 
     public SsekmsDomain getSsekms() {
@@ -80,13 +72,21 @@ public class UploadPartResult extends AbstractRequestChargedResult {
         this.ssekms = ssekms;
     }
 
+    public Boolean getBucketKeyEnabled() {
+        return bucketKeyEnabled;
+    }
+
+    public void setBucketKeyEnabled(Boolean bucketKeyEnabled) {
+        this.bucketKeyEnabled = bucketKeyEnabled;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("checksum", checksum)
                 .add("serverSideEncryption", serverSideEncryption)
-                .add("eTag", eTag)
+                .add("checksum", checksum)
                 .add("ssekms", ssekms)
+                .add("bucketKeyEnabled", bucketKeyEnabled)
                 .toString();
     }
 }

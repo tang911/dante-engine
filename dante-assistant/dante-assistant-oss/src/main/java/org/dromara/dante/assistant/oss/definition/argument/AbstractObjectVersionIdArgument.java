@@ -34,7 +34,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author : gengwei.zheng
  * @date : 2024/7/22 23:40
  */
-public abstract class AbstractObjectVersionIdArgument extends AbstractObjectArgument {
+public abstract class AbstractObjectVersionIdArgument extends AbstractObjectNameArgument {
 
     @Schema(name = "版本 ID")
     private String versionId;

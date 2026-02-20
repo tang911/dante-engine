@@ -26,7 +26,7 @@
 package org.dromara.dante.assistant.oss.entity.argument;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.dromara.dante.assistant.oss.definition.argument.AbstractGetObjectArgument;
+import org.dromara.dante.assistant.oss.definition.argument.AbstractObjectGetArgument;
 
 /**
  * <p>Description: Head方式操作对象请求参数实体 </p>
@@ -35,6 +35,6 @@ import org.dromara.dante.assistant.oss.definition.argument.AbstractGetObjectArgu
  * @date : 2024/7/22 23:30
  */
 @Schema(name = "Head方式操作对象请求参数实体", title = "Head方式操作对象请求参数实体")
-public class HeadObjectArgument extends AbstractGetObjectArgument {
+public class HeadObjectArgument extends AbstractObjectGetArgument {
 
 }
