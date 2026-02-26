@@ -42,7 +42,6 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2024/8/23 18:13
  */
-@Component
 public class RemoteEnumDictionaryGatherListener implements ApplicationListener<RemoteEnumDictionaryGatherEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteEnumDictionaryGatherListener.class);

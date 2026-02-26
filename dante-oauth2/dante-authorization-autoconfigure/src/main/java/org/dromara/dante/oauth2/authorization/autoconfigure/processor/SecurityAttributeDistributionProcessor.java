@@ -37,7 +37,7 @@ import org.dromara.dante.message.core.definition.strategy.StrategyEventManager;
 import org.dromara.dante.message.core.domain.RestMapping;
 import org.dromara.dante.message.core.event.ApplicationReadinessEvent;
 import org.dromara.dante.oauth2.authorization.autoconfigure.bus.RemoteAttributeTransmitterSyncEvent;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
+import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.security.domain.AttributeTransmitter;
 import org.dromara.dante.spring.context.ServiceContextHolder;
 import org.dromara.dante.spring.founction.ListConverter;
@@ -55,9 +55,9 @@ import java.util.List;
  * @date : 2021/8/8 14:00
  */
 @Component
-public class AttributeTransmitterDistributeProcessor implements StrategyEventManager<List<AttributeTransmitter>> {
+public class SecurityAttributeDistributionProcessor implements StrategyEventManager<List<AttributeTransmitter>> {
 
-    private static final Logger log = LoggerFactory.getLogger(AttributeTransmitterDistributeProcessor.class);
+    private static final Logger log = LoggerFactory.getLogger(SecurityAttributeDistributionProcessor.class);
 
     private final ListConverter<SysInterface, SysAttribute> toSysAttributes;
     private final ListConverter<SysAttribute, AttributeTransmitter> toTransmitters;
@@ -66,7 +66,7 @@ public class AttributeTransmitterDistributeProcessor implements StrategyEventMan
     private final SysInterfaceService sysInterfaceService;
     private final SecurityAttributeAnalyzer securityAttributeAnalyzer;
 
-    public AttributeTransmitterDistributeProcessor(SysAttributeService sysAttributeService, SysInterfaceService sysInterfaceService, SecurityAttributeAnalyzer securityAttributeAnalyzer) {
+    public SecurityAttributeDistributionProcessor(SysAttributeService sysAttributeService, SysInterfaceService sysInterfaceService, SecurityAttributeAnalyzer securityAttributeAnalyzer) {
         this.sysAttributeService = sysAttributeService;
         this.sysInterfaceService = sysInterfaceService;
         this.securityAttributeAnalyzer = securityAttributeAnalyzer;
@@ -81,7 +81,7 @@ public class AttributeTransmitterDistributeProcessor implements StrategyEventMan
      */
     @Override
     public void postLocalProcess(List<AttributeTransmitter> data) {
-        securityAttributeAnalyzer.processAttributeTransmitters(data);
+        securityAttributeAnalyzer.processRemoteDistributionAttributes(data);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class AttributeTransmitterDistributeProcessor implements StrategyEventMan
      * 将SysAuthority表中存在，但是SysSecurityAttribute中不存在的数据同步至SysSecurityAttribute，保证两侧数据一致
      */
     @Transactional(rollbackFor = Exception.class)
-    public void postRestMappings(List<RestMapping> restMappings) {
+    public void processRestMappings(List<RestMapping> restMappings) {
 
         // 将各个服务发送回来的 requestMappings 存储到 SysInterface 中
         List<SysInterface> storedInterfaces = sysInterfaceService.storeRequestMappings(restMappings);

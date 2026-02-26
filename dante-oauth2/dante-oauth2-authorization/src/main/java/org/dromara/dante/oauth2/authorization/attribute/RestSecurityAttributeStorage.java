@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.oauth2.authorization.processor;
+package org.dromara.dante.oauth2.authorization.attribute;
 
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CacheType;
@@ -47,9 +47,9 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2021/7/30 15:05
  */
-public class SecurityAttributeStorage {
+public class RestSecurityAttributeStorage {
 
-    private static final Logger log = LoggerFactory.getLogger(SecurityAttributeStorage.class);
+    private static final Logger log = LoggerFactory.getLogger(RestSecurityAttributeStorage.class);
     private static final String KEY_COMPATIBLE = "COMPATIBLE";
     /**
      * 模式匹配权限缓存。主要存储 包含 "*"、"?" 和 "{"、"}" 等特殊字符的路径权限。
@@ -62,7 +62,7 @@ public class SecurityAttributeStorage {
      */
     private final Cache<HerodotusRequest, List<HerodotusSecurityAttribute>> indexable;
 
-    public SecurityAttributeStorage() {
+    public RestSecurityAttributeStorage() {
         this.compatible = JetCacheUtils.create(OAuth2Constants.CACHE_NAME_SECURITY_METADATA_COMPATIBLE, CacheType.BOTH, null, true, true);
         this.indexable = JetCacheUtils.create(OAuth2Constants.CACHE_NAME_SECURITY_METADATA_INDEXABLE, CacheType.BOTH, null, true, true);
     }

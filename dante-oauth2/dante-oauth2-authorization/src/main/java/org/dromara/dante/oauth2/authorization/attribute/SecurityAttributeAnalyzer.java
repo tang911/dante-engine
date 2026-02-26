@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.oauth2.authorization.processor;
+package org.dromara.dante.oauth2.authorization.attribute;
 
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -36,7 +36,6 @@ import org.dromara.dante.security.domain.HerodotusSecurityAttribute;
 import org.dromara.dante.spring.enums.UrlCategory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.util.*;
 
@@ -46,16 +45,15 @@ import java.util.*;
  * @author : gengwei.zheng
  * @date : 2021/8/1 17:43
  */
-@Component
 public class SecurityAttributeAnalyzer {
 
     private static final Logger log = LoggerFactory.getLogger(SecurityAttributeAnalyzer.class);
 
-    private final SecurityAttributeStorage securityAttributeStorage;
+    private final RestSecurityAttributeStorage restSecurityAttributeStorage;
     private final ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer;
 
-    public SecurityAttributeAnalyzer(SecurityAttributeStorage securityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
-        this.securityAttributeStorage = securityAttributeStorage;
+    public SecurityAttributeAnalyzer(RestSecurityAttributeStorage restSecurityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
+        this.restSecurityAttributeStorage = restSecurityAttributeStorage;
         this.servletOAuth2ResourceMatcherConfigurer = servletOAuth2ResourceMatcherConfigurer;
     }
 
@@ -201,7 +199,7 @@ public class SecurityAttributeAnalyzer {
      * 2. 经过考虑，服务本地接口扫描完，就对所有的 RequestMapping 做一遍解析，现在感觉意义不大。
      * 因为，RequestMapping 汇总至 UPMS 后，还会做一次统一的分发。所以当前的设计思路是不对 RequestMapping 进行处理。后续根据需要再补充即可。
      */
-    public void processRequestMatchers() {
+    public void processLocalResourceMatchers() {
 
         log.debug("[Herodotus] |- [R3] Process local configured security metadata.");
 
@@ -210,10 +208,10 @@ public class SecurityAttributeAnalyzer {
             Map<UrlCategory, LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>>> grouping = groupSecurityMatchers(requestMatchers);
 
             LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> wildcards = grouping.get(UrlCategory.WILDCARD);
-            securityAttributeStorage.addToStorage(wildcards, false);
+            restSecurityAttributeStorage.addToStorage(wildcards, false);
 
             LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> fullPaths = grouping.get(UrlCategory.FULL_PATH);
-            securityAttributeStorage.addToStorage(fullPaths, true);
+            restSecurityAttributeStorage.addToStorage(fullPaths, true);
         }
     }
 
@@ -224,10 +222,10 @@ public class SecurityAttributeAnalyzer {
      *
      * @param attributeTransmitters 权限数据
      */
-    public void processAttributeTransmitters(List<AttributeTransmitter> attributeTransmitters) {
+    public void processRemoteDistributionAttributes(List<AttributeTransmitter> attributeTransmitters) {
 
         // 从缓存中获取全部带有特殊字符的匹配规则
-        LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> compatibles = securityAttributeStorage.getCompatible();
+        LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> compatibles = restSecurityAttributeStorage.getCompatible();
         // 创建一个临时的 Matcher 容器
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> matchers = new LinkedHashMap<>(compatibles);
 
@@ -238,18 +236,18 @@ public class SecurityAttributeAnalyzer {
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> wildcards = grouping.get(UrlCategory.WILDCARD);
         if (MapUtils.isNotEmpty(wildcards)) {
             matchers.putAll(wildcards);
-            securityAttributeStorage.addToStorage(wildcards, false);
+            restSecurityAttributeStorage.addToStorage(wildcards, false);
         }
 
         // 拿到带有占位符的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> placeholders = grouping.get(UrlCategory.PLACEHOLDER);
         log.debug("[Herodotus] |- Store placeholder type security attributes.");
-        securityAttributeStorage.addToStorage(matchers, placeholders, false);
+        restSecurityAttributeStorage.addToStorage(matchers, placeholders, false);
 
         // 拿到全路径的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> fullPaths = grouping.get(UrlCategory.FULL_PATH);
         log.debug("[Herodotus] |- Store full path type security attributes.");
-        securityAttributeStorage.addToStorage(matchers, fullPaths, true);
+        restSecurityAttributeStorage.addToStorage(matchers, fullPaths, true);
 
         log.debug("[Herodotus] |- [R7] Security attributes process has FINISHED!");
     }

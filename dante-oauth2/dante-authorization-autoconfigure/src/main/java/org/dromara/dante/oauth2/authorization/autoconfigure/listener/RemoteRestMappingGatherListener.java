@@ -28,11 +28,10 @@ package org.dromara.dante.oauth2.authorization.autoconfigure.listener;
 import org.dromara.dante.core.jackson.JacksonUtils;
 import org.dromara.dante.message.core.domain.RestMapping;
 import org.dromara.dante.oauth2.authorization.autoconfigure.bus.RemoteRestMappingGatherEvent;
-import org.dromara.dante.oauth2.authorization.autoconfigure.processor.AttributeTransmitterDistributeProcessor;
+import org.dromara.dante.oauth2.authorization.autoconfigure.processor.SecurityAttributeDistributionProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
@@ -46,15 +45,14 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2021/8/5 16:16
  */
-@Component
 public class RemoteRestMappingGatherListener implements ApplicationListener<RemoteRestMappingGatherEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteRestMappingGatherListener.class);
 
-    private final AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor;
+    private final SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor;
 
-    public RemoteRestMappingGatherListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-        this.attributeTransmitterDistributeProcessor = attributeTransmitterDistributeProcessor;
+    public RemoteRestMappingGatherListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+        this.securityAttributeDistributionProcessor = securityAttributeDistributionProcessor;
     }
 
     @Override
@@ -68,6 +66,6 @@ public class RemoteRestMappingGatherListener implements ApplicationListener<Remo
 
         Optional.ofNullable(requestMapping)
                 .flatMap(value -> Optional.ofNullable(JacksonUtils.toList(value, RestMapping.class)))
-                .ifPresent(attributeTransmitterDistributeProcessor::postRestMappings);
+                .ifPresent(securityAttributeDistributionProcessor::processRestMappings);
     }
 }

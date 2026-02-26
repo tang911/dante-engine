@@ -27,7 +27,7 @@ package org.dromara.dante.oauth2.authorization.autoconfigure.listener;
 
 import org.dromara.dante.logic.upms.domain.event.SysAttributeChangeEvent;
 import org.dromara.dante.logic.upms.entity.security.SysAttribute;
-import org.dromara.dante.oauth2.authorization.autoconfigure.processor.AttributeTransmitterDistributeProcessor;
+import org.dromara.dante.oauth2.authorization.autoconfigure.processor.SecurityAttributeDistributionProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
@@ -41,15 +41,14 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2021/8/4 22:18
  */
-@Component
 public class SysAttributeChangeListener implements ApplicationListener<SysAttributeChangeEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(SysAttributeChangeListener.class);
 
-    private final AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor;
+    private final SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor;
 
-    public SysAttributeChangeListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-        this.attributeTransmitterDistributeProcessor = attributeTransmitterDistributeProcessor;
+    public SysAttributeChangeListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+        this.securityAttributeDistributionProcessor = securityAttributeDistributionProcessor;
     }
 
     @Override
@@ -62,6 +61,6 @@ public class SysAttributeChangeListener implements ApplicationListener<SysAttrib
         log.debug("[Herodotus] |- Got SysAttribute, start to process SysAttribute change.");
 
         Optional.ofNullable(sysAttribute)
-                .ifPresent(attributeTransmitterDistributeProcessor::distributeChangedSecurityAttribute);
+                .ifPresent(securityAttributeDistributionProcessor::distributeChangedSecurityAttribute);
     }
 }

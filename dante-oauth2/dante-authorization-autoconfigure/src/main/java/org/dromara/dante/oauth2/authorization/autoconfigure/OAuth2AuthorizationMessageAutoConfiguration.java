@@ -31,7 +31,7 @@ import org.dromara.dante.message.core.definition.strategy.RestMappingScanEventMa
 import org.dromara.dante.oauth2.authorization.autoconfigure.listener.RemoteAttributeTransmitterSyncListener;
 import org.dromara.dante.oauth2.authorization.autoconfigure.strategy.DefaultEnumDictionaryGatherEventManager;
 import org.dromara.dante.oauth2.authorization.autoconfigure.strategy.DefaultRestMappingScanEventManager;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
+import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.spring.condition.ConditionalOnArchitecture;
 import org.dromara.dante.spring.enums.Architecture;
 import org.slf4j.Logger;

@@ -27,7 +27,7 @@ package org.dromara.dante.oauth2.authorization.autoconfigure.listener;
 
 import org.dromara.dante.core.jackson.JacksonUtils;
 import org.dromara.dante.oauth2.authorization.autoconfigure.bus.RemoteAttributeTransmitterSyncEvent;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
+import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.security.domain.AttributeTransmitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,7 +66,7 @@ public class RemoteAttributeTransmitterSyncListener implements ApplicationListen
 
             Optional.ofNullable(data)
                     .flatMap(value -> Optional.ofNullable(JacksonUtils.toList(value, AttributeTransmitter.class)))
-                    .ifPresent(securityAttributeAnalyzer::processAttributeTransmitters);
+                    .ifPresent(securityAttributeAnalyzer::processRemoteDistributionAttributes);
         }
     }
 }

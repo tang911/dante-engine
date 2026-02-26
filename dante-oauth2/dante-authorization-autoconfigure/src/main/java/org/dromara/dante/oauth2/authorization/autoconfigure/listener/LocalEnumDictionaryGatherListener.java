@@ -42,7 +42,6 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2024/8/23 18:13
  */
-@Component
 public class LocalEnumDictionaryGatherListener implements ApplicationListener<EnumDictionaryGatherEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(LocalEnumDictionaryGatherListener.class);

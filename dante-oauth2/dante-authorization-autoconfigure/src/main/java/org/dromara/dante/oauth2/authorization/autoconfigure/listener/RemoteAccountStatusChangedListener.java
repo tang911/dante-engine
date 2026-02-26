@@ -43,7 +43,6 @@ import org.springframework.stereotype.Component;
  * @author : gengwei.zheng
  * @date : 2022/7/10 18:31
  */
-@Component
 public class RemoteAccountStatusChangedListener implements ApplicationListener<RemoteAccountStatusChangedEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteAccountStatusChangedListener.class);

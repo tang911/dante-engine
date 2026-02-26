@@ -28,11 +28,10 @@ package org.dromara.dante.oauth2.authorization.autoconfigure.listener;
 import org.apache.commons.collections4.CollectionUtils;
 import org.dromara.dante.message.core.domain.RestMapping;
 import org.dromara.dante.message.core.event.RestMappingGatherEvent;
-import org.dromara.dante.oauth2.authorization.autoconfigure.processor.AttributeTransmitterDistributeProcessor;
+import org.dromara.dante.oauth2.authorization.autoconfigure.processor.SecurityAttributeDistributionProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -44,15 +43,14 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2021/8/8 22:02
  */
-@Component
 public class LocalRestMappingGatherListener implements ApplicationListener<RestMappingGatherEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(LocalRestMappingGatherListener.class);
 
-    private final AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor;
+    private final SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor;
 
-    public LocalRestMappingGatherListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-        this.attributeTransmitterDistributeProcessor = attributeTransmitterDistributeProcessor;
+    public LocalRestMappingGatherListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+        this.securityAttributeDistributionProcessor = securityAttributeDistributionProcessor;
     }
 
     @Override
@@ -63,7 +61,7 @@ public class LocalRestMappingGatherListener implements ApplicationListener<RestM
         List<RestMapping> restMappings = event.getData();
         if (CollectionUtils.isNotEmpty(restMappings)) {
             log.debug("[Herodotus] |- [R4] Request mapping process BEGIN!");
-            attributeTransmitterDistributeProcessor.postRestMappings(restMappings);
+            securityAttributeDistributionProcessor.processRestMappings(restMappings);
         }
     }
 }
