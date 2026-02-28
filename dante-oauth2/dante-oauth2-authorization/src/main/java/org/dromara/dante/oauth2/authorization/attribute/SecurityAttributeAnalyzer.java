@@ -229,22 +229,28 @@ public class SecurityAttributeAnalyzer {
         // 创建一个临时的 Matcher 容器
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> matchers = new LinkedHashMap<>(compatibles);
 
-        // 对分发的 SecurityAttribute 进行分组
+        // 1. 对分发的 SecurityAttribute 进行分组
         Map<UrlCategory, LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>>> grouping = groupingSecurityMetadata(attributeTransmitters);
 
-        // 拿到带有通配符的分组数据
+        // 2. 拿到带有通配符的分组数据后，先存入本地然后将其作为 matchers 作为后续权限冲突分析的依据
+        // 注意：静态权限采用聚合方式之后，matchers 可能为空
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> wildcards = grouping.get(UrlCategory.WILDCARD);
         if (MapUtils.isNotEmpty(wildcards)) {
             matchers.putAll(wildcards);
             restSecurityAttributeStorage.addToStorage(wildcards, false);
         }
 
-        // 拿到带有占位符的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
+        // 3. 拿到带有占位符的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
+        // 注意：这里 matchers 可能为空。
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> placeholders = grouping.get(UrlCategory.PLACEHOLDER);
         log.debug("[Herodotus] |- Store placeholder type security attributes.");
         restSecurityAttributeStorage.addToStorage(matchers, placeholders, false);
 
-        // 拿到全路径的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
+        // 4. 占位符数据也需要被拿来做权限冲突，前面第三步仅是将其存入本地存储，当前 matchers 中并未包含这部分数据，所以重新设置
+        if(MapUtils.isNotEmpty(placeholders)) {
+            matchers.putAll(placeholders);
+        }
+        // 5. 拿到全路径的分组数据，并检测是否存在冲突的匹配规则，然后将结果存入本地存储
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> fullPaths = grouping.get(UrlCategory.FULL_PATH);
         log.debug("[Herodotus] |- Store full path type security attributes.");
         restSecurityAttributeStorage.addToStorage(matchers, fullPaths, true);

@@ -209,13 +209,19 @@ public class RestSecurityAttributeStorage {
      * 将权限数据添加至本地存储，存储之前进行规则冲突校验
      *
      * @param matchers         校验资源
-     * @param configAttributes 权限数据
+     * @param attributes 权限数据
      * @param isIndexable      true 存入 indexable cache；false 存入 compatible cache
      */
-    public void addToStorage(LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> matchers, LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> configAttributes, boolean isIndexable) {
+    public void addToStorage(LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> matchers, LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> attributes, boolean isIndexable) {
         LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> result = new LinkedHashMap<>();
-        if (MapUtils.isNotEmpty(matchers) && MapUtils.isNotEmpty(configAttributes)) {
-            result = checkConflict(matchers, configAttributes);
+        if (MapUtils.isNotEmpty(matchers)) {
+            if(MapUtils.isNotEmpty(attributes)) {
+                result = checkConflict(matchers, attributes);
+            }
+        } else {
+            // 静态权限修改为聚合方式之后，可能会出现 matchers 为空的情况
+            // 如果 matcher 为空将会丢失权限数据。所以增加一个保护措施，直接存储原有数据。
+            result = attributes;
         }
 
         addToStorage(result, isIndexable);
