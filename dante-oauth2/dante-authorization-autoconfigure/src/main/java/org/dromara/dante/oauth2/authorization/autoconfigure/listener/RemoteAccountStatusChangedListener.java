@@ -35,7 +35,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 /**
  * <p>Description: 远程用户状态变更监听 </p>
@@ -43,7 +42,6 @@ import org.springframework.stereotype.Component;
  * @author : gengwei.zheng
  * @date : 2022/7/10 18:31
  */
-@Component
 public class RemoteAccountStatusChangedListener implements ApplicationListener<RemoteAccountStatusChangedEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteAccountStatusChangedListener.class);

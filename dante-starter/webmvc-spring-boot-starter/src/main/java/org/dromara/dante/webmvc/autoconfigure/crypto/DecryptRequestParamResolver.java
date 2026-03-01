@@ -29,7 +29,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.dante.core.support.crypto.DigitalEnvelopeProcessor;
+import org.dromara.dante.web.support.crypto.DigitalEnvelopeProcessor;
 import org.dromara.dante.web.annotation.Crypto;
 import org.dromara.dante.web.exception.SessionInvalidException;
 import org.dromara.dante.web.servlet.utils.SessionUtils;

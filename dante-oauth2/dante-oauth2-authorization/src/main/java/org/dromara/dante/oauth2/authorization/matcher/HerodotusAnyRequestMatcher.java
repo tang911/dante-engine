@@ -26,7 +26,7 @@
 package org.dromara.dante.oauth2.authorization.matcher;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeStorage;
+import org.dromara.dante.oauth2.authorization.attribute.RestSecurityAttributeStorage;
 import org.dromara.dante.security.domain.HerodotusRequest;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 import org.springframework.security.web.util.matcher.AnyRequestMatcher;
@@ -36,7 +36,7 @@ import org.springframework.security.web.util.matcher.AnyRequestMatcher;
  * <p>
  * 拷贝自 {@link AnyRequestMatcher}。进行一定的修改以支持纯在没有 {@link HttpServletRequest} 的环境下进行路径的比较和匹配
  * <p>
- * 概扩展的目的，主要是为了实现 {@link SecurityAttributeStorage} 代码中，使用 {@link PathPatternRequestMatcher} 逻辑进行高效请求路径去重分析。
+ * 概扩展的目的，主要是为了实现 {@link RestSecurityAttributeStorage} 代码中，使用 {@link PathPatternRequestMatcher} 逻辑进行高效请求路径去重分析。
  *
  * @author : gengwei.zheng
  * @date : 2025/8/24 0:21

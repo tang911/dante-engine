@@ -28,11 +28,10 @@ package org.dromara.dante.oauth2.authorization.autoconfigure.strategy;
 import org.dromara.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import org.dromara.dante.message.core.domain.RestMapping;
 import org.dromara.dante.message.core.event.RestMappingGatherEvent;
+import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.oauth2.authorization.autoconfigure.bus.RemoteRestMappingGatherEvent;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
 import org.dromara.dante.spring.context.ServiceContextHolder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -43,7 +42,6 @@ import java.util.List;
  * @author : gengwei.zheng
  * @date : 2022/1/17 0:08
  */
-@Component
 public class DefaultRestMappingScanEventManager implements RestMappingScanEventManager {
 
     private final SecurityAttributeAnalyzer securityAttributeAnalyzer;
@@ -64,7 +62,7 @@ public class DefaultRestMappingScanEventManager implements RestMappingScanEventM
 
     @Override
     public void postLocalStorage(List<RestMapping> restMappings) {
-        securityAttributeAnalyzer.processRequestMatchers();
+        securityAttributeAnalyzer.processLocalResourceMatchers();
     }
 
     @Override

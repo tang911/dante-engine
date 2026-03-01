@@ -25,7 +25,6 @@
 
 package org.dromara.dante.core.support.pool;
 
-import jakarta.annotation.Nonnull;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.pool2.PooledObjectFactory;
 import org.apache.commons.pool2.impl.GenericObjectPool;
@@ -47,7 +46,7 @@ public abstract class AbstractObjectPool<T> {
 
     private final GenericObjectPool<T> genericObjectPool;
 
-    protected AbstractObjectPool(@Nonnull PooledObjectFactory<T> pooledObjectFactory, @Nonnull Pool pool) {
+    protected AbstractObjectPool(PooledObjectFactory<T> pooledObjectFactory, Pool pool) {
         GenericObjectPoolConfig<T> config = new GenericObjectPoolConfig<>();
         config.setMaxTotal(pool.getMaxTotal());
         config.setMaxIdle(pool.getMaxIdle());

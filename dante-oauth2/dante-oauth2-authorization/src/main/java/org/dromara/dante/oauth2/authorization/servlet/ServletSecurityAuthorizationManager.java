@@ -31,7 +31,7 @@ import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeStorage;
+import org.dromara.dante.oauth2.authorization.attribute.RestSecurityAttributeStorage;
 import org.dromara.dante.security.domain.HerodotusRequest;
 import org.dromara.dante.security.domain.HerodotusSecurityAttribute;
 import org.dromara.dante.spring.context.ServiceContextHolder;
@@ -71,12 +71,12 @@ public class ServletSecurityAuthorizationManager implements AuthorizationManager
 
     private static final Logger log = LoggerFactory.getLogger(ServletSecurityAuthorizationManager.class);
 
-    private final SecurityAttributeStorage securityAttributeStorage;
+    private final RestSecurityAttributeStorage restSecurityAttributeStorage;
     private final ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer;
     private final ObjectProvider<ApiVersionStrategy> apiVersionStrategies;
 
-    public ServletSecurityAuthorizationManager(SecurityAttributeStorage securityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer, ObjectProvider<ApiVersionStrategy> apiVersionStrategies) {
-        this.securityAttributeStorage = securityAttributeStorage;
+    public ServletSecurityAuthorizationManager(RestSecurityAttributeStorage restSecurityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer, ObjectProvider<ApiVersionStrategy> apiVersionStrategies) {
+        this.restSecurityAttributeStorage = restSecurityAttributeStorage;
         this.servletOAuth2ResourceMatcherConfigurer = servletOAuth2ResourceMatcherConfigurer;
         this.apiVersionStrategies = apiVersionStrategies;
     }
@@ -150,12 +150,12 @@ public class ServletSecurityAuthorizationManager implements AuthorizationManager
 
         log.debug("[Herodotus] |- Finding security attribute use : [{}] - [{}]", method, path);
 
-        List<HerodotusSecurityAttribute> configAttributes = this.securityAttributeStorage.getConfigAttribute(url, method, version);
+        List<HerodotusSecurityAttribute> configAttributes = this.restSecurityAttributeStorage.getConfigAttribute(url, method, version);
         if (CollectionUtils.isNotEmpty(configAttributes)) {
             log.debug("[Herodotus] |- Get configAttributes from local storage for : [{}] - [{}]", url, method);
             return configAttributes;
         } else {
-            LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> compatible = this.securityAttributeStorage.getCompatible();
+            LinkedHashMap<HerodotusRequest, List<HerodotusSecurityAttribute>> compatible = this.restSecurityAttributeStorage.getCompatible();
             if (MapUtils.isNotEmpty(compatible)) {
                 // 支持含有**通配符的路径搜索
                 for (Map.Entry<HerodotusRequest, List<HerodotusSecurityAttribute>> entry : compatible.entrySet()) {

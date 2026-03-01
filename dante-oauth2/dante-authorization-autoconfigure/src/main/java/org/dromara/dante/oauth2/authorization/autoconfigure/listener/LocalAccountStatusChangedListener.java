@@ -33,7 +33,6 @@ import org.dromara.dante.message.core.event.AccountStatusChangedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 /**
  * <p>Description: 本地用户状态变更监听 </p>
@@ -41,7 +40,6 @@ import org.springframework.stereotype.Component;
  * @author : gengwei.zheng
  * @date : 2022/7/10 17:59
  */
-@Component
 public class LocalAccountStatusChangedListener implements ApplicationListener<AccountStatusChangedEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(LocalAccountStatusChangedListener.class);

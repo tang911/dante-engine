@@ -28,9 +28,9 @@ package org.dromara.dante.oauth2.authorization.config;
 import jakarta.annotation.PostConstruct;
 import org.dromara.dante.core.builder.SecurityMatcher;
 import org.dromara.dante.core.function.SecurityMatcherBuilderCustomizer;
+import org.dromara.dante.oauth2.authorization.attribute.RestSecurityAttributeStorage;
+import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.oauth2.authorization.customizer.OAuth2AuthorizationSecurityMatcherBuilderCustomizer;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeAnalyzer;
-import org.dromara.dante.oauth2.authorization.processor.SecurityAttributeStorage;
 import org.dromara.dante.oauth2.authorization.properties.OAuth2AuthorizationProperties;
 import org.dromara.dante.oauth2.authorization.servlet.OAuth2SessionManagementConfigurerCustomer;
 import org.dromara.dante.oauth2.authorization.servlet.ServletOAuth2AuthorizationConfigurerManager;
@@ -84,22 +84,22 @@ public class OAuth2ServletAuthorizationConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public SecurityAttributeStorage securityMetadataSourceStorage() {
-        return new SecurityAttributeStorage();
+    public RestSecurityAttributeStorage securityMetadataSourceStorage() {
+        return new RestSecurityAttributeStorage();
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public ServletSecurityAuthorizationManager servletSecurityAuthorizationManager(SecurityAttributeStorage securityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer, ObjectProvider<ApiVersionStrategy> apiVersionStrategies) {
-        ServletSecurityAuthorizationManager manager = new ServletSecurityAuthorizationManager(securityAttributeStorage, servletOAuth2ResourceMatcherConfigurer, apiVersionStrategies);
+    public ServletSecurityAuthorizationManager servletSecurityAuthorizationManager(RestSecurityAttributeStorage restSecurityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer, ObjectProvider<ApiVersionStrategy> apiVersionStrategies) {
+        ServletSecurityAuthorizationManager manager = new ServletSecurityAuthorizationManager(restSecurityAttributeStorage, servletOAuth2ResourceMatcherConfigurer, apiVersionStrategies);
         log.trace("[Herodotus] |- Bean [Servlet Security Authorization Manager] Configure.");
         return manager;
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public SecurityAttributeAnalyzer securityAttributeAnalyzer(SecurityAttributeStorage securityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
-        SecurityAttributeAnalyzer analyzer = new SecurityAttributeAnalyzer(securityAttributeStorage, servletOAuth2ResourceMatcherConfigurer);
+    public SecurityAttributeAnalyzer securityAttributeAnalyzer(RestSecurityAttributeStorage restSecurityAttributeStorage, ServletOAuth2ResourceMatcherConfigurer servletOAuth2ResourceMatcherConfigurer) {
+        SecurityAttributeAnalyzer analyzer = new SecurityAttributeAnalyzer(restSecurityAttributeStorage, servletOAuth2ResourceMatcherConfigurer);
         log.trace("[Herodotus] |- Bean [Security Attribute Analyzer] Configure.");
         return analyzer;
     }

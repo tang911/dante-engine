@@ -32,7 +32,6 @@ import org.dromara.dante.oauth2.authorization.autoconfigure.processor.EnumDictio
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
@@ -42,7 +41,6 @@ import java.util.Optional;
  * @author : gengwei.zheng
  * @date : 2024/8/23 18:13
  */
-@Component
 public class RemoteEnumDictionaryGatherListener implements ApplicationListener<RemoteEnumDictionaryGatherEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteEnumDictionaryGatherListener.class);

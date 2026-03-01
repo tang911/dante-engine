@@ -30,8 +30,8 @@ import org.dromara.dante.logic.upms.annotation.EnableHerodotusLogicUpms;
 import org.dromara.dante.logic.upms.service.security.SysUserService;
 import org.dromara.dante.oauth2.authorization.autoconfigure.condition.ConditionalOnUpmsService;
 import org.dromara.dante.oauth2.authorization.autoconfigure.listener.*;
-import org.dromara.dante.oauth2.authorization.autoconfigure.processor.AttributeTransmitterDistributeProcessor;
 import org.dromara.dante.oauth2.authorization.autoconfigure.processor.EnumDictionaryGatherProcessor;
+import org.dromara.dante.oauth2.authorization.autoconfigure.processor.SecurityAttributeDistributionProcessor;
 import org.dromara.dante.spring.condition.ConditionalOnArchitecture;
 import org.dromara.dante.spring.enums.Architecture;
 import org.slf4j.Logger;
@@ -84,16 +84,16 @@ public class OAuth2UpmsServiceAutoConfiguration {
 
         @Bean
         @ConditionalOnMissingBean
-        public LocalRestMappingGatherListener localRequestMappingGatherListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-            LocalRestMappingGatherListener listener = new LocalRestMappingGatherListener(attributeTransmitterDistributeProcessor);
+        public LocalRestMappingGatherListener localRequestMappingGatherListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+            LocalRestMappingGatherListener listener = new LocalRestMappingGatherListener(securityAttributeDistributionProcessor);
             log.trace("[Herodotus] |- Bean [Local Request Mapping Gather Listener] Configure.");
             return listener;
         }
 
         @Bean
         @ConditionalOnMissingBean
-        public SysAttributeChangeListener sysAttributeChangeListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-            SysAttributeChangeListener listener = new SysAttributeChangeListener(attributeTransmitterDistributeProcessor);
+        public SysAttributeChangeListener sysAttributeChangeListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+            SysAttributeChangeListener listener = new SysAttributeChangeListener(securityAttributeDistributionProcessor);
             log.trace("[Herodotus] |- Bean [SysAttribute Change Listener] Configure.");
             return listener;
         }
@@ -121,8 +121,8 @@ public class OAuth2UpmsServiceAutoConfiguration {
 
         @Bean
         @ConditionalOnMissingBean
-        public RemoteRestMappingGatherListener remoteRequestMappingGatherListener(AttributeTransmitterDistributeProcessor attributeTransmitterDistributeProcessor) {
-            RemoteRestMappingGatherListener listener = new RemoteRestMappingGatherListener(attributeTransmitterDistributeProcessor);
+        public RemoteRestMappingGatherListener remoteRequestMappingGatherListener(SecurityAttributeDistributionProcessor securityAttributeDistributionProcessor) {
+            RemoteRestMappingGatherListener listener = new RemoteRestMappingGatherListener(securityAttributeDistributionProcessor);
             log.trace("[Herodotus] |- Bean [Remote Request Mapping Gather Listener] Configure.");
             return listener;
         }
