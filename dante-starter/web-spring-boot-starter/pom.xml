@@ -40,6 +40,10 @@
     <description>Dante Cloud 云原生微服务基座组件库Web微服务通用Starter</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.dromara.dante</groupId>
+            <artifactId>dante-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.dromara.dante</groupId>

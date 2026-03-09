@@ -42,7 +42,7 @@
     <dependencies>
         <dependency>
             <groupId>org.dromara.dante</groupId>
-            <artifactId>dante-web</artifactId>
+            <artifactId>dante-spring</artifactId>
         </dependency>
 
         <!--Jackson 3.X 自动配置-->

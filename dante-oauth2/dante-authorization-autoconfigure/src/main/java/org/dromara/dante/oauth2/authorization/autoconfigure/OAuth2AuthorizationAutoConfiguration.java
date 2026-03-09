@@ -27,11 +27,9 @@ package org.dromara.dante.oauth2.authorization.autoconfigure;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.PostConstruct;
-import org.dromara.dante.message.core.definition.strategy.RestMappingScanEventManager;
 import org.dromara.dante.oauth2.authorization.attribute.RestSecurityAttributeStorage;
 import org.dromara.dante.oauth2.authorization.attribute.SecurityAttributeAnalyzer;
 import org.dromara.dante.oauth2.authorization.autoconfigure.listener.LocalRestMappingGatherListener;
-import org.dromara.dante.oauth2.authorization.autoconfigure.listener.RemoteAttributeDistributionListener;
 import org.dromara.dante.oauth2.authorization.autoconfigure.listener.RemoteRestMappingGatherListener;
 import org.dromara.dante.oauth2.authorization.autoconfigure.processor.SecurityAttributeDistributionProcessor;
 import org.dromara.dante.oauth2.authorization.autoconfigure.strategy.DefaultRestMappingScanEventManager;
@@ -42,11 +40,8 @@ import org.dromara.dante.security.exception.SecurityGlobalExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.bus.ServiceMatcher;
 import org.springframework.cloud.bus.jackson.RemoteApplicationEventScan;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -97,21 +92,5 @@ public class OAuth2AuthorizationAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
         log.info("[Herodotus] |- Module [OAuth2 Resource Server Starter] Configure.");
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public RemoteAttributeDistributionListener remoteAttributeDistributionListener(SecurityAttributeAnalyzer securityAttributeAnalyzer, ServiceMatcher serviceMatcher) {
-        RemoteAttributeDistributionListener listener = new RemoteAttributeDistributionListener(securityAttributeAnalyzer, serviceMatcher);
-        log.trace("[Herodotus] |- Bean [Security Metadata Refresh Listener] Configure.");
-        return listener;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public RestMappingScanEventManager requestMappingScanEventManager(SecurityAttributeAnalyzer securityAttributeAnalyzer) {
-        DefaultRestMappingScanEventManager manager = new DefaultRestMappingScanEventManager(securityAttributeAnalyzer);
-        log.trace("[Herodotus] |- Bean [Request Mapping Scan Manager] Configure.");
-        return manager;
     }
 }

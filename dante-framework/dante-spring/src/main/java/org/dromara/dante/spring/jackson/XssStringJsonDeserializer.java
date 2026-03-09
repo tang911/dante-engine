@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.web.jackson;
+package org.dromara.dante.spring.jackson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.spring.utils.XssUtils;
