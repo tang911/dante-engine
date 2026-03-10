@@ -288,6 +288,11 @@
             </dependency>
             <dependency>
                 <groupId>org.dromara.dante</groupId>
+                <artifactId>feign-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dromara.dante</groupId>
                 <artifactId>logging-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>

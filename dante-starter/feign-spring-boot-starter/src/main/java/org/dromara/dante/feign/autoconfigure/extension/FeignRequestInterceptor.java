@@ -23,7 +23,7 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.webmvc.autoconfigure.openfeign;
+package org.dromara.dante.feign.autoconfigure.extension;
 
 import cn.hutool.v7.http.server.servlet.ServletUtil;
 import com.google.common.net.HttpHeaders;

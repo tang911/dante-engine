@@ -23,12 +23,12 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.webmvc.autoconfigure.openfeign;
+package org.dromara.dante.feign.autoconfigure.extension;
 
 import feign.MethodMetadata;
 import org.apache.commons.lang3.ObjectUtils;
-import org.dromara.dante.core.annotation.Inner;
 import org.dromara.dante.core.constant.HerodotusHeaders;
+import org.dromara.dante.feign.autoconfigure.annotation.Inner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.openfeign.AnnotatedParameterProcessor;
