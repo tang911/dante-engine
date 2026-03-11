@@ -295,7 +295,10 @@ public class OAuth2AuthenticationProperties {
          * 自定义忘记密码页面地址
          */
         private String forgotPasswordUrl;
-
+        /**
+         * 制定重定向时优先使用相对URI
+         */
+        private Boolean favorRelativeUris = Boolean.FALSE;
         /**
          * Cookie 有效期，默认：30天
          */
@@ -309,76 +312,12 @@ public class OAuth2AuthenticationProperties {
          */
         private String category = "HUTOOL_GIF";
 
-        public String getAuthenticationUrl() {
-            return authenticationUrl;
+        public String getUsernameParameter() {
+            return usernameParameter;
         }
 
-        public void setAuthenticationUrl(String authenticationUrl) {
-            this.authenticationUrl = authenticationUrl;
-        }
-
-        public Boolean getCaptchaEnabled() {
-            return captchaEnabled;
-        }
-
-        public void setCaptchaEnabled(Boolean captchaEnabled) {
-            this.captchaEnabled = captchaEnabled;
-        }
-
-        public String getCaptchaParameter() {
-            return captchaParameter;
-        }
-
-        public void setCaptchaParameter(String captchaParameter) {
-            this.captchaParameter = captchaParameter;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-        public void setCategory(String category) {
-            this.category = category;
-        }
-
-        public Duration getCookieMaxAge() {
-            return cookieMaxAge;
-        }
-
-        public void setCookieMaxAge(Duration cookieMaxAge) {
-            this.cookieMaxAge = cookieMaxAge;
-        }
-
-        public String getFailureUrl() {
-            return failureUrl;
-        }
-
-        public void setFailureUrl(String failureUrl) {
-            this.failureUrl = failureUrl;
-        }
-
-        public String getForgotPasswordUrl() {
-            return forgotPasswordUrl;
-        }
-
-        public void setForgotPasswordUrl(String forgotPasswordUrl) {
-            this.forgotPasswordUrl = forgotPasswordUrl;
-        }
-
-        public String getLoginPageUrl() {
-            return loginPageUrl;
-        }
-
-        public void setLoginPageUrl(String loginPageUrl) {
-            this.loginPageUrl = loginPageUrl;
-        }
-
-        public String getLogoutSuccessUrl() {
-            return logoutSuccessUrl;
-        }
-
-        public void setLogoutSuccessUrl(String logoutSuccessUrl) {
-            this.logoutSuccessUrl = logoutSuccessUrl;
+        public void setUsernameParameter(String usernameParameter) {
+            this.usernameParameter = usernameParameter;
         }
 
         public String getPasswordParameter() {
@@ -389,14 +328,6 @@ public class OAuth2AuthenticationProperties {
             this.passwordParameter = passwordParameter;
         }
 
-        public String getRegistrationUrl() {
-            return registrationUrl;
-        }
-
-        public void setRegistrationUrl(String registrationUrl) {
-            this.registrationUrl = registrationUrl;
-        }
-
         public String getRememberMeParameter() {
             return rememberMeParameter;
         }
@@ -405,12 +336,92 @@ public class OAuth2AuthenticationProperties {
             this.rememberMeParameter = rememberMeParameter;
         }
 
-        public String getUsernameParameter() {
-            return usernameParameter;
+        public String getCaptchaParameter() {
+            return captchaParameter;
         }
 
-        public void setUsernameParameter(String usernameParameter) {
-            this.usernameParameter = usernameParameter;
+        public void setCaptchaParameter(String captchaParameter) {
+            this.captchaParameter = captchaParameter;
+        }
+
+        public String getLoginPageUrl() {
+            return loginPageUrl;
+        }
+
+        public void setLoginPageUrl(String loginPageUrl) {
+            this.loginPageUrl = loginPageUrl;
+        }
+
+        public String getFailureUrl() {
+            return failureUrl;
+        }
+
+        public void setFailureUrl(String failureUrl) {
+            this.failureUrl = failureUrl;
+        }
+
+        public String getAuthenticationUrl() {
+            return authenticationUrl;
+        }
+
+        public void setAuthenticationUrl(String authenticationUrl) {
+            this.authenticationUrl = authenticationUrl;
+        }
+
+        public String getLogoutSuccessUrl() {
+            return logoutSuccessUrl;
+        }
+
+        public void setLogoutSuccessUrl(String logoutSuccessUrl) {
+            this.logoutSuccessUrl = logoutSuccessUrl;
+        }
+
+        public String getRegistrationUrl() {
+            return registrationUrl;
+        }
+
+        public void setRegistrationUrl(String registrationUrl) {
+            this.registrationUrl = registrationUrl;
+        }
+
+        public String getForgotPasswordUrl() {
+            return forgotPasswordUrl;
+        }
+
+        public void setForgotPasswordUrl(String forgotPasswordUrl) {
+            this.forgotPasswordUrl = forgotPasswordUrl;
+        }
+
+        public Boolean getFavorRelativeUris() {
+            return favorRelativeUris;
+        }
+
+        public void setFavorRelativeUris(Boolean favorRelativeUris) {
+            this.favorRelativeUris = favorRelativeUris;
+        }
+
+        public Duration getCookieMaxAge() {
+            return cookieMaxAge;
+        }
+
+        public void setCookieMaxAge(Duration cookieMaxAge) {
+            this.cookieMaxAge = cookieMaxAge;
+        }
+
+        public Boolean getCaptchaEnabled() {
+            return captchaEnabled;
+        }
+
+        public void setCaptchaEnabled(Boolean captchaEnabled) {
+            this.captchaEnabled = captchaEnabled;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
         }
 
         public Boolean isRegistrationEnabled() {
@@ -424,16 +435,17 @@ public class OAuth2AuthenticationProperties {
         @Override
         public String toString() {
             return MoreObjects.toStringHelper(this)
-                    .add("authenticationUrl", authenticationUrl)
                     .add("usernameParameter", usernameParameter)
                     .add("passwordParameter", passwordParameter)
                     .add("rememberMeParameter", rememberMeParameter)
                     .add("captchaParameter", captchaParameter)
                     .add("loginPageUrl", loginPageUrl)
                     .add("failureUrl", failureUrl)
+                    .add("authenticationUrl", authenticationUrl)
                     .add("logoutSuccessUrl", logoutSuccessUrl)
                     .add("registrationUrl", registrationUrl)
                     .add("forgotPasswordUrl", forgotPasswordUrl)
+                    .add("favorRelativeUris", favorRelativeUris)
                     .add("cookieMaxAge", cookieMaxAge)
                     .add("captchaEnabled", captchaEnabled)
                     .add("category", category)

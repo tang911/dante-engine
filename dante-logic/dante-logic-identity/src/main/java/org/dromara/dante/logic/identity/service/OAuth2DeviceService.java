@@ -57,7 +57,7 @@ import java.util.Set;
 @Service
 public class OAuth2DeviceService extends AbstractJpaService<OAuth2Device, String> {
 
-    private static final Logger log = LoggerFactory.getLogger(OAuth2ApplicationService.class);
+    private static final Logger log = LoggerFactory.getLogger(OAuth2DeviceService.class);
 
     private final RegisteredClientRepository registeredClientRepository;
     private final HerodotusRegisteredClientRepository herodotusRegisteredClientRepository;
@@ -80,8 +80,8 @@ public class OAuth2DeviceService extends AbstractJpaService<OAuth2Device, String
 
     @Transactional(rollbackFor = TransactionalRollbackException.class)
     @Override
-    public OAuth2Device saveAndFlush(OAuth2Device entity) {
-        OAuth2Device device = super.saveAndFlush(entity);
+    public OAuth2Device save(OAuth2Device entity) {
+        OAuth2Device device = super.save(entity);
         if (ObjectUtils.isNotEmpty(device)) {
             registeredClientRepository.save(oauth2DeviceToRegisteredClientConverter.convert(device));
             return device;

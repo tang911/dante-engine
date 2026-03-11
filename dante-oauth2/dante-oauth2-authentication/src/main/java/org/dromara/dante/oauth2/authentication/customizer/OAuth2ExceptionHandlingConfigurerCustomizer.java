@@ -47,19 +47,20 @@ import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
  */
 public class OAuth2ExceptionHandlingConfigurerCustomizer implements Customizer<ExceptionHandlingConfigurer<HttpSecurity>> {
 
-    private final OAuth2AuthenticationProperties authenticationProperties;
+    private final LoginUrlAuthenticationEntryPoint loginUrlAuthenticationEntryPoint;
 
     public OAuth2ExceptionHandlingConfigurerCustomizer(OAuth2AuthenticationProperties authenticationProperties) {
-        this.authenticationProperties = authenticationProperties;
+        this.loginUrlAuthenticationEntryPoint = new LoginUrlAuthenticationEntryPoint(authenticationProperties.getFormLogin().getLoginPageUrl());
+
+        // Spring Security 7 以前版本，LoginUrlAuthenticationEntryPoint 中该属性默认值为 false，所以执行 OAuth2 授权码模式正常。即会跳转到 http://192.168.101.10:8846/login UAA 服务中进行登录
+        // Spring Security 7 以后的版本，{@link LoginUrlAuthenticationEntryPoint} 中该属性默认值为 true，会导致 跳转到 http://192.168.101.10:8847/login，而出现授权码无法使用问题
+        // 考虑到可能其它功能需要将 favorRelativeUris 属性设置为 true, 所以增加了配置修改
+        this.loginUrlAuthenticationEntryPoint.setFavorRelativeUris(authenticationProperties.getFormLogin().getFavorRelativeUris());
     }
 
     @Override
     public void customize(ExceptionHandlingConfigurer<HttpSecurity> configurer) {
-        configurer
-                .defaultAuthenticationEntryPointFor(
-                        new LoginUrlAuthenticationEntryPoint(authenticationProperties.getFormLogin().getLoginPageUrl()),
-                        new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
-                );
+        configurer.defaultAuthenticationEntryPointFor(loginUrlAuthenticationEntryPoint, new MediaTypeRequestMatcher(MediaType.TEXT_HTML));
     }
 }
 
