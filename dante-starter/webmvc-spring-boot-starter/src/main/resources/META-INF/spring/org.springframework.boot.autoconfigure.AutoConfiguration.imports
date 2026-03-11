@@ -26,4 +26,3 @@
 org.dromara.dante.webmvc.autoconfigure.WebMvcAutoConfiguration
 org.dromara.dante.webmvc.autoconfigure.WebMvcCryptoAutoConfiguration
 org.dromara.dante.webmvc.autoconfigure.WebMvcRestMappingScanConfiguration
-org.dromara.dante.webmvc.autoconfigure.openfeign.FeignAutoConfiguration

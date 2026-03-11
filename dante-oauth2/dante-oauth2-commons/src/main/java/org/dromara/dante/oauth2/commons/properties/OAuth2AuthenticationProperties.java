@@ -30,7 +30,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.dromara.dante.core.constant.SymbolConstants;
 import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.oauth2.commons.constants.OAuth2Constants;
-import org.dromara.dante.spring.enums.Certificate;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
@@ -51,6 +50,11 @@ public class OAuth2AuthenticationProperties {
      * 授权确认页面地址
      */
     private String authorizationConsentUri = SystemConstants.OAUTH2_AUTHORIZATION_CONSENT_URI;
+
+    /**
+     * Ssl Bundle Provider 名称，该名称与 Spring SSL 配置匹配。
+     */
+    private String sslBundleProvider;
     /**
      * 开启登录失败限制
      */
@@ -66,11 +70,6 @@ public class OAuth2AuthenticationProperties {
      */
     private SignInKickOutLimited signInKickOutLimited = new SignInKickOutLimited();
 
-    /**
-     * JWT的密钥或者密钥对(JSON Web Key) 配置
-     */
-    private Jwk jwk = new Jwk();
-
     private FormLogin formLogin = new FormLogin();
 
     public String getAuthorizationConsentUri() {
@@ -81,12 +80,12 @@ public class OAuth2AuthenticationProperties {
         this.authorizationConsentUri = authorizationConsentUri;
     }
 
-    public SignInEndpointLimited getSignInEndpointLimited() {
-        return signInEndpointLimited;
+    public String getSslBundleProvider() {
+        return sslBundleProvider;
     }
 
-    public void setSignInEndpointLimited(SignInEndpointLimited signInEndpointLimited) {
-        this.signInEndpointLimited = signInEndpointLimited;
+    public void setSslBundleProvider(String sslBundleProvider) {
+        this.sslBundleProvider = sslBundleProvider;
     }
 
     public SignInFailureLimited getSignInFailureLimited() {
@@ -95,6 +94,14 @@ public class OAuth2AuthenticationProperties {
 
     public void setSignInFailureLimited(SignInFailureLimited signInFailureLimited) {
         this.signInFailureLimited = signInFailureLimited;
+    }
+
+    public SignInEndpointLimited getSignInEndpointLimited() {
+        return signInEndpointLimited;
+    }
+
+    public void setSignInEndpointLimited(SignInEndpointLimited signInEndpointLimited) {
+        this.signInEndpointLimited = signInEndpointLimited;
     }
 
     public SignInKickOutLimited getSignInKickOutLimited() {
@@ -113,102 +120,16 @@ public class OAuth2AuthenticationProperties {
         this.formLogin = formLogin;
     }
 
-    public Jwk getJwk() {
-        return jwk;
-    }
-
-    public void setJwk(Jwk jwk) {
-        this.jwk = jwk;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
+                .add("authorizationConsentUri", authorizationConsentUri)
+                .add("sslBundleProvider", sslBundleProvider)
                 .add("signInFailureLimited", signInFailureLimited)
                 .add("signInEndpointLimited", signInEndpointLimited)
                 .add("signInKickOutLimited", signInKickOutLimited)
-                .add("jwk", jwk)
                 .add("formLogin", formLogin)
                 .toString();
-    }
-
-    public static class Jwk {
-
-        /**
-         * 证书策略：standard OAuth2 标准证书模式；custom 自定义证书模式
-         */
-        private Certificate certificate = Certificate.CUSTOM;
-        /**
-         * jks证书文件路径
-         */
-        private String jksKeyStore = "classpath*:certificate/herodotus-cloud.jks";
-        /**
-         * jks证书密码
-         */
-        private String jksKeyPassword = "Herodotus-Cloud";
-        /**
-         * jks证书密钥库密码
-         */
-        private String jksStorePassword = "Herodotus-Cloud";
-        /**
-         * jks证书别名
-         */
-        private String jksKeyAlias = "herodotus-cloud";
-
-        public Certificate getCertificate() {
-            return certificate;
-        }
-
-        public void setCertificate(Certificate certificate) {
-            this.certificate = certificate;
-        }
-
-        public String getJksKeyStore() {
-            return jksKeyStore;
-        }
-
-        public void setJksKeyStore(String jksKeyStore) {
-            this.jksKeyStore = jksKeyStore;
-        }
-
-        public String getJksKeyPassword() {
-            return jksKeyPassword;
-        }
-
-        public void setJksKeyPassword(String jksKeyPassword) {
-            this.jksKeyPassword = jksKeyPassword;
-        }
-
-        public String getJksStorePassword() {
-            return jksStorePassword;
-        }
-
-        public void setJksStorePassword(String jksStorePassword) {
-            this.jksStorePassword = jksStorePassword;
-        }
-
-        public String getJksKeyAlias() {
-            return jksKeyAlias;
-        }
-
-        public void setJksKeyAlias(String jksKeyAlias) {
-            this.jksKeyAlias = jksKeyAlias;
-        }
-
-        @Override
-        public String toString() {
-            return MoreObjects.toStringHelper(this)
-                    .add("certificate", certificate)
-                    .add("jksKeyStore", jksKeyStore)
-                    .add("jksKeyPassword", jksKeyPassword)
-                    .add("jksStorePassword", jksStorePassword)
-                    .add("jksKeyAlias", jksKeyAlias)
-                    .toString();
-        }
-
-        private enum Strategy {
-            STANDARD, CUSTOM
-        }
     }
 
     public static class SignInFailureLimited {
@@ -374,7 +295,10 @@ public class OAuth2AuthenticationProperties {
          * 自定义忘记密码页面地址
          */
         private String forgotPasswordUrl;
-
+        /**
+         * 制定重定向时优先使用相对URI
+         */
+        private Boolean favorRelativeUris = Boolean.FALSE;
         /**
          * Cookie 有效期，默认：30天
          */
@@ -388,76 +312,12 @@ public class OAuth2AuthenticationProperties {
          */
         private String category = "HUTOOL_GIF";
 
-        public String getAuthenticationUrl() {
-            return authenticationUrl;
+        public String getUsernameParameter() {
+            return usernameParameter;
         }
 
-        public void setAuthenticationUrl(String authenticationUrl) {
-            this.authenticationUrl = authenticationUrl;
-        }
-
-        public Boolean getCaptchaEnabled() {
-            return captchaEnabled;
-        }
-
-        public void setCaptchaEnabled(Boolean captchaEnabled) {
-            this.captchaEnabled = captchaEnabled;
-        }
-
-        public String getCaptchaParameter() {
-            return captchaParameter;
-        }
-
-        public void setCaptchaParameter(String captchaParameter) {
-            this.captchaParameter = captchaParameter;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-        public void setCategory(String category) {
-            this.category = category;
-        }
-
-        public Duration getCookieMaxAge() {
-            return cookieMaxAge;
-        }
-
-        public void setCookieMaxAge(Duration cookieMaxAge) {
-            this.cookieMaxAge = cookieMaxAge;
-        }
-
-        public String getFailureUrl() {
-            return failureUrl;
-        }
-
-        public void setFailureUrl(String failureUrl) {
-            this.failureUrl = failureUrl;
-        }
-
-        public String getForgotPasswordUrl() {
-            return forgotPasswordUrl;
-        }
-
-        public void setForgotPasswordUrl(String forgotPasswordUrl) {
-            this.forgotPasswordUrl = forgotPasswordUrl;
-        }
-
-        public String getLoginPageUrl() {
-            return loginPageUrl;
-        }
-
-        public void setLoginPageUrl(String loginPageUrl) {
-            this.loginPageUrl = loginPageUrl;
-        }
-
-        public String getLogoutSuccessUrl() {
-            return logoutSuccessUrl;
-        }
-
-        public void setLogoutSuccessUrl(String logoutSuccessUrl) {
-            this.logoutSuccessUrl = logoutSuccessUrl;
+        public void setUsernameParameter(String usernameParameter) {
+            this.usernameParameter = usernameParameter;
         }
 
         public String getPasswordParameter() {
@@ -468,14 +328,6 @@ public class OAuth2AuthenticationProperties {
             this.passwordParameter = passwordParameter;
         }
 
-        public String getRegistrationUrl() {
-            return registrationUrl;
-        }
-
-        public void setRegistrationUrl(String registrationUrl) {
-            this.registrationUrl = registrationUrl;
-        }
-
         public String getRememberMeParameter() {
             return rememberMeParameter;
         }
@@ -484,12 +336,92 @@ public class OAuth2AuthenticationProperties {
             this.rememberMeParameter = rememberMeParameter;
         }
 
-        public String getUsernameParameter() {
-            return usernameParameter;
+        public String getCaptchaParameter() {
+            return captchaParameter;
         }
 
-        public void setUsernameParameter(String usernameParameter) {
-            this.usernameParameter = usernameParameter;
+        public void setCaptchaParameter(String captchaParameter) {
+            this.captchaParameter = captchaParameter;
+        }
+
+        public String getLoginPageUrl() {
+            return loginPageUrl;
+        }
+
+        public void setLoginPageUrl(String loginPageUrl) {
+            this.loginPageUrl = loginPageUrl;
+        }
+
+        public String getFailureUrl() {
+            return failureUrl;
+        }
+
+        public void setFailureUrl(String failureUrl) {
+            this.failureUrl = failureUrl;
+        }
+
+        public String getAuthenticationUrl() {
+            return authenticationUrl;
+        }
+
+        public void setAuthenticationUrl(String authenticationUrl) {
+            this.authenticationUrl = authenticationUrl;
+        }
+
+        public String getLogoutSuccessUrl() {
+            return logoutSuccessUrl;
+        }
+
+        public void setLogoutSuccessUrl(String logoutSuccessUrl) {
+            this.logoutSuccessUrl = logoutSuccessUrl;
+        }
+
+        public String getRegistrationUrl() {
+            return registrationUrl;
+        }
+
+        public void setRegistrationUrl(String registrationUrl) {
+            this.registrationUrl = registrationUrl;
+        }
+
+        public String getForgotPasswordUrl() {
+            return forgotPasswordUrl;
+        }
+
+        public void setForgotPasswordUrl(String forgotPasswordUrl) {
+            this.forgotPasswordUrl = forgotPasswordUrl;
+        }
+
+        public Boolean getFavorRelativeUris() {
+            return favorRelativeUris;
+        }
+
+        public void setFavorRelativeUris(Boolean favorRelativeUris) {
+            this.favorRelativeUris = favorRelativeUris;
+        }
+
+        public Duration getCookieMaxAge() {
+            return cookieMaxAge;
+        }
+
+        public void setCookieMaxAge(Duration cookieMaxAge) {
+            this.cookieMaxAge = cookieMaxAge;
+        }
+
+        public Boolean getCaptchaEnabled() {
+            return captchaEnabled;
+        }
+
+        public void setCaptchaEnabled(Boolean captchaEnabled) {
+            this.captchaEnabled = captchaEnabled;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
         }
 
         public Boolean isRegistrationEnabled() {
@@ -503,16 +435,17 @@ public class OAuth2AuthenticationProperties {
         @Override
         public String toString() {
             return MoreObjects.toStringHelper(this)
-                    .add("authenticationUrl", authenticationUrl)
                     .add("usernameParameter", usernameParameter)
                     .add("passwordParameter", passwordParameter)
                     .add("rememberMeParameter", rememberMeParameter)
                     .add("captchaParameter", captchaParameter)
                     .add("loginPageUrl", loginPageUrl)
                     .add("failureUrl", failureUrl)
+                    .add("authenticationUrl", authenticationUrl)
                     .add("logoutSuccessUrl", logoutSuccessUrl)
                     .add("registrationUrl", registrationUrl)
                     .add("forgotPasswordUrl", forgotPasswordUrl)
+                    .add("favorRelativeUris", favorRelativeUris)
                     .add("cookieMaxAge", cookieMaxAge)
                     .add("captchaEnabled", captchaEnabled)
                     .add("category", category)

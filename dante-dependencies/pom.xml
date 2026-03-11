@@ -31,7 +31,7 @@
     <parent>
         <groupId>cn.herodotus.ecosystem</groupId>
         <artifactId>herodotus-ecosystem-dependencies</artifactId>
-        <version>4.0.3.0-RC2</version>
+        <version>4.0.3.0</version>
         <relativePath/>
     </parent>
 
@@ -284,6 +284,11 @@
             <dependency>
                 <groupId>org.dromara.dante</groupId>
                 <artifactId>facility-tencent-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dromara.dante</groupId>
+                <artifactId>feign-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

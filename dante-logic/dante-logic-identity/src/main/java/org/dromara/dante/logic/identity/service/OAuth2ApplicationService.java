@@ -75,8 +75,8 @@ public class OAuth2ApplicationService extends AbstractJpaService<OAuth2Applicati
     }
 
     @Override
-    public OAuth2Application saveAndFlush(OAuth2Application entity) {
-        OAuth2Application application = super.saveAndFlush(entity);
+    public OAuth2Application save(OAuth2Application entity) {
+        OAuth2Application application = super.save(entity);
         if (ObjectUtils.isNotEmpty(application)) {
             registeredClientRepository.save(objectConverter.convert(application));
             log.debug("[Herodotus] |- OAuth2ApplicationService saveOrUpdate.");

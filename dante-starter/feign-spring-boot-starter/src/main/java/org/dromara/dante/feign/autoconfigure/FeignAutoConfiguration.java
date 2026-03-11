@@ -23,11 +23,14 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.webmvc.autoconfigure.openfeign;
+package org.dromara.dante.feign.autoconfigure;
 
 import feign.*;
 import feign.codec.ErrorDecoder;
 import jakarta.annotation.PostConstruct;
+import org.dromara.dante.feign.autoconfigure.extension.FeignErrorDecoder;
+import org.dromara.dante.feign.autoconfigure.extension.FeignInnerContract;
+import org.dromara.dante.feign.autoconfigure.extension.FeignRequestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;

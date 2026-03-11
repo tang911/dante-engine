@@ -23,24 +23,35 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.security.service;
+package org.dromara.dante.spring.jackson;
 
-import org.dromara.dante.security.domain.HerodotusPermission;
-
-import java.util.List;
+import org.apache.commons.lang3.StringUtils;
+import org.dromara.dante.spring.utils.XssUtils;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.ValueDeserializer;
 
 /**
- * <p>Description: 系统范围服务策略定义 </p>
+ * <p>Description: Xss Json 处理 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/3/31 22:34
+ * @date : 2021/8/30 23:58
  */
-public interface StrategyPermissionDetailsService {
+public class XssStringJsonDeserializer extends ValueDeserializer<String> {
 
-    /**
-     * 获取全部权限
-     *
-     * @return 权限集合
-     */
-    List<HerodotusPermission> findAll();
+    @Override
+    public Class<String> handledType() {
+        return String.class;
+    }
+
+    @Override
+    public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws JacksonException {
+        String value = jsonParser.getValueAsString();
+        if (StringUtils.isNotBlank(value)) {
+            return XssUtils.process(value);
+        }
+
+        return value;
+    }
 }

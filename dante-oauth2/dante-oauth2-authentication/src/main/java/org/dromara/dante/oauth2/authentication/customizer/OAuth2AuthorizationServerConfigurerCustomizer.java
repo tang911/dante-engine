@@ -23,15 +23,13 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.oauth2.authentication.autoconfigure.customizer;
+package org.dromara.dante.oauth2.authentication.customizer;
 
 import org.dromara.dante.core.constant.SystemConstants;
 import org.dromara.dante.oauth2.authentication.configurer.OAuth2AuthenticationConfigurerManager;
 import org.dromara.dante.oauth2.authentication.consumer.OAuth2TokenEndpointAuthenticationProviderConsumer;
-import org.dromara.dante.oauth2.authentication.customizer.HerodotusOidcUserInfoMapper;
 import org.dromara.dante.oauth2.authentication.provider.OAuth2ResourceOwnerPasswordAuthenticationConverter;
 import org.dromara.dante.oauth2.authentication.provider.OAuth2SocialCredentialsAuthenticationConverter;
-import org.dromara.dante.oauth2.commons.properties.OAuth2Properties;
 import org.dromara.dante.security.service.ClientDetailsService;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -68,9 +66,14 @@ public class OAuth2AuthorizationServerConfigurerCustomizer implements Customizer
 
 
     @Override
-    public void customize(OAuth2AuthorizationServerConfigurer oauth2AuthorizationServerConfigurer) {
+    public void customize(OAuth2AuthorizationServerConfigurer configurer) {
 
-        oauth2AuthorizationServerConfigurer
+        // 从 Spring Authorization Server 7.X（即合并值 Spring Security 主工程的版本之后），采用 httpSecurity.oauth2AuthorizationServer() 进行配置
+        // 这种配置方式，必须要增加下面这段。通过 securityMatcher 的配置，实现与 DefaultSecurityAutoConfiguration 职责的区分。
+        // 如果不设置这段，启动 UAA 时将会出现 AuthorizationAutoConfiguration 与 DefaultSecurityAutoConfiguration SecurityFilterChain 配置冲突而抛错无法启动问题
+        httpSecurity.securityMatcher(configurer.getEndpointsMatcher());
+
+        configurer
                 .clientAuthentication(endpoint -> endpoint.errorResponseHandler(authenticationConfigurerManager.getOAuth2AuthenticationFailureHandler()))
                 .authorizationEndpoint(endpoint -> {
                     endpoint.errorResponseHandler(authenticationConfigurerManager.getOAuth2AuthenticationFailureHandler());

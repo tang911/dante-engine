@@ -31,7 +31,7 @@
     <parent>
         <groupId>org.dromara.dante</groupId>
         <artifactId>dante-framework</artifactId>
-        <version>4.0.3.0-RC2</version>
+        <version>4.0.3.0</version>
     </parent>
 
     <artifactId>dante-autoconfigure</artifactId>
@@ -42,7 +42,7 @@
     <dependencies>
         <dependency>
             <groupId>org.dromara.dante</groupId>
-            <artifactId>dante-web</artifactId>
+            <artifactId>dante-spring</artifactId>
         </dependency>
 
         <!--Jackson 3.X 自动配置-->

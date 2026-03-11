@@ -23,35 +23,37 @@
  * 6. 若您的项目无法满足以上几点，可申请商业授权
  */
 
-package org.dromara.dante.web.jackson;
+package org.dromara.dante.core.exception;
 
-import org.apache.commons.lang3.StringUtils;
-import org.dromara.dante.spring.utils.XssUtils;
-import tools.jackson.core.JacksonException;
-import tools.jackson.core.JsonParser;
-import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.ValueDeserializer;
+import org.dromara.dante.core.constant.ErrorCodes;
+import org.dromara.dante.core.domain.Feedback;
 
 /**
- * <p>Description: Xss Json 处理 </p>
+ * <p>Description: KeyPair 生成异常 </p>
  *
  * @author : gengwei.zheng
- * @date : 2021/8/30 23:58
+ * @date : 2026/1/1 16:36
  */
-public class XssStringJsonDeserializer extends ValueDeserializer<String> {
+public class KeyPairGenerationException extends PlatformRuntimeException {
 
-    @Override
-    public Class<String> handledType() {
-        return String.class;
+    public KeyPairGenerationException() {
+        super();
+    }
+
+    public KeyPairGenerationException(String message) {
+        super(message);
+    }
+
+    public KeyPairGenerationException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public KeyPairGenerationException(Throwable cause) {
+        super(cause);
     }
 
     @Override
-    public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws JacksonException {
-        String value = jsonParser.getValueAsString();
-        if (StringUtils.isNotBlank(value)) {
-            return XssUtils.process(value);
-        }
-
-        return value;
+    public Feedback getFeedback() {
+        return ErrorCodes.KEYPAIR_GENERATION_EXCEPTION;
     }
 }
