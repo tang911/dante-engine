@@ -27,9 +27,7 @@ package org.dromara.dante.message.servlet.websocket.interceptor;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Strings;
-import org.dromara.dante.core.constant.SystemConstants;
+import org.dromara.dante.core.utils.TokenUtils;
 import org.dromara.dante.message.servlet.websocket.domain.WebSocketPrincipal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,9 +87,7 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
                     String token = null;
                     if (CollectionUtils.isNotEmpty(tokenHeaders)) {
                         String temp = tokenHeaders.get(0);
-                        if (StringUtils.isNotBlank(temp) && Strings.CS.startsWith(temp, SystemConstants.BEARER_TOKEN)) {
-                            token = Strings.CI.removeStart(temp, SystemConstants.BEARER_TOKEN);
-                        }
+                        token = TokenUtils.extract(temp);
                     }
 
                     /*
