@@ -47,7 +47,7 @@ class AESCryptoProcessor implements SymmetricCryptoProcessor {
 
     @Override
     public String createKey() {
-        return RandomUtil.randomStringUpper(16);
+        return RandomUtil.randomLettersUpper(16);
     }
 
     @Override

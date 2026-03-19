@@ -5,14 +5,14 @@
 ---
 
 <p align="center">
-    <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://shields.io/badge/Spring%20Boot-4.0.3-blue.svg?logo=springboot" alt="Spring Boot 4.0.3"></a>
+    <a href="https://spring.io/projects/spring-boot" target="_blank"><img src="https://shields.io/badge/Spring%20Boot-4.0.4-blue.svg?logo=springboot" alt="Spring Boot 4.0.4"></a>
     <a href="https://spring.io/projects/spring-cloud" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud-2025.1.1-blue.svg?logo=springboot" alt="Spring Cloud 2025.1.0"></a>
     <a href="https://github.com/alibaba/spring-cloud-alibaba" target="_blank"><img src="https://shields.io/badge/Spring%20Cloud%20Alibaba-2025.1.0.0-blue.svg?logo=alibabadotcom" alt="Spring Cloud Alibaba 2025.1.0.0"></a>
     <a href="https://github.com/Tencent/spring-cloud-tencent" target="_blank"><img src="https://img.shields.io/badge/Spring%20Cloud%20Tencent-2.1.1.0--2024.0.3-blue.svg?logo=qq" alt="Spring Cloud Tencent 2.1.1.0-2024.0.3"></a>
     <a href="https://nacos.io/zh-cn/index.html" target="_blank"><img src="https://shields.io/badge/Nacos-3.1.1-brightgreen.svg?logo=alibabadotcom" alt="Nacos 3.1.1"></a>
 </p>
 <p align="center">
-    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-4.0.3.0-red.svg?logo=spring" alt="Version 4.0.3.0"></a>
+    <a href="#" target="_blank"><img src="https://shields.io/badge/Version-4.0.4.0-red.svg?logo=spring" alt="Version 4.0.4.0"></a>
     <a href="https://bell-sw.com/pages/downloads/#downloads" target="_blank"><img src="https://img.shields.io/badge/JDK-25%2B-green.svg?logo=openjdk" alt="Java 25"></a>
     <a href="./LICENSE"><img src="https://shields.io/badge/License-Apache--2.0-blue.svg?logo=apache" alt="License Apache 2.0"></a>
     <a href="https://blog.csdn.net/Pointer_v" target="_blank"><img src="https://shields.io/badge/Author-%E7%A0%81%E5%8C%A0%E5%90%9B-orange" alt="码匠君"></a>
@@ -122,7 +122,6 @@ dante-engine
 ├    ├── dante-assistant-access -- 第三方登录接入辅助功能模块
 ├    ├── dante-assistant-captcha -- 验证码辅助功能模块
 ├    └── dante-assistant-oss -- AWS SDK V2 对象存储辅助功能模
-├── dante-bom -- 工程 Maven 顶级依赖，统一控制版本和依赖
 ├── dante-cache -- 缓存功能模块
 ├    ├── dante-cache-caffeine -- Caffeine 缓存功能封装模块
 ├    ├── dante-cache-commons -- 缓存通用代码模块
@@ -133,6 +132,7 @@ dante-engine
 ├    ├── dante-data-jpa -- 以 JPA 作为数据访问层的通用代码模块
 ├    ├── dante-data-mongodb -- 以 MongoDB 作为数据访问层的通用代码模块
 ├    └── dante-data-rest -- 关联数据访问层的REST开发通用代码模块
+├── dante-dependencies -- 工程 Bom 定义，统一管理工程模块
 ├── dante-framework -- Dante Cloud 框架核心基础模块
 ├    ├── dante-autoconfigure -- 基础自动配置模块
 ├    ├── dante-core -- 核心定义模块
@@ -170,6 +170,7 @@ dante-engine
 ├    ├── facility-gateway-spring-boot-starter -- Alibaba Sentinel 在 Gateway 环境下基础设施适配 Starter
 ├    ├── facility-kafka-spring-boot-starter -- 基于 Kafka 的消息事件自动配置 Starter
 ├    ├── facility-tencent-spring-boot-starter -- 面向 Spring Cloud Tencent 的微服务基础设施适配模块 Starter
+├    ├── fegin-client-spring-boot-starter -- Feign 客户端自动配置 Starter
 ├    ├── logging-spring-boot-starter -- 日志收集和聚合自动配置 Starter
 ├    ├── oss-spring-boot-starter -- 基于 AWS SDK V2 对象存储自动配置 Starter
 ├    ├── reactive-container-spring-boot-starter -- Reactive 容器基础配置自动配置 Starter

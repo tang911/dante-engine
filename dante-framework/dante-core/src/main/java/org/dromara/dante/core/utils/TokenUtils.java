@@ -66,7 +66,7 @@ public class TokenUtils {
         if (StringUtils.isNotBlank(token)) {
             return Strings.CS.startsWith(token, SystemConstants.BEARER_TOKEN) || Strings.CS.startsWith(token, SystemConstants.BASIC_TOKEN);
         } else {
-            return true;
+            return false;
         }
     }
 
