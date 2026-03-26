@@ -70,8 +70,8 @@ public class ServletOAuth2ResourceMatcherConfigurer extends AbstractSecurityMatc
      * @param uri 请求 URL
      * @return 是否为静态资源
      */
-    public boolean isStaticRequest(String uri) {
-        String staticUri = resourceUrlProvider.getForLookupPath(uri);
+    public boolean isStaticRequest(HttpServletRequest request, String uri) {
+        String staticUri = resourceUrlProvider.getForRequestUrl(request, uri);
         return StringUtils.isNotBlank(staticUri);
     }
 

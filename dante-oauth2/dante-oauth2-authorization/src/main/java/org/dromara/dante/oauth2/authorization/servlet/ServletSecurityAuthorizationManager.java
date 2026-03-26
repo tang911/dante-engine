@@ -88,7 +88,7 @@ public class ServletSecurityAuthorizationManager implements AuthorizationManager
         String url = request.getRequestURI();
         String method = request.getMethod();
 
-        if (servletOAuth2ResourceMatcherConfigurer.isStaticRequest(url)) {
+        if (servletOAuth2ResourceMatcherConfigurer.isStaticRequest(request, url)) {
             log.trace("[Herodotus] |- Is static resource : [{}], Passed!", url);
             return new AuthorizationDecision(true);
         }
