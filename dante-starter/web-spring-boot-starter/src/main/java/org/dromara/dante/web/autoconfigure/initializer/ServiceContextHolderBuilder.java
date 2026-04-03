@@ -106,7 +106,7 @@ public class ServiceContextHolderBuilder {
         String issuerUri = endpointProperties.getIssuerUri();
 
         if (StringUtils.isNotBlank(issuerUri)) {
-            if (platformProperties.getArchitecture() == Architecture.MONOCOQUE) {
+            if (platformProperties.getArchitecture() == Architecture.MONOLITH) {
                 ServiceContextHolder.setGatewayServiceUri(issuerUri);
                 ServiceContextHolder.setUaaServiceUri(issuerUri);
                 ServiceContextHolder.setUpmsServiceUri(issuerUri);

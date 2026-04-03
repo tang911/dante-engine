@@ -59,8 +59,8 @@ public class RestClientAutoConfiguration {
     }
 
     @Configuration(proxyBeanMethods = false)
-    @ConditionalOnArchitecture(Architecture.MONOCOQUE)
-    static class RestClientMonocoqueBuilderConfiguration {
+    @ConditionalOnArchitecture(Architecture.MONOLITH)
+    static class RestClientMonolithBuilderConfiguration {
         @Bean
         public RestClient.Builder restClientBuilder(RestClientBuilderConfigurer restClientBuilderConfigurer) {
             return restClientBuilderConfigurer.configure(RestClient.builder());
