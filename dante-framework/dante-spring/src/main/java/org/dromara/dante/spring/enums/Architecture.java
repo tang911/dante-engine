@@ -55,7 +55,7 @@ public enum Architecture implements ConditionEnum {
     /**
      * 单体式架构
      */
-    MONOCOQUE {
+    MONOLITH {
         @Override
         public boolean isActive(Environment environment) {
             return !DISTRIBUTED.isActive(environment);

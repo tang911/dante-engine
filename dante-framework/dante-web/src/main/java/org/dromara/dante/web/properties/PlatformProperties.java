@@ -42,9 +42,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class PlatformProperties {
 
     /**
-     * 平台架构类型，默认：MONOCOQUE（单体架构）
+     * 平台架构类型，默认：MONOLITH（单体架构）
      */
-    private Architecture architecture = Architecture.MONOCOQUE;
+    private Architecture architecture = Architecture.MONOLITH;
     /**
      * 数据访问策略，默认：远程
      */
